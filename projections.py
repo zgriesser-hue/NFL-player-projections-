@@ -56,6 +56,10 @@ MIN_SNAP_PCT = 0.20         # skip players whose recent snap share is below this
 REFRESH_BACKTEST = False    # True = re-run the walk-forward backtest instead of using the cache
 BACKTEST_CACHE = "receiving_backtest_v5.csv"
 
+# ---- Opponent defense-vs-position ----
+USE_OPP_FEATURES = False    # flip to True only after ab_opponent.py shows a real gain
+OPP_HALFLIFE = 6            # games; decay for a defense's recent form
+
 # ---- Saving + sportsbook lines ----
 DRIVE_ROOT = "/content/drive/MyDrive"                 # where Colab mounts Drive
 DRIVE_DIR = DRIVE_ROOT + "/nfl_projections"           # outputs land here when Drive is mounted
@@ -95,6 +99,7 @@ def fix_team(s: pd.Series) -> pd.Series:
 # ---------------------------------------------------------------- data
 def load_context() -> pd.DataFrame:
     sched = nfl.load_schedules(SEASONS).to_pandas()
+    sched = sched[sched["game_type"] == "REG"]
     home = sched[["season", "week", "home_team", "away_team",
                   "spread_line", "total_line"]].copy()
     home.columns = ["season", "week", "team", "opp", "spread", "total"]
@@ -299,6 +304,10 @@ FEATURES = (
 # Ratio features can be NaN (e.g. no prior targets); LightGBM handles NaN natively
 RATIO_FEATURES = ["ewm_catch_rate", "ewm_ypr", "ewm_ypt"]
 MODEL_FEATURES = FEATURES + RATIO_FEATURES
+OPP_FEATURES = ["opp_tgt_oe", "opp_yds_oe"]
+if USE_OPP_FEATURES:
+    MODEL_FEATURES = MODEL_FEATURES + OPP_FEATURES
+MODEL_VERSION = "v7-opp" if USE_OPP_FEATURES else "v6"
 
 
 def add_features(df: pd.DataFrame) -> pd.DataFrame:
@@ -319,6 +328,39 @@ def add_features(df: pd.DataFrame) -> pd.DataFrame:
     df["ewm_ypr"] = div(df["ewm_receiving_yards"], df["ewm_receptions"])
     df["ewm_ypt"] = div(df["ewm_receiving_yards"], df["ewm_targets"])
     return df
+
+
+def add_opponent_features(df: pd.DataFrame, ctx: pd.DataFrame) -> pd.DataFrame:
+    """Defense-vs-position, adjusted for who each defense actually faced.
+
+    For each player-game, measure how far the player landed above/below his OWN lagged
+    baseline (targets and yards). Sum that by the defense faced and position group (WR/TE).
+    A defense's feature is the lagged EWMA of those sums, i.e. the extra targets/yards it has
+    been allowing versus expectation. Everything is shifted by one game, so a row only sees
+    games that happened before it (including for the upcoming week).
+    """
+    hist = df[~df["is_future"] & (df["games_prior"] >= MIN_PRIOR_GAMES)].dropna(
+        subset=["ewm_targets", BASELINE_COL, "opp"]).copy()
+    hist["tgt_oe"] = hist["targets"] - hist["ewm_targets"]
+    hist["yds_oe"] = hist[TARGET] - hist[BASELINE_COL]
+    agg = (hist.groupby(["opp", "season", "week", "position"], as_index=False)[["tgt_oe", "yds_oe"]]
+           .sum().rename(columns={"opp": "defense"}))
+
+    # one row per defense-week-position, including the upcoming week (values NaN there)
+    grid = (ctx[["season", "week", "opp"]].rename(columns={"opp": "defense"}).drop_duplicates()
+            .merge(pd.DataFrame({"position": POSITIONS}), how="cross"))
+    grid = grid.merge(agg, on=["defense", "season", "week", "position"], how="left")
+    grid = grid.sort_values(["defense", "position", "season", "week"]).reset_index(drop=True)
+    gb = grid.groupby(["defense", "position"], group_keys=False)
+    grid["opp_tgt_oe"] = gb["tgt_oe"].apply(
+        lambda s: s.shift(1).ewm(halflife=OPP_HALFLIFE, min_periods=1).mean())
+    grid["opp_yds_oe"] = gb["yds_oe"].apply(
+        lambda s: s.shift(1).ewm(halflife=OPP_HALFLIFE, min_periods=1).mean())
+
+    keep = grid[["defense", "season", "week", "position"] + OPP_FEATURES].rename(
+        columns={"defense": "opp"})
+    df = df.drop(columns=[c for c in OPP_FEATURES if c in df.columns])   # safe to call twice
+    return df.merge(keep, on=["opp", "season", "week", "position"], how="left")
 
 
 # ---------------------------------------------------- two-stage pieces
@@ -549,6 +591,9 @@ def project_upcoming(train, fut, backtest, rates) -> tuple:
     out["p_zero"] = (sims == 0).mean(axis=1)
     out["exp_targets"] = p_pos * (1 + mu_pos)
     out["p_catch"], out["ypr"] = p_catch, ypr
+    out["model_version"] = MODEL_VERSION
+    for c in OPP_FEATURES:
+        out[c] = fut[c].to_numpy()
 
     if PROP_LINES:   # probabilities are conditional on the player playing
         line = fut["player_display_name"].map(PROP_LINES).to_numpy(dtype=float)
@@ -718,7 +763,8 @@ def evaluate_lines(out: pd.DataFrame, sims: np.ndarray, lines: pd.DataFrame):
     li["fair_p"] = np.where(over_best, li["fair_p_over"], 1 - li["fair_p_over"])
 
     info = out.iloc[li["row"].to_numpy()][
-        ["player_display_name", "team", "opp", "position", "status", "median", "mean"]
+        ["player_display_name", "team", "opp", "position", "status", "median", "mean",
+         "model_version"]
     ].reset_index(drop=True).rename(columns={"player_display_name": "model_player",
                                              "median": "model_median", "mean": "model_mean"})
     li = pd.concat([li, info], axis=1)
@@ -736,6 +782,7 @@ def main():
     print(f"Target: {season} week {week}\n")
     out_dir = resolve_out_dir()
     print(f"Saving to: {os.path.abspath(out_dir)}\n")
+    print(f"Model version: {MODEL_VERSION}\n")
 
     played, parts, inj = build_table(project=(season, week))
     played["is_future"] = False
@@ -746,11 +793,13 @@ def main():
     full = pd.concat([played, fut], ignore_index=True, sort=False)
     full = full.sort_values(["player_id", "season", "week"]).reset_index(drop=True)
     full = add_features(full)
+    full = add_opponent_features(full, parts["ctx"])
     hist = full[~full["is_future"]].copy()
     fut = full[full["is_future"]].copy()
 
     # Walk-forward backtest (only needed for dispersion); cached between runs
-    bt_path = os.path.join(out_dir, BACKTEST_CACHE)
+    bt_name = BACKTEST_CACHE if MODEL_VERSION == "v6" else f"receiving_backtest_{MODEL_VERSION}.csv"
+    bt_path = os.path.join(out_dir, bt_name)
     if os.path.exists(bt_path) and not REFRESH_BACKTEST:
         print(f"Using cached backtest: {bt_path} (set REFRESH_BACKTEST = True to redo)")
         backtest = pd.read_csv(bt_path)
