@@ -174,11 +174,15 @@ def score_week(season=None, week=None):
     if proj.empty:
         raise ValueError("No projection snapshots for that week.")
     proj["name_key"] = proj["player_display_name"].map(name_key)
+    if "model_version" not in proj:
+        proj["model_version"] = "v6"          # snapshots from before versioning
     proj = before_kickoff(proj, kick)
     proj = proj[proj["team"].isin(done_teams)].drop_duplicates("name_key")
 
     edges = load_snapshots(out_dir, season, week, edges=True)
     if len(edges):
+        if "model_version" not in edges:
+            edges["model_version"] = "v6"
         edges = before_kickoff(edges, kick)
         edges = edges[edges["team"].isin(done_teams)].copy()
         consensus = edges.groupby("name_key")["line"].median()
@@ -219,8 +223,8 @@ def score_week(season=None, week=None):
     players_log = played.assign(season=season, week=week, actual=played["receiving_yards"]).rename(
         columns={"player_display_name": "player", "median": "model_median",
                  "mean": "model_mean"})[
-        ["season", "week", "player", "team", "position", "model_median", "model_mean",
-         "consensus_line", "actual"]]
+        ["season", "week", "player", "team", "position", "model_version", "model_median",
+         "model_mean", "consensus_line", "actual"]]
 
     # ---------- betting evaluation
     bets_log = pd.DataFrame()
@@ -263,8 +267,8 @@ def score_week(season=None, week=None):
             bets_log = picks.assign(season=season, week=week).rename(columns={
                 "model_player": "player", "best_side": "side", "best_price": "price",
                 "best_ev": "ev", "receiving_yards": "actual"})[
-                ["season", "week", "player", "team", "opp", "book", "side", "line", "price",
-                 "model_p", "fair_p", "ev", "actual", "result", "profit"]]
+                ["season", "week", "player", "team", "opp", "book", "model_version", "side",
+                 "line", "price", "model_p", "fair_p", "ev", "actual", "result", "profit"]]
             print("Results this week:")
             summarize(bets_log, "all picks")
             for side, sub in bets_log.groupby("side"):
@@ -290,6 +294,9 @@ def score_week(season=None, week=None):
         allb = pd.read_csv(bpath)
         print(f"\nCumulative record ({allb[['season', 'week']].drop_duplicates().shape[0]} weeks):")
         summarize(allb, "all picks")
+        if "model_version" in allb and allb["model_version"].fillna("v6").nunique() > 1:
+            for ver, sub in allb.assign(model_version=allb["model_version"].fillna("v6")).groupby("model_version"):
+                summarize(sub, f"model {ver}")
         print("  Small samples are noisy: with under ~100 bets the confidence interval "
               "usually still includes break-even.")
     ppath = os.path.join(out_dir, "scorecard_players.csv")
