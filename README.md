@@ -13,7 +13,9 @@ Two scripts, run on a schedule by GitHub Actions (`.github/workflows/nfl.yml`):
 
 After that it runs itself. Each run's printed output appears on its Actions page (Summary), and the CSVs land in `data/`.
 
-Manual runs: Actions > NFL props > Run workflow, pick `project`, `score`, or `ab`.
+Manual runs: Actions > NFL props > Run workflow, pick `project`, `score`, `ab`, or `ab_features`.
+`ab_features` A/B tests practice-participation and game-day-weather features; flip
+`USE_PRACTICE_FEATURES` / `USE_WEATHER_FEATURES` in `projections.py` only if its verdict is a clear gain.
 `ab` runs `ab_opponent.py`, an A/B backtest of the opponent defense-vs-position features. If it
 shows a clear gain, set `USE_OPP_FEATURES = True` at the top of `projections.py`.
 Snapshots and the scorecard carry a `model_version` column so results stay comparable.

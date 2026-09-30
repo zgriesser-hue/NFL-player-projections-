@@ -60,6 +60,10 @@ BACKTEST_CACHE = "receiving_backtest_v5.csv"
 USE_OPP_FEATURES = False    # flip to True only after ab_opponent.py shows a real gain
 OPP_HALFLIFE = 6            # games; decay for a defense's recent form
 
+# ---- Practice participation + weather (off until ab_features.py shows a real gain) ----
+USE_PRACTICE_FEATURES = False
+USE_WEATHER_FEATURES = False
+
 # ---- Saving + sportsbook lines ----
 DRIVE_ROOT = "/content/drive/MyDrive"                 # where Colab mounts Drive
 DRIVE_DIR = DRIVE_ROOT + "/nfl_projections"           # outputs land here when Drive is mounted
@@ -99,10 +103,19 @@ def fix_team(s: pd.Series) -> pd.Series:
 # ---------------------------------------------------------------- data
 def load_context() -> pd.DataFrame:
     sched = nfl.load_schedules(SEASONS).to_pandas()
-    sched = sched[sched["game_type"] == "REG"]
-    home = sched[["season", "week", "home_team", "away_team",
-                  "spread_line", "total_line"]].copy()
-    home.columns = ["season", "week", "team", "opp", "spread", "total"]
+    sched = sched[sched["game_type"] == "REG"].copy()
+    for c in ("roof", "temp", "wind", "location", "gametime", "gameday"):
+        if c not in sched.columns:
+            sched[c] = np.nan
+    ko = pd.to_datetime(sched["gameday"].astype(str) + " " + sched["gametime"].astype(str),
+                        errors="coerce")
+    sched["kickoff_utc"] = ko.dt.tz_localize(
+        "America/New_York", ambiguous="NaT", nonexistent="NaT").dt.tz_convert("UTC")
+    sched["venue_team"] = sched["home_team"]
+    home = sched[["season", "week", "home_team", "away_team", "spread_line", "total_line",
+                  "roof", "temp", "wind", "location", "kickoff_utc", "venue_team"]].copy()
+    home.columns = ["season", "week", "team", "opp", "spread", "total",
+                    "roof", "temp", "wind", "location", "kickoff_utc", "venue_team"]
     home["is_home"] = 1
 
     away = home.copy()
@@ -112,6 +125,7 @@ def load_context() -> pd.DataFrame:
 
     ctx = pd.concat([home, away], ignore_index=True)
     ctx["team"] = fix_team(ctx["team"])
+    ctx["venue_team"] = fix_team(ctx["venue_team"])
     ctx["implied_total"] = (ctx["total"] + ctx["spread"]) / 2
     return ctx.drop(columns=["total"])
 
@@ -138,6 +152,15 @@ def load_player_weeks() -> tuple[pd.DataFrame, pd.DataFrame]:
                      on=["player_id", "season", "week"], how="left")
     pw[STAT_COLS] = pw[STAT_COLS].fillna(0)
     return pw, stats
+
+
+def practice_flags(df: pd.DataFrame):
+    """(did-not-participate, limited) booleans from the injury report's practice status."""
+    if "practice_status" in df.columns:
+        ps = df["practice_status"].astype(str).str.lower()
+    else:
+        ps = pd.Series("", index=df.index)
+    return ps.str.contains("did not", na=False), ps.str.contains("limited", na=False)
 
 
 def injury_features(stats: pd.DataFrame, project=None):
@@ -188,26 +211,33 @@ def injury_features(stats: pd.DataFrame, project=None):
     q = inj[inj["report_status"] == "Questionable"][
         ["player_id", "season", "week"]].drop_duplicates()
     q["self_questionable"] = 1
-    return team_out, q, inj
+
+    dnp, lim = practice_flags(inj)
+    prac = inj.assign(prac_dnp=dnp.astype(int), prac_limited=lim.astype(int))[
+        ["player_id", "season", "week", "prac_dnp", "prac_limited"]]
+    prac = prac[(prac["prac_dnp"] + prac["prac_limited"]) > 0].drop_duplicates(
+        ["player_id", "season", "week"], keep="last")
+    return team_out, q, prac, inj
 
 
 def build_table(project=None):
     pw, stats = load_player_weeks()
-    team_out, q, inj = injury_features(stats, project)
+    team_out, q, prac, inj = injury_features(stats, project)
     ctx = load_context()
 
     df = pw.merge(ctx, on=["season", "week", "team"], how="left")
     df = df.merge(team_out, on=["team", "season", "week"], how="left")
     df = df.merge(q, on=["player_id", "season", "week"], how="left")
-    df[["inj_out_targets", "inj_n_out", "self_questionable"]] = (
-        df[["inj_out_targets", "inj_n_out", "self_questionable"]].fillna(0))
+    df = df.merge(prac, on=["player_id", "season", "week"], how="left")
+    flag_cols = ["inj_out_targets", "inj_n_out", "self_questionable", "prac_dnp", "prac_limited"]
+    df[flag_cols] = df[flag_cols].fillna(0)
     # Use nflverse display names everywhere (consistent with MANUAL_* and PROP_LINES)
     name_map = (stats.sort_values(["season", "week"]).drop_duplicates("player_id", keep="last")
                 .set_index("player_id")["player_display_name"])
     df["player_display_name"] = df["player_id"].map(name_map).fillna(df["player_display_name"])
 
     df = df.sort_values(["player_id", "season", "week"]).reset_index(drop=True)
-    return df, dict(pw=pw, ctx=ctx, team_out=team_out, q=q), inj
+    return df, dict(pw=pw, ctx=ctx, team_out=team_out, q=q, prac=prac), inj
 
 
 # --------------------------------------------- upcoming-week rows
@@ -240,16 +270,110 @@ def current_roster(season: int, week: int):
 
 
 def play_rates(inj: pd.DataFrame, pw: pd.DataFrame, t_max: int) -> dict:
-    """Historical share of Questionable/Doubtful WR/TEs who ended up playing."""
-    x = inj[inj["position"].isin(POSITIONS)
-            & inj["report_status"].isin(["Questionable", "Doubtful"])
-            & (inj["season"] * 100 + inj["week"] < t_max)]
-    x = x[["player_id", "season", "week", "report_status"]].drop_duplicates(
-        ["player_id", "season", "week"])
+    """Historical share of WR/TEs who played, by report status. Players with a practice
+    designation but no game status yet are keyed 'PracDNP' / 'PracLimited' (early-week runs)."""
+    x = inj[inj["position"].isin(POSITIONS) & (inj["season"] * 100 + inj["week"] < t_max)].copy()
+    dnp, lim = practice_flags(x)
+    key = x["report_status"].where(x["report_status"].isin(["Questionable", "Doubtful"]))
+    key = key.mask(key.isna() & dnp, "PracDNP").mask(key.isna() & lim, "PracLimited")
+    x = x.assign(key=key).dropna(subset=["key"])[["player_id", "season", "week", "key"]]
+    x = x.drop_duplicates(["player_id", "season", "week"])
     played = pw[["player_id", "season", "week"]].assign(played=1)
     x = x.merge(played, on=["player_id", "season", "week"], how="left")
     x["played"] = x["played"].fillna(0)
-    return x.groupby("report_status")["played"].mean().to_dict()
+    return x.groupby("key")["played"].mean().to_dict()
+
+
+# ---------------------------------------------------- weather (forecast for upcoming games)
+# (lat, lon, roof type). Coordinates are approximate (from memory): fine for a weather grid.
+STADIUMS = {
+    "ARI": (33.5276, -112.2626, "retractable"), "ATL": (33.7554, -84.4008, "retractable"),
+    "BAL": (39.2780, -76.6227, "outdoors"), "BUF": (42.7738, -78.7870, "outdoors"),
+    "CAR": (35.2258, -80.8528, "outdoors"), "CHI": (41.8623, -87.6167, "outdoors"),
+    "CIN": (39.0955, -84.5160, "outdoors"), "CLE": (41.5061, -81.6995, "outdoors"),
+    "DAL": (32.7473, -97.0945, "retractable"), "DEN": (39.7439, -105.0201, "outdoors"),
+    "DET": (42.3400, -83.0456, "dome"), "GB": (44.5013, -88.0622, "outdoors"),
+    "HOU": (29.6847, -95.4107, "retractable"), "IND": (39.7601, -86.1639, "retractable"),
+    "JAX": (30.3240, -81.6373, "outdoors"), "KC": (39.0489, -94.4839, "outdoors"),
+    "LV": (36.0909, -115.1833, "dome"), "LAC": (33.9535, -118.3390, "dome"),
+    "LA": (33.9535, -118.3390, "dome"), "MIA": (25.9580, -80.2389, "outdoors"),
+    "MIN": (44.9738, -93.2575, "dome"), "NE": (42.0909, -71.2643, "outdoors"),
+    "NO": (29.9511, -90.0812, "dome"), "NYG": (40.8135, -74.0745, "outdoors"),
+    "NYJ": (40.8135, -74.0745, "outdoors"), "PHI": (39.9008, -75.1675, "outdoors"),
+    "PIT": (40.4468, -80.0158, "outdoors"), "SEA": (47.5952, -122.3316, "outdoors"),
+    "SF": (37.4030, -121.9700, "outdoors"), "TB": (27.9759, -82.5033, "outdoors"),
+    "TEN": (36.1665, -86.7713, "outdoors"), "WAS": (38.9076, -76.8645, "outdoors"),
+}
+
+
+def effective_roof(roof, venue) -> str:
+    """Schedule roof if given; otherwise the stadium default (retractable assumed closed)."""
+    r = str(roof).lower()
+    if r in ("dome", "closed", "open", "outdoors"):
+        return r
+    kind = STADIUMS.get(venue, (None, None, None))[2]
+    return {"dome": "dome", "retractable": "closed", "outdoors": "outdoors"}.get(kind, "unknown")
+
+
+def fetch_forecast(lat: float, lon: float, kickoff: pd.Timestamp):
+    """(temp F, wind mph) averaged over the first ~3 hours of the game, from Open-Meteo."""
+    import requests
+    d0 = kickoff.strftime("%Y-%m-%d")
+    d1 = (kickoff + pd.Timedelta(hours=4)).strftime("%Y-%m-%d")
+    r = requests.get("https://api.open-meteo.com/v1/forecast", params=dict(
+        latitude=lat, longitude=lon, hourly="temperature_2m,wind_speed_10m",
+        temperature_unit="fahrenheit", wind_speed_unit="mph", timezone="UTC",
+        start_date=d0, end_date=d1), timeout=30)
+    r.raise_for_status()
+    h = r.json()["hourly"]
+    t = pd.to_datetime(pd.Series(h["time"]), utc=True)
+    start = kickoff.floor("h")
+    m = ((t >= start) & (t <= start + pd.Timedelta(hours=3))).to_numpy()
+    if not m.any():
+        return None
+    return (float(np.mean(np.array(h["temperature_2m"], dtype=float)[m])),
+            float(np.mean(np.array(h["wind_speed_10m"], dtype=float)[m])))
+
+
+def apply_forecast_weather(cand: pd.DataFrame) -> pd.DataFrame:
+    """Fill temp/wind for upcoming outdoor games with forecasts (dome/closed stay neutral)."""
+    cand = cand.copy()
+    for c in ("temp", "wind"):
+        cand[c] = pd.to_numeric(cand[c], errors="coerce")
+    cand["roof"] = [effective_roof(r, v) for r, v in zip(cand["roof"], cand["venue_team"])]
+    home_game = cand["location"].fillna("Home").astype(str).str.lower().eq("home")
+    need = (cand["roof"].isin(["open", "outdoors"]) & cand["kickoff_utc"].notna()
+            & cand["venue_team"].isin(STADIUMS) & cand["temp"].isna() & cand["wind"].isna()
+            & home_game)
+    games = cand.loc[need, ["venue_team", "kickoff_utc"]].drop_duplicates()
+    notable = []
+    for venue, ko in games.itertuples(index=False):
+        try:
+            res = fetch_forecast(STADIUMS[venue][0], STADIUMS[venue][1], ko)
+        except Exception as e:
+            print(f"Weather forecast failed for {venue}: {e}")
+            continue
+        if res is None:
+            continue
+        temp_f, wind_mph = res
+        m = (cand["venue_team"] == venue) & (cand["kickoff_utc"] == ko)
+        cand.loc[m, "temp"], cand.loc[m, "wind"] = temp_f, wind_mph
+        if wind_mph >= 15 or temp_f <= 32:
+            notable.append(f"{venue} ({wind_mph:.0f} mph wind, {temp_f:.0f}F)")
+    print(f"Weather forecasts applied to {len(games)} outdoor games."
+          + (f" Notable: {', '.join(notable)}" if notable else ""))
+    return cand
+
+
+def add_weather_features(df: pd.DataFrame) -> pd.DataFrame:
+    """Game-day weather: wind, temperature, dome flag. Domes/closed roofs are neutral (0 mph, 70F).
+    History uses recorded conditions; upcoming games use the forecast."""
+    roof = df["roof"].astype(str).str.lower()
+    dome = roof.isin(["dome", "closed"])
+    df["wx_is_dome"] = dome.astype(int)
+    df["wx_wind_mph"] = np.where(dome, 0.0, pd.to_numeric(df["wind"], errors="coerce"))
+    df["wx_temp_f"] = np.where(dome, 70.0, pd.to_numeric(df["temp"], errors="coerce"))
+    return df
 
 
 def make_future_rows(played, parts, inj, season: int, week: int) -> pd.DataFrame:
@@ -281,13 +405,15 @@ def make_future_rows(played, parts, inj, season: int, week: int) -> pd.DataFrame
 
     cand = cand.merge(parts["team_out"], on=["team", "season", "week"], how="left")
     cand = cand.merge(parts["q"], on=["player_id", "season", "week"], how="left")
-    cols = ["inj_out_targets", "inj_n_out", "self_questionable"]
+    cand = cand.merge(parts["prac"], on=["player_id", "season", "week"], how="left")
+    cols = ["inj_out_targets", "inj_n_out", "self_questionable", "prac_dnp", "prac_limited"]
     cand[cols] = cand[cols].fillna(0)
 
     st = (inj[(inj["season"] == season) & (inj["week"] == week)]
           .drop_duplicates("player_id")[["player_id", "report_status"]]
           .rename(columns={"report_status": "status"}))
     cand = cand.merge(st, on="player_id", how="left")
+    cand = apply_forecast_weather(cand)
     cand["is_future"] = True
     return cand
 
@@ -303,11 +429,20 @@ FEATURES = (
 )
 # Ratio features can be NaN (e.g. no prior targets); LightGBM handles NaN natively
 RATIO_FEATURES = ["ewm_catch_rate", "ewm_ypr", "ewm_ypt"]
-MODEL_FEATURES = FEATURES + RATIO_FEATURES
 OPP_FEATURES = ["opp_tgt_oe", "opp_yds_oe"]
-if USE_OPP_FEATURES:
-    MODEL_FEATURES = MODEL_FEATURES + OPP_FEATURES
-MODEL_VERSION = "v7-opp" if USE_OPP_FEATURES else "v6"
+PRAC_FEATURES = ["prac_dnp", "prac_limited"]
+WX_FEATURES = ["wx_wind_mph", "wx_temp_f", "wx_is_dome"]
+
+
+def build_model_features(opp: bool = False, prac: bool = False, wx: bool = False) -> list:
+    return (FEATURES + RATIO_FEATURES + (OPP_FEATURES if opp else [])
+            + (PRAC_FEATURES if prac else []) + (WX_FEATURES if wx else []))
+
+
+MODEL_FEATURES = build_model_features(USE_OPP_FEATURES, USE_PRACTICE_FEATURES, USE_WEATHER_FEATURES)
+_tags = [n for n, on in (("opp", USE_OPP_FEATURES), ("prac", USE_PRACTICE_FEATURES),
+                         ("wx", USE_WEATHER_FEATURES)) if on]
+MODEL_VERSION = "v7-" + "-".join(_tags) if _tags else "v6"
 
 
 def add_features(df: pd.DataFrame) -> pd.DataFrame:
@@ -581,11 +716,19 @@ def project_upcoming(train, fut, backtest, rates) -> tuple:
 
     pmap = {"Out": 0.0,
             "Doubtful": rates.get("Doubtful", 0.10),
-            "Questionable": rates.get("Questionable", 0.75)}
+            "Questionable": rates.get("Questionable", 0.75),
+            "PracDNP": rates.get("PracDNP", 0.50),
+            "PracLimited": rates.get("PracLimited", 0.92)}
     out = fut[["player_display_name", "team", "opp", "position", "status",
                "implied_total"]].copy()
     out["status"] = out["status"].fillna("")
-    out["p_active"] = fut["status"].map(pmap).fillna(1.0).to_numpy()
+    key = fut["status"].where(fut["status"].isin(["Out", "Doubtful", "Questionable"]))
+    key = key.mask(key.isna() & (fut["prac_dnp"] == 1), "PracDNP").mask(
+        key.isna() & (fut["prac_limited"] == 1), "PracLimited")
+    out["p_active"] = key.map(pmap).fillna(1.0).to_numpy()
+    out["practice"] = np.where(fut["prac_dnp"] == 1, "DNP",
+                               np.where(fut["prac_limited"] == 1, "Limited", ""))
+    out["wind_mph"], out["temp_f"] = fut["wx_wind_mph"].to_numpy(), fut["wx_temp_f"].to_numpy()
     out["q10"], out["q25"], out["median"], out["q75"], out["q90"] = q10, q25, q50, q75, q90
     out["mean"] = sims.mean(axis=1)
     out["p_zero"] = (sims == 0).mean(axis=1)
@@ -794,6 +937,7 @@ def main():
     full = full.sort_values(["player_id", "season", "week"]).reset_index(drop=True)
     full = add_features(full)
     full = add_opponent_features(full, parts["ctx"])
+    full = add_weather_features(full)
     hist = full[~full["is_future"]].copy()
     fut = full[full["is_future"]].copy()
 
@@ -836,7 +980,7 @@ def main():
     path = f"{base}_latest.csv"
     out.to_csv(path, index=False)
 
-    cols = ["player_display_name", "team", "opp", "position", "status",
+    cols = ["player_display_name", "team", "opp", "position", "status", "practice",
             "q25", "median", "q75", "mean", "p_zero"]
     if PROP_LINES:
         cols += ["line", "p_over", "p_under"]
