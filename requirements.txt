@@ -4,3 +4,4 @@ numpy
 lightgbm
 requests
 pyarrow
+scikit-learn
