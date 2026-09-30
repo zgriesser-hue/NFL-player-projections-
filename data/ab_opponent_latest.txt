@@ -1,0 +1,19 @@
+Building data...
+
+Backtest A: baseline features
+Backtest B: baseline + opponent features
+
+8,154 player-weeks, 36 weeks
+                              base    + opp     gain  95% CI  weeks better
+  MAE (median)              16.174   16.180   -0.04%  ±0.23%     47%
+  RMSE (mean)               24.662   24.641   +0.08%  ±0.19%     56%
+  Pinball (5 quantiles)      5.699    5.697   +0.04%  ±0.22%     50%
+  Targets MAE                1.671    1.670   +0.11%  ±0.15%     58%
+
+MAE by position:
+  WR                        19.010   19.025   -0.08%  ±0.32%     42%
+  TE                        11.711   11.703   +0.07%  ±0.32%     58%
+
+Verdict:
+  No clear difference (gain is within noise). Leave USE_OPP_FEATURES = False;
+  extra features that don't clearly help mostly add overfitting risk.
