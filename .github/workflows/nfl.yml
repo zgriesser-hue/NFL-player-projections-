@@ -15,7 +15,7 @@ on:
       task:
         description: "What to run"
         type: choice
-        options: [project, score]
+        options: [project, score, ab]
         default: project
 
 permissions:
@@ -28,7 +28,7 @@ concurrency:
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     env:
       NFL_OUTPUT_DIR: data
       ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
@@ -59,7 +59,11 @@ jobs:
         shell: bash
         run: |
           mkdir -p data
-          if [ "${{ steps.task.outputs.name }}" = "score" ]; then SCRIPT=score_week.py; else SCRIPT=projections.py; fi
+          case "${{ steps.task.outputs.name }}" in
+            score) SCRIPT=score_week.py ;;
+            ab) SCRIPT=ab_opponent.py ;;
+            *) SCRIPT=projections.py ;;
+          esac
           python -u "$SCRIPT" 2>&1 | tee run.log
 
       - name: Show results in the run summary
