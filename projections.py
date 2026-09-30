@@ -1,0 +1,832 @@
+"""
+Receiving yards projection v6: upcoming-week projections + sportsbook line comparison.
+
+Run it and it auto-detects the next unplayed NFL week, builds a row for every
+relevant WR/TE, and simulates a yardage distribution for each. Results print and
+save to projections_<season>_wk<week>.csv. See the config block below for manual
+injury overrides.
+
+Sportsbook lines (optional): get a free key at the-odds-api.com and add it as a
+Colab Secret named ODDS_API_KEY (or set the ODDS_API_KEY environment variable).
+The script then pulls receiving-yards props for that week's games, compares them to
+the simulated distributions, and saves an edges file next to the projections.
+Outputs go to NFL_OUTPUT_DIR if that environment variable is set (the GitHub workflow
+uses data/), else to your Google Drive folder (DRIVE_DIR) when Drive is mounted.
+
+Stage 1: targeted?      ~ Bernoulli(p from LightGBM classifier)   [the zero hurdle]
+         targets        ~ 1 + NegativeBinomial(mean from LightGBM-Poisson, dispersion k)
+                          (only for players who get targeted at all)
+Stage 2: receptions     ~ Binomial(targets, catch prob from LightGBM)
+         yards          ~ sum of per-catch yards ~ Gamma(shape = s * receptions,
+                          scale = predicted yards-per-reception / s)
+Simulating this chain gives a full distribution per player-week, including the
+pile of exact-zero games, so ranges and P(over/under) come out naturally.
+
+Self-contained (includes the v2 data pipeline).
+
+Setup:
+    pip install nflreadpy pandas numpy lightgbm scikit-learn
+"""
+import os
+import re
+import unicodedata
+
+import numpy as np
+import pandas as pd
+import nflreadpy as nfl
+import lightgbm as lgb
+
+CURRENT_SEASON = 2026
+SEASONS = list(range(2018, CURRENT_SEASON + 1))
+TEST_SEASONS = [2024, 2025]
+TARGET = "receiving_yards"
+POSITIONS = ["WR", "TE"]
+CATCHER_POS = ["WR", "TE", "RB"]
+HALFLIFE = 3
+MIN_PRIOR_GAMES = 3
+MEDIAN_WINDOW = 6
+
+# ---- Upcoming-week projection settings ----
+PROJECT_SEASON = None       # None = auto-detect the next unplayed week from the schedule
+PROJECT_WEEK = None
+MANUAL_OUT = []             # display names to treat as Out this week, e.g. ["Player Name"]
+MANUAL_QUESTIONABLE = []    # display names to treat as Questionable
+PROP_LINES = {}             # {"Player Name": 64.5} adds P(over) / P(under) columns
+MIN_SNAP_PCT = 0.20         # skip players whose recent snap share is below this fraction
+REFRESH_BACKTEST = False    # True = re-run the walk-forward backtest instead of using the cache
+BACKTEST_CACHE = "receiving_backtest_v5.csv"
+
+# ---- Saving + sportsbook lines ----
+DRIVE_ROOT = "/content/drive/MyDrive"                 # where Colab mounts Drive
+DRIVE_DIR = DRIVE_ROOT + "/nfl_projections"           # outputs land here when Drive is mounted
+ODDS_MARKET = "player_reception_yds"                  # receiving yards (the only stat this model simulates)
+ODDS_REGION = "us"
+ODDS_BOOKS = None                                     # e.g. ["draftkings", "fanduel"]; None = all in region
+LINES_CACHE_MINUTES = 60                              # reuse a recent pull to save API credits
+FORCE_REFRESH_LINES = False
+
+N_SIMS = 2000
+SEED = 42
+MIN_CAL_ROWS = 300      # past out-of-sample rows (per position) before dispersion is estimated
+K_DEFAULT = 4.0         # NB dispersion until enough history (larger = closer to Poisson)
+S_DEFAULT = 1.2         # gamma shape for per-catch yards until enough history
+
+PARAMS = dict(
+    num_leaves=15, min_child_samples=50, n_estimators=300, learning_rate=0.03,
+    subsample=0.8, subsample_freq=1, colsample_bytree=0.8, verbose=-1,
+)
+
+STAT_COLS = [
+    "targets", "receptions", "receiving_yards",
+    "target_share", "air_yards_share", "receiving_air_yards",
+]
+FORM_COLS = STAT_COLS + ["offense_pct"]
+
+TEAM_FIX = {
+    "ARZ": "ARI", "BLT": "BAL", "CLV": "CLE", "HST": "HOU", "JAC": "JAX",
+    "LAR": "LA", "STL": "LA", "SL": "LA", "OAK": "LV", "SD": "LAC", "WSH": "WAS",
+}
+
+
+def fix_team(s: pd.Series) -> pd.Series:
+    return s.replace(TEAM_FIX)
+
+
+# ---------------------------------------------------------------- data
+def load_context() -> pd.DataFrame:
+    sched = nfl.load_schedules(SEASONS).to_pandas()
+    home = sched[["season", "week", "home_team", "away_team",
+                  "spread_line", "total_line"]].copy()
+    home.columns = ["season", "week", "team", "opp", "spread", "total"]
+    home["is_home"] = 1
+
+    away = home.copy()
+    away["team"], away["opp"] = home["opp"], home["team"]
+    away["spread"] = -home["spread"]
+    away["is_home"] = 0
+
+    ctx = pd.concat([home, away], ignore_index=True)
+    ctx["team"] = fix_team(ctx["team"])
+    ctx["implied_total"] = (ctx["total"] + ctx["spread"]) / 2
+    return ctx.drop(columns=["total"])
+
+
+def load_player_weeks() -> tuple[pd.DataFrame, pd.DataFrame]:
+    stats = nfl.load_player_stats(SEASONS).to_pandas()
+    stats = stats[stats["season_type"] == "REG"].copy()
+
+    players = (nfl.load_players().to_pandas()[["gsis_id", "pfr_id"]]
+               .dropna().drop_duplicates("pfr_id"))
+    snaps = nfl.load_snap_counts(SEASONS).to_pandas()
+    snaps = snaps[(snaps["game_type"] == "REG")
+                  & (snaps["position"].isin(POSITIONS))
+                  & (snaps["offense_snaps"] > 0)]
+    snaps = snaps.merge(players, left_on="pfr_player_id", right_on="pfr_id",
+                        how="inner").rename(columns={"gsis_id": "player_id",
+                                                     "player": "player_display_name"})
+    snaps["team"] = fix_team(snaps["team"])
+    snaps = (snaps[["player_id", "player_display_name", "season", "week",
+                    "team", "position", "offense_snaps", "offense_pct"]]
+             .drop_duplicates(["player_id", "season", "week"]))
+
+    pw = snaps.merge(stats[["player_id", "season", "week"] + STAT_COLS],
+                     on=["player_id", "season", "week"], how="left")
+    pw[STAT_COLS] = pw[STAT_COLS].fillna(0)
+    return pw, stats
+
+
+def injury_features(stats: pd.DataFrame, project=None):
+    inj = nfl.load_injuries(SEASONS).to_pandas()
+    inj = inj[inj["game_type"] == "REG"].rename(columns={"gsis_id": "player_id"})
+    inj["team"] = fix_team(inj["team"])
+    inj["season"] = inj["season"].astype(int)
+    inj["week"] = inj["week"].astype(int)
+
+    # Manual overrides for the target week (e.g. before the official report is out)
+    if project is not None and (MANUAL_OUT or MANUAL_QUESTIONABLE):
+        latest = stats.sort_values(["season", "week"]).groupby("player_id").tail(1)
+        extra = []
+        for status, names in (("Out", MANUAL_OUT), ("Questionable", MANUAL_QUESTIONABLE)):
+            for name in set(names) - set(latest["player_display_name"]):
+                print(f"WARNING: manual injury name not found in stats: {name}")
+            m = latest[latest["player_display_name"].isin(names)][
+                ["player_id", "team", "position"]].copy()
+            m["team"] = fix_team(m["team"])
+            m["season"], m["week"] = project
+            m["report_status"], m["game_type"] = status, "REG"
+            extra.append(m)
+        inj = pd.concat([inj] + extra, ignore_index=True)
+        inj = inj.drop_duplicates(["player_id", "season", "week"], keep="last")
+
+    form = stats[stats["position"].isin(CATCHER_POS)][
+        ["player_id", "season", "week", "targets"]].copy()
+    form = form.sort_values(["player_id", "season", "week"])
+    form["form_targets"] = form.groupby("player_id")["targets"].transform(
+        lambda s: s.ewm(halflife=HALFLIFE, min_periods=1).mean())
+    form["t"] = form["season"].astype(int) * 100 + form["week"].astype(int)
+
+    out = inj[(inj["report_status"] == "Out")
+              & (inj["position"].isin(CATCHER_POS))].copy()
+    out["t"] = out["season"] * 100 + out["week"]
+    out = pd.merge_asof(
+        out.sort_values("t"),
+        form[["player_id", "t", "form_targets"]].sort_values("t"),
+        on="t", by="player_id", allow_exact_matches=False, tolerance=100,
+    )
+    out["form_targets"] = out["form_targets"].fillna(0)
+
+    team_out = (out.groupby(["team", "season", "week"])
+                .agg(inj_out_targets=("form_targets", "sum"),
+                     inj_n_out=("player_id", "count"))
+                .reset_index())
+
+    q = inj[inj["report_status"] == "Questionable"][
+        ["player_id", "season", "week"]].drop_duplicates()
+    q["self_questionable"] = 1
+    return team_out, q, inj
+
+
+def build_table(project=None):
+    pw, stats = load_player_weeks()
+    team_out, q, inj = injury_features(stats, project)
+    ctx = load_context()
+
+    df = pw.merge(ctx, on=["season", "week", "team"], how="left")
+    df = df.merge(team_out, on=["team", "season", "week"], how="left")
+    df = df.merge(q, on=["player_id", "season", "week"], how="left")
+    df[["inj_out_targets", "inj_n_out", "self_questionable"]] = (
+        df[["inj_out_targets", "inj_n_out", "self_questionable"]].fillna(0))
+    # Use nflverse display names everywhere (consistent with MANUAL_* and PROP_LINES)
+    name_map = (stats.sort_values(["season", "week"]).drop_duplicates("player_id", keep="last")
+                .set_index("player_id")["player_display_name"])
+    df["player_display_name"] = df["player_id"].map(name_map).fillna(df["player_display_name"])
+
+    df = df.sort_values(["player_id", "season", "week"]).reset_index(drop=True)
+    return df, dict(pw=pw, ctx=ctx, team_out=team_out, q=q), inj
+
+
+# --------------------------------------------- upcoming-week rows
+def detect_target_week():
+    """Earliest week of the latest season that still has unplayed regular-season games."""
+    sched = nfl.load_schedules(SEASONS).to_pandas()
+    up = sched[(sched["game_type"] == "REG") & sched["home_score"].isna()]
+    if up.empty:
+        raise ValueError("No unplayed regular-season games found; "
+                         "set PROJECT_SEASON and PROJECT_WEEK manually.")
+    season = int(up["season"].max())
+    return season, int(up[up["season"] == season]["week"].min())
+
+
+def current_roster(season: int, week: int):
+    """gsis_id -> current team from weekly rosters (handles trades/cuts). None if unavailable."""
+    try:
+        r = nfl.load_rosters_weekly(season).to_pandas()
+        r = r[r["week"] <= week]
+        if r.empty:
+            raise ValueError("no roster rows yet")
+    except Exception as e:
+        print(f"Weekly rosters unavailable ({e}); falling back to each player's last team.")
+        return None
+    # Latest row per player FIRST, then keep only active/inactive (drops cut / IR / etc.)
+    r = r.sort_values("week").groupby("gsis_id").tail(1)
+    r = r[r["status"].isin(["ACT", "INA"])].copy()
+    r["team"] = fix_team(r["team"])
+    return r.rename(columns={"gsis_id": "player_id"})[["player_id", "team"]]
+
+
+def play_rates(inj: pd.DataFrame, pw: pd.DataFrame, t_max: int) -> dict:
+    """Historical share of Questionable/Doubtful WR/TEs who ended up playing."""
+    x = inj[inj["position"].isin(POSITIONS)
+            & inj["report_status"].isin(["Questionable", "Doubtful"])
+            & (inj["season"] * 100 + inj["week"] < t_max)]
+    x = x[["player_id", "season", "week", "report_status"]].drop_duplicates(
+        ["player_id", "season", "week"])
+    played = pw[["player_id", "season", "week"]].assign(played=1)
+    x = x.merge(played, on=["player_id", "season", "week"], how="left")
+    x["played"] = x["played"].fillna(0)
+    return x.groupby("report_status")["played"].mean().to_dict()
+
+
+def make_future_rows(played, parts, inj, season: int, week: int) -> pd.DataFrame:
+    """One candidate row per WR/TE for the target week: outcome unknown, context known."""
+    pw, ctx = parts["pw"], parts["ctx"]
+    last = (played.sort_values(["season", "week"]).groupby("player_id").tail(1)
+            [["player_id", "player_display_name", "position", "team", "season", "week"]]
+            .rename(columns={"team": "last_team", "season": "last_season",
+                             "week": "last_week"}))
+
+    roster = current_roster(season, week)
+    if roster is not None:
+        cand = last.merge(roster, on="player_id", how="inner")
+    else:   # fallback: last team played for; keep players seen since late last season
+        cand = last[last["last_season"] * 100 + last["last_week"]
+                    >= (season - 1) * 100 + 15].copy()
+        cand["team"] = cand["last_team"]
+    cand = cand.drop(columns=["last_team", "last_season", "last_week"])
+    cand["season"], cand["week"] = season, week
+
+    # Game context for that week; the inner merge drops teams on a bye
+    c = ctx[(ctx["season"] == season) & (ctx["week"] == week)]
+    cand = cand.merge(c, on=["season", "week", "team"], how="inner")
+
+    # Skip anyone whose game already happened (e.g. Thursday night)
+    done = pw[["player_id", "season", "week"]].assign(_done=1)
+    cand = cand.merge(done, on=["player_id", "season", "week"], how="left")
+    cand = cand[cand["_done"].isna()].drop(columns="_done")
+
+    cand = cand.merge(parts["team_out"], on=["team", "season", "week"], how="left")
+    cand = cand.merge(parts["q"], on=["player_id", "season", "week"], how="left")
+    cols = ["inj_out_targets", "inj_n_out", "self_questionable"]
+    cand[cols] = cand[cols].fillna(0)
+
+    st = (inj[(inj["season"] == season) & (inj["week"] == week)]
+          .drop_duplicates("player_id")[["player_id", "report_status"]]
+          .rename(columns={"report_status": "status"}))
+    cand = cand.merge(st, on="player_id", how="left")
+    cand["is_future"] = True
+    return cand
+
+
+# ----------------------------------------------------------- features
+BASELINE_COL = f"ewm_{TARGET}"
+MEDIAN_COL = "med_receiving_yards"
+
+FEATURES = (
+    [f"ewm_{c}" for c in FORM_COLS]
+    + ["games_prior", "implied_total", "spread", "is_home",
+       "inj_out_targets", "inj_n_out", "self_questionable", "is_te"]
+)
+# Ratio features can be NaN (e.g. no prior targets); LightGBM handles NaN natively
+RATIO_FEATURES = ["ewm_catch_rate", "ewm_ypr", "ewm_ypt"]
+MODEL_FEATURES = FEATURES + RATIO_FEATURES
+
+
+def add_features(df: pd.DataFrame) -> pd.DataFrame:
+    g = df.groupby("player_id", group_keys=False)
+    # shift(1) BEFORE smoothing so a game never sees its own outcome
+    for col in FORM_COLS:
+        df[f"ewm_{col}"] = g[col].apply(
+            lambda s: s.shift(1).ewm(halflife=HALFLIFE, min_periods=1).mean())
+    df["games_prior"] = g.cumcount()
+    df[MEDIAN_COL] = g[TARGET].apply(
+        lambda s: s.shift(1).rolling(MEDIAN_WINDOW, min_periods=1).median())
+    df["is_te"] = (df["position"] == "TE").astype(int)
+
+    def div(a, b):
+        return (a / b).replace([np.inf, -np.inf], np.nan)
+
+    df["ewm_catch_rate"] = div(df["ewm_receptions"], df["ewm_targets"])
+    df["ewm_ypr"] = div(df["ewm_receiving_yards"], df["ewm_receptions"])
+    df["ewm_ypt"] = div(df["ewm_receiving_yards"], df["ewm_targets"])
+    return df
+
+
+# ---------------------------------------------------- two-stage pieces
+def predict_prob(model, X) -> np.ndarray:
+    p = model.predict(X)
+    if p.min() < 0 or p.max() > 1:      # guard: some versions return raw scores
+        p = 1 / (1 + np.exp(-p))
+    return np.clip(p, 0.01, 0.99)
+
+
+def estimate_dispersion(hist: pd.DataFrame):
+    """Per-position NB dispersion k (targets) and gamma shape s (yards per catch),
+    estimated by method of moments from PAST out-of-sample rows only."""
+    k, s, est = {}, {}, {}
+    for pos in POSITIONS:
+        h = hist[hist["position"] == pos] if len(hist) else hist
+        if len(h) < MIN_CAL_ROWS:
+            k[pos], s[pos], est[pos] = K_DEFAULT, S_DEFAULT, False
+            continue
+        # Among targeted players: (targets - 1) ~ NB(mean mu_pos, k), Var = mu + mu^2 / k
+        hp = h[h["targets"] > 0]
+        y = hp["targets"] - 1
+        excess = np.mean((y - hp["mu_pos"]) ** 2) - np.mean(hp["mu_pos"])
+        k[pos] = float(np.clip(np.mean(hp["mu_pos"] ** 2) / max(excess, 1e-6), 1.0, 100.0))
+        # Var(yards | R catches) = R * m^2 / s
+        hr = h[h["receptions"] > 0]
+        inv_s = np.mean((hr[TARGET] - hr["receptions"] * hr["ypr_pred"]) ** 2
+                        / (hr["receptions"] * hr["ypr_pred"] ** 2))
+        s[pos] = float(np.clip(1.0 / inv_s, 0.3, 10.0))
+        est[pos] = True
+    return k, s, est
+
+
+def simulate(p_pos, mu_pos, p_catch, ypr, k, s, rng) -> np.ndarray:
+    """Returns (n_rows, N_SIMS) simulated receiving yards (hurdle for targets)."""
+    shp = (len(mu_pos), N_SIMS)
+    mu_c, k_c, s_c = mu_pos[:, None], k[:, None], s[:, None]
+    targeted = rng.random(shp) < p_pos[:, None]
+    extra = rng.negative_binomial(k_c, k_c / (k_c + mu_c), size=shp)
+    targets = np.where(targeted, 1 + extra, 0)
+    catches = rng.binomial(targets, p_catch[:, None])
+    yards = rng.gamma(np.maximum(s_c * catches, 1e-9), (ypr[:, None] / s_c), size=shp)
+    return np.where(catches > 0, yards, 0.0)
+
+
+# ---------------------------------------------------------- modeling
+def walk_forward(df: pd.DataFrame):
+    df = df.dropna(subset=FEATURES + [TARGET]).copy()
+    df = df[df["games_prior"] >= MIN_PRIOR_GAMES]
+    rng = np.random.default_rng(SEED)
+
+    preds, m_targets = [], None
+    test = df[df["season"].isin(TEST_SEASONS)]
+    for (season, week), wk in test.groupby(["season", "week"]):
+        train = df[(df["season"] < season)
+                   | ((df["season"] == season) & (df["week"] < week))]
+        Xw = wk[MODEL_FEATURES]
+
+        # Stage 1a: P(player is targeted at all)
+        m_hit = lgb.LGBMClassifier(**PARAMS).fit(
+            train[MODEL_FEATURES], (train["targets"] > 0).astype(int))
+
+        # Stage 1b: target count among targeted players, shifted by 1 (Poisson mean)
+        tr_p = train[train["targets"] > 0]
+        m_targets = lgb.LGBMRegressor(objective="poisson", **PARAMS).fit(
+            tr_p[MODEL_FEATURES], tr_p["targets"] - 1)
+
+        # Stage 2a: catch probability (weighted by targets)
+        tr_t = train[train["targets"] > 0]
+        m_catch = lgb.LGBMRegressor(objective="cross_entropy", **PARAMS).fit(
+            tr_t[MODEL_FEATURES],
+            np.clip(tr_t["receptions"] / tr_t["targets"], 0, 1),
+            sample_weight=tr_t["targets"])
+
+        # Stage 2b: yards per reception (weighted by receptions)
+        tr_r = train[train["receptions"] > 0]
+        m_ypr = lgb.LGBMRegressor(objective="regression", **PARAMS).fit(
+            tr_r[MODEL_FEATURES], tr_r[TARGET] / tr_r["receptions"],
+            sample_weight=tr_r["receptions"])
+
+        # Direct median model, for a fair head-to-head comparison
+        m_direct = lgb.LGBMRegressor(objective="quantile", alpha=0.5).fit(
+            train[MODEL_FEATURES], train[TARGET])
+
+        p_pos = np.clip(m_hit.predict_proba(Xw)[:, 1], 0.01, 0.99)
+        mu_pos = np.clip(m_targets.predict(Xw), 0.05, None)
+        p_catch = predict_prob(m_catch, Xw)
+        ypr = np.clip(m_ypr.predict(Xw), 1.0, None)
+
+        # Dispersion from earlier weeks' out-of-sample results only
+        hist = pd.concat(preds, ignore_index=True) if preds else pd.DataFrame()
+        k_by, s_by, est_by = estimate_dispersion(hist)
+        k = wk["position"].map(k_by).to_numpy(dtype=float)
+        s = wk["position"].map(s_by).to_numpy(dtype=float)
+
+        sims = simulate(p_pos, mu_pos, p_catch, ypr, k, s, rng)
+        q10, q25, q50, q75, q90 = np.percentile(sims, [10, 25, 50, 75, 90], axis=1)
+
+        # Randomized PIT: handles the point mass at zero (and integer-ish outcomes)
+        y_act = wk[TARGET].to_numpy()[:, None]
+        pit_lo = (sims < y_act).mean(axis=1)
+        pit_hi = (sims <= y_act).mean(axis=1)
+
+        out = wk[["player_id", "player_display_name", "season", "week", "position",
+                  TARGET, "targets", "receptions", BASELINE_COL, MEDIAN_COL,
+                  "ewm_targets"]].copy()
+        out["p_pos"], out["mu_pos"] = p_pos, mu_pos
+        out["mu_targets"] = p_pos * (1 + mu_pos)       # expected targets
+        out["p_catch"], out["ypr_pred"] = p_catch, ypr
+        out["pred_direct_median"] = m_direct.predict(Xw)
+        out["sim_mean"] = sims.mean(axis=1)
+        out["sim_q10"], out["sim_q25"], out["sim_q50"] = q10, q25, q50
+        out["sim_q75"], out["sim_q90"] = q75, q90
+        out["p_zero"] = (sims == 0).mean(axis=1)
+        out["pit"] = pit_lo + rng.random(len(out)) * (pit_hi - pit_lo)
+        out["disp_est"] = wk["position"].map(est_by).to_numpy(dtype=bool)
+        preds.append(out)
+
+    return pd.concat(preds, ignore_index=True), m_targets
+
+
+def report(res: pd.DataFrame, m_targets) -> None:
+    mae = lambda c: np.mean(np.abs(res[TARGET] - res[c]))
+    rmse = lambda c: np.sqrt(np.mean((res[TARGET] - res[c]) ** 2))
+
+    print(f"Rows evaluated: {len(res):,}")
+    print("\nYards MAE:")
+    print(f"  EWMA mean baseline       : {mae(BASELINE_COL):.2f}")
+    print(f"  Rolling median baseline  : {mae(MEDIAN_COL):.2f}")
+    print(f"  Direct quantile-median   : {mae('pred_direct_median'):.2f}")
+    print(f"  Two-stage (sim median)   : {mae('sim_q50'):.2f}")
+    print(f"Yards RMSE: baseline mean {rmse(BASELINE_COL):.2f} "
+          f"| two-stage mean {rmse('sim_mean'):.2f}")
+
+    print("\nMAE by position (baseline | direct | two-stage):")
+    for pos, sub in res.groupby("position"):
+        f = lambda c: np.mean(np.abs(sub[TARGET] - sub[c]))
+        print(f"  {pos}: {f(BASELINE_COL):.2f} | {f('pred_direct_median'):.2f} "
+              f"| {f('sim_q50'):.2f}")
+
+    print("\nStage 1 (targets) MAE: "
+          f"baseline {np.mean(np.abs(res['targets'] - res['ewm_targets'])):.2f} "
+          f"| model {np.mean(np.abs(res['targets'] - res['mu_targets'])):.2f}")
+
+    cal = res[res["disp_est"]]
+    print(f"\nRandomized-PIT calibration on {len(cal):,} rows with estimated dispersion")
+    print("(expected: <25% 25 | 25-75 50 | >75% 25  ||  <10% 10 | 10-90 80 | >90% 10)")
+
+    def pit_summary(sub):
+        p = sub["pit"]
+        b25, a75 = (p < 0.25).mean(), (p > 0.75).mean()
+        b10, a90 = (p < 0.10).mean(), (p > 0.90).mean()
+        return (f"{b25:.1%} | {1 - b25 - a75:.1%} | {a75:.1%}  ||  "
+                f"{b10:.1%} | {1 - b10 - a90:.1%} | {a90:.1%}")
+
+    print(f"  All: {pit_summary(cal)}")
+    for pos, sub in cal.groupby("position"):
+        print(f"  {pos}: {pit_summary(sub)}")
+    deciles = np.histogram(cal["pit"], bins=10, range=(0, 1))[0] / len(cal)
+    print("  PIT decile shares (expected 10% each): "
+          + " ".join(f"{d:.0%}" for d in deciles))
+
+    print("\nZero-yard games (actual share vs mean predicted P(0)):")
+    for pos, sub in res.groupby("position"):
+        print(f"  {pos}: actual {(sub[TARGET] == 0).mean():.1%} "
+              f"| predicted {sub['p_zero'].mean():.1%}")
+    print("\nP(targeted at least once): actual vs predicted")
+    for pos, sub in res.groupby("position"):
+        print(f"  {pos}: actual {(sub['targets'] > 0).mean():.1%} "
+              f"| predicted {sub['p_pos'].mean():.1%}")
+    print(f"\nMean yards: actual {res[TARGET].mean():.2f} | sim mean {res['sim_mean'].mean():.2f}")
+
+    imp = pd.Series(m_targets.booster_.feature_importance("gain"), index=MODEL_FEATURES)
+    print("\nStage 1b (target count among targeted players) feature importance, last model:")
+    print((imp / imp.sum()).sort_values(ascending=False).round(3).to_string())
+
+
+# ------------------------------------------- upcoming-week model
+def fit_stage_models(train: pd.DataFrame):
+    """Fit the four stage models on all completed games."""
+    m_hit = lgb.LGBMClassifier(**PARAMS).fit(
+        train[MODEL_FEATURES], (train["targets"] > 0).astype(int))
+    tr_p = train[train["targets"] > 0]
+    m_targets = lgb.LGBMRegressor(objective="poisson", **PARAMS).fit(
+        tr_p[MODEL_FEATURES], tr_p["targets"] - 1)
+    m_catch = lgb.LGBMRegressor(objective="cross_entropy", **PARAMS).fit(
+        tr_p[MODEL_FEATURES], np.clip(tr_p["receptions"] / tr_p["targets"], 0, 1),
+        sample_weight=tr_p["targets"])
+    tr_r = train[train["receptions"] > 0]
+    m_ypr = lgb.LGBMRegressor(objective="regression", **PARAMS).fit(
+        tr_r[MODEL_FEATURES], tr_r[TARGET] / tr_r["receptions"],
+        sample_weight=tr_r["receptions"])
+    return m_hit, m_targets, m_catch, m_ypr
+
+
+def predict_stages(models, X: pd.DataFrame):
+    m_hit, m_targets, m_catch, m_ypr = models
+    p_pos = np.clip(m_hit.predict_proba(X)[:, 1], 0.01, 0.99)
+    mu_pos = np.clip(m_targets.predict(X), 0.05, None)
+    p_catch = predict_prob(m_catch, X)
+    ypr = np.clip(m_ypr.predict(X), 1.0, None)
+    return p_pos, mu_pos, p_catch, ypr
+
+
+def project_upcoming(train, fut, backtest, rates) -> tuple:
+    rng = np.random.default_rng(SEED)
+    models = fit_stage_models(train)
+    p_pos, mu_pos, p_catch, ypr = predict_stages(models, fut[MODEL_FEATURES])
+
+    # Dispersion from the walk-forward backtest's out-of-sample results
+    k_by, s_by, _ = estimate_dispersion(backtest)
+    print(f"Dispersion used: k (targets) {k_by}, s (yards per catch) {s_by}")
+    k = fut["position"].map(k_by).to_numpy(dtype=float)
+    s = fut["position"].map(s_by).to_numpy(dtype=float)
+
+    sims = simulate(p_pos, mu_pos, p_catch, ypr, k, s, rng)
+    q10, q25, q50, q75, q90 = np.percentile(sims, [10, 25, 50, 75, 90], axis=1)
+
+    pmap = {"Out": 0.0,
+            "Doubtful": rates.get("Doubtful", 0.10),
+            "Questionable": rates.get("Questionable", 0.75)}
+    out = fut[["player_display_name", "team", "opp", "position", "status",
+               "implied_total"]].copy()
+    out["status"] = out["status"].fillna("")
+    out["p_active"] = fut["status"].map(pmap).fillna(1.0).to_numpy()
+    out["q10"], out["q25"], out["median"], out["q75"], out["q90"] = q10, q25, q50, q75, q90
+    out["mean"] = sims.mean(axis=1)
+    out["p_zero"] = (sims == 0).mean(axis=1)
+    out["exp_targets"] = p_pos * (1 + mu_pos)
+    out["p_catch"], out["ypr"] = p_catch, ypr
+
+    if PROP_LINES:   # probabilities are conditional on the player playing
+        line = fut["player_display_name"].map(PROP_LINES).to_numpy(dtype=float)
+        has = ~np.isnan(line)
+        out["line"] = line
+        out["p_over"] = np.where(has, (sims > line[:, None]).mean(axis=1), np.nan)
+        out["p_under"] = np.where(has, (sims < line[:, None]).mean(axis=1), np.nan)
+        unmatched = set(PROP_LINES) - set(fut["player_display_name"])
+        if unmatched:
+            print(f"WARNING: PROP_LINES names not matched to any projected player: {sorted(unmatched)}")
+
+    order = np.argsort(-out["mean"].to_numpy())
+    return out.iloc[order].reset_index(drop=True), sims[order]
+
+
+# ------------------------------------------------ sportsbook lines
+ODDS_BASE = "https://api.the-odds-api.com/v4/sports/americanfootball_nfl"
+_SUFFIXES = {"jr", "sr", "ii", "iii", "iv", "v"}
+
+
+def resolve_out_dir() -> str:
+    """NFL_OUTPUT_DIR (GitHub Actions) > mounted Google Drive (Colab) > current directory."""
+    env = os.environ.get("NFL_OUTPUT_DIR")
+    if env:
+        os.makedirs(env, exist_ok=True)
+        return env
+    if os.path.isdir(DRIVE_ROOT):
+        os.makedirs(DRIVE_DIR, exist_ok=True)
+        return DRIVE_DIR
+    print("Google Drive is not mounted; saving to the current directory instead.")
+    return "."
+
+
+def get_api_key():
+    key = os.environ.get("ODDS_API_KEY")
+    if not key:
+        try:
+            from google.colab import userdata
+            key = userdata.get("ODDS_API_KEY")
+        except Exception:
+            key = None
+    return key
+
+
+def name_key(name) -> str:
+    """Normalize player names so 'Amon-Ra St. Brown' / 'Luther Burden III' match across sources."""
+    s = unicodedata.normalize("NFKD", str(name)).encode("ascii", "ignore").decode().lower()
+    s = re.sub(r"[.'`\-]", "", s)
+    s = re.sub(r"[^a-z0-9 ]", " ", s)
+    return " ".join(p for p in s.split() if p not in _SUFFIXES)
+
+
+def week_window(season: int, week: int):
+    """UTC window covering every game of the target week (from schedule game dates)."""
+    sched = nfl.load_schedules([season]).to_pandas()
+    g = sched[(sched["season"] == season) & (sched["week"] == week)
+              & (sched["game_type"] == "REG")]
+    days = pd.to_datetime(g["gameday"])
+    return (days.min().tz_localize("UTC"),
+            days.max().tz_localize("UTC") + pd.Timedelta(hours=30))
+
+
+def fetch_lines(api_key: str, start, end) -> pd.DataFrame:
+    """One row per (game, book, player) with the over/under line and prices."""
+    import requests
+    r = requests.get(f"{ODDS_BASE}/events", params={"apiKey": api_key}, timeout=30)
+    r.raise_for_status()
+    now = pd.Timestamp.now(tz="UTC")
+    events = [e for e in r.json()
+              if max(start, now) <= pd.Timestamp(e["commence_time"]) <= end]
+    print(f"Fetching {ODDS_MARKET} for {len(events)} upcoming games "
+          f"(roughly {len(events)} API credits)...")
+
+    rows, remaining = [], None
+    for ev in events:
+        params = dict(apiKey=api_key, markets=ODDS_MARKET, oddsFormat="american")
+        if ODDS_BOOKS:
+            params["bookmakers"] = ",".join(ODDS_BOOKS)
+        else:
+            params["regions"] = ODDS_REGION
+        resp = requests.get(f"{ODDS_BASE}/events/{ev['id']}/odds", params=params, timeout=30)
+        if resp.status_code != 200:
+            print(f"  skipped {ev.get('away_team')} @ {ev.get('home_team')}: HTTP {resp.status_code}")
+            continue
+        remaining = resp.headers.get("x-requests-remaining", remaining)
+        for bk in resp.json().get("bookmakers", []):
+            for mk in bk.get("markets", []):
+                if mk.get("key") != ODDS_MARKET:
+                    continue
+                by_player = {}
+                for oc in mk.get("outcomes", []):
+                    d = by_player.setdefault(oc.get("description"), {})
+                    d["line"] = oc.get("point")
+                    d[str(oc.get("name")).lower()] = oc.get("price")
+                for player, d in by_player.items():
+                    if player and d.get("line") is not None \
+                            and d.get("over") is not None and d.get("under") is not None:
+                        rows.append(dict(
+                            event_id=ev["id"], commence_time=ev["commence_time"],
+                            book=bk.get("key"), player=player, line=float(d["line"]),
+                            over_price=float(d["over"]), under_price=float(d["under"]),
+                            name_key=name_key(player)))
+    if remaining is not None:
+        print(f"  API credits remaining this month: {remaining}")
+    df = pd.DataFrame(rows)
+    df["fetched_at"] = pd.Timestamp.now(tz="UTC").isoformat()
+    return df
+
+
+def get_lines(api_key: str, season: int, week: int, out_dir: str) -> pd.DataFrame:
+    raw = os.path.join(out_dir, f"lines_{season}_wk{week}_raw.csv")
+    if os.path.exists(raw) and not FORCE_REFRESH_LINES:
+        cached = pd.read_csv(raw)
+        if len(cached):
+            age = (pd.Timestamp.now(tz="UTC") - pd.Timestamp(cached["fetched_at"].iloc[0])
+                   ).total_seconds() / 60
+            if age < LINES_CACHE_MINUTES:
+                print(f"Using cached lines fetched {age:.0f} min ago (saves API credits)")
+                return cached
+    start, end = week_window(season, week)
+    df = fetch_lines(api_key, start, end)
+    if len(df):
+        stamp = pd.Timestamp.now(tz="UTC").strftime("%Y%m%d_%H%M")
+        df.to_csv(raw, index=False)                                   # latest pull (cache)
+        df.to_csv(os.path.join(out_dir, f"lines_{season}_wk{week}_{stamp}.csv"), index=False)
+    return df
+
+
+def american_to_decimal(a) -> np.ndarray:
+    a = np.asarray(a, dtype=float)
+    return np.where(a > 0, 1 + a / 100, 1 + 100 / -a)
+
+
+def evaluate_lines(out: pd.DataFrame, sims: np.ndarray, lines: pd.DataFrame):
+    """Model P(over)/P(under) at each book's line, vs. the book's no-vig price and EV.
+
+    Probabilities are conditional on the player playing (props normally void otherwise).
+    Yards are rounded to integers so integer lines produce correct pushes.
+    """
+    idx = {}
+    for i, k in enumerate(out["player_display_name"].map(name_key)):
+        idx.setdefault(k, i)                    # rows are sorted by mean; first match wins
+    li = lines.copy()
+    li["row"] = li["name_key"].map(idx)
+    unmatched = sorted(li.loc[li["row"].isna(), "player"].unique())
+    li = li.dropna(subset=["row"]).reset_index(drop=True)
+    li["row"] = li["row"].astype(int)
+    if li.empty:
+        return li, unmatched
+
+    y = np.rint(sims[li["row"].to_numpy()])
+    line = li["line"].to_numpy(dtype=float)[:, None]
+    p_over, p_under = (y > line).mean(axis=1), (y < line).mean(axis=1)
+
+    dec_o, dec_u = american_to_decimal(li["over_price"]), american_to_decimal(li["under_price"])
+    imp_o, imp_u = 1 / dec_o, 1 / dec_u
+    li["fair_p_over"] = imp_o / (imp_o + imp_u)          # book's own no-vig probability
+    li["model_p_over"], li["model_p_under"] = p_over, p_under
+    li["ev_over"] = p_over * (dec_o - 1) - p_under       # per 1 staked; push returns stake
+    li["ev_under"] = p_under * (dec_u - 1) - p_over
+
+    over_best = li["ev_over"] >= li["ev_under"]
+    li["best_side"] = np.where(over_best, "over", "under")
+    li["best_ev"] = np.where(over_best, li["ev_over"], li["ev_under"])
+    li["best_price"] = np.where(over_best, li["over_price"], li["under_price"])
+    li["model_p"] = np.where(over_best, p_over, p_under)
+    li["fair_p"] = np.where(over_best, li["fair_p_over"], 1 - li["fair_p_over"])
+
+    info = out.iloc[li["row"].to_numpy()][
+        ["player_display_name", "team", "opp", "position", "status", "median", "mean"]
+    ].reset_index(drop=True).rename(columns={"player_display_name": "model_player",
+                                             "median": "model_median", "mean": "model_mean"})
+    li = pd.concat([li, info], axis=1)
+    return li.sort_values("best_ev", ascending=False).reset_index(drop=True), unmatched
+
+
+def main():
+    season, week = PROJECT_SEASON, PROJECT_WEEK
+    if season is None or week is None:
+        try:
+            season, week = detect_target_week()
+        except ValueError as e:        # offseason / playoffs: nothing to do, don't fail the workflow
+            print(e)
+            return
+    print(f"Target: {season} week {week}\n")
+    out_dir = resolve_out_dir()
+    print(f"Saving to: {os.path.abspath(out_dir)}\n")
+
+    played, parts, inj = build_table(project=(season, week))
+    played["is_future"] = False
+    fut = make_future_rows(played, parts, inj, season, week)
+
+    # Features are computed on history + future rows together; they're lagged,
+    # so a future row only sees games before it.
+    full = pd.concat([played, fut], ignore_index=True, sort=False)
+    full = full.sort_values(["player_id", "season", "week"]).reset_index(drop=True)
+    full = add_features(full)
+    hist = full[~full["is_future"]].copy()
+    fut = full[full["is_future"]].copy()
+
+    # Walk-forward backtest (only needed for dispersion); cached between runs
+    bt_path = os.path.join(out_dir, BACKTEST_CACHE)
+    if os.path.exists(bt_path) and not REFRESH_BACKTEST:
+        print(f"Using cached backtest: {bt_path} (set REFRESH_BACKTEST = True to redo)")
+        backtest = pd.read_csv(bt_path)
+    else:
+        backtest, m_targets = walk_forward(hist)
+        report(backtest, m_targets)
+        backtest.to_csv(bt_path, index=False)
+
+    # Which players get projected
+    scale = 100.0 if hist["offense_pct"].max() > 1.5 else 1.0
+    no_line = sorted(fut.loc[fut["implied_total"].isna(), "team"].unique())
+    if no_line:
+        print(f"No betting line yet, skipped teams: {no_line}")
+    fut = fut.dropna(subset=FEATURES)
+    fut = fut[(fut["games_prior"] >= MIN_PRIOR_GAMES)
+              & (fut["ewm_offense_pct"] >= MIN_SNAP_PCT * scale)]
+    out_names = sorted(fut.loc[fut["status"] == "Out", "player_display_name"])
+    fut = fut[fut["status"] != "Out"]
+    if out_names:
+        print(f"Excluded (listed Out): {out_names}")
+    if fut.empty:
+        raise ValueError("No players to project. Check the week, rosters and betting lines.")
+
+    train = hist.dropna(subset=FEATURES + [TARGET])
+    train = train[train["games_prior"] >= MIN_PRIOR_GAMES]
+    rates = play_rates(inj, parts["pw"], season * 100 + week)
+    print(f"Historical play rate by report status: {({k: round(v, 2) for k, v in rates.items()})}")
+
+    out, sims = project_upcoming(train, fut, backtest, rates)
+
+    stamp = pd.Timestamp.now(tz="UTC").strftime("%Y%m%d_%H%M")
+    base = os.path.join(out_dir, f"projections_{season}_wk{week}")
+    out.to_csv(f"{base}_{stamp}.csv", index=False)      # timestamped snapshot (keeps history)
+    path = f"{base}_latest.csv"
+    out.to_csv(path, index=False)
+
+    cols = ["player_display_name", "team", "opp", "position", "status",
+            "q25", "median", "q75", "mean", "p_zero"]
+    if PROP_LINES:
+        cols += ["line", "p_over", "p_under"]
+    rounding = {"q10": 0, "q25": 0, "median": 0, "q75": 0, "q90": 0, "mean": 1,
+                "p_zero": 2, "p_over": 2, "p_under": 2}
+    pd.set_option("display.width", 200)
+    print(f"\nTop projections, {season} week {week} ({len(out)} players total):")
+    print(out[cols].head(40).round(rounding).to_string(index=False))
+    print(f"\nSaved {path} (plus a timestamped snapshot)")
+
+    # ---- sportsbook lines ----
+    api_key = get_api_key()
+    if not api_key:
+        print("\nNo ODDS_API_KEY found, so sportsbook lines were skipped "
+              "(add it as a Colab Secret or environment variable).")
+        return
+    lines = get_lines(api_key, season, week, out_dir)
+    if lines is None or lines.empty:
+        print("\nNo lines returned yet (props usually post a day or two before kickoff).")
+        return
+    edges, unmatched = evaluate_lines(out, sims, lines)
+    if unmatched:
+        print(f"\nBook names not matched to a projected player ({len(unmatched)}): "
+              f"{unmatched[:15]}{' ...' if len(unmatched) > 15 else ''}")
+    if edges.empty:
+        print("No book lines matched any projected player.")
+        return
+    edges.to_csv(f"{base}_edges_{stamp}.csv", index=False)
+    edges.to_csv(f"{base}_edges_latest.csv", index=False)
+
+    top = edges.drop_duplicates("model_player").head(25)     # best book per player
+    show = top[["model_player", "team", "opp", "book", "best_side", "line", "best_price",
+                "model_median", "model_p", "fair_p", "best_ev"]]
+    print(f"\nLargest model-vs-book gaps ({len(edges)} book lines, best book per player):")
+    print(show.round({"model_median": 0, "model_p": 2, "fair_p": 2, "best_ev": 3})
+          .to_string(index=False))
+    print("EV is per 1 staked, from the model's probabilities. A big gap more often means "
+          "the model is missing news than that you've found an edge; check before acting.")
+
+
+if __name__ == "__main__":
+    main()
