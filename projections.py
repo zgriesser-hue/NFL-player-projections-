@@ -913,6 +913,11 @@ def evaluate_lines(out: pd.DataFrame, sims: np.ndarray, lines: pd.DataFrame):
     ].reset_index(drop=True).rename(columns={"player_display_name": "model_player",
                                              "median": "model_median", "mean": "model_mean"})
     li = pd.concat([li, info], axis=1)
+    # Median and mean disagree on skewed stats. Only call a side "confirmed" when the
+    # model's mean AND median are both on that side of the line.
+    ov = li["best_side"] == "over"
+    li["agree"] = np.where(ov, (li["model_mean"] > li["line"]) & (li["model_median"] > li["line"]),
+                           (li["model_mean"] < li["line"]) & (li["model_median"] < li["line"]))
     return li.sort_values("best_ev", ascending=False).reset_index(drop=True), unmatched
 
 
@@ -957,7 +962,8 @@ def build_email(out: pd.DataFrame, edges, season: int, week: int):
 
     lines_html = ""
     if edges is not None and len(edges):
-        top = edges.drop_duplicates("model_player").head(25)
+        conf = edges[edges["agree"]]
+        top = conf.drop_duplicates("model_player").head(25)
         erows = []
         for r in top.itertuples():
             side = "Over" if r.best_side == "over" else "Under"
@@ -973,8 +979,10 @@ def build_email(out: pd.DataFrame, edges, season: int, week: int):
                          + _cell(f"{r.best_ev:+.2f}", align="right") + "</tr>")
         lines_html = (
             "<h3 style='margin:18px 0 4px'>Our projection vs sportsbook lines</h3>"
-            "<p style='margin:0 0 6px;color:#555;font-size:12px'>Largest gaps first, best book per "
-            f"player ({len(edges)} book lines in all). Chances assume the player plays.</p>"
+            "<p style='margin:0 0 6px;color:#555;font-size:12px'>Only leans where our median AND "
+            f"average are on the same side of the line ({conf['model_player'].nunique()} of "
+            f"{edges['model_player'].nunique()} players). Largest gaps first, best book per player. "
+            "Chances assume the player plays.</p>"
             '<table style="border-collapse:collapse;font-size:13px">'
             + _head(["Player", "Game", "Book", "Book line", "OUR PROJECTION (yds)",
                      "Our lean (price)", "Our chance it hits", "Book's implied chance", "Edge (EV per $1)"])
@@ -1114,7 +1122,11 @@ def main():
     edges.to_csv(f"{base}_edges_{stamp}.csv", index=False)
     edges.to_csv(f"{base}_edges_latest.csv", index=False)
 
-    top = edges.drop_duplicates("model_player").head(25)     # best book per player
+    n_all = edges.drop_duplicates("model_player").shape[0]
+    conf = edges[edges["agree"]]
+    top = conf.drop_duplicates("model_player").head(25)     # best book per player
+    print(f"\n{conf['model_player'].nunique()} of {n_all} players have a "
+          "confirmed lean (model mean AND median on the same side of the line).")
     show = top[["model_player", "team", "opp", "book", "best_side", "line", "best_price",
                 "model_median", "model_p", "fair_p", "best_ev"]]
     print(f"\nLargest model-vs-book gaps ({len(edges)} book lines, best book per player):")
