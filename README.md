@@ -13,6 +13,17 @@ Two scripts, run on a schedule by GitHub Actions (`.github/workflows/nfl.yml`):
 
 After that it runs itself. Each run's printed output appears on its Actions page (Summary), and the CSVs land in `data/`.
 
+## Email (optional)
+Each run can email you. Projection runs send a formatted summary (top 40 projections, then model vs book
+lines) with the CSVs attached; scoring and A/B runs send their printed results. Add three repo secrets
+(Settings > Secrets and variables > Actions):
+- `EMAIL_USER`: the Gmail address that sends (a spare account is fine)
+- `EMAIL_APP_PASSWORD`: a Google app password (Google Account > Security > 2-Step Verification > App passwords;
+  your normal password won't work)
+- `EMAIL_TO`: where to receive it (optional; defaults to `EMAIL_USER`)
+No secrets = no email, and the run still succeeds. Test it with Actions > Run workflow > `score`.
+To get fewer emails, delete cron lines in `nfl.yml`.
+
 Manual runs: Actions > NFL props > Run workflow, pick `project`, `score`, `ab`, or `ab_features`.
 `ab_features` A/B tests practice-participation and game-day-weather features; flip
 `USE_PRACTICE_FEATURES` / `USE_WEATHER_FEATURES` in `projections.py` only if its verdict is a clear gain.

@@ -27,6 +27,7 @@ Self-contained (includes the v2 data pipeline).
 Setup:
     pip install nflreadpy pandas numpy lightgbm scikit-learn
 """
+import html as _html
 import os
 import re
 import unicodedata
@@ -730,6 +731,7 @@ def project_upcoming(train, fut, backtest, rates) -> tuple:
                                np.where(fut["prac_limited"] == 1, "Limited", ""))
     out["wind_mph"], out["temp_f"] = fut["wx_wind_mph"].to_numpy(), fut["wx_temp_f"].to_numpy()
     out["q10"], out["q25"], out["median"], out["q75"], out["q90"] = q10, q25, q50, q75, q90
+    out["projection"] = out["median"]          # OUR PROJECTION = the median outcome (same as `median`)
     out["mean"] = sims.mean(axis=1)
     out["p_zero"] = (sims == 0).mean(axis=1)
     out["exp_targets"] = p_pos * (1 + mu_pos)
@@ -914,6 +916,100 @@ def evaluate_lines(out: pd.DataFrame, sims: np.ndarray, lines: pd.DataFrame):
     return li.sort_values("best_ev", ascending=False).reset_index(drop=True), unmatched
 
 
+# ------------------------------------------------ emailed summary
+def _cell(x, bold=False, align="left"):
+    style = f"padding:4px 8px;text-align:{align};white-space:nowrap;border-bottom:1px solid #e5e5e5"
+    if bold:
+        style += ";font-weight:600"
+    return f'<td style="{style}">{x}</td>'
+
+
+def _head(cols):
+    return "<tr>" + "".join(
+        f'<th style="padding:6px 8px;text-align:left;background:#f3f3f3;white-space:nowrap">{c}</th>'
+        for c in cols) + "</tr>"
+
+
+def build_email(out: pd.DataFrame, edges, season: int, week: int):
+    """(subject, html): clearly labelled projections plus model-vs-book table."""
+    esc = _html.escape
+    now = pd.Timestamp.now(tz="America/New_York")
+    subject = f"NFL props: {season} Week {week} projections ({now.strftime('%a %-I:%M%p').lower()} ET)"
+
+    rows = []
+    for r in out.head(40).itertuples():
+        note = r.status if isinstance(r.status, str) and r.status else ""
+        if getattr(r, "practice", ""):
+            note = (note + " | " if note else "") + f"Practice: {r.practice}"
+        rows.append("<tr>" + _cell(esc(str(r.player_display_name)), bold=True)
+                    + _cell(f"{esc(str(r.team))} vs {esc(str(r.opp))}")
+                    + _cell(esc(str(r.position)))
+                    + _cell(f"{r.projection:.0f}", bold=True, align="right")
+                    + _cell(f"{r.q25:.0f}-{r.q75:.0f}", align="right")
+                    + _cell(f"{r.mean:.0f}", align="right")
+                    + _cell(f"{r.p_zero:.0%}", align="right")
+                    + _cell(esc(note)) + "</tr>")
+    proj_table = ('<table style="border-collapse:collapse;font-size:13px">'
+                  + _head(["Player", "Game", "Pos", "OUR PROJECTION (yds)",
+                           "Typical range (25th-75th pct)", "Average (mean)",
+                           "Chance of 0 yds", "Status"])
+                  + "".join(rows) + "</table>")
+
+    lines_html = ""
+    if edges is not None and len(edges):
+        top = edges.drop_duplicates("model_player").head(25)
+        erows = []
+        for r in top.itertuples():
+            side = "Over" if r.best_side == "over" else "Under"
+            price = f"{r.best_price:+.0f}"
+            erows.append("<tr>" + _cell(esc(str(r.model_player)), bold=True)
+                         + _cell(f"{esc(str(r.team))} vs {esc(str(r.opp))}")
+                         + _cell(esc(str(r.book)))
+                         + _cell(f"{r.line:g}", align="right")
+                         + _cell(f"{r.model_median:.0f}", bold=True, align="right")
+                         + _cell(f"{side} ({price})", bold=True)
+                         + _cell(f"{r.model_p:.0%}", align="right")
+                         + _cell(f"{r.fair_p:.0%}", align="right")
+                         + _cell(f"{r.best_ev:+.2f}", align="right") + "</tr>")
+        lines_html = (
+            "<h3 style='margin:18px 0 4px'>Our projection vs sportsbook lines</h3>"
+            "<p style='margin:0 0 6px;color:#555;font-size:12px'>Largest gaps first, best book per "
+            f"player ({len(edges)} book lines in all). Chances assume the player plays.</p>"
+            '<table style="border-collapse:collapse;font-size:13px">'
+            + _head(["Player", "Game", "Book", "Book line", "OUR PROJECTION (yds)",
+                     "Our lean (price)", "Our chance it hits", "Book's implied chance", "Edge (EV per $1)"])
+            + "".join(erows) + "</table>")
+    else:
+        lines_html = ("<p style='color:#555'>No sportsbook lines were available for this run "
+                      "(props usually post a day or two before kickoff).</p>")
+
+    body = f"""<div style="font-family:-apple-system,Segoe UI,Arial,sans-serif;max-width:900px">
+<h2 style="margin:0 0 4px">NFL receiving-yard projections: {season} Week {week}</h2>
+<p style="margin:0 0 10px;color:#555;font-size:12px">Model {esc(MODEL_VERSION)} | generated {now.strftime('%a %b %-d, %-I:%M %p')} ET |
+injury statuses are as of this run; designations usually finalize Friday.</p>
+<p style="font-size:13px;margin:0 0 8px"><b>How to read this:</b> <b>Our projection</b> is the median outcome:
+half of 2,000 simulated games landed above it, half below. <b>Average</b> runs higher because big games pull it up.
+The <b>typical range</b> holds the middle half of outcomes. All numbers assume the player plays.</p>
+<div style="overflow-x:auto">
+<h3 style="margin:12px 0 4px">Top 40 projections</h3>
+{proj_table}
+{lines_html}
+</div>
+<p style="color:#777;font-size:12px;margin-top:14px">A big gap between our projection and a book's line more often means the
+model is missing news than that there's an edge. Full tables are attached as CSV.</p>
+</div>"""
+    return subject, body
+
+
+def write_email(out, edges, season: int, week: int, out_dir: str) -> None:
+    subject, body = build_email(out, edges, season, week)
+    with open(os.path.join(out_dir, "email_latest.html"), "w", encoding="utf-8") as f:
+        f.write(body)
+    with open(os.path.join(out_dir, "email_subject.txt"), "w", encoding="utf-8") as f:
+        f.write(subject)
+    print(f"Email summary written ({subject})")
+
+
 def main():
     season, week = PROJECT_SEASON, PROJECT_WEEK
     if season is None or week is None:
@@ -981,14 +1077,18 @@ def main():
     out.to_csv(path, index=False)
 
     cols = ["player_display_name", "team", "opp", "position", "status", "practice",
-            "q25", "median", "q75", "mean", "p_zero"]
+            "q25", "projection", "q75", "mean", "p_zero"]
     if PROP_LINES:
         cols += ["line", "p_over", "p_under"]
-    rounding = {"q10": 0, "q25": 0, "median": 0, "q75": 0, "q90": 0, "mean": 1,
+    rounding = {"q10": 0, "q25": 0, "projection": 0, "q75": 0, "q90": 0, "mean": 1,
                 "p_zero": 2, "p_over": 2, "p_under": 2}
-    pd.set_option("display.width", 200)
+    labels = {"player_display_name": "player", "projection": "OUR_PROJECTION", "q25": "range_low(25%)",
+              "q75": "range_high(75%)", "mean": "average", "p_zero": "chance_0_yds"}
+    pd.set_option("display.width", 220)
     print(f"\nTop projections, {season} week {week} ({len(out)} players total):")
-    print(out[cols].head(40).round(rounding).to_string(index=False))
+    print("OUR_PROJECTION = median outcome (half of simulated games land above, half below); "
+          "average is higher because big games pull it up.")
+    print(out[cols].head(40).round(rounding).rename(columns=labels).to_string(index=False))
     print(f"\nSaved {path} (plus a timestamped snapshot)")
 
     # ---- sportsbook lines ----
@@ -996,10 +1096,12 @@ def main():
     if not api_key:
         print("\nNo ODDS_API_KEY found, so sportsbook lines were skipped "
               "(add it as a Colab Secret or environment variable).")
+        write_email(out, None, season, week, out_dir)
         return
     lines = get_lines(api_key, season, week, out_dir)
     if lines is None or lines.empty:
         print("\nNo lines returned yet (props usually post a day or two before kickoff).")
+        write_email(out, None, season, week, out_dir)
         return
     edges, unmatched = evaluate_lines(out, sims, lines)
     if unmatched:
@@ -1007,6 +1109,7 @@ def main():
               f"{unmatched[:15]}{' ...' if len(unmatched) > 15 else ''}")
     if edges.empty:
         print("No book lines matched any projected player.")
+        write_email(out, None, season, week, out_dir)
         return
     edges.to_csv(f"{base}_edges_{stamp}.csv", index=False)
     edges.to_csv(f"{base}_edges_latest.csv", index=False)
@@ -1019,6 +1122,7 @@ def main():
           .to_string(index=False))
     print("EV is per 1 staked, from the model's probabilities. A big gap more often means "
           "the model is missing news than that you've found an edge; check before acting.")
+    write_email(out, edges, season, week, out_dir)
 
 
 if __name__ == "__main__":
