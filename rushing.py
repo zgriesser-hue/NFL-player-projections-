@@ -34,12 +34,27 @@ MIN_SNAP_RB = 0.20          # skip RBs whose recent snap share is below this
 MIN_SNAP_QB = 0.50          # QBs: only recent starters
 CLIP_YPC = 1.0
 
-BASE_FEATURES = (
+USE_VAC_FEATURES = False    # flip to True only after ab_rushing.py shows a clear gain
+VAC_FEATURES = ["vac_all_carries", "vac_all_n"]
+_CORE = (
     [f"ewm_{c}" for c in FORM]
     + ["games_prior", "implied_total", "spread", "is_home",
        "inj_out_carries", "inj_n_out_rb", "self_questionable", "is_qb"]
 )
+BASE_FEATURES = _CORE + (VAC_FEATURES if USE_VAC_FEATURES else [])
 FEATURES = BASE_FEATURES + ["ewm_ypc"]
+
+
+if USE_VAC_FEATURES:
+    BACKTEST_CACHE = "rushing_backtest_r4v.csv"
+    MODEL_VERSION = "rush-r1v"
+
+
+def set_vac(use: bool) -> None:
+    """Switch the vacated-carries features on/off (used by ab_rushing.py)."""
+    global BASE_FEATURES, FEATURES
+    BASE_FEATURES = _CORE + (VAC_FEATURES if use else [])
+    FEATURES = BASE_FEATURES + ["ewm_ypc"]
 BASELINE_COL = f"ewm_{TARGET}"
 MEDIAN_COL = "med_rushing_yards"
 
@@ -154,6 +169,42 @@ def make_future_rows(played, parts, inj, season: int, week: int) -> pd.DataFrame
 
 
 # ----------------------------------------------------------- features
+def add_vac_features(full: pd.DataFrame) -> pd.DataFrame:
+    """Carries 'vacated' by backs who were carrying recently but are not in this team-week's active group.
+
+    The injury report only lists players who are Out that week. A back placed on IR, cut or traded drops
+    off the report, so his carries were never counted as vacated (for example a team's lead back on IR).
+    For each team-week: every RB who played for the team in its previous 3 games and is absent now
+    contributes his recent carry form. For the upcoming week, absent = not on the active roster, or Out.
+    Output columns: vac_all_carries (sum of form), vac_all_n (backs absent with form >= 3 carries).
+    """
+    rb = full[full["position"] == "RB"]
+    played = rb[~rb["is_future"]].sort_values(["player_id", "season", "week"]).copy()
+    played["form_after"] = played.groupby("player_id")["carries"].transform(
+        lambda s: s.ewm(halflife=P.HALFLIFE, min_periods=1).mean())
+    pf = {k: g for k, g in played.groupby(["team", "season"])}
+    rows = []
+    for (team, season), g in rb.groupby(["team", "season"]):
+        weeks = sorted(g["week"].unique())
+        pg = pf.get((team, season))
+        for i, w in enumerate(weeks):
+            vac, n = 0.0, 0
+            if i > 0 and pg is not None:
+                prev = pg[pg["week"].isin(weeks[max(0, i - 3):i])]
+                cand = prev.sort_values("week").groupby("player_id").tail(1)
+                now = g[g["week"] == w]
+                if "status" in now.columns:
+                    now = now[now["status"].fillna("") != "Out"]
+                gone = cand[~cand["player_id"].isin(set(now["player_id"]))]
+                vac, n = float(gone["form_after"].sum()), int((gone["form_after"] >= 3).sum())
+            rows.append((team, season, w, vac, n))
+    vac = pd.DataFrame(rows, columns=["team", "season", "week", "vac_all_carries", "vac_all_n"])
+    out = full.drop(columns=[c for c in VAC_FEATURES if c in full.columns]).merge(
+        vac, on=["team", "season", "week"], how="left")
+    out[VAC_FEATURES] = out[VAC_FEATURES].fillna(0)
+    return out
+
+
 def add_features(df: pd.DataFrame) -> pd.DataFrame:
     g = df.groupby("player_id", group_keys=False)
     for col in FORM:
@@ -415,6 +466,7 @@ def main():
     fut = make_future_rows(played, parts, inj, season, week)
     full = pd.concat([played, fut], ignore_index=True, sort=False)
     full = full.sort_values(["player_id", "season", "week"]).reset_index(drop=True)
+    full = add_vac_features(full)
     full = add_features(full)
     hist = full[~full["is_future"]].copy()
     fut = full[full["is_future"]].copy()

@@ -141,10 +141,15 @@ def build_notes(hist: pd.DataFrame, fut: pd.DataFrame, sleeper=None, depth=None)
             n.append(f"Sleeper status: {si}")
         if isinstance(getattr(r, "s_injury", None), str):
             n.append(f"Sleeper injury: {r.s_injury}")
-        if isinstance(st, str) and st != r.team:
+        if isinstance(st, str) and P.fix_team(pd.Series([st])).iloc[0] != r.team:
             n.append(f"Sleeper lists team {st} (we have {r.team})")
         if sd == sd and sd is not None and r.position == "RB":
             n.append(f"Sleeper depth #{int(sd)}")
+            ours = [x for x in (getattr(r, "depth_rank", float("nan")), r.form_rank) if x == x]
+            if int(sd) == 1 and ours and min(ours) >= 2:
+                n.append("LIKELY PROMOTED to starter: our projection may be too low")
+            elif int(sd) >= 2 and r.form_rank == 1:
+                n.append("possible DEMOTION: Sleeper has him behind another back")
         notes.append("; ".join(n))
     return pd.DataFrame({"player_id": f["player_id"].to_numpy(), "role_note": notes})
 

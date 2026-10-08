@@ -29,6 +29,8 @@ Manual runs: Actions > NFL props > Run workflow, pick `project`, `score`, `ab`, 
 `USE_PRACTICE_FEATURES` / `USE_WEATHER_FEATURES` in `projections.py` only if its verdict is a clear gain.
 `ab` runs `ab_opponent.py`, an A/B backtest of the opponent defense-vs-position features. If it
 shows a clear gain, set `USE_OPP_FEATURES = True` at the top of `projections.py`.
+`ab_rushing` A/B tests the rushing model's vacated-carries features (carries of backs on IR, cut or traded);
+set `USE_VAC_FEATURES = True` at the top of `rushing.py` only if its verdict is a clear gain.
 Snapshots and the scorecard carry a `model_version` column so results stay comparable.
 Holiday weeks (Thanksgiving, Christmas) have odd kickoff times: trigger a manual run beforehand.
 Injury overrides / sportsbook settings live in the config block at the top of `projections.py`.
