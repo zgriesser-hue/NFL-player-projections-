@@ -83,6 +83,30 @@ def main():
         names = sorted(p for p in players if p)[:12]
         print("sample player names (check they match nflverse style):", names)
 
+    print("\n== 2b. Several markets in ONE call (credit cost, and rushing/receptions coverage) ==")
+    try:
+        mk_txt = json.dumps(get("/v1/markets", {"sport": SPORT})[1].json())
+        cands = sorted({w.strip('"[]{}') for w in mk_txt.replace(",", " ").replace(":", " ").split()
+                        if ("rush" in w.lower() or "recept" in w.lower()) and w.lower().startswith('"player')})
+        print("rushing/receptions market keys listed:", cands[:25] or "none found")
+    except Exception as e:
+        print("could not list markets:", e)
+    multi = os.environ.get("PARLAY_TEST_MARKETS", "player_rec_yds,player_rush_yds,player_receptions")
+    base, r = get(f"/v1/sports/{SPORT}/props", {"markets": multi, "limit": 10000})
+    print(f"markets asked: {multi} | HTTP {r.status_code} | credits: {credit_headers(r)}")
+    if r.status_code == 200:
+        rows = r.json()
+        rows = rows if isinstance(rows, list) else rows.get("data", rows.get("props", []))
+        by_mk = {}
+        for x in rows:
+            d = by_mk.setdefault(x.get("market_key"), {"rows": 0, "books": set()})
+            d["rows"] += 1
+            d["books"].add(x.get("bookmaker"))
+        for mk, d in sorted(by_mk.items(), key=lambda kv: -kv[1]["rows"]):
+            print(f"  {mk}: {d['rows']} rows | books: {sorted(d['books'])}")
+    else:
+        print(r.text[:300])
+
     date = os.environ.get("PARLAY_TEST_CLOSING_DATE", "").strip()
     if date:
         print(f"\n== 3. Closing odds for {date} (10 credits) ==")

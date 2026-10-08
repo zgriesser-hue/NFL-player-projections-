@@ -45,3 +45,12 @@ those files as the closing line when it grades CLV (`scorecard_clv.csv`).
 - Cron times are UTC. After the clocks change in November, runs land an hour earlier relative to
   kickoff; the script's 150-minute window still covers it. A sixth run at about 8:50am ET Sunday covers 9:30am London-type games; it checks the NFL schedule first and uses no credits if no game kicks off before noon.
 - Test by hand: Actions -> Run workflow -> `closing` (only finds games starting within 150 minutes).
+
+## Rushing yards and receptions
+
+- `rushing.py` projects rushing yards for RBs and QBs (two-stage simulation: carries, then yards per carry).
+  It runs first inside the `project` task, writes `data/rushing_*_latest.csv`, and adds a rushing table to the email.
+  It has no sportsbook comparison or scoring yet. Run it alone with Actions -> Run workflow -> `rushing`.
+- Receptions for WR/TE come from the existing receiving model's simulation: new `rec_projection`,
+  `rec_q25`, `rec_q75` columns in the projections CSV and an "OUR RECEPTIONS" column in the email.
+  The first run after updating recomputes the receiving backtest once (cache name `receiving_backtest_v6b.csv`).

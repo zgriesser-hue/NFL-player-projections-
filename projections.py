@@ -55,7 +55,7 @@ MANUAL_QUESTIONABLE = []    # display names to treat as Questionable
 PROP_LINES = {}             # {"Player Name": 64.5} adds P(over) / P(under) columns
 MIN_SNAP_PCT = 0.20         # skip players whose recent snap share is below this fraction
 REFRESH_BACKTEST = False    # True = re-run the walk-forward backtest instead of using the cache
-BACKTEST_CACHE = "receiving_backtest_v5.csv"
+BACKTEST_CACHE = "receiving_backtest_v6b.csv"   # v6b adds receptions columns
 
 # ---- Opponent defense-vs-position ----
 USE_OPP_FEATURES = False    # flip to True only after ab_opponent.py shows a real gain
@@ -530,8 +530,9 @@ def estimate_dispersion(hist: pd.DataFrame):
     return k, s, est
 
 
-def simulate(p_pos, mu_pos, p_catch, ypr, k, s, rng) -> np.ndarray:
-    """Returns (n_rows, N_SIMS) simulated receiving yards (hurdle for targets)."""
+def simulate(p_pos, mu_pos, p_catch, ypr, k, s, rng, return_catches: bool = False):
+    """Returns (n_rows, N_SIMS) simulated receiving yards (hurdle for targets).
+    With return_catches=True also returns the simulated receptions (same draws)."""
     shp = (len(mu_pos), N_SIMS)
     mu_c, k_c, s_c = mu_pos[:, None], k[:, None], s[:, None]
     targeted = rng.random(shp) < p_pos[:, None]
@@ -539,7 +540,8 @@ def simulate(p_pos, mu_pos, p_catch, ypr, k, s, rng) -> np.ndarray:
     targets = np.where(targeted, 1 + extra, 0)
     catches = rng.binomial(targets, p_catch[:, None])
     yards = rng.gamma(np.maximum(s_c * catches, 1e-9), (ypr[:, None] / s_c), size=shp)
-    return np.where(catches > 0, yards, 0.0)
+    yards = np.where(catches > 0, yards, 0.0)
+    return (yards, catches) if return_catches else yards
 
 
 # ---------------------------------------------------------- modeling
@@ -592,7 +594,7 @@ def walk_forward(df: pd.DataFrame):
         k = wk["position"].map(k_by).to_numpy(dtype=float)
         s = wk["position"].map(s_by).to_numpy(dtype=float)
 
-        sims = simulate(p_pos, mu_pos, p_catch, ypr, k, s, rng)
+        sims, rec_sims = simulate(p_pos, mu_pos, p_catch, ypr, k, s, rng, return_catches=True)
         q10, q25, q50, q75, q90 = np.percentile(sims, [10, 25, 50, 75, 90], axis=1)
 
         # Randomized PIT: handles the point mass at zero (and integer-ish outcomes)
@@ -602,7 +604,7 @@ def walk_forward(df: pd.DataFrame):
 
         out = wk[["player_id", "player_display_name", "season", "week", "position",
                   TARGET, "targets", "receptions", BASELINE_COL, MEDIAN_COL,
-                  "ewm_targets"]].copy()
+                  "ewm_targets", "ewm_receptions"]].copy()
         out["p_pos"], out["mu_pos"] = p_pos, mu_pos
         out["mu_targets"] = p_pos * (1 + mu_pos)       # expected targets
         out["p_catch"], out["ypr_pred"] = p_catch, ypr
@@ -611,6 +613,10 @@ def walk_forward(df: pd.DataFrame):
         out["sim_q10"], out["sim_q25"], out["sim_q50"] = q10, q25, q50
         out["sim_q75"], out["sim_q90"] = q75, q90
         out["p_zero"] = (sims == 0).mean(axis=1)
+        out["sim_rec_mean"] = rec_sims.mean(axis=1)
+        out["sim_rec_q50"] = np.median(rec_sims, axis=1)
+        out["sim_rec_q25"] = np.percentile(rec_sims, 25, axis=1)
+        out["sim_rec_q75"] = np.percentile(rec_sims, 75, axis=1)
         out["pit"] = pit_lo + rng.random(len(out)) * (pit_hi - pit_lo)
         out["disp_est"] = wk["position"].map(est_by).to_numpy(dtype=bool)
         preds.append(out)
@@ -658,6 +664,19 @@ def report(res: pd.DataFrame, m_targets) -> None:
     deciles = np.histogram(cal["pit"], bins=10, range=(0, 1))[0] / len(cal)
     print("  PIT decile shares (expected 10% each): "
           + " ".join(f"{d:.0%}" for d in deciles))
+
+    if "sim_rec_q50" in res.columns:
+        r = res.dropna(subset=["sim_rec_q50"])
+        act = r["receptions"]
+        base = r["ewm_receptions"] if "ewm_receptions" in r else None
+        print(f"\nReceptions on {len(r):,} rows:")
+        if base is not None:
+            print(f"  MAE: EWMA baseline {np.mean(np.abs(act - base)):.3f} "
+                  f"| two-stage median {np.mean(np.abs(act - r['sim_rec_q50'])):.3f} "
+                  f"| two-stage mean {np.mean(np.abs(act - r['sim_rec_mean'])):.3f}")
+        print(f"  inside q25-q75 {((act >= r['sim_rec_q25']) & (act <= r['sim_rec_q75'])).mean():.1%} "
+              f"(integer outcomes make this run above 50%) | mean actual {act.mean():.2f} "
+              f"vs predicted {r['sim_rec_mean'].mean():.2f}")
 
     print("\nZero-yard games (actual share vs mean predicted P(0)):")
     for pos, sub in res.groupby("position"):
@@ -712,7 +731,7 @@ def project_upcoming(train, fut, backtest, rates) -> tuple:
     k = fut["position"].map(k_by).to_numpy(dtype=float)
     s = fut["position"].map(s_by).to_numpy(dtype=float)
 
-    sims = simulate(p_pos, mu_pos, p_catch, ypr, k, s, rng)
+    sims, rec_sims = simulate(p_pos, mu_pos, p_catch, ypr, k, s, rng, return_catches=True)
     q10, q25, q50, q75, q90 = np.percentile(sims, [10, 25, 50, 75, 90], axis=1)
 
     pmap = {"Out": 0.0,
@@ -734,6 +753,11 @@ def project_upcoming(train, fut, backtest, rates) -> tuple:
     out["projection"] = out["median"]          # OUR PROJECTION = the median outcome (same as `median`)
     out["mean"] = sims.mean(axis=1)
     out["p_zero"] = (sims == 0).mean(axis=1)
+    out["rec_projection"] = np.median(rec_sims, axis=1)       # OUR receptions projection (median)
+    out["rec_mean"] = rec_sims.mean(axis=1)
+    out["rec_q25"] = np.percentile(rec_sims, 25, axis=1)
+    out["rec_q75"] = np.percentile(rec_sims, 75, axis=1)
+    out["rec_p_zero"] = (rec_sims == 0).mean(axis=1)
     out["exp_targets"] = p_pos * (1 + mu_pos)
     out["p_catch"], out["ypr"] = p_catch, ypr
     out["model_version"] = MODEL_VERSION
@@ -751,7 +775,7 @@ def project_upcoming(train, fut, backtest, rates) -> tuple:
             print(f"WARNING: PROP_LINES names not matched to any projected player: {sorted(unmatched)}")
 
     order = np.argsort(-out["mean"].to_numpy())
-    return out.iloc[order].reset_index(drop=True), sims[order]
+    return out.iloc[order].reset_index(drop=True), sims[order], rec_sims[order]
 
 
 # ------------------------------------------------ sportsbook lines
@@ -935,7 +959,7 @@ def _head(cols):
         for c in cols) + "</tr>"
 
 
-def build_email(out: pd.DataFrame, edges, season: int, week: int):
+def build_email(out: pd.DataFrame, edges, season: int, week: int, extra_html: str = ""):
     """(subject, html): clearly labelled projections plus model-vs-book table."""
     esc = _html.escape
     now = pd.Timestamp.now(tz="America/New_York")
@@ -953,11 +977,14 @@ def build_email(out: pd.DataFrame, edges, season: int, week: int):
                     + _cell(f"{r.q25:.0f}-{r.q75:.0f}", align="right")
                     + _cell(f"{r.mean:.0f}", align="right")
                     + _cell(f"{r.p_zero:.0%}", align="right")
+                    + _cell(("" if pd.isna(getattr(r, "rec_projection", np.nan))
+                             else f"{r.rec_projection:.0f} ({r.rec_q25:.0f}-{r.rec_q75:.0f})"),
+                            align="right")
                     + _cell(esc(note)) + "</tr>")
     proj_table = ('<table style="border-collapse:collapse;font-size:13px">'
                   + _head(["Player", "Game", "Pos", "OUR PROJECTION (yds)",
                            "Typical range (25th-75th pct)", "Average (mean)",
-                           "Chance of 0 yds", "Status"])
+                           "Chance of 0 yds", "OUR RECEPTIONS (25th-75th)", "Status"])
                   + "".join(rows) + "</table>")
 
     lines_html = ""
@@ -1002,6 +1029,7 @@ The <b>typical range</b> holds the middle half of outcomes. All numbers assume t
 <h3 style="margin:12px 0 4px">Top 40 projections</h3>
 {proj_table}
 {lines_html}
+{extra_html}
 </div>
 <p style="color:#777;font-size:12px;margin-top:14px">A big gap between our projection and a book's line more often means the
 model is missing news than that there's an edge. Full tables are attached as CSV.</p>
@@ -1010,7 +1038,12 @@ model is missing news than that there's an edge. Full tables are attached as CSV
 
 
 def write_email(out, edges, season: int, week: int, out_dir: str) -> None:
-    subject, body = build_email(out, edges, season, week)
+    extra = ""
+    part = os.path.join(out_dir, "rushing_email_part.html")      # written by rushing.py if it ran first
+    if os.path.exists(part):
+        with open(part, encoding="utf-8") as f:
+            extra = f.read()
+    subject, body = build_email(out, edges, season, week, extra_html=extra)
     with open(os.path.join(out_dir, "email_latest.html"), "w", encoding="utf-8") as f:
         f.write(body)
     with open(os.path.join(out_dir, "email_subject.txt"), "w", encoding="utf-8") as f:
@@ -1076,7 +1109,7 @@ def main():
     rates = play_rates(inj, parts["pw"], season * 100 + week)
     print(f"Historical play rate by report status: {({k: round(v, 2) for k, v in rates.items()})}")
 
-    out, sims = project_upcoming(train, fut, backtest, rates)
+    out, sims, rec_sims = project_upcoming(train, fut, backtest, rates)
 
     stamp = pd.Timestamp.now(tz="UTC").strftime("%Y%m%d_%H%M")
     base = os.path.join(out_dir, f"projections_{season}_wk{week}")
@@ -1085,13 +1118,14 @@ def main():
     out.to_csv(path, index=False)
 
     cols = ["player_display_name", "team", "opp", "position", "status", "practice",
-            "q25", "projection", "q75", "mean", "p_zero"]
+            "q25", "projection", "q75", "mean", "p_zero", "rec_projection"]
     if PROP_LINES:
         cols += ["line", "p_over", "p_under"]
     rounding = {"q10": 0, "q25": 0, "projection": 0, "q75": 0, "q90": 0, "mean": 1,
                 "p_zero": 2, "p_over": 2, "p_under": 2}
     labels = {"player_display_name": "player", "projection": "OUR_PROJECTION", "q25": "range_low(25%)",
-              "q75": "range_high(75%)", "mean": "average", "p_zero": "chance_0_yds"}
+              "q75": "range_high(75%)", "mean": "average", "p_zero": "chance_0_yds",
+              "rec_projection": "OUR_RECEPTIONS"}
     pd.set_option("display.width", 220)
     print(f"\nTop projections, {season} week {week} ({len(out)} players total):")
     print("OUR_PROJECTION = median outcome (half of simulated games land above, half below); "
