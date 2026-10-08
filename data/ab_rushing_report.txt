@@ -1,0 +1,22 @@
+Building data...
+
+Backtest A: baseline features
+
+Backtest B: + vacated-carries features
+
+4,305 player-weeks, 36 weeks; 621 with 8+ vacated carries
+                                    base    + vac     gain  95% CI  weeks better
+  MAE (median)                    16.104   15.978   +0.78%  ±0.53%     67%
+  RMSE (mean)                     24.692   24.558   +0.54%  ±0.39%     64%
+  Pinball (5 quantiles)            5.689    5.651   +0.68%  ±0.40%     69%
+
+MAE by position:
+  RB                              18.123   17.961   +0.90%  ±0.71%     64%
+  QB                              11.432   11.389   +0.37%  ±0.73%     50%
+
+MAE where 8+ carries are vacated (the situation the feature targets):
+  vacated >= 8                    16.939   16.503   +2.58%  ±2.17%     53%
+  vacated < 8                     15.963   15.889   +0.46%  ±0.44%     61%
+
+Verdict:
+  Clear gain on both MAE and pinball. Set USE_VAC_FEATURES = True in rushing.py.
