@@ -22,8 +22,35 @@ on:
       task:
         description: "What to run"
         type: choice
-        options: [project, rushing, score, bets, closing, closing_early, ab, ab_features, ab_rushing, parlay_test]
+        options: [project, rushing, score, bets, add_bet, closing, closing_early, ab, ab_features, ab_rushing, parlay_test]
         default: project
+      bet_player:
+        description: "add_bet only: player name, e.g. George Pickens"
+        type: string
+      bet_stat:
+        description: "add_bet only: stat"
+        type: choice
+        options: [rec_yds, rush_yds, receptions]
+        default: rec_yds
+      bet_side:
+        description: "add_bet only: over or under"
+        type: choice
+        options: [over, under]
+        default: over
+      bet_line:
+        description: "add_bet only: line, e.g. 65.5"
+        type: string
+      bet_odds:
+        description: "add_bet only: American odds, e.g. -113"
+        type: string
+      bet_stake:
+        description: "add_bet only: stake in dollars, e.g. 25"
+        type: string
+      bet_book:
+        description: "add_bet only: sportsbook"
+        type: choice
+        options: [draftkings, fanduel, betmgm, caesars, betrivers, espnbet, fanatics, other]
+        default: draftkings
 
 permissions:
   contents: write
@@ -41,6 +68,13 @@ jobs:
       ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
       PARLAY_API_KEY: ${{ secrets.PARLAY_API_KEY }}
       PARLAY_TEST_CLOSING_DATE: ${{ vars.PARLAY_TEST_CLOSING_DATE }}
+      BET_PLAYER: ${{ inputs.bet_player }}
+      BET_STAT: ${{ inputs.bet_stat }}
+      BET_SIDE: ${{ inputs.bet_side }}
+      BET_LINE: ${{ inputs.bet_line }}
+      BET_ODDS: ${{ inputs.bet_odds }}
+      BET_STAKE: ${{ inputs.bet_stake }}
+      BET_BOOK: ${{ inputs.bet_book }}
     steps:
       - uses: actions/checkout@v4
 
@@ -90,6 +124,10 @@ jobs:
             python -u score_extra.py 2>&1 | tee -a run.log || echo "score_extra failed; receiving-yards scoring above is unaffected."
             # grade the bets actually placed (data/bets.csv); a failure here must not fail the run
             python -u bets.py grade 2>&1 | tee -a run.log || echo "bet grading failed; scoring above is unaffected."
+          elif [ "${{ steps.task.outputs.name }}" = "add_bet" ]; then
+            # the bet comes in through env vars (never pasted into the shell command)
+            python -u bets.py add --book "$BET_BOOK" --player "$BET_PLAYER" --stat "$BET_STAT" --side "$BET_SIDE" \
+              --line "$BET_LINE" --odds "$BET_ODDS" --stake "$BET_STAKE" 2>&1 | tee run.log
           elif [ "${{ steps.task.outputs.name }}" = "bets" ]; then
             python -u bets.py grade 2>&1 | tee run.log
           elif [ "${{ steps.task.outputs.name }}" = "project" ]; then
@@ -112,7 +150,7 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Email results
-        if: success() && !startsWith(steps.task.outputs.name, 'closing')
+        if: success() && !startsWith(steps.task.outputs.name, 'closing') && steps.task.outputs.name != 'add_bet'
         continue-on-error: true
         shell: bash
         env:

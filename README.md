@@ -77,3 +77,6 @@ those files as the closing line when it grades CLV (`scorecard_clv.csv`).
 `data/bets.csv` is the ledger of props actually bet. `python bets.py add ...` records a bet (with the model's numbers at the time),
 and `bets.py grade` (also run automatically with the Tuesday/Wednesday `score` task, or on demand with the `bets` task) grades finished
 games, computes closing-line value from the closing snapshots, and prints the record, ROI, and CLV. See the header of `bets.py`.
+
+To log a bet from your phone without a receipt screenshot: Actions, Run workflow, choose task `add_bet`, fill in the `bet_*` fields (player, stat, side, line, odds, stake, book).
+The game, week and the model's numbers are filled in automatically from the latest line snapshots.

@@ -82,6 +82,25 @@ def save_ledger(d: str, df: pd.DataFrame) -> None:
 
 
 # ------------------------------------------------------------------ add
+def infer_game(d: str, stat: str, player: str):
+    """season, week, team, kickoff for a player from the newest saved line snapshots (None if he is not in them)."""
+    prefix = EDGE_PREFIX[stat]
+    pat = re.compile(rf"{prefix}_(\d{{4}})_wk(\d+)_edges_\d{{8}}_\d{{4}}\.csv$")
+    found = sorted({(int(m.group(1)), int(m.group(2))) for f in os.listdir(d) if (m := pat.match(f))})
+    for season, week in reversed(found[-2:]):
+        key = name_key(player)
+        for f in sorted(os.listdir(d), reverse=True):
+            m = pat.match(f)
+            if not m or (int(m.group(1)), int(m.group(2))) != (season, week):
+                continue
+            df = pd.read_csv(os.path.join(d, f))
+            hit = df[df["name_key"] == key]
+            if len(hit):
+                r = hit.iloc[0]
+                return season, week, r.get("team"), r.get("commence_time")
+    return None
+
+
 def model_at_bet(d: str, stat: str, season, week, player: str, book: str, side: str, line: float, placed_at):
     """The model's numbers from the latest saved snapshot taken before the bet was placed."""
     prefix = EDGE_PREFIX[stat]
@@ -121,6 +140,16 @@ def cmd_add(a) -> None:
     placed = pd.Timestamp(a.placed) if a.placed else pd.Timestamp.now(tz="UTC")
     placed = placed.tz_localize("UTC") if placed.tzinfo is None else placed.tz_convert("UTC")
     payout = a.payout if a.payout else round(a.stake * decimal(a.odds), 2)
+    if not (a.season and a.week):
+        g = infer_game(d, a.stat, a.player)
+        if g:
+            a.season, a.week = g[0], g[1]
+            a.game = a.game or (f"{g[2]} game" if isinstance(g[2], str) else "")
+            a.kickoff = a.kickoff or (g[3] if isinstance(g[3], str) else "")
+            print(f"  matched {a.player} to {g[2]}, season {g[0]} week {g[1]}")
+        else:
+            print(f"  WARNING: {a.player} is not in the latest {a.stat} line snapshots, so season/week are blank "
+                  f"and this bet cannot be graded until they are filled in.")
     row = {"ticket": ticket, "placed_at": placed.strftime("%Y-%m-%dT%H:%M:%SZ"), "book": a.book.lower(),
            "season": a.season, "week": a.week, "game": a.game, "kickoff": a.kickoff, "player": a.player,
            "stat": a.stat, "side": a.side.lower(), "line": a.line, "odds": a.odds, "stake": a.stake,
