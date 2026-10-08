@@ -137,6 +137,26 @@ def tidy(raw: pd.DataFrame) -> pd.DataFrame:
     return d[cols].reset_index(drop=True)
 
 
+def _funnel(raw: pd.DataFrame, df: pd.DataFrame, window=None) -> None:
+    """Explain where raw rows go (diagnostics for 'no lines' cases)."""
+    try:
+        if raw is None or raw.empty:
+            print("ParlayAPI diagnostics: 0 raw rows")
+            return
+        print(f"ParlayAPI diagnostics: {len(raw)} raw rows")
+        if "market_key" in raw:
+            print("  by market_key:", raw["market_key"].value_counts().head(12).to_dict())
+        if "bookmaker" in raw:
+            print("  by bookmaker:", raw["bookmaker"].value_counts().head(15).to_dict())
+        if "commence_time" in raw:
+            t = pd.to_datetime(raw["commence_time"], utc=True, errors="coerce")
+            print(f"  kickoff range in raw: {t.min()} to {t.max()}")
+        print(f"  after sportsbook/market filter: {len(df)} lines",
+              (df.groupby('stat')['name_key'].nunique().to_dict() if len(df) else ""))
+    except Exception as e:
+        print(f"(diagnostics failed: {e})")
+
+
 def get_lines(key: str, season: int, week: int, out_dir: str, window=None) -> pd.DataFrame:
     """Tidy lines for the target week's games (window = (start, end) UTC timestamps), cached for an hour."""
     raw_path = os.path.join(out_dir, f"lines_parlay_{season}_wk{week}_raw.csv")
@@ -154,9 +174,11 @@ def get_lines(key: str, season: int, week: int, out_dir: str, window=None) -> pd
         print(f"ParlayAPI: {len(raw)} raw rows | credits used {resp.headers.get('x-requests-last')} "
               f"| remaining {resp.headers.get('x-requests-remaining')}")
     df = tidy(raw)
+    _funnel(raw, df, window)
     if window is not None and len(df):
         t = pd.to_datetime(df["commence_time"], utc=True)
         df = df[(t >= window[0]) & (t <= window[1])].reset_index(drop=True)
+        print(f"ParlayAPI after week window {window[0]:%m-%d %H:%M} to {window[1]:%m-%d %H:%M} UTC: {len(df)} lines")
     if len(df):
         df["fetched_at"] = pd.Timestamp.now(tz="UTC").isoformat()
         df.to_csv(raw_path, index=False)

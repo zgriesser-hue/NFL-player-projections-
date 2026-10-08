@@ -457,6 +457,8 @@ def main():
         except Exception as e:
             print(f"ParlayAPI lines skipped ({e})")
             plines = pd.DataFrame()
+        if not len(plines):
+            print("\nParlayAPI: no usable rushing lines yet (see diagnostics above); projections only.")
         if len(plines):
             html_edges, _ = P.stat_edges(out, sims, plines[plines["stat"] == "rush_yds"], "Rushing yards",
                                          "rushing", "yds", season, week, out_dir, stamp)
