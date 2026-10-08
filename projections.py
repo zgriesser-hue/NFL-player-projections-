@@ -898,7 +898,11 @@ def american_to_decimal(a) -> np.ndarray:
     return np.where(a > 0, 1 + a / 100, 1 + 100 / -a)
 
 
-def evaluate_lines(out: pd.DataFrame, sims: np.ndarray, lines: pd.DataFrame):
+SHRINK_EXTRA = 0.6          # weight on OUR probability for rushing/receptions edges (rest = book's no-vig)
+CHECK_EV, CHECK_GAP = 0.30, 0.35
+
+
+def evaluate_lines(out: pd.DataFrame, sims: np.ndarray, lines: pd.DataFrame, shrink: float = 1.0):
     """Model P(over)/P(under) at each book's line, vs. the book's no-vig price and EV.
 
     Probabilities are conditional on the player playing (props normally void otherwise).
@@ -922,6 +926,12 @@ def evaluate_lines(out: pd.DataFrame, sims: np.ndarray, lines: pd.DataFrame):
     dec_o, dec_u = american_to_decimal(li["over_price"]), american_to_decimal(li["under_price"])
     imp_o, imp_u = 1 / dec_o, 1 / dec_u
     li["fair_p_over"] = imp_o / (imp_o + imp_u)          # book's own no-vig probability
+    li["raw_p_over"], li["raw_p_under"] = p_over, p_under
+    raw_ev_o, raw_ev_u = p_over * (dec_o - 1) - p_under, p_under * (dec_u - 1) - p_over
+    li["raw_best_ev"] = np.maximum(raw_ev_o, raw_ev_u)
+    if shrink < 1.0:        # blend toward the market: a big gap is more often missing info than edge
+        p_over = shrink * p_over + (1 - shrink) * li["fair_p_over"].to_numpy()
+        p_under = shrink * p_under + (1 - shrink) * (1 - li["fair_p_over"].to_numpy())
     li["model_p_over"], li["model_p_under"] = p_over, p_under
     li["ev_over"] = p_over * (dec_o - 1) - p_under       # per 1 staked; push returns stake
     li["ev_under"] = p_under * (dec_u - 1) - p_over
@@ -933,10 +943,9 @@ def evaluate_lines(out: pd.DataFrame, sims: np.ndarray, lines: pd.DataFrame):
     li["model_p"] = np.where(over_best, p_over, p_under)
     li["fair_p"] = np.where(over_best, li["fair_p_over"], 1 - li["fair_p_over"])
 
-    info = out.iloc[li["row"].to_numpy()][
-        ["player_display_name", "team", "opp", "position", "status", "median", "mean",
-         "model_version"]
-    ].reset_index(drop=True).rename(columns={"player_display_name": "model_player",
+    info_cols = ["player_display_name", "team", "opp", "position", "status", "median", "mean",
+                 "model_version"] + (["role_note"] if "role_note" in out.columns else [])
+    info = out.iloc[li["row"].to_numpy()][info_cols].reset_index(drop=True).rename(columns={"player_display_name": "model_player",
                                              "median": "model_median", "mean": "model_mean"})
     li = pd.concat([li, info], axis=1)
     # Median and mean disagree on skewed stats. Only call a side "confirmed" when the
@@ -944,6 +953,8 @@ def evaluate_lines(out: pd.DataFrame, sims: np.ndarray, lines: pd.DataFrame):
     ov = li["best_side"] == "over"
     li["agree"] = np.where(ov, (li["model_mean"] > li["line"]) & (li["model_median"] > li["line"]),
                            (li["model_mean"] < li["line"]) & (li["model_median"] < li["line"]))
+    gap = (li["model_median"] - li["line"]).abs() / li["line"].clip(lower=10)
+    li["check_news"] = (li["raw_best_ev"] >= CHECK_EV) | (gap >= CHECK_GAP)
     return li.sort_values("best_ev", ascending=False).reset_index(drop=True), unmatched
 
 
@@ -973,13 +984,24 @@ def edges_section(title: str, edges: pd.DataFrame, unit: str, max_rows: int = 15
             "<p style='margin:0 0 6px;color:#555;font-size:12px'>Only leans where our median AND average "
             f"are on the same side of the line ({conf['model_player'].nunique()} of "
             f"{edges['model_player'].nunique()} players). Largest gaps first, best book per player. "
-            "New model with no live track record yet: treat as things to check, not bets.</p>")
+            "Our chance is blended " + f"{SHRINK_EXTRA:.0%}" + " model / rest book price, so edges are modest. "
+            "<b>CHECK NEWS</b> = very large gap from the book: usually injury or role news our model lacks, "
+            "verify first. New model with no live track record yet: things to check, not bets.</p>")
+    n_u = int((conf.drop_duplicates("model_player")["best_side"] == "under").sum())
+    if len(conf) and n_u >= 0.7 * conf["model_player"].nunique():
+        head += ("<p style='margin:0 0 6px;color:#a15c00;font-size:12px'>Most leans are unders: yardage is "
+                 "right-skewed and book lines sit near our average, so our median is usually lower. "
+                 "Wait for the scorecard before trusting the under lean.</p>")
     if top.empty:
         return head + "<p style='color:#555'>No confirmed leans this run.</p>"
     rows = []
     for r in top.itertuples():
         side = "Over" if r.best_side == "over" else "Under"
-        rows.append("<tr>" + _cell(esc(str(r.model_player)), bold=True)
+        flag = " &#9888; CHECK NEWS" if getattr(r, "check_news", False) else ""
+        note = getattr(r, "role_note", "")
+        note = (f"<div style='font-weight:400;font-size:11px;color:#666;white-space:normal;max-width:360px'>"
+                f"{esc(str(note))}</div>") if getattr(r, "check_news", False) and isinstance(note, str) and note else ""
+        rows.append("<tr>" + _cell(esc(str(r.model_player)) + flag + note, bold=True)
                     + _cell(f"{esc(str(r.team))} vs {esc(str(r.opp))}")
                     + _cell(esc(str(r.book)))
                     + _cell(f"{r.line:g}", align="right")
@@ -1003,7 +1025,7 @@ def stat_edges(stat_out: pd.DataFrame, sims: np.ndarray, lines_stat: pd.DataFram
     if lines_stat is None or lines_stat.empty:
         print(f"\n{title}: no sportsbook lines yet.")
         return "", None
-    edges, unmatched = evaluate_lines(stat_out, sims, lines_stat)
+    edges, unmatched = evaluate_lines(stat_out, sims, lines_stat, shrink=SHRINK_EXTRA)
     if unmatched:
         print(f"\n{title}: book names not matched to a projected player ({len(unmatched)}): {unmatched[:12]}")
     if edges.empty:

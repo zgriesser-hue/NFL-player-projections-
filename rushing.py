@@ -21,6 +21,7 @@ import pandas as pd
 
 import lines_parlay
 import projections as P
+import role_news
 
 RUSH_POS = ["RB", "QB"]
 RUSH_STATS = ["carries", "rushing_yards", "targets"]
@@ -355,7 +356,7 @@ def project_upcoming(train, fut, backtest, rates):
     pmap = {"Out": 0.0, "Doubtful": rates.get("Doubtful", 0.10),
             "Questionable": rates.get("Questionable", 0.75),
             "PracDNP": rates.get("PracDNP", 0.50), "PracLimited": rates.get("PracLimited", 0.92)}
-    out = fut[["player_display_name", "team", "opp", "position", "status", "implied_total", "spread"]].copy()
+    out = fut[["player_id", "player_display_name", "team", "opp", "position", "status", "implied_total", "spread"]].copy()
     out["status"] = out["status"].fillna("")
     key = fut["status"].where(fut["status"].isin(["Out", "Doubtful", "Questionable"]))
     key = key.mask(key.isna() & (fut["prac_dnp"] == 1), "PracDNP").mask(
@@ -386,13 +387,14 @@ def build_email_part(out: pd.DataFrame) -> str:
                     + P._cell(f"{r.mean:.0f}", align="right")
                     + P._cell(f"{r.exp_carries:.1f}", align="right")
                     + P._cell(f"{r.p_zero:.0%}", align="right")
-                    + P._cell(esc(str(r.status or "")), align="left") + "</tr>")
+                    + P._cell(esc(str(r.status or "")), align="left")
+                    + P._cell(esc(str(getattr(r, "role_note", "") or "")), align="left") + "</tr>")
     return ("<h3 style='margin:18px 0 4px'>Rushing yards: OUR PROJECTION (RB and QB)</h3>"
             "<p style='margin:0 0 6px;color:#555;font-size:12px'>Median outcome, with the middle half "
             "of outcomes as the range. This model is new and has no live track record yet.</p>"
             '<table style="border-collapse:collapse;font-size:13px">'
             + P._head(["Player", "Game", "Pos", "OUR PROJECTION (rush yds)", "Typical range (25th-75th pct)",
-                       "Average (mean)", "Expected carries", "Chance of 0 yds", "Status"])
+                       "Average (mean)", "Expected carries", "Chance of 0 yds", "Status", "Role notes"])
             + "".join(rows) + "</table>")
 
 
@@ -442,6 +444,9 @@ def main():
     train = train[train["games_prior"] >= P.MIN_PRIOR_GAMES]
     rates = play_rates(inj, parts["pw"], season * 100 + week)
     out, sims = project_upcoming(train, fut, backtest, rates)
+    notes = role_news.get_notes(hist, fut, season, week)
+    out = out.merge(notes, on="player_id", how="left")
+    out["role_note"] = out["role_note"].fillna("")
 
     stamp = pd.Timestamp.now(tz="UTC").strftime("%Y%m%d_%H%M")
     base = os.path.join(out_dir, f"rushing_{season}_wk{week}")
