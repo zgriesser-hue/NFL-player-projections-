@@ -80,3 +80,9 @@ games, computes closing-line value from the closing snapshots, and prints the re
 
 To log a bet from your phone without a receipt screenshot: Actions, Run workflow, choose task `add_bet`, fill in the `bet_*` fields (player, stat, side, line, odds, stake, book).
 The game, week and the model's numbers are filled in automatically from the latest line snapshots.
+
+## Boom odds (alternate overs)
+Each projections run also writes `data/projections_<season>_wk<week>_boom_latest.csv` and an email section: for every player with a
+sportsbook receiving-yards line, the chance of clearing the (consensus) line by +10, +20, +30 ... yards, with fair American odds,
+down to +1000. `bet_if_at_least` is the price that would give a +10% edge. Chances get a tail correction learned from the
+walk-forward backtest (`boom.py`). Receptions edges in the email are limited to the best two per game.

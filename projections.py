@@ -35,6 +35,7 @@ import unicodedata
 
 import numpy as np
 import pandas as pd
+import boom
 import lines_parlay
 import nflreadpy as nfl
 import lightgbm as lgb
@@ -979,7 +980,11 @@ def edges_section(title: str, edges: pd.DataFrame, unit: str, max_rows: int = 15
     """Email table of confirmed leans (model mean AND median on the same side of the line)."""
     esc = _html.escape
     conf = edges[edges["agree"]]
-    top = conf.drop_duplicates("model_player").head(max_rows)
+    top = conf.drop_duplicates("model_player")
+    if unit == "rec":       # reception lines are highly correlated within a game: show the best 2 per game
+        top = top.assign(_g=top.apply(lambda r: "|".join(sorted([str(r["team"]), str(r["opp"])])), axis=1))
+        top = top.groupby("_g", sort=False).head(2)
+    top = top.head(max_rows)
     head = (f"<h3 style='margin:18px 0 4px'>{esc(title)}: our projection vs sportsbook lines</h3>"
             "<p style='margin:0 0 6px;color:#555;font-size:12px'>Only leans where our median AND average "
             f"are on the same side of the line ({conf['model_player'].nunique()} of "
@@ -1275,6 +1280,18 @@ def main():
         return
     edges.to_csv(f"{base}_edges_{stamp}.csv", index=False)
     edges.to_csv(f"{base}_edges_latest.csv", index=False)
+
+    try:
+        ladder = boom.boom_ladder(out, sims, lines, boom.tail_map(backtest), name_key)
+        if len(ladder):
+            ladder.round({"p_model": 4, "p_boom": 4, "p_over_book_line": 4, "fair_odds": 0, "bet_if_at_least": 0,
+                          "model_mean": 1, "model_median": 1}).to_csv(f"{base}_boom_{stamp}.csv", index=False)
+            ladder.round({"p_model": 4, "p_boom": 4, "p_over_book_line": 4, "fair_odds": 0, "bet_if_at_least": 0,
+                          "model_mean": 1, "model_median": 1}).to_csv(f"{base}_boom_latest.csv", index=False)
+            EXTRA_EMAIL.append(boom.boom_section(ladder))
+            print(f"\nSaved {base}_boom_latest.csv ({ladder['player'].nunique()} players, boom ladder to +{boom.MAX_ODDS})")
+    except Exception as e:
+        print(f"Boom ladder skipped ({e})")
 
     n_all = edges.drop_duplicates("model_player").shape[0]
     conf = edges[edges["agree"]]
