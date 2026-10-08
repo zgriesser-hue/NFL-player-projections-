@@ -22,7 +22,7 @@ on:
       task:
         description: "What to run"
         type: choice
-        options: [project, rushing, score, closing, closing_early, ab, ab_features, ab_rushing, parlay_test]
+        options: [project, rushing, score, bets, closing, closing_early, ab, ab_features, ab_rushing, parlay_test]
         default: project
 
 permissions:
@@ -88,6 +88,10 @@ jobs:
             python -u score_week.py 2>&1 | tee run.log
             # rushing / receptions scorecards; a failure here must not fail the run
             python -u score_extra.py 2>&1 | tee -a run.log || echo "score_extra failed; receiving-yards scoring above is unaffected."
+            # grade the bets actually placed (data/bets.csv); a failure here must not fail the run
+            python -u bets.py grade 2>&1 | tee -a run.log || echo "bet grading failed; scoring above is unaffected."
+          elif [ "${{ steps.task.outputs.name }}" = "bets" ]; then
+            python -u bets.py grade 2>&1 | tee run.log
           elif [ "${{ steps.task.outputs.name }}" = "project" ]; then
             # rushing first (it writes an email section); a failure there must not block projections
             python -u rushing.py 2>&1 | tee run.log || echo "Rushing model failed; continuing with receiving projections."

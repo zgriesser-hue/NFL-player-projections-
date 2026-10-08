@@ -71,3 +71,9 @@ those files as the closing line when it grades CLV (`scorecard_clv.csv`).
 - Receiving-yards edges still come from the Odds API (unchanged), so those scorecards continue as before.
 - Receptions leans are strict: receptions are whole numbers, so the median and mean often land on opposite sides of
   a 2.5 or 3.5 line, and those players are filtered out.
+
+## Bet tracker
+
+`data/bets.csv` is the ledger of props actually bet. `python bets.py add ...` records a bet (with the model's numbers at the time),
+and `bets.py grade` (also run automatically with the Tuesday/Wednesday `score` task, or on demand with the `bets` task) grades finished
+games, computes closing-line value from the closing snapshots, and prints the record, ROI, and CLV. See the header of `bets.py`.
