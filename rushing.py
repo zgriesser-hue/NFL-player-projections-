@@ -27,7 +27,7 @@ RUSH_STATS = ["carries", "rushing_yards", "targets"]
 FORM = RUSH_STATS + ["carry_share", "offense_pct"]
 TARGET = "rushing_yards"
 MODEL_VERSION = "rush-r1"
-BACKTEST_CACHE = "rushing_backtest_r2.csv"      # r2: PIT treats negative yardage as 0, adds diagnostics
+BACKTEST_CACHE = "rushing_backtest_r3.csv"      # r2: PIT treats negative yardage as 0, adds diagnostics
 REFRESH_BACKTEST = False
 MIN_SNAP_RB = 0.20          # skip RBs whose recent snap share is below this
 MIN_SNAP_QB = 0.50          # QBs: only recent starters
@@ -187,14 +187,36 @@ def estimate_dispersion(hist: pd.DataFrame):
     return k, s, est
 
 
-def simulate(p_pos, mu_pos, ypc, k, s, rng, return_carries: bool = False):
+def estimate_adjust(hist: pd.DataFrame):
+    """Per position, from PAST out-of-sample rows only: a level scale (actual total / raw simulated total,
+    clipped to +-8%) and a spread widening factor (raises k and s down when the 80% range
+    covers less than 80% of outcomes). Returns ({pos: scale}, {pos: widen})."""
+    scale, widen = {p: 1.0 for p in RUSH_POS}, {p: 1.0 for p in RUSH_POS}
+    if not len(hist) or "scale_used" not in hist.columns:
+        return scale, widen
+    for pos in RUSH_POS:
+        h = hist[hist["position"] == pos]
+        if len(h) < P.MIN_CAL_ROWS:
+            continue
+        raw = (h["sim_mean"] / h["scale_used"]).sum()
+        scale[pos] = float(np.clip(h[TARGET].clip(lower=0).sum() / max(raw, 1e-9), 0.92, 1.08))
+        cover = float(((h[TARGET].clip(lower=0) >= h["sim_q10"]) & (h[TARGET].clip(lower=0) <= h["sim_q90"])).mean())
+        widen[pos] = float(np.clip(h["widen_used"].mean() * (1 + 2.0 * (0.80 - cover)), 1.0, 2.5))
+    return scale, widen
+
+
+def simulate(p_pos, mu_pos, ypc, k, s, rng, return_carries: bool = False, scale=None, widen=None):
+    if widen is not None:
+        k, s = k / widen, np.maximum(s / widen, 0.1)
     shp = (len(mu_pos), P.N_SIMS)
-    mu_c, k_c, s_c = mu_pos[:, None], k[:, None], s[:, None]
+    mu_c, k_c, s_c = mu_pos[:, None], np.maximum(k, 0.3)[:, None], s[:, None]
     carried = rng.random(shp) < p_pos[:, None]
     extra = rng.negative_binomial(k_c, k_c / (k_c + mu_c), size=shp)
     carries = np.where(carried, 1 + extra, 0)
     yards = rng.gamma(np.maximum(s_c * carries, 1e-9), ypc[:, None] / s_c, size=shp)
     yards = np.where(carries > 0, yards, 0.0)
+    if scale is not None:
+        yards = yards * scale[:, None]
     return (yards, carries) if return_carries else yards
 
 
@@ -234,7 +256,10 @@ def walk_forward(df: pd.DataFrame):
         k_by, s_by, est_by = estimate_dispersion(hist)
         k = wk["position"].map(k_by).to_numpy(dtype=float)
         s = wk["position"].map(s_by).to_numpy(dtype=float)
-        sims, car = simulate(p_pos, mu_pos, ypc, k, s, rng, return_carries=True)
+        sc_by, wd_by = estimate_adjust(hist)
+        sc = wk["position"].map(sc_by).to_numpy(dtype=float)
+        wd = wk["position"].map(wd_by).to_numpy(dtype=float)
+        sims, car = simulate(p_pos, mu_pos, ypc, k, s, rng, return_carries=True, scale=sc, widen=wd)
         q10, q25, q50, q75, q90 = np.percentile(sims, [10, 25, 50, 75, 90], axis=1)
 
         # Simulated yards can't go below 0 but real games can (kneel-downs, a loss on one carry).
@@ -254,6 +279,7 @@ def walk_forward(df: pd.DataFrame):
         out["p_zero"] = (sims == 0).mean(axis=1)
         out["neg_actual"] = (wk[TARGET].to_numpy() < 0).astype(int)
         out["pit"] = pit_lo + rng.random(len(out)) * (pit_hi - pit_lo)
+        out["scale_used"], out["widen_used"] = sc, wd
         out["disp_est"] = wk["position"].map(est_by).to_numpy(dtype=bool)
         preds.append(out)
     return pd.concat(preds, ignore_index=True)
@@ -319,7 +345,11 @@ def project_upcoming(train, fut, backtest, rates):
     print(f"Dispersion used: k (carries) {k_by}, s (yards per carry) {s_by}")
     k = fut["position"].map(k_by).to_numpy(dtype=float)
     s = fut["position"].map(s_by).to_numpy(dtype=float)
-    sims, car = simulate(p_pos, mu_pos, ypc, k, s, rng, return_carries=True)
+    sc_by, wd_by = estimate_adjust(backtest)
+    print(f"Calibration adjustments: level scale {sc_by}, spread widen {wd_by}")
+    sims, car = simulate(p_pos, mu_pos, ypc, k, s, rng, return_carries=True,
+                         scale=fut["position"].map(sc_by).to_numpy(dtype=float),
+                         widen=fut["position"].map(wd_by).to_numpy(dtype=float))
     q10, q25, q50, q75, q90 = np.percentile(sims, [10, 25, 50, 75, 90], axis=1)
 
     pmap = {"Out": 0.0, "Doubtful": rates.get("Doubtful", 0.10),
