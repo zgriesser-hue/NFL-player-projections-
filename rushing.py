@@ -27,7 +27,7 @@ RUSH_STATS = ["carries", "rushing_yards", "targets"]
 FORM = RUSH_STATS + ["carry_share", "offense_pct"]
 TARGET = "rushing_yards"
 MODEL_VERSION = "rush-r1"
-BACKTEST_CACHE = "rushing_backtest_r1.csv"
+BACKTEST_CACHE = "rushing_backtest_r2.csv"      # r2: PIT treats negative yardage as 0, adds diagnostics
 REFRESH_BACKTEST = False
 MIN_SNAP_RB = 0.20          # skip RBs whose recent snap share is below this
 MIN_SNAP_QB = 0.50          # QBs: only recent starters
@@ -237,7 +237,9 @@ def walk_forward(df: pd.DataFrame):
         sims, car = simulate(p_pos, mu_pos, ypc, k, s, rng, return_carries=True)
         q10, q25, q50, q75, q90 = np.percentile(sims, [10, 25, 50, 75, 90], axis=1)
 
-        y_act = wk[TARGET].to_numpy()[:, None]
+        # Simulated yards can't go below 0 but real games can (kneel-downs, a loss on one carry).
+        # For calibration, treat negative actual yardage as 0 so it isn't counted as "below everything".
+        y_act = np.clip(wk[TARGET].to_numpy(), 0, None)[:, None]
         pit_lo, pit_hi = (sims < y_act).mean(axis=1), (sims <= y_act).mean(axis=1)
 
         out = wk[["player_id", "player_display_name", "season", "week", "position", TARGET,
@@ -250,6 +252,7 @@ def walk_forward(df: pd.DataFrame):
         out["sim_q10"], out["sim_q25"], out["sim_q50"] = q10, q25, q50
         out["sim_q75"], out["sim_q90"] = q75, q90
         out["p_zero"] = (sims == 0).mean(axis=1)
+        out["neg_actual"] = (wk[TARGET].to_numpy() < 0).astype(int)
         out["pit"] = pit_lo + rng.random(len(out)) * (pit_hi - pit_lo)
         out["disp_est"] = wk["position"].map(est_by).to_numpy(dtype=bool)
         preds.append(out)
@@ -272,6 +275,13 @@ def report(res: pd.DataFrame) -> None:
           f"{np.mean(np.abs(res['carries'] - res['ewm_carries'])):.2f} "
           f"| model {np.mean(np.abs(res['carries'] - res['mu_carries'])):.2f}")
 
+    if "neg_actual" in res.columns:
+        print("\nShare of games with negative rushing yards (the simulation can't produce these):")
+        for pos, sub in res.groupby("position"):
+            print(f"  {pos}: {sub['neg_actual'].mean():.1%}")
+    print("\nBias by position (actual mean | simulated mean):")
+    for pos, sub in res.groupby("position"):
+        print(f"  {pos}: {sub[TARGET].mean():.2f} | {sub['sim_mean'].mean():.2f}")
     cal = res[res["disp_est"]]
     if len(cal):
         print(f"\nRandomized-PIT calibration on {len(cal):,} rows "
