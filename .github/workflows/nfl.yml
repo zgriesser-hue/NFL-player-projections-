@@ -16,12 +16,13 @@ on:
     - cron: "26 19 * * 0"   # Sun ~3:25pm ET - before the 4pm games
     - cron: "33 23 * * 0"   # Sun ~7:35pm ET - before Sunday night
     - cron: "29 23 * * 1"   # Mon ~7:30pm ET - before Monday night
+    - cron: "52 12 * * 0"   # Sun ~8:50am ET - before 9:30am London-type games (skips if none)
   workflow_dispatch:
     inputs:
       task:
         description: "What to run"
         type: choice
-        options: [project, score, closing, ab, ab_features, parlay_test]
+        options: [project, rushing, score, closing, closing_early, ab, ab_features, parlay_test]
         default: project
 
 permissions:
@@ -61,6 +62,8 @@ jobs:
             echo "name=score" >> "$GITHUB_OUTPUT"
           elif [ "${{ github.event.schedule }}" = "27 23 * * 4" ] || [ "${{ github.event.schedule }}" = "19 16 * * 0" ] || [ "${{ github.event.schedule }}" = "26 19 * * 0" ] || [ "${{ github.event.schedule }}" = "33 23 * * 0" ] || [ "${{ github.event.schedule }}" = "29 23 * * 1" ]; then
             echo "name=closing" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event.schedule }}" = "52 12 * * 0" ]; then
+            echo "name=closing_early" >> "$GITHUB_OUTPUT"
           else
             echo "name=project" >> "$GITHUB_OUTPUT"
           fi
@@ -69,16 +72,24 @@ jobs:
         shell: bash
         run: |
           mkdir -p data
-          rm -f data/email_latest.html data/email_subject.txt
+          rm -f data/email_latest.html data/email_subject.txt data/rushing_email_part.html
           case "${{ steps.task.outputs.name }}" in
             score) SCRIPT=score_week.py ;;
             ab) SCRIPT=ab_opponent.py ;;
             ab_features) SCRIPT=ab_features.py ;;
             parlay_test) SCRIPT=parlay_test.py ;;
             closing) SCRIPT=closing_snapshot.py ;;
+            closing_early) export EARLY_GATE=1; SCRIPT=closing_snapshot.py ;;
+            rushing) SCRIPT=rushing.py ;;
             *) SCRIPT=projections.py ;;
           esac
-          python -u "$SCRIPT" 2>&1 | tee run.log
+          if [ "${{ steps.task.outputs.name }}" = "project" ]; then
+            # rushing first (it writes an email section); a failure there must not block projections
+            python -u rushing.py 2>&1 | tee run.log || echo "Rushing model failed; continuing with receiving projections."
+            python -u projections.py 2>&1 | tee -a run.log
+          else
+            python -u "$SCRIPT" 2>&1 | tee run.log
+          fi
 
       - name: Show results in the run summary
         if: always()
@@ -92,7 +103,7 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Email results
-        if: success() && steps.task.outputs.name != 'closing'
+        if: success() && !startsWith(steps.task.outputs.name, 'closing')
         continue-on-error: true
         shell: bash
         env:
@@ -104,7 +115,7 @@ jobs:
           if [ "$TASK" = "project" ]; then
             if [ -f data/email_latest.html ]; then
               ATT=""
-              for f in data/projections_*_latest.csv data/projections_*_edges_latest.csv; do
+              for f in data/projections_*_latest.csv data/projections_*_edges_latest.csv data/rushing_*_latest.csv; do
                 [ -f "$f" ] && ATT="$ATT $f"
               done
               python send_email.py --subject "$(cat data/email_subject.txt)" --html data/email_latest.html --attach $ATT
@@ -128,5 +139,6 @@ jobs:
             git pull --rebase origin "${GITHUB_REF_NAME}"
             git push
           fi
+
 
 
