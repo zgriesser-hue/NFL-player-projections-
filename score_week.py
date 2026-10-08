@@ -138,6 +138,131 @@ def before_kickoff(df: pd.DataFrame, kick: dict) -> pd.DataFrame:
     return df[df["snap_time"] == latest]
 
 
+def load_closing(out_dir: str) -> pd.DataFrame:
+    """Closing snapshots from closing_snapshot.py (ParlayAPI), if any."""
+    frames = []
+    for f in sorted(os.listdir(out_dir)):
+        if re.match(r"closing_\d{8}_\d{4}\.csv$", f):
+            frames.append(pd.read_csv(os.path.join(out_dir, f)))
+    if not frames:
+        return pd.DataFrame()
+    c = pd.concat(frames, ignore_index=True)
+    c["snap_time"] = pd.to_datetime(c["snap_time"], utc=True)
+    c["commence"] = pd.to_datetime(c["commence_time"], utc=True)
+    return c
+
+
+def clv_report(edges_all: pd.DataFrame, kick: dict, season: int, week: int, out_dir: str) -> None:
+    """Closing line value: did the market move toward our pick after we made it?
+
+    Pick = the EARLIEST Odds API snapshot where the player had a confirmed pick (EV >= EV_MIN,
+    mean and median agreeing; older snapshots without that flag count as confirmed).
+    Close = the ParlayAPI closing snapshot taken shortly before kickoff when one exists
+    (same book first), otherwise our last Odds API snapshot before kickoff. Positive = we beat it.
+    """
+    if edges_all.empty:
+        return
+    now = pd.Timestamp.now(tz="UTC")
+    e = edges_all.copy()
+    e["kickoff"] = e["team"].map(kick)
+    e = e[(e["snap_time"] <= e["kickoff"]) & (e["kickoff"] < now)].copy()
+    if e.empty:
+        print("\nCLV: no games have kicked off yet.")
+        return
+    e["agree"] = e["agree"].astype(bool) if "agree" in e else True
+    e["commence"] = pd.to_datetime(e["commence_time"], utc=True)
+
+    # closing snapshot per player: latest closing file at or before that game's kickoff
+    cl_all = load_closing(out_dir)
+    cl = pd.DataFrame()
+    if not cl_all.empty:
+        cl_all = cl_all[cl_all["snap_time"] <= cl_all["commence"]]
+        keep = cl_all.groupby(["name_key", "commence"])["snap_time"].transform("max")
+        cl = cl_all[cl_all["snap_time"] == keep]
+
+    last_t = e.groupby("name_key")["snap_time"].transform("max")
+    if len(cl):
+        pc_time = (cl.groupby("name_key")["snap_time"].max())
+        e["_pc_time"] = e["name_key"].map(pc_time)
+    else:
+        e["_pc_time"] = pd.NaT
+    has_pc = e["_pc_time"].notna()
+    earlier = np.where(has_pc, e["snap_time"] < e["_pc_time"], e["snap_time"] < last_t)
+    cand = e[(e["best_ev"] >= EV_MIN) & e["agree"] & earlier]
+    if cand.empty:
+        print("\nCLV: no picks were made earlier than a closing snapshot yet "
+              "(needs a closing_snapshot run or two snapshots before kickoff).")
+        return
+    pick = (cand.sort_values(["name_key", "snap_time", "best_ev"], ascending=[True, True, False])
+            .drop_duplicates("name_key"))
+
+    # close from the Odds API's last snapshot (fallback)
+    oc = e[e["snap_time"] == last_t][["name_key", "book", "line", "fair_p_over"]].rename(
+        columns={"line": "oc_line", "fair_p_over": "oc_fair"})
+    oc_cons = e[e["snap_time"] == last_t].groupby("name_key")["line"].median().rename("oc_cons")
+    m = pick.merge(oc, on=["name_key", "book"], how="left").merge(oc_cons, on="name_key", how="left")
+    if len(cl):
+        pc = cl[["name_key", "book", "line", "fair_p_over"]].rename(
+            columns={"line": "pc_line", "fair_p_over": "pc_fair"})
+        pc_cons = cl.groupby("name_key")["line"].median().rename("pc_cons")
+        m = m.merge(pc, on=["name_key", "book"], how="left").merge(pc_cons, on="name_key", how="left")
+    else:
+        m["pc_line"] = m["pc_fair"] = m["pc_cons"] = np.nan
+    m["close_line"] = m["pc_line"].fillna(m["oc_line"])
+    m["close_fair_over"] = m["pc_fair"].fillna(m["oc_fair"])
+    m["close_consensus"] = m["pc_cons"].fillna(m["oc_cons"])
+    m["close_source"] = np.where(m["pc_cons"].notna(), "parlay close", "odds-api last snapshot")
+
+    sign = np.where(m["best_side"] == "over", 1.0, -1.0)
+    m["clv_line"] = sign * (m["close_line"] - m["line"])              # yards, same book
+    m["clv_line_consensus"] = sign * (m["close_consensus"] - m["line"])
+    close_fair_side = np.where(m["best_side"] == "over", m["close_fair_over"], 1 - m["close_fair_over"])
+    same = m["close_line"] == m["line"]
+    m["clv_prob"] = np.where(same, close_fair_side - m["fair_p"], np.nan)  # no-vig prob, same line
+    m["hours_early"] = (m["kickoff"] - m["snap_time"]).dt.total_seconds() / 3600
+
+    def mean_ci(x):
+        x = x.dropna()
+        if len(x) < 2:
+            return f"{x.mean():+.2f} (n={len(x)})" if len(x) else "n/a"
+        return f"{x.mean():+.2f} ±{1.96 * x.std(ddof=1) / np.sqrt(len(x)):.2f} (n={len(x)})"
+
+    n_pc = int((m["close_source"] == "parlay close").sum())
+    print(f"\nClosing line value on {len(m)} confirmed picks (picked a median {m['hours_early'].median():.0f}h "
+          f"before kickoff). Close source: {n_pc} ParlayAPI pre-kickoff snapshot, "
+          f"{len(m) - n_pc} our last Odds API snapshot:")
+    v = m["clv_line"].dropna()
+    if len(v):
+        print(f"  Same-book line moved in our favor {(v > 0).mean():.0%} | unchanged {(v == 0).mean():.0%} "
+              f"| against {(v < 0).mean():.0%}")
+    print(f"  Avg line CLV, same book (yards): {mean_ci(m['clv_line'])}")
+    print(f"  Avg line CLV vs closing consensus (yards): {mean_ci(m['clv_line_consensus'])}")
+    pr = m["clv_prob"].dropna()
+    if len(pr):
+        print(f"  Avg no-vig probability CLV where the line did not move (pct pts): "
+              f"{100 * pr.mean():+.1f} (n={len(pr)})")
+    for side, sub in m.groupby("best_side"):
+        print(f"  {side}s: line CLV {mean_ci(sub['clv_line'])}")
+    print("  Positive means the market moved toward our side after we picked. It needs far fewer "
+          "bets to read than win rate.")
+
+    log = m.assign(season=season, week=week).rename(columns={
+        "model_player": "player", "best_side": "side", "line": "pick_line",
+        "best_price": "pick_price", "snap_time": "pick_time"})[
+        ["season", "week", "player", "team", "book", "side", "pick_line", "pick_price", "pick_time",
+         "close_line", "close_consensus", "close_source", "clv_line", "clv_line_consensus",
+         "clv_prob", "hours_early"]]
+    path = os.path.join(out_dir, "scorecard_clv.csv")
+    if os.path.exists(path):
+        old = pd.read_csv(path)
+        old = old[~((old["season"] == season) & (old["week"] == week))]
+        log = pd.concat([old, log], ignore_index=True)
+    log.to_csv(path, index=False)
+    allc = log["clv_line"].dropna()
+    if len(allc) > len(m):
+        print(f"  Cumulative: avg line CLV {allc.mean():+.2f} yds over {len(allc)} picks")
+
+
 # ------------------------------------------------------------ reporting
 def summarize(b: pd.DataFrame, label: str) -> None:
     if b.empty:
@@ -180,6 +305,7 @@ def score_week(season=None, week=None):
     proj = proj[proj["team"].isin(done_teams)].drop_duplicates("name_key")
 
     edges = load_snapshots(out_dir, season, week, edges=True)
+    edges_all = edges.copy()
     if len(edges):
         if "model_version" not in edges:
             edges["model_version"] = "v6"
@@ -277,6 +403,8 @@ def score_week(season=None, week=None):
                           labels=[f"EV {EV_MIN:.2f}-0.10", "EV 0.10-0.20", "EV 0.20+"])
             for name, sub in bets_log.groupby(tier, observed=True):
                 summarize(sub, str(name))
+
+    clv_report(edges_all, kick, season, week, out_dir)
 
     # ---------- append to running logs (re-running a week replaces that week)
     for name, new in (("scorecard_players.csv", players_log), ("scorecard_bets.csv", bets_log)):

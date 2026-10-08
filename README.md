@@ -32,3 +32,16 @@ shows a clear gain, set `USE_OPP_FEATURES = True` at the top of `projections.py`
 Snapshots and the scorecard carry a `model_version` column so results stay comparable.
 Holiday weeks (Thanksgiving, Christmas) have odd kickoff times: trigger a manual run beforehand.
 Injury overrides / sportsbook settings live in the config block at the top of `projections.py`.
+
+## Closing lines for CLV (optional)
+
+`closing_snapshot.py` pulls player receiving-yards lines from ParlayAPI (about 3 credits per run)
+shortly before each kickoff window and saves `data/closing_YYYYMMDD_HHMM.csv`. `score_week.py` uses
+those files as the closing line when it grades CLV (`scorecard_clv.csv`).
+
+- Add the repo secret `PARLAY_API_KEY`. Without it the closing runs do nothing.
+- Five scheduled runs a week (plus the Sunday-morning check) (Thu night, Sun 1pm, Sun 4pm, Sun night, Mon night), about 15 credits.
+- Only real sportsbooks are kept; PrizePicks, Pick6, Underdog, Sleeper and exchanges are ignored.
+- Cron times are UTC. After the clocks change in November, runs land an hour earlier relative to
+  kickoff; the script's 150-minute window still covers it. A sixth run at about 8:50am ET Sunday covers 9:30am London-type games; it checks the NFL schedule first and uses no credits if no game kicks off before noon.
+- Test by hand: Actions -> Run workflow -> `closing` (only finds games starting within 150 minutes).
