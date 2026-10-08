@@ -15,7 +15,7 @@ on:
       task:
         description: "What to run"
         type: choice
-        options: [project, score, ab, ab_features]
+        options: [project, score, ab, ab_features, parlay_test]
         default: project
 
 permissions:
@@ -32,6 +32,8 @@ jobs:
     env:
       NFL_OUTPUT_DIR: data
       ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+      PARLAY_API_KEY: ${{ secrets.PARLAY_API_KEY }}
+      PARLAY_TEST_CLOSING_DATE: ${{ vars.PARLAY_TEST_CLOSING_DATE }}
     steps:
       - uses: actions/checkout@v4
 
@@ -64,6 +66,7 @@ jobs:
             score) SCRIPT=score_week.py ;;
             ab) SCRIPT=ab_opponent.py ;;
             ab_features) SCRIPT=ab_features.py ;;
+            parlay_test) SCRIPT=parlay_test.py ;;
             *) SCRIPT=projections.py ;;
           esac
           python -u "$SCRIPT" 2>&1 | tee run.log
@@ -116,3 +119,4 @@ jobs:
             git pull --rebase origin "${GITHUB_REF_NAME}"
             git push
           fi
+
