@@ -10,12 +10,18 @@ on:
     - cron: "23 20 * * 1"   # Mon ~4:25pm ET - before Monday night
     - cron: "37 15 * * 2"   # Tue ~11:40am ET - score the finished week
     - cron: "13 13 * * 3"   # Wed ~9:15am ET - score again (safe to repeat)
+    # Closing-line snapshots (ParlayAPI, ~3 credits each), ~30-45 min before each kickoff window
+    - cron: "27 23 * * 4"   # Thu ~7:30pm ET - before Thursday night kickoff
+    - cron: "19 16 * * 0"   # Sun ~12:20pm ET - before the 1pm games
+    - cron: "26 19 * * 0"   # Sun ~3:25pm ET - before the 4pm games
+    - cron: "33 23 * * 0"   # Sun ~7:35pm ET - before Sunday night
+    - cron: "29 23 * * 1"   # Mon ~7:30pm ET - before Monday night
   workflow_dispatch:
     inputs:
       task:
         description: "What to run"
         type: choice
-        options: [project, score, ab, ab_features, parlay_test]
+        options: [project, score, closing, ab, ab_features, parlay_test]
         default: project
 
 permissions:
@@ -53,6 +59,8 @@ jobs:
             echo "name=${{ inputs.task }}" >> "$GITHUB_OUTPUT"
           elif [ "${{ github.event.schedule }}" = "37 15 * * 2" ] || [ "${{ github.event.schedule }}" = "13 13 * * 3" ]; then
             echo "name=score" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event.schedule }}" = "27 23 * * 4" ] || [ "${{ github.event.schedule }}" = "19 16 * * 0" ] || [ "${{ github.event.schedule }}" = "26 19 * * 0" ] || [ "${{ github.event.schedule }}" = "33 23 * * 0" ] || [ "${{ github.event.schedule }}" = "29 23 * * 1" ]; then
+            echo "name=closing" >> "$GITHUB_OUTPUT"
           else
             echo "name=project" >> "$GITHUB_OUTPUT"
           fi
@@ -67,6 +75,7 @@ jobs:
             ab) SCRIPT=ab_opponent.py ;;
             ab_features) SCRIPT=ab_features.py ;;
             parlay_test) SCRIPT=parlay_test.py ;;
+            closing) SCRIPT=closing_snapshot.py ;;
             *) SCRIPT=projections.py ;;
           esac
           python -u "$SCRIPT" 2>&1 | tee run.log
@@ -83,7 +92,7 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Email results
-        if: success()
+        if: success() && steps.task.outputs.name != 'closing'
         continue-on-error: true
         shell: bash
         env:
@@ -119,4 +128,5 @@ jobs:
             git pull --rebase origin "${GITHUB_REF_NAME}"
             git push
           fi
+
 
