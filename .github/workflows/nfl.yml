@@ -22,7 +22,7 @@ on:
       task:
         description: "What to run"
         type: choice
-        options: [project, rushing, score, closing, closing_early, ab, ab_features, parlay_test]
+        options: [project, rushing, score, closing, closing_early, ab, ab_features, ab_rushing, parlay_test]
         default: project
 
 permissions:
@@ -77,6 +77,7 @@ jobs:
             score) SCRIPT=score_week.py ;;
             ab) SCRIPT=ab_opponent.py ;;
             ab_features) SCRIPT=ab_features.py ;;
+            ab_rushing) SCRIPT=ab_rushing.py ;;
             parlay_test) SCRIPT=parlay_test.py ;;
             closing) SCRIPT=closing_snapshot.py ;;
             closing_early) export EARLY_GATE=1; SCRIPT=closing_snapshot.py ;;
@@ -143,6 +144,7 @@ jobs:
             git pull --rebase origin "${GITHUB_REF_NAME}"
             git push
           fi
+
 
 
 
