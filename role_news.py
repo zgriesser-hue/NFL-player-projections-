@@ -51,23 +51,35 @@ def fetch_sleeper() -> pd.DataFrame:
 
 
 def fetch_depth(season: int, week: int) -> pd.DataFrame:
-    """RB depth rank (1 = starter) from nflverse depth charts. Column names differ between years."""
+    """RB depth rank (1 = starter) from nflverse depth charts. The schema changed in 2025: older files have
+    week / depth_position / depth_team, newer ones have a snapshot date `dt` and pos_abb / pos_rank."""
     try:
         import nflreadpy as nfl
         d = nfl.load_depth_charts([season]).to_pandas()
         pick = lambda *names: next((c for c in names if c in d.columns), None)
-        wk, ide = pick("week"), pick("gsis_id", "player_id")
-        pos, rank = pick("depth_position", "pos_abb", "position"), pick("depth_team", "pos_rank", "rank")
-        if not all([wk, ide, pos, rank]):
-            raise ValueError(f"unexpected columns {list(d.columns)[:12]}")
-        d = d[d[pos].isin(["RB", "HB"]) & (d[wk] <= week)]
-        d = d[d[wk] == d[wk].max()]
-        d["depth_rank"] = pd.to_numeric(d[rank], errors="coerce")
-        d = d.dropna(subset=["depth_rank", ide]).drop_duplicates(ide)
-        print(f"Role news: nflverse depth chart loaded for week {int(d[wk].max()) if len(d) else '?'} ({len(d)} RBs).")
+        ide = pick("gsis_id", "player_id")
+        pos = pick("depth_position", "pos_abb", "position", "pos_name")
+        rank = pick("depth_team", "pos_rank", "pos_slot", "rank")
+        if not all([ide, pos, rank]):
+            raise ValueError(f"unexpected columns {list(d.columns)}")
+        d = d[d[pos].astype(str).isin(["RB", "HB", "Running Back"])]
+        wk = pick("week")
+        if wk:
+            d = d[d[wk] <= week]
+            d = d[d[wk] == d[wk].max()]
+            tag = f"week {int(d[wk].max()) if len(d) else '?'}"
+        elif "dt" in d.columns:
+            dt = pd.to_datetime(d["dt"], errors="coerce", utc=True)
+            d = d[dt == dt.max()]
+            tag = f"snapshot {dt.max():%Y-%m-%d}"
+        else:
+            tag = "latest"
+        d = d.assign(depth_rank=pd.to_numeric(d[rank], errors="coerce")).dropna(subset=["depth_rank", ide])
+        d = d.sort_values("depth_rank").drop_duplicates(ide)
+        print(f"Role news: nflverse depth chart loaded ({tag}, {len(d)} RBs).")
         return d.rename(columns={ide: "player_id"})[["player_id", "depth_rank"]]
     except Exception as e:
-        print(f"Role news: nflverse depth chart unavailable ({type(e).__name__}: {str(e)[:80]}); skipping it.")
+        print(f"Role news: nflverse depth chart unavailable ({type(e).__name__}: {str(e)[:400]}); skipping it.")
         return pd.DataFrame()
 
 

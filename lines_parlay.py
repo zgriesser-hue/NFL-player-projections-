@@ -128,6 +128,8 @@ def tidy(raw: pd.DataFrame) -> pd.DataFrame:
     ev = d["canonical_event_id"] if "canonical_event_id" in d.columns else d.get("event_id", "")
     d["event_id"] = ev
     d["commence_time"] = pd.to_datetime(d["commence_time"], utc=True, errors="coerce")
+    # some books omit the kickoff time: borrow it from other rows of the same game
+    d["commence_time"] = d.groupby("event_id")["commence_time"].transform(lambda x: x.fillna(x.min()))
     d = (d.sort_values("_bal")
          .drop_duplicates(["bookmaker", "stat", "name_key", "event_id"])
          .rename(columns={"bookmaker": "book"}))
@@ -158,30 +160,51 @@ def _funnel(raw: pd.DataFrame, df: pd.DataFrame, window=None) -> None:
 
 
 def get_lines(key: str, season: int, week: int, out_dir: str, window=None) -> pd.DataFrame:
-    """Tidy lines for the target week's games (window = (start, end) UTC timestamps), cached for an hour."""
+    """Tidy lines for the target week's games (window = (start, end) UTC timestamps), cached for an hour.
+
+    ParlayAPI sometimes answers with a thin board (for example only Underdog rows, which are dropped as a
+    pick'em site). When no sportsbook lines survive, ask again (up to 3 tries); if it is still thin, fall
+    back to the last good pull for this week (up to 36 hours old) and say so."""
     raw_path = os.path.join(out_dir, f"lines_parlay_{season}_wk{week}_raw.csv")
-    if os.path.exists(raw_path):
-        cached = pd.read_csv(raw_path)
-        if len(cached) and "fetched_at" in cached:
-            age = (pd.Timestamp.now(tz="UTC") - pd.Timestamp(cached["fetched_at"].iloc[0])).total_seconds() / 60
-            if age < LINES_CACHE_MINUTES:
-                print(f"Using cached ParlayAPI lines fetched {age:.0f} min ago")
-                return cached
-    raw, resp = fetch_raw(key)
-    if raw is None:
-        return pd.DataFrame()
-    if resp is not None:
-        print(f"ParlayAPI: {len(raw)} raw rows | credits used {resp.headers.get('x-requests-last')} "
-              f"| remaining {resp.headers.get('x-requests-remaining')}")
-    df = tidy(raw)
-    _funnel(raw, df, window)
-    if window is not None and len(df):
-        t = pd.to_datetime(df["commence_time"], utc=True)
-        df = df[(t >= window[0]) & (t <= window[1])].reset_index(drop=True)
-        print(f"ParlayAPI after week window {window[0]:%m-%d %H:%M} to {window[1]:%m-%d %H:%M} UTC: {len(df)} lines")
+    cached = pd.read_csv(raw_path) if os.path.exists(raw_path) else pd.DataFrame()
+    cache_age = None
+    if len(cached) and "fetched_at" in cached:
+        cache_age = (pd.Timestamp.now(tz="UTC") - pd.Timestamp(cached["fetched_at"].iloc[0])).total_seconds() / 60
+        if cache_age < LINES_CACHE_MINUTES:
+            print(f"Using cached ParlayAPI lines fetched {cache_age:.0f} min ago")
+            return cached
+
+    df = pd.DataFrame()
+    for attempt in range(3):
+        raw, resp = fetch_raw(key)
+        if raw is None:
+            break
+        if resp is not None:
+            print(f"ParlayAPI: {len(raw)} raw rows | credits used {resp.headers.get('x-requests-last')} "
+                  f"| remaining {resp.headers.get('x-requests-remaining')}")
+        df = tidy(raw)
+        _funnel(raw, df, window)
+        if window is not None and len(df):
+            t = pd.to_datetime(df["commence_time"], utc=True, errors="coerce")
+            n_missing = int(t.isna().sum())
+            if n_missing:
+                print(f"ParlayAPI: {n_missing} lines have no kickoff time (kept)")
+            df = df[t.isna() | ((t >= window[0]) & (t <= window[1]))].reset_index(drop=True)
+            print(f"ParlayAPI after week window {window[0]:%m-%d %H:%M} to {window[1]:%m-%d %H:%M} UTC: {len(df)} lines")
+        if len(df):
+            break
+        if attempt < 2:
+            print(f"ParlayAPI returned no sportsbook lines (thin board); trying again in 10s ({attempt + 1}/2)")
+            time.sleep(10)
+
     if len(df):
         df["fetched_at"] = pd.Timestamp.now(tz="UTC").isoformat()
         df.to_csv(raw_path, index=False)
         counts = df.groupby("stat")["name_key"].nunique().to_dict()
         print(f"ParlayAPI sportsbook lines kept (players per stat): {counts}")
-    return df
+        return df
+    if len(cached) and cache_age is not None and cache_age < 36 * 60:
+        print(f"ParlayAPI gave no usable lines; using the last good pull for this week "
+              f"({cache_age / 60:.1f} hours old). Lines may have moved.")
+        return cached
+    return pd.DataFrame()
