@@ -77,7 +77,7 @@ ODDS_BOOKS = None                                     # e.g. ["draftkings", "fan
 LINES_CACHE_MINUTES = 60                              # reuse a recent pull to save API credits
 FORCE_REFRESH_LINES = False
 
-N_SIMS = 2000
+N_SIMS = 20000
 SEED = 42
 MIN_CAL_ROWS = 300      # past out-of-sample rows (per position) before dispersion is estimated
 K_DEFAULT = 4.0         # NB dispersion until enough history (larger = closer to Poisson)
