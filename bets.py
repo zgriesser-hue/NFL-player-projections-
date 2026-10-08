@@ -7,6 +7,7 @@ Ledger: data/bets.csv  (one row per bet; never edit the result columns by hand, 
         --line 65.5 --odds -113 --stake 25 --payout 47.12 --game "TB@DAL" --kickoff 2026-10-09T00:15Z \
         --placed 2026-10-08T22:07:06Z --ticket DK639270940253045494
     python bets.py grade      # grade finished games, compute closing-line value, print the summary
+    python bets.py clv        # only fill in closing-line value for bets placed (no grading)
     python bets.py summary    # just print the summary
 
 `add` also copies the model's numbers at the time of the bet (projection, probability, EV) from the saved
@@ -32,7 +33,7 @@ COLS = [
     # the model at the time of the bet (latest saved snapshot before it, same book if possible)
     "model_mean", "model_median", "model_snap_line", "model_p_side", "model_ev",
     # filled by grade
-    "status", "actual", "profit", "close_line", "close_odds", "close_p_side", "clv_line", "clv_prob",
+    "status", "actual", "profit", "close_line", "close_odds", "close_p_side", "clv_line", "clv_prob", "clv_source",
 ]
 EDGE_PREFIX = {"rec_yds": "projections", "rush_yds": "rushing", "receptions": "receptions"}
 ACTUAL_COL = {"rec_yds": "receiving_yards", "rush_yds": "rushing_yards", "receptions": "receptions"}
@@ -73,6 +74,8 @@ def load_ledger(d: str) -> pd.DataFrame:
         for c in COLS:
             if c not in df.columns:
                 df[c] = np.nan
+        for c in ("clv_source", "status", "team", "game", "kickoff"):
+            df[c] = df[c].astype(object)                    # an all-empty column loads as float and would reject text
         return df[COLS]
     return pd.DataFrame(columns=COLS)
 
@@ -168,17 +171,49 @@ def cmd_add(a) -> None:
 
 # ------------------------------------------------------------------ grade
 def closing_for(d: str, S, bet: pd.Series):
-    """Closing line for this bet's book from the ParlayAPI closing snapshots (nearest to kickoff, at or before it)."""
+    """Closing line for a placed bet, from the ParlayAPI closing snapshots (nearest to kickoff, at or before it).
+    Returns (line, over_price, under_price, source): the bet's own book when it is in the snapshot, otherwise the
+    median across books ("consensus"). None if there is no usable closing snapshot yet. A snapshot taken before the
+    bet was placed is not a closing line for it, so it is skipped."""
     cl = S.load_closing(d, bet["stat"])
     if cl.empty:
         return None
     cl = cl[cl["name_key"] == name_key(bet["player"])]
-    cl = cl[cl["snap_time"] <= cl["commence"]]
+    cl = cl[(cl["snap_time"] <= cl["commence"]) & (cl["snap_time"] >= pd.Timestamp(bet["placed_at"]))]
     if cl.empty:
         return None
     cl = cl[cl["snap_time"] == cl["snap_time"].max()]
     mine = cl[cl["book"] == bet["book"]]
-    return mine.iloc[0] if len(mine) else None
+    if len(mine):
+        r = mine.iloc[0]
+        return r["line"], r["over_price"], r["under_price"], "own book"
+    return cl["line"].median(), cl["over_price"].median(), cl["under_price"].median(), f"consensus of {len(cl)} books"
+
+
+def fill_clv(d: str, S, led: pd.DataFrame) -> pd.DataFrame:
+    """Closing-line value for placed bets only (separate from the projection scorecards' CLV on the model's picks).
+
+    clv_line: points by which the line moved in our favour (+ = we got the better number).
+    clv_prob: closing price minus our price as implied probability, only when the book and line are unchanged
+              (+ = the market now rates our side as likelier than the price we paid implied)."""
+    for i, bet in led.iterrows():
+        if pd.notna(bet["clv_line"]) or pd.notna(bet["clv_prob"]):
+            continue
+        c = closing_for(d, S, bet)
+        if c is None:
+            continue
+        line, po_price, pu_price, source = c
+        over = bet["side"] == "over"
+        po, pu = implied(po_price), implied(pu_price)
+        close_price = po_price if over else pu_price
+        same = source == "own book" and line == bet["line"]
+        vals = {"close_line": line, "close_odds": close_price, "close_p_side": (po if over else pu) / (po + pu),
+                "clv_line": (line - bet["line"]) if over else (bet["line"] - line),
+                "clv_prob": (implied(close_price) - implied(bet["odds"])) if same else np.nan,
+                "clv_source": source}
+        for k, v in vals.items():
+            led.loc[i, k] = v
+    return led
 
 
 def grade(d: str) -> pd.DataFrame:
@@ -211,22 +246,7 @@ def grade(d: str) -> pd.DataFrame:
                 res = "win" if won else "loss"
                 profit = round(bet["payout"] - bet["stake"], 2) if won else -float(bet["stake"])
             led.loc[i, "status"], led.loc[i, "actual"], led.loc[i, "profit"] = res, y, profit
-    # closing-line value for every bet whose game has kicked off (graded or not yet scored)
-    for i, bet in led.iterrows():
-        if pd.notna(bet["clv_line"]) or pd.notna(bet["clv_prob"]):
-            continue
-        c = closing_for(d, S, bet)
-        if c is None:
-            continue
-        over = bet["side"] == "over"
-        line_move = (c["line"] - bet["line"]) if over else (bet["line"] - c["line"])        # + = we got the better number
-        po, pu = implied(c["over_price"]), implied(c["under_price"])
-        p_side = (po if over else pu) / (po + pu)                                          # no-vig closing probability of OUR side
-        vals = {"close_line": c["line"], "close_odds": c["over_price"] if over else c["under_price"],
-                "close_p_side": p_side, "clv_line": line_move,
-                "clv_prob": (p_side - implied(bet["odds"])) if c["line"] == bet["line"] else np.nan}
-        for k, v in vals.items():
-            led.loc[i, k] = v
+    led = fill_clv(d, S, led)
     save_ledger(d, led)
     return led
 
@@ -256,11 +276,24 @@ def summary(led: pd.DataFrame) -> str:
                 out.append(f"  bets the model rated EV >= 5%: {len(liked)} | ROI {liked['profit'].sum() / liked['stake'].sum():+.1%}")
         if len(done) < 100:
             out.append("  (with this few bets, results are mostly luck: a +/-20% ROI swing is normal over 50 bets)")
-    cl = led[led["clv_line"].notna() | led["clv_prob"].notna()]
+    cl = led[led["clv_line"].notna()]
+    out.append("")
+    out.append("BET CLV (closing-line value on bets you placed; not the projection scorecards' CLV on the model's picks)")
     if len(cl):
-        out.append(f"  closing-line value on {len(cl)} bets: line moved our way by {cl['clv_line'].mean():+.2f} pts on average"
-                   + (f"; price edge vs no-vig close {cl['clv_prob'].mean():+.1%}" if cl["clv_prob"].notna().any() else "")
-                   + f"; beat the close on {(cl['clv_line'].fillna(0) > 0).sum()}/{len(cl)}")
+        n = len(cl)
+        out.append(f"  {n} of {len(led)} bets have a closing line | average line move in your favour {cl['clv_line'].mean():+.2f} pts"
+                   f" | beat the close on {(cl['clv_line'] > 0).sum()}, matched {(cl['clv_line'] == 0).sum()}, lost to it {(cl['clv_line'] < 0).sum()}")
+        pc = cl[cl["clv_prob"].notna()]
+        if len(pc):
+            out.append(f"  price edge where the line was unchanged ({len(pc)} bets): {pc['clv_prob'].mean():+.1%} implied probability")
+        for k, g in cl.groupby("side"):
+            out.append(f"    {k}s: {len(g)} bets, line move {g['clv_line'].mean():+.2f} pts")
+        out.append("  " + "; ".join(f"{r.player} {r.side} {r.line:g} -> closed {r.close_line:g} ({r.clv_line:+.1f})"
+                                     + ("" if r.clv_source == "own book" else f" [{r.clv_source}]") for r in cl.itertuples()))
+        if n < 50:
+            out.append("  (CLV is far less noisy than win/loss, but still wants about 50+ bets before it means much)")
+    else:
+        out.append("  no closing lines recorded for your bets yet (they come from the closing snapshots shortly before kickoff)")
     if len(pend):
         out.append("  pending: " + "; ".join(f"{r.side} {r.line:g} {r.player} {r.stat} ({r.odds:+.0f})" for r in pend.itertuples()))
     return "\n".join(out)
@@ -292,6 +325,7 @@ def main():
     a.add_argument("--season", type=int)
     a.add_argument("--week", type=int)
     sub.add_parser("grade")
+    sub.add_parser("clv")
     sub.add_parser("summary")
     args = ap.parse_args()
     d = out_dir()
@@ -300,6 +334,11 @@ def main():
         cmd_summary(d, load_ledger(d))
     elif args.cmd == "grade":
         cmd_summary(d, grade(d))
+    elif args.cmd == "clv":
+        import score_week as S
+        led = fill_clv(d, S, load_ledger(d))
+        save_ledger(d, led)
+        cmd_summary(d, led)
     else:
         cmd_summary(d, load_ledger(d))
 

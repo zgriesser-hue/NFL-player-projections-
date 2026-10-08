@@ -134,6 +134,10 @@ jobs:
             # rushing first (it writes an email section); a failure there must not block projections
             python -u rushing.py 2>&1 | tee run.log || echo "Rushing model failed; continuing with receiving projections."
             python -u projections.py 2>&1 | tee -a run.log
+          elif [[ "${{ steps.task.outputs.name }}" == closing* ]]; then
+            python -u "$SCRIPT" 2>&1 | tee run.log
+            # record the closing-line value of any bets placed on games in this window; must not fail the run
+            python -u bets.py clv 2>&1 | tee -a run.log || echo "bet CLV step failed; the closing snapshot above is unaffected."
           else
             python -u "$SCRIPT" 2>&1 | tee run.log
           fi
