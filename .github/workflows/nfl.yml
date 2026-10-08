@@ -83,7 +83,11 @@ jobs:
             rushing) SCRIPT=rushing.py ;;
             *) SCRIPT=projections.py ;;
           esac
-          if [ "${{ steps.task.outputs.name }}" = "project" ]; then
+          if [ "${{ steps.task.outputs.name }}" = "score" ]; then
+            python -u score_week.py 2>&1 | tee run.log
+            # rushing / receptions scorecards; a failure here must not fail the run
+            python -u score_extra.py 2>&1 | tee -a run.log || echo "score_extra failed; receiving-yards scoring above is unaffected."
+          elif [ "${{ steps.task.outputs.name }}" = "project" ]; then
             # rushing first (it writes an email section); a failure there must not block projections
             python -u rushing.py 2>&1 | tee run.log || echo "Rushing model failed; continuing with receiving projections."
             python -u projections.py 2>&1 | tee -a run.log
@@ -123,7 +127,7 @@ jobs:
               echo "No email summary was produced (offseason or no games); nothing to send."
             fi
           else
-            python send_email.py --subject "NFL props: $TASK results" --text run.log --tail 120
+            python send_email.py --subject "NFL props: $TASK results" --text run.log --tail 220
           fi
 
       - name: Save results to the repo
@@ -139,6 +143,7 @@ jobs:
             git pull --rebase origin "${GITHUB_REF_NAME}"
             git push
           fi
+
 
 
 
