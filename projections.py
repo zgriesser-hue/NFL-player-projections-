@@ -1220,6 +1220,21 @@ def main():
     print(out[cols].head(40).round(rounding).rename(columns=labels).to_string(index=False))
     print(f"\nSaved {path} (plus a timestamped snapshot)")
 
+    # ---- standalone receptions projections file (same simulation as the yards projection) ----
+    rcols = ["player_display_name", "team", "opp", "position", "status", "rec_projection", "rec_mean", "rec_q25",
+             "rec_q75", "rec_p_zero", "exp_targets", "p_catch", "projection"]
+    if all(c in out.columns for c in rcols):
+        rec_file = (out[rcols].rename(columns={
+            "player_display_name": "player", "rec_projection": "receptions_median", "rec_mean": "receptions_mean",
+            "rec_q25": "receptions_q25", "rec_q75": "receptions_q75", "rec_p_zero": "p_zero_receptions",
+            "projection": "receiving_yards_median"})
+            .sort_values(["receptions_median", "receptions_mean"], ascending=False)
+            .round({"receptions_mean": 2, "p_zero_receptions": 3, "exp_targets": 2, "p_catch": 3, "receiving_yards_median": 1}))
+        rbase = os.path.join(out_dir, f"receptions_{season}_wk{week}")
+        rec_file.to_csv(f"{rbase}_{stamp}.csv", index=False)
+        rec_file.to_csv(f"{rbase}_latest.csv", index=False)
+        print(f"Saved {rbase}_latest.csv (receptions projections for {len(rec_file)} players)")
+
     # ---- receptions lines (ParlayAPI; one call covers receiving yards, rushing yards and receptions) ----
     EXTRA_EMAIL.clear()
     pkey = lines_parlay.get_key()
