@@ -1,0 +1,2 @@
+BET TRACKER: 2 bets | 0 graded | 2 pending | 0 void
+  pending: under 65.5 George Pickens rec_yds (-113); over 29.5 Cade Otton rec_yds (-114)
