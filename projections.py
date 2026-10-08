@@ -26,6 +26,7 @@ Self-contained (includes the v2 data pipeline).
 
 Setup:
     pip install nflreadpy pandas numpy lightgbm scikit-learn
+    (also needs lines_parlay.py next to this file)
 """
 import html as _html
 import os
@@ -34,6 +35,7 @@ import unicodedata
 
 import numpy as np
 import pandas as pd
+import lines_parlay
 import nflreadpy as nfl
 import lightgbm as lgb
 
@@ -959,6 +961,68 @@ def _head(cols):
         for c in cols) + "</tr>"
 
 
+EXTRA_EMAIL: list = []      # extra HTML sections (e.g. receptions edges) appended to the email
+
+
+def edges_section(title: str, edges: pd.DataFrame, unit: str, max_rows: int = 15) -> str:
+    """Email table of confirmed leans (model mean AND median on the same side of the line)."""
+    esc = _html.escape
+    conf = edges[edges["agree"]]
+    top = conf.drop_duplicates("model_player").head(max_rows)
+    head = (f"<h3 style='margin:18px 0 4px'>{esc(title)}: our projection vs sportsbook lines</h3>"
+            "<p style='margin:0 0 6px;color:#555;font-size:12px'>Only leans where our median AND average "
+            f"are on the same side of the line ({conf['model_player'].nunique()} of "
+            f"{edges['model_player'].nunique()} players). Largest gaps first, best book per player. "
+            "New model with no live track record yet: treat as things to check, not bets.</p>")
+    if top.empty:
+        return head + "<p style='color:#555'>No confirmed leans this run.</p>"
+    rows = []
+    for r in top.itertuples():
+        side = "Over" if r.best_side == "over" else "Under"
+        rows.append("<tr>" + _cell(esc(str(r.model_player)), bold=True)
+                    + _cell(f"{esc(str(r.team))} vs {esc(str(r.opp))}")
+                    + _cell(esc(str(r.book)))
+                    + _cell(f"{r.line:g}", align="right")
+                    + _cell(f"{r.model_median:.1f}" if unit == "rec" else f"{r.model_median:.0f}",
+                            bold=True, align="right")
+                    + _cell(f"{side} ({r.best_price:+.0f})", bold=True)
+                    + _cell(f"{r.model_p:.0%}", align="right")
+                    + _cell(f"{r.fair_p:.0%}", align="right")
+                    + _cell(f"{r.best_ev:+.2f}", align="right") + "</tr>")
+    label = "OUR PROJECTION (receptions)" if unit == "rec" else "OUR PROJECTION (yds)"
+    return (head + '<table style="border-collapse:collapse;font-size:13px">'
+            + _head(["Player", "Game", "Book", "Book line", label, "Our lean (price)",
+                     "Our chance it hits", "Book's implied chance", "Edge (EV per $1)"])
+            + "".join(rows) + "</table>")
+
+
+def stat_edges(stat_out: pd.DataFrame, sims: np.ndarray, lines_stat: pd.DataFrame, title: str,
+               prefix: str, unit: str, season: int, week: int, out_dir: str, stamp: str):
+    """Edges for one extra stat (receptions, rushing yards). Saves {prefix}_{season}_wk{week}_edges_*.csv.
+    `stat_out` needs columns median/mean for this stat; `sims` is aligned with its rows."""
+    if lines_stat is None or lines_stat.empty:
+        print(f"\n{title}: no sportsbook lines yet.")
+        return "", None
+    edges, unmatched = evaluate_lines(stat_out, sims, lines_stat)
+    if unmatched:
+        print(f"\n{title}: book names not matched to a projected player ({len(unmatched)}): {unmatched[:12]}")
+    if edges.empty:
+        print(f"\n{title}: no book lines matched a projected player.")
+        return "", None
+    base = os.path.join(out_dir, f"{prefix}_{season}_wk{week}_edges")
+    edges.to_csv(f"{base}_{stamp}.csv", index=False)
+    edges.to_csv(f"{base}_latest.csv", index=False)
+    conf = edges[edges["agree"]]
+    top = conf.drop_duplicates("model_player").head(15)
+    print(f"\n{title}: {conf['model_player'].nunique()} of {edges['model_player'].nunique()} players have a "
+          f"confirmed lean ({len(edges)} book lines). Largest gaps:")
+    if len(top):
+        show = top[["model_player", "team", "opp", "book", "best_side", "line", "best_price",
+                    "model_median", "model_p", "fair_p", "best_ev"]]
+        print(show.round({"model_median": 1, "model_p": 2, "fair_p": 2, "best_ev": 3}).to_string(index=False))
+    return edges_section(title, edges, unit), edges
+
+
 def build_email(out: pd.DataFrame, edges, season: int, week: int, extra_html: str = ""):
     """(subject, html): clearly labelled projections plus model-vs-book table."""
     esc = _html.escape
@@ -1043,6 +1107,7 @@ def write_email(out, edges, season: int, week: int, out_dir: str) -> None:
     if os.path.exists(part):
         with open(part, encoding="utf-8") as f:
             extra = f.read()
+    extra += "".join(EXTRA_EMAIL)
     subject, body = build_email(out, edges, season, week, extra_html=extra)
     with open(os.path.join(out_dir, "email_latest.html"), "w", encoding="utf-8") as f:
         f.write(body)
@@ -1132,6 +1197,24 @@ def main():
           "average is higher because big games pull it up.")
     print(out[cols].head(40).round(rounding).rename(columns=labels).to_string(index=False))
     print(f"\nSaved {path} (plus a timestamped snapshot)")
+
+    # ---- receptions lines (ParlayAPI; one call covers receiving yards, rushing yards and receptions) ----
+    EXTRA_EMAIL.clear()
+    pkey = lines_parlay.get_key()
+    if pkey:
+        try:
+            plines = lines_parlay.get_lines(pkey, season, week, out_dir, window=week_window(season, week))
+        except Exception as e:
+            print(f"ParlayAPI lines skipped ({e})")
+            plines = pd.DataFrame()
+        if len(plines):
+            rec_out = out.assign(median=out["rec_projection"], mean=out["rec_mean"])
+            html_rec, _ = stat_edges(rec_out, rec_sims, plines[plines["stat"] == "receptions"],
+                                     "Receptions", "receptions", "rec", season, week, out_dir, stamp)
+            if html_rec:
+                EXTRA_EMAIL.append(html_rec)
+    else:
+        print("\nNo PARLAY_API_KEY found: receptions and rushing line comparisons skipped.")
 
     # ---- sportsbook lines ----
     api_key = get_api_key()

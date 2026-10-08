@@ -54,3 +54,18 @@ those files as the closing line when it grades CLV (`scorecard_clv.csv`).
 - Receptions for WR/TE come from the existing receiving model's simulation: new `rec_projection`,
   `rec_q25`, `rec_q75` columns in the projections CSV and an "OUR RECEPTIONS" column in the email.
   The first run after updating recomputes the receiving backtest once (cache name `receiving_backtest_v6b.csv`).
+
+### Lines, edges and scoring for rushing and receptions (stage 2)
+
+- `lines_parlay.py` pulls receiving yards, rushing yards and receptions from ParlayAPI in one call (3 credits),
+  maps each book's market names to one stat, keeps real sportsbooks only (no DFS/pick'em sites) and one main line
+  per book/player. `projections.py` (receptions) and `rushing.py` (rushing yards) use it when `PARLAY_API_KEY` is set.
+- New files each run: `receptions_*_edges_*.csv` and `rushing_*_edges_*.csv`; the email gets a table of
+  confirmed leans for each (our median AND average on the same side of the line).
+- `score_extra.py` grades both after games finish (runs after `score_week.py` in the `score` task): MAE vs the book
+  line, Brier score, graded picks, and CLV. It writes `scorecard_rush_*.csv`, `scorecard_receptions_*.csv`,
+  `scorecard_clv_rush_yds.csv`, `scorecard_clv_receptions.csv`.
+- `closing_snapshot.py` now saves all three stats, so closing lines work for all of them.
+- Receiving-yards edges still come from the Odds API (unchanged), so those scorecards continue as before.
+- Receptions leans are strict: receptions are whole numbers, so the median and mean often land on opposite sides of
+  a 2.5 or 3.5 line, and those players are filtered out.

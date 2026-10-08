@@ -19,6 +19,7 @@ import nflreadpy as nfl
 import numpy as np
 import pandas as pd
 
+import lines_parlay
 import projections as P
 
 RUSH_POS = ["RB", "QB"]
@@ -400,14 +401,30 @@ def main():
     train = hist.dropna(subset=BASE_FEATURES + [TARGET])
     train = train[train["games_prior"] >= P.MIN_PRIOR_GAMES]
     rates = play_rates(inj, parts["pw"], season * 100 + week)
-    out, _sims = project_upcoming(train, fut, backtest, rates)
+    out, sims = project_upcoming(train, fut, backtest, rates)
 
     stamp = pd.Timestamp.now(tz="UTC").strftime("%Y%m%d_%H%M")
     base = os.path.join(out_dir, f"rushing_{season}_wk{week}")
     out.to_csv(f"{base}_{stamp}.csv", index=False)
     out.to_csv(f"{base}_latest.csv", index=False)
+    part = build_email_part(out)
+
+    # sportsbook comparison (ParlayAPI; falls back to projections only if no key / no lines)
+    pkey = lines_parlay.get_key()
+    if pkey:
+        try:
+            plines = lines_parlay.get_lines(pkey, season, week, out_dir, window=P.week_window(season, week))
+        except Exception as e:
+            print(f"ParlayAPI lines skipped ({e})")
+            plines = pd.DataFrame()
+        if len(plines):
+            html_edges, _ = P.stat_edges(out, sims, plines[plines["stat"] == "rush_yds"], "Rushing yards",
+                                         "rushing", "yds", season, week, out_dir, stamp)
+            part += html_edges
+    else:
+        print("\nNo PARLAY_API_KEY found: rushing line comparison skipped.")
     with open(os.path.join(out_dir, "rushing_email_part.html"), "w", encoding="utf-8") as f:
-        f.write(build_email_part(out))
+        f.write(part)
 
     pd.set_option("display.width", 220)
     cols = ["player_display_name", "team", "opp", "position", "status", "q25", "projection",

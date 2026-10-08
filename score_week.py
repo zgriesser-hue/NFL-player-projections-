@@ -111,7 +111,7 @@ def load_actuals(season: int, week: int) -> pd.DataFrame:
     stats = stats[(stats["season_type"] == "REG") & (stats["season"] == season)]
     names = (stats.sort_values("week").drop_duplicates("player_id", keep="last")
              .set_index("player_id")["player_display_name"])
-    wk = stats[stats["week"] == week][["player_id", "receiving_yards"]]
+    wk = stats[stats["week"] == week][["player_id", "receiving_yards", "rushing_yards", "receptions"]]
 
     players = (nfl.load_players().to_pandas()[["gsis_id", "pfr_id"]]
                .dropna().drop_duplicates("pfr_id"))
@@ -123,10 +123,11 @@ def load_actuals(season: int, week: int) -> pd.DataFrame:
              .drop_duplicates("player_id"))
 
     act = snaps.merge(wk, on="player_id", how="outer")      # a stat line also proves they played
-    act["receiving_yards"] = act["receiving_yards"].fillna(0.0)
+    for c in ("receiving_yards", "rushing_yards", "receptions"):
+        act[c] = act[c].fillna(0.0)
     act["name"] = act["player_id"].map(names).fillna(act["player"])
     act["name_key"] = act["name"].map(name_key)
-    return act.drop_duplicates("name_key")[["name_key", "name", "receiving_yards"]]
+    return act.drop_duplicates("name_key")[["name_key", "name", "receiving_yards", "rushing_yards", "receptions"]]
 
 
 def before_kickoff(df: pd.DataFrame, kick: dict) -> pd.DataFrame:
@@ -138,8 +139,9 @@ def before_kickoff(df: pd.DataFrame, kick: dict) -> pd.DataFrame:
     return df[df["snap_time"] == latest]
 
 
-def load_closing(out_dir: str) -> pd.DataFrame:
-    """Closing snapshots from closing_snapshot.py (ParlayAPI), if any."""
+def load_closing(out_dir: str, stat: str = "rec_yds") -> pd.DataFrame:
+    """Closing snapshots from closing_snapshot.py (ParlayAPI), if any, for one stat.
+    Files from before stats were tagged are receiving yards."""
     frames = []
     for f in sorted(os.listdir(out_dir)):
         if re.match(r"closing_\d{8}_\d{4}\.csv$", f):
@@ -147,12 +149,18 @@ def load_closing(out_dir: str) -> pd.DataFrame:
     if not frames:
         return pd.DataFrame()
     c = pd.concat(frames, ignore_index=True)
+    if "stat" not in c.columns:
+        c["stat"] = "rec_yds"
+    c = c[c["stat"].fillna("rec_yds") == stat]
+    if c.empty:
+        return c
     c["snap_time"] = pd.to_datetime(c["snap_time"], utc=True)
     c["commence"] = pd.to_datetime(c["commence_time"], utc=True)
     return c
 
 
-def clv_report(edges_all: pd.DataFrame, kick: dict, season: int, week: int, out_dir: str) -> None:
+def clv_report(edges_all: pd.DataFrame, kick: dict, season: int, week: int, out_dir: str,
+               stat: str = "rec_yds") -> None:
     """Closing line value: did the market move toward our pick after we made it?
 
     Pick = the EARLIEST Odds API snapshot where the player had a confirmed pick (EV >= EV_MIN,
@@ -173,7 +181,7 @@ def clv_report(edges_all: pd.DataFrame, kick: dict, season: int, week: int, out_
     e["commence"] = pd.to_datetime(e["commence_time"], utc=True)
 
     # closing snapshot per player: latest closing file at or before that game's kickoff
-    cl_all = load_closing(out_dir)
+    cl_all = load_closing(out_dir, stat)
     cl = pd.DataFrame()
     if not cl_all.empty:
         cl_all = cl_all[cl_all["snap_time"] <= cl_all["commence"]]
@@ -228,7 +236,7 @@ def clv_report(edges_all: pd.DataFrame, kick: dict, season: int, week: int, out_
         return f"{x.mean():+.2f} ±{1.96 * x.std(ddof=1) / np.sqrt(len(x)):.2f} (n={len(x)})"
 
     n_pc = int((m["close_source"] == "parlay close").sum())
-    print(f"\nClosing line value on {len(m)} confirmed picks (picked a median {m['hours_early'].median():.0f}h "
+    print(f"\nClosing line value ({stat}) on {len(m)} confirmed picks (picked a median {m['hours_early'].median():.0f}h "
           f"before kickoff). Close source: {n_pc} ParlayAPI pre-kickoff snapshot, "
           f"{len(m) - n_pc} our last Odds API snapshot:")
     v = m["clv_line"].dropna()
@@ -252,7 +260,7 @@ def clv_report(edges_all: pd.DataFrame, kick: dict, season: int, week: int, out_
         ["season", "week", "player", "team", "book", "side", "pick_line", "pick_price", "pick_time",
          "close_line", "close_consensus", "close_source", "clv_line", "clv_line_consensus",
          "clv_prob", "hours_early"]]
-    path = os.path.join(out_dir, "scorecard_clv.csv")
+    path = os.path.join(out_dir, "scorecard_clv.csv" if stat == "rec_yds" else f"scorecard_clv_{stat}.csv")
     if os.path.exists(path):
         old = pd.read_csv(path)
         old = old[~((old["season"] == season) & (old["week"] == week))]
