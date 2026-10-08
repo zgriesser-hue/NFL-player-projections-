@@ -8,6 +8,7 @@ last 48 hours that had NFL games). Prints what came back so we can judge compati
 import json
 import os
 import sys
+import time
 
 import requests
 
@@ -35,6 +36,12 @@ def get(path, params=None):
         if r.status_code == 404 and base != BASES[-1]:
             last = f"{base}{path}: 404"
             continue
+        for wait in (3, 8):                      # server errors: retry a couple of times
+            if r.status_code < 500:
+                break
+            print(f"  HTTP {r.status_code} from {path}; retrying in {wait}s ...")
+            time.sleep(wait)
+            r = requests.get(base + path, params=params or {}, headers={"X-API-Key": KEY}, timeout=60)
         return base, r
     print("Could not reach the API:", last)
     sys.exit(0)
@@ -58,17 +65,18 @@ def main():
     print(f"\n== 2. Props: {MARKET} ==")
     base, r = get(f"/v1/sports/{SPORT}/props", {"markets": MARKET, "limit": 5000})
     print(f"HTTP {r.status_code} | credits: {credit_headers(r)}")
+    rows = []
     if r.status_code != 200:
         print(r.text[:500])
-        return
-    rows = r.json()
-    rows = rows if isinstance(rows, list) else rows.get("data", rows.get("props", []))
-    with open(os.path.join(OUT, "parlay_props_sample.json"), "w") as f:
-        json.dump(rows[:300], f, indent=1)
-    print(f"{len(rows)} rows")
-    if not rows:
-        print("No receiving-yards rows returned: either the market is not covered or lines are not posted yet.")
     else:
+        rows = r.json()
+        rows = rows if isinstance(rows, list) else rows.get("data", rows.get("props", []))
+        with open(os.path.join(OUT, "parlay_props_sample.json"), "w") as f:
+            json.dump(rows[:300], f, indent=1)
+        print(f"{len(rows)} rows")
+    if r.status_code == 200 and not rows:
+        print("No receiving-yards rows returned: either the market is not covered or lines are not posted yet.")
+    elif rows:
         books = {}
         for x in rows:
             books[x.get("bookmaker")] = books.get(x.get("bookmaker"), 0) + 1

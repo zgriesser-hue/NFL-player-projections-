@@ -55,20 +55,32 @@ def dec(a):
     return np.where(a > 0, 1 + a / 100, 1 + 100 / -a)
 
 
-def fetch(key: str):
+def fetch(key: str, tries: int = 4):
+    """GET the props slate; retries server errors (5xx) and timeouts with a short backoff."""
+    import time
     last = None
-    for base in BASES:
-        try:
-            r = requests.get(f"{base}/v1/sports/{SPORT}/props",
-                             params={"markets": MARKET, "limit": 10000},
-                             headers={"X-API-Key": key}, timeout=60)
-        except requests.RequestException as e:
-            last = e
-            continue
-        if r.status_code == 404 and base != BASES[-1]:
-            continue
-        return r
-    raise SystemExit(f"Could not reach ParlayAPI: {last}")
+    for attempt in range(tries):
+        for base in BASES:
+            try:
+                r = requests.get(f"{base}/v1/sports/{SPORT}/props",
+                                 params={"markets": MARKET, "limit": 10000},
+                                 headers={"X-API-Key": key}, timeout=60)
+            except requests.RequestException as e:
+                last = e
+                continue
+            if r.status_code == 404 and base != BASES[-1]:
+                continue
+            if r.status_code < 500:
+                return r
+            last = f"HTTP {r.status_code} {r.text[:120]}"
+            break
+        if attempt < tries - 1:
+            wait = 5 * (attempt + 1)
+            print(f"ParlayAPI error ({last}); retrying in {wait}s ({attempt + 1}/{tries - 1})")
+            time.sleep(wait)
+    print(f"ParlayAPI still failing after {tries} tries ({last}); no closing snapshot this run. "
+          "CLV falls back to our last Odds API snapshot for these games.")
+    return None
 
 
 def early_game_today() -> bool:
@@ -93,6 +105,8 @@ def main():
         print("PARLAY_API_KEY is not set; skipping closing snapshot.")
         return
     r = fetch(key)
+    if r is None:
+        return
     print(f"HTTP {r.status_code} | credits used {r.headers.get('x-requests-last')} "
           f"| remaining {r.headers.get('x-requests-remaining')}")
     if r.status_code != 200:
