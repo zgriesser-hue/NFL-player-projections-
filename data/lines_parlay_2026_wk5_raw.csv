@@ -1,664 +1,219 @@
 book,player,name_key,stat,line,over_price,under_price,fair_p_over,commence_time,event_id,age_seconds,market_key,fetched_at
-fanduel,Isaac TeSlaa,isaac teslaa,rec_yds,25.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Jerry Jeudy,jerry jeudy,rec_yds,14.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,e56d90f33604f4b2,1294.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Joe Burrow,joe burrow,rush_yds,8.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,f85173e306621e17,1295.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Jonathan Taylor,jonathan taylor,rec_yds,15.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,1293.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Jonathan Taylor,jonathan taylor,rush_yds,86.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,1293.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Josh Downs,josh downs,rec_yds,58.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,1293.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Juwan Johnson,juwan johnson,rec_yds,42.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,7d6fb6d33d0dcc1b,1295.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,KC Concepcion,kc concepcion,rec_yds,38.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,e56d90f33604f4b2,1294.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Kayshon Boutte,kayshon boutte,rec_yds,25.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Keenan Allen,keenan allen,rec_yds,28.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,1293.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Jaylin Noel,jaylin noel,rec_yds,18.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Jacoby Brissett,jacoby brissett,rush_yds,8.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Jahmyr Gibbs,jahmyr gibbs,rec_yds,37.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Romeo Doubs,romeo doubs,rec_yds,51.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,05835fd6db578ab9,2968.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Jared Goff,jared goff,rush_yds,0.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Jaxon Smith-Njigba,jaxon smithnjigba,rec_yds,94.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Jeremiyah Love,jeremiyah love,rec_yds,11.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Jeremiyah Love,jeremiyah love,rush_yds,45.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Kaelon Black,kaelon black,rush_yds,16.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Blake Corum,blake corum,rush_yds,31.5,-114.0,-114.0,0.5,2026-10-13T00:15:00Z,783eae7108c7afe5,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Samaje Perine,samaje perine,rush_yds,14.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,f85173e306621e17,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Skyy Moore,skyy moore,rec_yds,11.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,9d6a4b64c9a604f2,2963.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Tony Pollard,tony pollard,rec_yds,8.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Tony Pollard,tony pollard,rush_yds,50.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Tre Tucker,tre tucker,rec_yds,39.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,05835fd6db578ab9,2684.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Tyjae Spears,tyjae spears,rec_yds,9.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Tyjae Spears,tyjae spears,rush_yds,14.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Derrick Henry,derrick henry,rush_yds,83.5,-114.0,-114.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,2968.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Zay Flowers,zay flowers,rec_yds,68.5,-114.0,-114.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Kendrick Bourne,kendrick bourne,rec_yds,23.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Dalton Kincaid,dalton kincaid,rec_yds,50.5,-114.0,-114.0,0.5,2026-10-13T00:15:00Z,783eae7108c7afe5,1533.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Tyson Bagent,tyson bagent,rush_yds,10.5,-115.0,-115.0,0.5,2026-10-11T17:00:00Z,9d6a4b64c9a604f2,1540.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Wan'Dale Robinson,wandale robinson,rec_yds,32.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Woody Marks,woody marks,rec_yds,7.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Elic Ayomanor,elic ayomanor,rec_yds,17.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Elic Ayomanor,elic ayomanor,receptions,1.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Quinshon Judkins,quinshon judkins,rush_yds,59.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,e56d90f33604f4b2,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Jaylen Wright,jaylen wright,rush_yds,25.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,f85173e306621e17,1295.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Malik Willis,malik willis,rush_yds,32.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,f85173e306621e17,1295.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Kaleb Johnson,kaleb johnson,rush_yds,36.5,-115.0,-115.0,0.5,2026-10-11T17:00:00Z,9d6a4b64c9a604f2,1538.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Kalif Raymond,kalif raymond,rec_yds,28.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,9d6a4b64c9a604f2,2968.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Kayshon Boutte,kayshon boutte,rec_yds,25.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Luther Burden,luther burden,rec_yds,48.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,9d6a4b64c9a604f2,1788.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Malachi Fields,malachi fields,rec_yds,27.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,b5040b51712f37a8,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-draftkings,Malik Washington,malik washington,rec_yds,44.5,-112.0,-112.0,0.5,2026-10-11T17:00:00Z,f85173e306621e17,1567.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Jahmyr Gibbs,jahmyr gibbs,rush_yds,90.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Jameson Williams,jameson williams,rec_yds,51.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Malik Washington,malik washington,rec_yds,44.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,f85173e306621e17,1295.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-bovada,KC Concepcion (CLE),kc concepcion,rec_yds,39.5,-115.0,-115.0,0.5,2026-10-11T17:00:00Z,e56d90f33604f4b2,1448.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Michael Mayer,michael mayer,rec_yds,28.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,05835fd6db578ab9,1294.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Michael Mayer,michael mayer,receptions,3.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,05835fd6db578ab9,1294.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Mike Washington Jr.,mike washington,rush_yds,23.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,05835fd6db578ab9,1294.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Najee Harris,najee harris,rush_yds,28.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,b5040b51712f37a8,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Nico Collins,nico collins,rec_yds,77.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Nico Collins,nico collins,receptions,5.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Ollie Gordon II,ollie gordon,rec_yds,10.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,f85173e306621e17,1295.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Dalton Kincaid,dalton kincaid,rec_yds,50.5,-114.0,-114.0,0.5,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Nico Collins,nico collins,rec_yds,79.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Kendre Miller,kendre miller,rush_yds,21.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,7d6fb6d33d0dcc1b,1295.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Kevin Coleman Jr.,kevin coleman,rec_yds,18.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,f85173e306621e17,1295.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Kyler Murray,kyler murray,rush_yds,17.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,7d6fb6d33d0dcc1b,1295.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Malachi Fields,malachi fields,rec_yds,27.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,b5040b51712f37a8,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Malik Willis,malik willis,rush_yds,32.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,f85173e306621e17,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Matthew Golden,matthew golden,receptions,4.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,9d6a4b64c9a604f2,2682.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Michael Mayer,michael mayer,rec_yds,28.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,05835fd6db578ab9,1785.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Michael Mayer,michael mayer,receptions,3.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,05835fd6db578ab9,2124.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Aaron Rodgers,aaron rodgers,rush_yds,0.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,1293.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Ollie Gordon II,ollie gordon,rec_yds,10.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,f85173e306621e17,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jahan Dotson,jahan dotson,rec_yds,19.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Mark Andrews,mark andrews,rec_yds,29.5,-114.0,-114.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,1533.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Joe Burrow,joe burrow,rush_yds,8.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,f85173e306621e17,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jonathan Taylor,jonathan taylor,rec_yds,15.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-draftkings,Jonathan Taylor,jonathan taylor,rush_yds,85.5,-112.0,-112.0,0.5,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,83.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jonathan Taylor,jonathan taylor,rush_yds,86.5,-115.0,-115.0,0.5,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,KC Concepcion,kc concepcion,rec_yds,38.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,e56d90f33604f4b2,2964.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Josh Allen,josh allen,rush_yds,36.5,-114.0,-114.0,0.5,2026-10-13T00:15:00Z,783eae7108c7afe5,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Jake Ferguson,jake ferguson,rec_yds,26.5,-113.0,-113.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Jalon Daniels,jalon daniels,rush_yds,43.5,-113.0,-113.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Javonte Williams,javonte williams,rec_yds,14.5,-113.0,-113.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Javonte Williams,javonte williams,rush_yds,66.5,-113.0,-113.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Kenneth Gainwell,kenneth gainwell,rec_yds,12.5,-113.0,-113.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jahmyr Gibbs,jahmyr gibbs,rec_yds,37.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,1787.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jahmyr Gibbs,jahmyr gibbs,rush_yds,91.5,-115.0,-115.0,0.5,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jeremiah Love,jeremiah love,rec_yds,11.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,2124.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Bucky Irving,bucky irving,rec_yds,13.5,-113.0,-113.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Josh Palmer,josh palmer,receptions,1.5,-114.0,-114.0,0.5,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Kyren Williams,kyren williams,rush_yds,68.5,-114.0,-114.0,0.5,2026-10-13T00:15:00Z,783eae7108c7afe5,1790.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Blake Corum,blake corum,rush_yds,31.5,-114.0,-114.0,0.5,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,DK Metcalf,dk metcalf,rec_yds,53.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,1293.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Dalton Schultz,dalton schultz,rec_yds,37.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Daniel Jones,daniel jones,rush_yds,10.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,1293.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Darnell Mooney,darnell mooney,rec_yds,18.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,b5040b51712f37a8,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Darnell Washington,darnell washington,rec_yds,22.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,1293.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,David Montgomery,david montgomery,rec_yds,7.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Rashod Bateman,rashod bateman,rec_yds,17.5,-114.0,-114.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Colby Parkinson,colby parkinson,rec_yds,16.5,-114.0,-114.0,0.5,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jeremiah Love,jeremiah love,rush_yds,45.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,2124.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Trey McBride,trey mcbride,rec_yds,80.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Amon-Ra St. Brown,amonra st brown,rec_yds,78.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-bovada,Cade Otton (TB),cade otton,rec_yds,29.5,-115.0,-115.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,2783.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,George Pickens,george pickens,rec_yds,65.5,-113.0,-113.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Puka Nacua,puka nacua,rec_yds,92.5,-114.0,-114.0,0.5,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Davante Adams,davante adams,rec_yds,62.5,-114.0,-114.0,0.5,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Ty Johnson,ty johnson,rec_yds,11.5,-114.0,-114.0,0.5,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Marvin Harrison Jr.,marvin harrison,rec_yds,34.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,CeeDee Lamb,ceedee lamb,rec_yds,83.5,-113.0,-113.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Cade Otton,cade otton,rec_yds,29.5,-113.0,-113.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Kyren Williams,kyren williams,rec_yds,19.5,-114.0,-114.0,0.5,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-bovada,CeeDee Lamb (DAL),ceedee lamb,receptions,6.5,-115.0,-115.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,55.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,James Cook,james cook,rush_yds,75.5,-114.0,-114.0,0.5,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Jordan Whittington,jordan whittington,rec_yds,5.5,-114.0,-114.0,0.5,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Josh Allen,josh allen,rush_yds,36.5,-114.0,-114.0,0.5,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Josh Palmer,josh palmer,rec_yds,19.5,-114.0,-114.0,0.5,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Hunter Henry,hunter henry,rec_yds,37.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,05835fd6db578ab9,1294.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Chris Bell,chris bell,rec_yds,34.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,f85173e306621e17,1295.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Chris Olave,chris olave,rec_yds,81.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,7d6fb6d33d0dcc1b,1295.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Cody White,cody white,rec_yds,16.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,05835fd6db578ab9,1294.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Garrett Wilson,garrett wilson,rec_yds,69.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,e56d90f33604f4b2,1294.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Geno Smith,geno smith,rush_yds,10.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,e56d90f33604f4b2,1294.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Germie Bernard,germie bernard,rec_yds,18.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,1293.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Greg Dulcich,greg dulcich,rec_yds,25.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,f85173e306621e17,1295.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Gunnar Helm,gunnar helm,rec_yds,17.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Harold Fannin Jr.,harold fannin,rec_yds,35.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,e56d90f33604f4b2,1294.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Chase Brown,chase brown,rush_yds,67.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,f85173e306621e17,1295.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Isaiah Davis,isaiah davis,rush_yds,10.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,e56d90f33604f4b2,1294.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Isaiah Likely,isaiah likely,rec_yds,40.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,b5040b51712f37a8,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Jacory Croskey-Merritt,jacory croskeymerritt,rush_yds,55.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,b5040b51712f37a8,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Jayden Daniels,jayden daniels,rush_yds,30.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,b5040b51712f37a8,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Jaylen Warren,jaylen warren,rush_yds,64.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,1293.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Xavier Hutchinson,xavier hutchinson,rec_yds,16.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Aaron Jones,aaron jones,rec_yds,18.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,7d6fb6d33d0dcc1b,1295.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Aaron Jones,aaron jones,rush_yds,72.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,7d6fb6d33d0dcc1b,1295.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Ashton Jeanty,ashton jeanty,rush_yds,59.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,05835fd6db578ab9,1294.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Michael Wilson,michael wilson,rec_yds,72.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Mike Evans,mike evans,rec_yds,50.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Rashid Shaheed,rashid shaheed,rec_yds,20.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Sam LaPorta,sam laporta,rec_yds,51.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Tory Horton,tory horton,rec_yds,11.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Alvin Kamara,alvin kamara,rec_yds,13.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,7d6fb6d33d0dcc1b,1295.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Alvin Kamara,alvin kamara,rush_yds,32.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,7d6fb6d33d0dcc1b,1295.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Ashton Jeanty,ashton jeanty,rec_yds,24.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,05835fd6db578ab9,1294.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Ollie Gordon II,ollie gordon,rush_yds,43.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,f85173e306621e17,1295.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Braelon Allen,braelon allen,rush_yds,71.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,e56d90f33604f4b2,1294.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Brock Bowers,brock bowers,rec_yds,70.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,05835fd6db578ab9,1294.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,C.J. Stroud,cj stroud,rush_yds,9.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Calvin Ridley,calvin ridley,rec_yds,8.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Cam Skattebo,cam skattebo,rec_yds,12.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,b5040b51712f37a8,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Cam Skattebo,cam skattebo,rush_yds,56.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,b5040b51712f37a8,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Cam Ward,cam ward,rush_yds,10.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Carnell Tate,carnell tate,rec_yds,45.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Mike Evans,mike evans,rec_yds,48.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Josh Cameron,josh cameron,rec_yds,12.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1298.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Parker Washington,parker washington,rec_yds,60.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1298.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Trevor Lawrence,trevor lawrence,rush_yds,14.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1298.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Will Shipley,will shipley,rec_yds,13.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1298.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Will Shipley,will shipley,rush_yds,35.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1298.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Bhayshul Tuten,bhayshul tuten,rec_yds,9.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Bhayshul Tuten,bhayshul tuten,receptions,1.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Brian Thomas,brian thomas,rec_yds,24.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1784.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Kendrick Bourne,kendrick bourne,rec_yds,23.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jacoby Brissett,jacoby brissett,rush_yds,7.5,-115.0,-115.0,0.5,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Kenneth Gainwell,kenneth gainwell,rush_yds,12.5,-113.0,-113.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Ryan Flournoy,ryan flournoy,rec_yds,31.5,-113.0,-113.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Sean Tucker,sean tucker,rush_yds,9.5,-113.0,-113.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Ted Hurst III,ted hurst,rec_yds,16.5,-113.0,-113.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Tez Johnson,tez johnson,rec_yds,12.5,-113.0,-113.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Tyler Goodson,tyler goodson,rush_yds,13.5,-113.0,-113.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Bhayshul Tuten,bhayshul tuten,rec_yds,9.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1298.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Bhayshul Tuten,bhayshul tuten,receptions,1.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1298.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Jaylen Waddle,jaylen waddle,receptions,4.5,-114.0,-114.0,0.5,2026-10-11T20:05:00Z,c13ec8a30413ae34,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Pat Freiermuth,pat freiermuth,rec_yds,27.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,1293.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Drake London,drake london,rec_yds,80.5,-114.0,-114.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Jahan Dotson,jahan dotson,rec_yds,19.5,-114.0,-114.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Justice Hill,justice hill,rush_yds,11.5,-114.0,-114.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Kyle Pitts,kyle pitts,rec_yds,24.5,-114.0,-114.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Mark Andrews,mark andrews,rec_yds,29.5,-114.0,-114.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jalen Hurts,jalen hurts,rush_yds,26.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,J.K. Dobbins,jk dobbins,rush_yds,49.5,-114.0,-114.0,0.5,2026-10-11T20:05:00Z,c13ec8a30413ae34,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Jaylen Waddle,jaylen waddle,rec_yds,53.5,-114.0,-114.0,0.5,2026-10-11T20:05:00Z,c13ec8a30413ae34,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Bhayshul Tuten,bhayshul tuten,rush_yds,65.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1298.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Justin Herbert,justin herbert,rush_yds,24.5,-114.0,-114.0,0.5,2026-10-11T20:05:00Z,c13ec8a30413ae34,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Christian McCaffrey,christian mccaffrey,rush_yds,53.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Deebo Samuel Sr.,deebo samuel,rush_yds,8.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-bovada,Deebo Samuel Sr. (SF),deebo samuel,rec_yds,34.5,-115.0,-115.0,0.5,2026-10-11T20:25:00Z,30e0c00db526b013,2884.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,George Holani,george holani,rush_yds,19.5,-115.0,-115.0,0.5,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,George Kittle,george kittle,receptions,4.5,-115.0,-115.0,0.5,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-bovada,George Kittle (SF),george kittle,receptions,4.5,-115.0,-115.0,0.5,2026-10-11T20:25:00Z,30e0c00db526b013,55.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Isaac TeSlaa,isaac teslaa,rec_yds,25.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,1786.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Denzel Boston,denzel boston,rec_yds,47.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,e56d90f33604f4b2,1294.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Tyler Allgeier,tyler allgeier,rush_yds,25.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,AJ Barner,aj barner,rec_yds,21.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Tyler Higbee,tyler higbee,rec_yds,25.5,-114.0,-114.0,0.5,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Javonte Williams,javonte williams,rush_yds,66.5,-110.0,-110.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Tyler Allgeier,tyler allgeier,rec_yds,9.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Tyler Allgeier,tyler allgeier,rush_yds,25.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Bijan Robinson,bijan robinson,rec_yds,26.5,-114.0,-114.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,David Montgomery,david montgomery,rush_yds,44.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Demario Douglas,demario douglas,rec_yds,25.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,05835fd6db578ab9,1294.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Tory Horton,tory horton,rec_yds,9.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Deshaun Watson,deshaun watson,rush_yds,26.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,e56d90f33604f4b2,1294.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Devaughn Vele,devaughn vele,rec_yds,38.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,7d6fb6d33d0dcc1b,1295.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Drake Maye,drake maye,rush_yds,31.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,05835fd6db578ab9,1294.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,George Pickens,george pickens,rec_yds,65.5,-110.0,-110.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,2683.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jake Ferguson,jake ferguson,rec_yds,26.5,-110.0,-110.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Chris Godwin,chris godwin,rec_yds,31.5,-113.0,-113.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Dak Prescott,dak prescott,rush_yds,9.5,-113.0,-113.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Emeka Egbuka,emeka egbuka,rec_yds,35.5,-113.0,-113.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-bovada,Kenneth Gainwell (TB),kenneth gainwell,rush_yds,12.5,-115.0,-115.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,1509.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Brenton Strange,brenton strange,rec_yds,33.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1298.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Brian Thomas Jr.,brian thomas,rec_yds,24.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1298.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Chris Rodriguez Jr.,chris rodriguez,rush_yds,26.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1298.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Jakobi Meyers,jakobi meyers,rec_yds,41.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1298.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Jalen Hurts,jalen hurts,rush_yds,27.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1298.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Bucky Irving,bucky irving,rush_yds,52.5,-113.0,-113.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Kyren Williams,kyren williams,rush_yds,68.5,-114.0,-114.0,0.5,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-bovada,Javonte Williams (DAL),javonte williams,rec_yds,14.5,-115.0,-115.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,2884.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Derrick Henry,derrick henry,rush_yds,83.5,-114.0,-114.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Ryan Flournoy,ryan flournoy,rec_yds,31.5,-110.0,-110.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,1786.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Keon Coleman,keon coleman,rec_yds,37.5,-114.0,-114.0,0.5,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Khalil Shakir,khalil shakir,rec_yds,43.5,-114.0,-114.0,0.5,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Konata Mumpfield,konata mumpfield,rec_yds,7.5,-114.0,-114.0,0.5,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,CeeDee Lamb,ceedee lamb,rec_yds,84.5,-110.0,-110.0,0.5,2026-10-09T00:15:00Z,7d2983204fc25b29,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Dawson Knox,dawson knox,rec_yds,10.5,-114.0,-114.0,0.5,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,James Cook,james cook,rec_yds,9.5,-114.0,-114.0,0.5,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Rashid Shaheed,rashid shaheed,rec_yds,20.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,30e0c00db526b013,1789.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Christian McCaffrey,christian mccaffrey,rush_yds,51.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Hunter Henry,hunter henry,rec_yds,37.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,05835fd6db578ab9,2686.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jaylen Wright,jaylen wright,rush_yds,25.5,-115.0,-115.0,0.5,2026-10-11T17:00:00Z,f85173e306621e17,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Malik Nabers,malik nabers,rec_yds,54.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,b5040b51712f37a8,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Courtland Sutton,courtland sutton,rec_yds,36.5,-114.0,-114.0,0.5,2026-10-11T20:05:00Z,c13ec8a30413ae34,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Evan Engram,evan engram,rec_yds,17.5,-114.0,-114.0,0.5,2026-10-11T20:05:00Z,c13ec8a30413ae34,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,J.K. Dobbins,jk dobbins,rush_yds,51.5,-114.0,-114.0,0.5,2026-10-11T20:05:00Z,c13ec8a30413ae34,1790.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Justin Herbert,justin herbert,rush_yds,24.5,-114.0,-114.0,0.5,2026-10-11T20:05:00Z,c13ec8a30413ae34,1788.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Brock Purdy,brock purdy,rush_yds,21.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Christian McCaffrey,christian mccaffrey,rec_yds,35.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Harold Fannin Jr.,harold fannin,rec_yds,35.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,e56d90f33604f4b2,3210.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Cooper Kupp,cooper kupp,rec_yds,23.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,David Montgomery,david montgomery,rec_yds,7.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,David Montgomery,david montgomery,rush_yds,44.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Denzel Boston,denzel boston,rec_yds,47.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,e56d90f33604f4b2,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Drake Maye,drake maye,rush_yds,31.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,05835fd6db578ab9,1541.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Garrett Wilson,garrett wilson,rec_yds,69.5,-115.0,-115.0,0.5,2026-10-11T17:00:00Z,e56d90f33604f4b2,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Geno Smith,geno smith,rush_yds,10.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,e56d90f33604f4b2,1791.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Gunnar Helm,gunnar helm,rec_yds,17.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Tre Tucker,tre tucker,rec_yds,39.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,05835fd6db578ab9,1294.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Quinshon Judkins,quinshon judkins,rec_yds,15.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,e56d90f33604f4b2,1294.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Quinshon Judkins,quinshon judkins,rush_yds,59.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,e56d90f33604f4b2,1294.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Raheim Sanders,raheim sanders,rec_yds,12.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,e56d90f33604f4b2,1294.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Roman Wilson,roman wilson,rec_yds,41.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,1293.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-draftkings,Jordan Whittington,jordan whittington,rec_yds,5.5,-112.0,-112.0,0.5,2026-10-13T00:15:00Z,783eae7108c7afe5,2882.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Samaje Perine,samaje perine,rush_yds,14.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,f85173e306621e17,1295.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Tony Pollard,tony pollard,rec_yds,8.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Tony Pollard,tony pollard,rush_yds,50.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Romeo Doubs,romeo doubs,rec_yds,51.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,05835fd6db578ab9,1294.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Tyjae Spears,tyjae spears,rec_yds,9.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Tyjae Spears,tyjae spears,rush_yds,14.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Tyler Shough,tyler shough,rush_yds,9.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,7d6fb6d33d0dcc1b,1295.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Tyler Warren,tyler warren,rec_yds,48.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,1293.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Wan'Dale Robinson,wandale robinson,rec_yds,32.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Woody Marks,woody marks,rec_yds,8.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Woody Marks,woody marks,rush_yds,30.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Xavier Hutchinson,xavier hutchinson,rec_yds,15.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Brock Bowers,brock bowers,rec_yds,72.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,05835fd6db578ab9,2681.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Omarion Hampton,omarion hampton,rush_yds,37.5,-114.0,-114.0,0.5,2026-10-11T20:05:00Z,c13ec8a30413ae34,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,RJ Harvey,rj harvey,rec_yds,27.5,-114.0,-114.0,0.5,2026-10-11T20:05:00Z,c13ec8a30413ae34,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,RJ Harvey,rj harvey,rush_yds,21.5,-114.0,-114.0,0.5,2026-10-11T20:05:00Z,c13ec8a30413ae34,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Troy Franklin,troy franklin,rec_yds,19.5,-114.0,-114.0,0.5,2026-10-11T20:05:00Z,c13ec8a30413ae34,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Troy Franklin,troy franklin,receptions,1.5,-114.0,-114.0,0.5,2026-10-11T20:05:00Z,c13ec8a30413ae34,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Christian McCaffrey,christian mccaffrey,rec_yds,35.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Parker Washington,parker washington,rec_yds,60.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Trevor Lawrence,trevor lawrence,rush_yds,13.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Aaron Jones,aaron jones,rush_yds,72.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,7d6fb6d33d0dcc1b,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Marvin Mims Jr.,marvin mims,rec_yds,13.5,-114.0,-114.0,0.5,2026-10-11T20:05:00Z,c13ec8a30413ae34,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Deebo Samuel,deebo samuel,rec_yds,34.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Deebo Samuel,deebo samuel,rush_yds,8.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Emanuel Wilson,emanuel wilson,rec_yds,9.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Emanuel Wilson,emanuel wilson,rush_yds,62.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Chris Rodriguez Jr.,chris rodriguez,rush_yds,26.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Rashod Bateman,rashod bateman,rec_yds,17.5,-114.0,-114.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Bijan Robinson,bijan robinson,rec_yds,26.5,-114.0,-114.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Bijan Robinson,bijan robinson,rush_yds,88.5,-114.0,-114.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Cam Skattebo,cam skattebo,rush_yds,56.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,b5040b51712f37a8,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,George Holani,george holani,rec_yds,9.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,George Holani,george holani,rush_yds,19.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,George Kittle,george kittle,rec_yds,54.5,-114.0,-114.0,0.5,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Bo Nix,bo nix,rush_yds,13.5,-114.0,-114.0,0.5,2026-10-11T20:05:00Z,c13ec8a30413ae34,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Courtland Sutton,courtland sutton,rec_yds,36.5,-114.0,-114.0,0.5,2026-10-11T20:05:00Z,c13ec8a30413ae34,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Evan Engram,evan engram,rec_yds,17.5,-114.0,-114.0,0.5,2026-10-11T20:05:00Z,c13ec8a30413ae34,3450.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Calvin Ridley,calvin ridley,rec_yds,8.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Cam Skattebo,cam skattebo,rec_yds,12.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,b5040b51712f37a8,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Brian Robinson Jr.,brian robinson,rush_yds,35.5,-114.0,-114.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Cam Ward,cam ward,rush_yds,10.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Chris Olave,chris olave,rec_yds,81.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,7d6fb6d33d0dcc1b,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Cody White,cody white,rec_yds,16.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,05835fd6db578ab9,2124.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,DK Metcalf,dk metcalf,rec_yds,53.5,-115.0,-115.0,0.5,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Dalton Schultz,dalton schultz,rec_yds,37.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Daniel Jones,daniel jones,rush_yds,10.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Darnell Mooney,darnell mooney,rec_yds,18.5,-114.0,-114.0,0.5,2026-10-11T17:00:00Z,b5040b51712f37a8,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Keaton Mitchell,keaton mitchell,rush_yds,32.5,-114.0,-114.0,0.5,2026-10-11T20:05:00Z,c13ec8a30413ae34,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-draftkings,Joshua Palmer,joshua palmer,rec_yds,19.5,-112.0,-111.0,0.501060130608091,2026-10-13T00:15:00Z,783eae7108c7afe5,2882.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Tucker Kraft,tucker kraft,rec_yds,49.5,-114.0,-116.0,0.49797767351561234,2026-10-11T17:00:00Z,9d6a4b64c9a604f2,2966.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Brian Robinson Jr.,brian robinson,rush_yds,35.5,-114.0,-116.0,0.49797767351561234,2026-10-12T00:20:00Z,70c6bce39ad2d597,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Bijan Robinson,bijan robinson,rush_yds,88.5,-114.0,-116.0,0.49797767351561234,2026-10-12T00:20:00Z,70c6bce39ad2d597,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Najee Harris,najee harris,rush_yds,28.5,-114.0,-116.0,0.49797767351561234,2026-10-11T17:00:00Z,b5040b51712f37a8,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Tyler Warren,tyler warren,rec_yds,49.5,-114.0,-116.0,0.49797767351561234,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Christian Watson,christian watson,rec_yds,60.5,-114.0,-116.0,0.49797767351561234,2026-10-11T17:00:00Z,9d6a4b64c9a604f2,2967.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Justice Hill,justice hill,rush_yds,11.5,-114.0,-116.0,0.49797767351561234,2026-10-12T00:20:00Z,70c6bce39ad2d597,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,James Cook,james cook,rush_yds,75.5,-114.0,-116.0,0.49797767351561234,2026-10-13T00:15:00Z,783eae7108c7afe5,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Marvin Mims Jr.,marvin mims,rec_yds,13.5,-114.0,-116.0,0.49797767351561234,2026-10-11T20:05:00Z,c13ec8a30413ae34,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Bo Nix,bo nix,rush_yds,14.5,-114.0,-116.0,0.49797767351561234,2026-10-11T20:05:00Z,c13ec8a30413ae34,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Colston Loveland,colston loveland,rec_yds,37.5,-114.0,-116.0,0.49797767351561234,2026-10-11T17:00:00Z,9d6a4b64c9a604f2,2681.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,George Holani,george holani,rec_yds,9.5,-114.0,-116.0,0.49797767351561234,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Josh Cameron,josh cameron,rec_yds,12.5,-114.0,-116.0,0.49797767351561234,2026-10-11T13:30:00Z,6275929b4056e14c,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Puka Nacua,puka nacua,rec_yds,92.5,-116.0,-114.0,0.5020223264843877,2026-10-13T00:15:00Z,783eae7108c7afe5,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Davante Adams,davante adams,rec_yds,62.5,-116.0,-114.0,0.5020223264843877,2026-10-13T00:15:00Z,783eae7108c7afe5,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jayden Daniels,jayden daniels,rush_yds,30.5,-116.0,-114.0,0.5020223264843877,2026-10-11T17:00:00Z,b5040b51712f37a8,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Isaiah Davis,isaiah davis,rush_yds,10.5,-116.0,-114.0,0.5020223264843877,2026-10-11T17:00:00Z,e56d90f33604f4b2,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,RJ Harvey,rj harvey,rush_yds,21.5,-116.0,-114.0,0.5020223264843877,2026-10-11T20:05:00Z,c13ec8a30413ae34,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Omarion Hampton,omarion hampton,rush_yds,37.5,-116.0,-114.0,0.5020223264843877,2026-10-11T20:05:00Z,c13ec8a30413ae34,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Deshaun Watson,deshaun watson,rush_yds,26.5,-116.0,-114.0,0.5020223264843877,2026-10-11T17:00:00Z,e56d90f33604f4b2,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Braelon Allen,braelon allen,rush_yds,71.5,-116.0,-114.0,0.5020223264843877,2026-10-11T17:00:00Z,e56d90f33604f4b2,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,C.J. Stroud,cj stroud,rush_yds,9.5,-116.0,-114.0,0.5020223264843877,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Matthew Golden,matthew golden,rec_yds,55.5,-116.0,-114.0,0.5020223264843877,2026-10-11T17:00:00Z,9d6a4b64c9a604f2,1792.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Trey McBride,trey mcbride,rec_yds,80.5,-116.0,-114.0,0.5020223264843877,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jaxon Smith-Njigba,jaxon smithnjigba,rec_yds,92.5,-116.0,-114.0,0.5020223264843877,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Will Shipley,will shipley,rec_yds,13.5,-116.0,-114.0,0.5020223264843877,2026-10-11T13:30:00Z,6275929b4056e14c,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jakobi Meyers,jakobi meyers,rec_yds,41.5,-116.0,-114.0,0.5020223264843877,2026-10-11T13:30:00Z,6275929b4056e14c,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,AJ Barner,aj barner,receptions,2.5,-116.0,-114.0,0.5020223264843877,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,MarShawn Lloyd,marshawn lloyd,rush_yds,27.5,-116.0,-114.0,0.5020223264843877,2026-10-11T17:00:00Z,9d6a4b64c9a604f2,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-draftkings,Dalton Kincaid,dalton kincaid,rec_yds,51.5,-111.0,-113.0,0.4978941161605526,2026-10-13T00:15:00Z,783eae7108c7afe5,2882.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-draftkings,Keon Coleman,keon coleman,rec_yds,37.5,-113.0,-111.0,0.5021058838394474,2026-10-13T00:15:00Z,783eae7108c7afe5,2882.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-draftkings,Colby Parkinson,colby parkinson,rec_yds,16.5,-113.0,-111.0,0.5021058838394474,2026-10-13T00:15:00Z,783eae7108c7afe5,2882.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-draftkings,Ty Johnson,ty johnson,rec_yds,11.5,-113.0,-111.0,0.5021058838394474,2026-10-13T00:15:00Z,783eae7108c7afe5,2882.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Emeka Egbuka,emeka egbuka,rec_yds,35.5,-111.0,-109.0,0.5021645958699511,2026-10-09T00:15:00Z,7d2983204fc25b29,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Dak Prescott,dak prescott,rush_yds,9.5,-109.0,-111.0,0.4978354041300489,2026-10-09T00:15:00Z,7d2983204fc25b29,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Keenan Allen,keenan allen,rec_yds,27.5,-117.0,-113.0,0.5040451438048622,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Michael Wilson,michael wilson,rec_yds,74.5,-117.0,-113.0,0.5040451438048622,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Cooper Kupp,cooper kupp,rec_yds,24.5,-117.0,-113.0,0.5040451438048622,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Brock Purdy,brock purdy,rush_yds,21.5,-117.0,-113.0,0.5040451438048622,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,George Kittle,george kittle,rec_yds,53.5,-113.0,-117.0,0.4959548561951377,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Drake London,drake london,rec_yds,81.5,-113.0,-117.0,0.4959548561951377,2026-10-12T00:20:00Z,70c6bce39ad2d597,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Amon-Ra St. Brown,amonra st brown,rec_yds,80.5,-113.0,-117.0,0.4959548561951377,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jonathan Taylor,jonathan taylor,receptions,2.5,-113.0,-117.0,0.4959548561951377,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jordan Love,jordan love,rush_yds,6.5,-113.0,-117.0,0.4959548561951377,2026-10-11T17:00:00Z,9d6a4b64c9a604f2,2970.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Kaelon Black,kaelon black,rush_yds,15.5,-116.0,-112.0,0.5040997048212529,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-draftkings,Joshua Palmer,joshua palmer,receptions,1.5,-111.0,-115.0,0.4958445875753168,2026-10-13T00:15:00Z,783eae7108c7afe5,2882.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-draftkings,Khalil Shakir,khalil shakir,rec_yds,43.5,-114.0,-110.0,0.5042122999157539,2026-10-13T00:15:00Z,783eae7108c7afe5,2882.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-draftkings,Konata Mumpfield,konata mumpfield,rec_yds,7.5,-114.0,-110.0,0.5042122999157539,2026-10-13T00:15:00Z,783eae7108c7afe5,2882.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-draftkings,Jaylen Warren,jaylen warren,rush_yds,63.5,-114.0,-110.0,0.5042122999157539,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,83.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Ted Hurst,ted hurst,rec_yds,16.5,-108.0,-112.0,0.4956702459300312,2026-10-09T00:15:00Z,7d2983204fc25b29,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Kenneth Gainwell,kenneth gainwell,rush_yds,12.5,-108.0,-112.0,0.4956702459300312,2026-10-09T00:15:00Z,7d2983204fc25b29,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Tyler Goodson,tyler goodson,rush_yds,13.5,-112.0,-108.0,0.5043297540699689,2026-10-09T00:15:00Z,7d2983204fc25b29,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Bucky Irving,bucky irving,rec_yds,12.5,-108.0,-113.0,0.494624580717296,2026-10-09T00:15:00Z,7d2983204fc25b29,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jameson Williams,jameson williams,rec_yds,51.5,-118.0,-112.0,0.5060689431946916,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jaylen Waddle,jaylen waddle,rec_yds,53.5,-118.0,-112.0,0.5060689431946916,2026-10-11T20:05:00Z,c13ec8a30413ae34,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Chase Brown,chase brown,rush_yds,67.5,-118.0,-112.0,0.5060689431946916,2026-10-11T17:00:00Z,f85173e306621e17,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Marvin Harrison,marvin harrison,rec_yds,34.5,-118.0,-112.0,0.5060689431946916,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Brock Bowers,brock bowers,receptions,6.5,-118.0,-112.0,0.5060689431946916,2026-10-11T17:00:00Z,05835fd6db578ab9,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Jerry Jeudy,jerry jeudy,receptions,1.5,-112.0,-118.0,0.4939310568053083,2026-10-11T17:00:00Z,e56d90f33604f4b2,1294.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Keaton Mitchell,keaton mitchell,rush_yds,32.5,-112.0,-118.0,0.4939310568053083,2026-10-11T20:05:00Z,c13ec8a30413ae34,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-draftkings,Tyler Higbee,tyler higbee,rec_yds,25.5,-115.0,-109.0,0.5063197809142617,2026-10-13T00:15:00Z,783eae7108c7afe5,2882.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Troy Franklin,troy franklin,receptions,1.5,-111.0,-119.0,0.4919057833178195,2026-10-11T20:05:00Z,c13ec8a30413ae34,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Kyle Pitts,kyle pitts,rec_yds,24.5,-119.0,-111.0,0.5080942166821806,2026-10-12T00:20:00Z,70c6bce39ad2d597,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Darnell Washington,darnell washington,rec_yds,22.5,-119.0,-111.0,0.5080942166821806,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Rome Odunze,rome odunze,rec_yds,39.5,-119.0,-111.0,0.5080942166821806,2026-10-11T17:00:00Z,9d6a4b64c9a604f2,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Greg Dulcich,greg dulcich,rec_yds,25.5,-119.0,-111.0,0.5080942166821806,2026-10-11T17:00:00Z,f85173e306621e17,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Emanuel Wilson,emanuel wilson,rush_yds,61.5,-119.0,-111.0,0.5080942166821806,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-draftkings,Dawson Knox,dawson knox,rec_yds,10.5,-116.0,-108.0,0.5084288604180714,2026-10-13T00:15:00Z,783eae7108c7afe5,2882.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-draftkings,Greg Dulcich,greg dulcich,rec_yds,25.5,-108.0,-116.0,0.49157113958192844,2026-10-11T17:00:00Z,f85173e306621e17,1567.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Sean Tucker,sean tucker,rush_yds,9.5,-106.0,-114.0,0.49133599029630914,2026-10-09T00:15:00Z,7d2983204fc25b29,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Cade Otton,cade otton,receptions,3.5,-106.0,-114.0,0.49133599029630914,2026-10-09T00:15:00Z,7d2983204fc25b29,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Will Shipley,will shipley,receptions,2.5,-110.0,-120.0,0.48987854251012153,2026-10-11T13:30:00Z,6275929b4056e14c,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Gunnar Helm,gunnar helm,receptions,2.5,-110.0,-120.0,0.48987854251012153,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Jonathan Taylor,jonathan taylor,receptions,2.5,-110.0,-120.0,0.48987854251012153,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,1293.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-bovada,Cade Otton (TB),cade otton,receptions,3.5,-110.0,-120.0,0.48987854251012153,2026-10-09T00:15:00Z,7d2983204fc25b29,55.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Mike Washington,mike washington,rush_yds,23.5,-110.0,-120.0,0.48987854251012153,2026-10-11T17:00:00Z,05835fd6db578ab9,1535.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-bovada,Deebo Samuel Sr. (SF),deebo samuel,receptions,3.5,-110.0,-120.0,0.48987854251012153,2026-10-11T20:25:00Z,30e0c00db526b013,55.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-bovada,Jaylen Waddle (DEN),jaylen waddle,receptions,4.5,-110.0,-120.0,0.48987854251012153,2026-10-11T20:05:00Z,c13ec8a30413ae34,55.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Emanuel Wilson,emanuel wilson,rec_yds,9.5,-120.0,-110.0,0.5101214574898786,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-bovada,Jakobi Meyers (JAX),jakobi meyers,receptions,3.5,-120.0,-110.0,0.5101214574898786,2026-10-11T13:30:00Z,6275929b4056e14c,55.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Michael Pittman Jr.,michael pittman,rec_yds,26.5,-120.0,-110.0,0.5101214574898786,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-bovada,Jake Ferguson (DAL),jake ferguson,rec_yds,25.5,-120.0,-110.0,0.5101214574898786,2026-10-09T00:15:00Z,7d2983204fc25b29,2884.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Devaughn Vele,devaughn vele,rec_yds,36.5,-120.0,-110.0,0.5101214574898786,2026-10-11T17:00:00Z,7d6fb6d33d0dcc1b,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Javonte Williams,javonte williams,rec_yds,14.5,-105.0,-115.0,0.4891657638136511,2026-10-09T00:15:00Z,7d2983204fc25b29,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Ted Hurst,ted hurst,receptions,1.5,-105.0,-115.0,0.4891657638136511,2026-10-09T00:15:00Z,7d2983204fc25b29,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Tez Johnson,tez johnson,rec_yds,12.5,-115.0,-105.0,0.5108342361863489,2026-10-09T00:15:00Z,7d2983204fc25b29,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Cade Otton,cade otton,rec_yds,29.5,-115.0,-105.0,0.5108342361863489,2026-10-09T00:15:00Z,7d2983204fc25b29,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Elic Ayomanor,elic ayomanor,receptions,1.5,-110.0,-121.0,0.48893805309734506,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-draftkings,James Cook,james cook,rec_yds,9.5,-118.0,-107.0,0.5115178421846206,2026-10-13T00:15:00Z,783eae7108c7afe5,2882.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Ashton Jeanty,ashton jeanty,receptions,3.5,-121.0,-109.0,0.5121511604358217,2026-10-11T17:00:00Z,05835fd6db578ab9,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Tyler Shough,tyler shough,rush_yds,9.5,-121.0,-109.0,0.5121511604358217,2026-10-11T17:00:00Z,7d6fb6d33d0dcc1b,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Sam Darnold,sam darnold,rush_yds,4.5,-120.0,-108.0,0.5123152709359606,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Sam Darnold,sam darnold,rush_yds,4.5,-120.0,-108.0,0.5123152709359606,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-draftkings,Aaron Rodgers,aaron rodgers,rush_yds,0.5,-118.0,-106.0,0.5126539564703898,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,83.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jalon Daniels,jalon daniels,rush_yds,43.5,-116.0,-104.0,0.5130072840790842,2026-10-09T00:15:00Z,7d2983204fc25b29,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Javonte Williams,javonte williams,receptions,2.5,-116.0,-104.0,0.5130072840790842,2026-10-09T00:15:00Z,7d2983204fc25b29,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,KaVontae Turpin,kavontae turpin,receptions,0.5,-104.0,-116.0,0.48699271592091564,2026-10-09T00:15:00Z,7d2983204fc25b29,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Tony Pollard,tony pollard,receptions,1.5,-122.0,-108.0,0.5141838223374939,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Brock Bowers,brock bowers,receptions,6.5,-108.0,-122.0,0.48581617766250607,2026-10-11T17:00:00Z,05835fd6db578ab9,1294.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Chris Bell,chris bell,receptions,2.5,-108.0,-122.0,0.48581617766250607,2026-10-11T17:00:00Z,f85173e306621e17,1295.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Woody Marks,woody marks,receptions,1.5,-108.0,-122.0,0.48581617766250607,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Chris Olave,chris olave,receptions,6.5,-108.0,-122.0,0.48581617766250607,2026-10-11T17:00:00Z,7d6fb6d33d0dcc1b,1295.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Michael Pittman Jr.,michael pittman,receptions,2.5,-108.0,-122.0,0.48581617766250607,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Woody Marks,woody marks,receptions,1.5,-108.0,-122.0,0.48581617766250607,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Will Shipley,will shipley,receptions,2.5,-108.0,-122.0,0.48581617766250607,2026-10-11T13:30:00Z,6275929b4056e14c,1298.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,KaVontae Turpin,kavontae turpin,receptions,0.5,-108.0,-122.0,0.48581617766250607,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,James Cook,james cook,receptions,1.5,-122.0,-108.0,0.5141838223374939,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,AJ Barner,aj barner,receptions,2.5,-108.0,-122.0,0.48581617766250607,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Kyler Murray,kyler murray,rush_yds,17.5,-122.0,-108.0,0.5141838223374939,2026-10-11T17:00:00Z,7d6fb6d33d0dcc1b,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Brevyn Spann-Ford,brevyn spannford,rec_yds,4.5,-120.0,-106.0,0.5145711906744379,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Wan'Dale Robinson,wandale robinson,receptions,3.5,-123.0,-108.0,0.5151002657646775,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Darnell Mooney,darnell mooney,receptions,1.5,-123.0,-108.0,0.5151002657646775,2026-10-11T17:00:00Z,b5040b51712f37a8,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jared Goff,jared goff,rush_yds,0.5,-123.0,-108.0,0.5151002657646775,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Troy Franklin,troy franklin,rec_yds,19.5,-123.0,-107.0,0.5162199424192044,2026-10-11T20:05:00Z,c13ec8a30413ae34,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Deebo Samuel Sr.,deebo samuel,receptions,3.5,-123.0,-107.0,0.5162199424192044,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Isaiah Likely,isaiah likely,receptions,4.5,-123.0,-107.0,0.5162199424192044,2026-10-11T17:00:00Z,b5040b51712f37a8,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,George Pickens,george pickens,receptions,4.5,-122.0,-106.0,0.516439256945586,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Jakobi Meyers,jakobi meyers,receptions,3.5,-122.0,-106.0,0.516439256945586,2026-10-11T13:30:00Z,6275929b4056e14c,1298.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Demario Douglas,demario douglas,receptions,2.5,-122.0,-106.0,0.516439256945586,2026-10-11T17:00:00Z,05835fd6db578ab9,1294.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-draftkings,Daniel Jones,daniel jones,rush_yds,10.5,-104.0,-120.0,0.4831081081081081,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,83.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,George Kittle,george kittle,receptions,4.5,-106.0,-125.0,0.4808467741935484,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jahmyr Gibbs,jahmyr gibbs,receptions,4.5,-125.0,-106.0,0.5191532258064516,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jakobi Meyers,jakobi meyers,receptions,3.5,-125.0,-106.0,0.5191532258064516,2026-10-11T13:30:00Z,6275929b4056e14c,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Tyler Allgeier,tyler allgeier,rec_yds,11.5,-106.0,-125.0,0.4808467741935484,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Ollie Gordon II,ollie gordon,rush_yds,43.5,-106.0,-125.0,0.4808467741935484,2026-10-11T17:00:00Z,f85173e306621e17,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Christian McCaffrey,christian mccaffrey,receptions,4.5,-125.0,-106.0,0.5191532258064516,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Josh Downs,josh downs,rec_yds,58.5,-106.0,-125.0,0.4808467741935484,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-draftkings,James Cook,james cook,receptions,1.5,-123.0,-104.0,0.519675254742772,2026-10-13T00:15:00Z,783eae7108c7afe5,2882.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-bovada,Davante Adams (LAR),davante adams,receptions,4.5,-105.0,-125.0,0.4796954314720812,2026-10-13T00:15:00Z,783eae7108c7afe5,55.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-bovada,Kavontae Turpin (DAL),kavontae turpin,receptions,0.5,-105.0,-125.0,0.4796954314720812,2026-10-09T00:15:00Z,7d2983204fc25b29,2889.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-bovada,Jaxon Smith-Njigba (SEA),jaxon smithnjigba,receptions,6.5,-125.0,-105.0,0.5203045685279188,2026-10-11T20:25:00Z,30e0c00db526b013,55.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-bovada,Woody Marks (HOU),woody marks,receptions,1.5,-125.0,-105.0,0.5203045685279188,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,3087.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-bovada,Bijan Robinson (ATL),bijan robinson,receptions,3.5,-125.0,-105.0,0.5203045685279188,2026-10-12T00:20:00Z,70c6bce39ad2d597,55.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-bovada,Mark Andrews (BAL),mark andrews,receptions,3.5,-125.0,-105.0,0.5203045685279188,2026-10-12T00:20:00Z,70c6bce39ad2d597,55.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Kenneth Gainwell,kenneth gainwell,rec_yds,12.5,-101.0,-120.0,0.47949935261113513,2026-10-09T00:15:00Z,7d2983204fc25b29,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jaylen Waddle,jaylen waddle,receptions,4.5,-105.0,-126.0,0.4788135593220338,2026-10-11T20:05:00Z,c13ec8a30413ae34,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Hunter Henry,hunter henry,receptions,3.5,-105.0,-126.0,0.4788135593220338,2026-10-11T17:00:00Z,05835fd6db578ab9,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Nico Collins,nico collins,receptions,5.5,-105.0,-126.0,0.4788135593220338,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Juwan Johnson,juwan johnson,rec_yds,42.5,-105.0,-126.0,0.4788135593220338,2026-10-11T17:00:00Z,7d6fb6d33d0dcc1b,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Christian McCaffrey,christian mccaffrey,receptions,4.5,-127.0,-104.0,0.5232248162210195,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Malik Washington,malik washington,receptions,4.5,-127.0,-104.0,0.5232248162210195,2026-10-11T17:00:00Z,f85173e306621e17,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Isaiah Likely,isaiah likely,rec_yds,40.5,-127.0,-104.0,0.5232248162210195,2026-10-11T17:00:00Z,b5040b51712f37a8,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jacory Croskey-Merritt,jacory croskeymerritt,rush_yds,55.5,-104.0,-127.0,0.4767751837789805,2026-10-11T17:00:00Z,b5040b51712f37a8,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Parker Washington,parker washington,receptions,4.5,-128.0,-103.0,0.5252688606776097,2026-10-11T13:30:00Z,6275929b4056e14c,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Kirk Cousins,kirk cousins,rush_yds,0.5,-103.0,-128.0,0.4747311393223902,2026-10-11T17:00:00Z,05835fd6db578ab9,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Aaron Jones,aaron jones,rec_yds,18.5,-129.0,-103.0,0.5261180536022823,2026-10-11T17:00:00Z,7d6fb6d33d0dcc1b,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Kyren Williams,kyren williams,rec_yds,19.5,-129.0,-103.0,0.5261180536022823,2026-10-13T00:15:00Z,783eae7108c7afe5,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Michael Penix Jr.,michael penix,rush_yds,0.5,-102.0,-128.0,0.4735298908617039,2026-10-12T00:20:00Z,70c6bce39ad2d597,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Jameis Winston,jameis winston,rush_yds,2.5,-102.0,-128.0,0.4735298908617039,2026-10-11T17:00:00Z,b5040b51712f37a8,3450.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-fanduel,Kirk Cousins,kirk cousins,rush_yds,0.5,-102.0,-128.0,0.4735298908617039,2026-10-11T17:00:00Z,05835fd6db578ab9,1294.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Michael Penix,michael penix,rush_yds,0.5,-102.0,-128.0,0.4735298908617039,2026-10-12T00:20:00Z,70c6bce39ad2d597,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jameis Winston,jameis winston,rush_yds,2.5,-102.0,-128.0,0.4735298908617039,2026-10-11T17:00:00Z,b5040b51712f37a8,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jake Ferguson,jake ferguson,receptions,3.5,102.0,-123.0,0.4729987697789844,2026-10-09T00:15:00Z,7d2983204fc25b29,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,George Pickens,george pickens,receptions,4.5,-123.0,102.0,0.5270012302210156,2026-10-09T00:15:00Z,7d2983204fc25b29,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jaxon Smith-Njigba,jaxon smithnjigba,receptions,6.5,-129.0,-102.0,0.5273190869354056,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Cody White,cody white,receptions,1.5,-130.0,-102.0,0.5281576830249397,2026-10-11T17:00:00Z,05835fd6db578ab9,2124.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Deebo Samuel,deebo samuel,receptions,3.5,-130.0,-102.0,0.5281576830249397,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Devaughn Vele,devaughn vele,receptions,3.5,-130.0,-102.0,0.5281576830249397,2026-10-11T17:00:00Z,7d6fb6d33d0dcc1b,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,CeeDee Lamb,ceedee lamb,receptions,6.5,-102.0,-130.0,0.4718423169750603,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Cody White,cody white,receptions,1.5,-130.0,-102.0,0.5281576830249397,2026-10-11T17:00:00Z,05835fd6db578ab9,1294.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Jeremiyah Love,jeremiyah love,receptions,2.5,-102.0,-130.0,0.4718423169750603,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Malik Washington,malik washington,rec_yds,44.5,-130.0,-102.0,0.5281576830249397,2026-10-11T17:00:00Z,f85173e306621e17,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Malik Nabers,malik nabers,rec_yds,54.5,-130.0,-102.0,0.5281576830249397,2026-10-11T17:00:00Z,b5040b51712f37a8,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Mark Andrews,mark andrews,receptions,3.5,-130.0,-102.0,0.5281576830249397,2026-10-12T00:20:00Z,70c6bce39ad2d597,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Zay Flowers,zay flowers,receptions,5.5,-102.0,-130.0,0.4718423169750603,2026-10-12T00:20:00Z,70c6bce39ad2d597,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Woody Marks,woody marks,rush_yds,28.5,-130.0,-102.0,0.5281576830249397,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Brenton Strange,brenton strange,receptions,3.5,-102.0,-130.0,0.4718423169750603,2026-10-11T13:30:00Z,6275929b4056e14c,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Parker Washington,parker washington,receptions,4.5,-130.0,-102.0,0.5281576830249397,2026-10-11T13:30:00Z,6275929b4056e14c,1298.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Javonte Williams,javonte williams,receptions,2.5,-130.0,-102.0,0.5281576830249397,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jeremiah Love,jeremiah love,receptions,2.5,-102.0,-130.0,0.4718423169750603,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,2124.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Cooper Kupp,cooper kupp,receptions,2.5,-102.0,-130.0,0.4718423169750603,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Ted Hurst III,ted hurst,receptions,1.5,-102.0,-130.0,0.4718423169750603,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Dontayvion Wicks,dontayvion wicks,rec_yds,47.5,-102.0,-130.0,0.4718423169750603,2026-10-11T13:30:00Z,6275929b4056e14c,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Jaxon Smith-Njigba,jaxon smithnjigba,receptions,6.5,-130.0,-102.0,0.5281576830249397,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Tony Pollard,tony pollard,receptions,1.5,-131.0,-101.0,0.5302041802585478,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Makai Lemon,makai lemon,rec_yds,35.5,-131.0,-101.0,0.5302041802585478,2026-10-11T13:30:00Z,6275929b4056e14c,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Darnell Mooney,darnell mooney,receptions,1.5,-132.0,100.0,0.532258064516129,2026-10-11T17:00:00Z,b5040b51712f37a8,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Tre Tucker,tre tucker,receptions,3.5,100.0,-132.0,0.4677419354838709,2026-10-11T17:00:00Z,05835fd6db578ab9,1294.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Will Shipley,will shipley,rush_yds,37.5,-100.0,-132.0,0.4677419354838709,2026-10-11T13:30:00Z,6275929b4056e14c,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Gunnar Helm,gunnar helm,receptions,2.5,-100.0,-132.0,0.4677419354838709,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Zay Flowers,zay flowers,receptions,5.5,100.0,-132.0,0.4677419354838709,2026-10-12T00:20:00Z,70c6bce39ad2d597,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Trey McBride,trey mcbride,receptions,7.5,-133.0,100.0,0.533066132264529,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Makai Lemon,makai lemon,receptions,3.5,-133.0,100.0,0.533066132264529,2026-10-11T13:30:00Z,6275929b4056e14c,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,KaVontae Turpin,kavontae turpin,rec_yds,3.5,102.0,-130.0,0.46691027202598456,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_rec_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Elic Ayomanor,elic ayomanor,rec_yds,17.5,101.0,-133.0,0.4656926428557152,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Matthew Stafford,matthew stafford,rush_yds,1.5,102.0,-132.0,0.46526552222043954,2026-10-13T00:15:00Z,783eae7108c7afe5,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Matthew Stafford,matthew stafford,rush_yds,1.5,102.0,-132.0,0.46526552222043954,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_rush_yds,2026-10-08T23:56:52.464749+00:00
-pinnacle,Carnell Tate,carnell tate,receptions,4.5,101.0,-134.0,0.46489450470854693,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jaylin Noel,jaylin noel,rec_yds,18.5,-134.0,101.0,0.5351054952914531,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Bhayshul Tuten,bhayshul tuten,rush_yds,65.5,-135.0,102.0,0.5371282253299192,2026-10-11T13:30:00Z,6275929b4056e14c,2123.7,player_rushing_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Kyle Pitts,kyle pitts,receptions,2.5,102.0,-135.0,0.4628717746700807,2026-10-12T00:20:00Z,70c6bce39ad2d597,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Courtland Sutton,courtland sutton,receptions,3.5,102.0,-136.0,0.46209273182957394,2026-10-11T20:05:00Z,c13ec8a30413ae34,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Cade Otton,cade otton,receptions,3.5,102.0,-136.0,0.46209273182957394,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Kyle Pitts,kyle pitts,receptions,2.5,102.0,-136.0,0.46209273182957394,2026-10-12T00:20:00Z,70c6bce39ad2d597,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Jake Ferguson,jake ferguson,receptions,3.5,102.0,-136.0,0.46209273182957394,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Bijan Robinson,bijan robinson,receptions,3.5,-136.0,102.0,0.5379072681704261,2026-10-12T00:20:00Z,70c6bce39ad2d597,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Ashton Jeanty,ashton jeanty,receptions,3.5,-136.0,102.0,0.5379072681704261,2026-10-11T17:00:00Z,05835fd6db578ab9,1294.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Jahmyr Gibbs,jahmyr gibbs,receptions,4.5,-136.0,102.0,0.5379072681704261,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Bijan Robinson,bijan robinson,receptions,3.5,-136.0,102.0,0.5379072681704261,2026-10-12T00:20:00Z,70c6bce39ad2d597,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-bovada,George Pickens (DAL),george pickens,receptions,4.5,-135.0,105.0,0.5407914020517831,2026-10-09T00:15:00Z,7d2983204fc25b29,55.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jameson Williams,jameson williams,receptions,3.5,-138.0,104.0,0.5418848167539266,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Jaylin Noel,jaylin noel,receptions,1.5,-138.0,104.0,0.5418848167539266,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Jameson Williams,jameson williams,receptions,3.5,-138.0,104.0,0.5418848167539266,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Malik Washington,malik washington,receptions,4.5,-138.0,104.0,0.5418848167539266,2026-10-11T17:00:00Z,f85173e306621e17,1295.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Greg Dulcich,greg dulcich,receptions,2.5,-138.0,104.0,0.5418848167539266,2026-10-11T17:00:00Z,f85173e306621e17,1295.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Tyler Higbee,tyler higbee,receptions,2.5,-138.0,104.0,0.5418848167539266,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Mark Andrews,mark andrews,receptions,3.5,-138.0,104.0,0.5418848167539266,2026-10-12T00:20:00Z,70c6bce39ad2d597,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jaylin Noel,jaylin noel,receptions,1.5,-138.0,104.0,0.5418848167539266,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Drake London,drake london,receptions,5.5,-138.0,104.0,0.5418848167539266,2026-10-12T00:20:00Z,70c6bce39ad2d597,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Chris Godwin,chris godwin,receptions,3.5,-138.0,104.0,0.5418848167539266,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Chris Olave,chris olave,receptions,6.5,105.0,-139.0,0.4561503960301556,2026-10-11T17:00:00Z,7d6fb6d33d0dcc1b,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Chris Godwin Jr.,chris godwin,receptions,3.5,-133.0,110.0,0.5451883661916846,2026-10-09T00:15:00Z,7d2983204fc25b29,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Roman Wilson,roman wilson,receptions,3.5,106.0,-140.0,0.45420136260408783,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,1293.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Marvin Mims Jr.,marvin mims,receptions,1.5,106.0,-140.0,0.45420136260408783,2026-10-11T20:05:00Z,c13ec8a30413ae34,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Marvin Mims Jr.,marvin mims,receptions,1.5,106.0,-140.0,0.45420136260408783,2026-10-11T20:05:00Z,c13ec8a30413ae34,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,AJ Barner,aj barner,rec_yds,24.5,106.0,-140.0,0.45420136260408783,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-fanduel,Carnell Tate,carnell tate,receptions,4.5,106.0,-140.0,0.45420136260408783,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Isaiah Likely,isaiah likely,receptions,4.5,106.0,-140.0,0.45420136260408783,2026-10-11T17:00:00Z,b5040b51712f37a8,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Hunter Henry,hunter henry,receptions,3.5,-140.0,106.0,0.5457986373959122,2026-10-11T17:00:00Z,05835fd6db578ab9,1294.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Juwan Johnson,juwan johnson,receptions,4.5,106.0,-140.0,0.45420136260408783,2026-10-11T17:00:00Z,7d6fb6d33d0dcc1b,1295.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Roman Wilson,roman wilson,receptions,3.5,106.0,-140.0,0.45420136260408783,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Ryan Flournoy,ryan flournoy,receptions,3.5,111.0,-135.0,0.4520534769645089,2026-10-09T00:15:00Z,7d2983204fc25b29,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Deebo Samuel Sr.,deebo samuel,rec_yds,31.5,-143.0,108.0,0.5503663681444749,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-pinnacle,Denzel Boston,denzel boston,receptions,3.5,108.0,-144.0,0.4489255225198705,2026-10-11T17:00:00Z,e56d90f33604f4b2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Davante Adams,davante adams,receptions,4.5,108.0,-144.0,0.4489255225198705,2026-10-13T00:15:00Z,783eae7108c7afe5,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Denzel Boston,denzel boston,receptions,3.5,108.0,-144.0,0.4489255225198705,2026-10-11T17:00:00Z,e56d90f33604f4b2,1294.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Davante Adams,davante adams,receptions,4.5,108.0,-144.0,0.4489255225198705,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Quinshon Judkins,quinshon judkins,receptions,2.5,-144.0,108.0,0.5510744774801296,2026-10-11T17:00:00Z,e56d90f33604f4b2,1294.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Trey McBride,trey mcbride,receptions,7.5,-144.0,108.0,0.5510744774801296,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Marvin Harrison Jr.,marvin harrison,receptions,2.5,-144.0,108.0,0.5510744774801296,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Wan'Dale Robinson,wandale robinson,receptions,3.5,-144.0,108.0,0.5510744774801296,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Marvin Harrison,marvin harrison,receptions,2.5,-144.0,108.0,0.5510744774801296,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-bovada,Kyren Williams (LAR),kyren williams,receptions,2.5,-145.0,110.0,0.554140127388535,2026-10-13T00:15:00Z,783eae7108c7afe5,55.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-bovada,Drake London (ATL),drake london,receptions,5.5,-145.0,110.0,0.554140127388535,2026-10-12T00:20:00Z,70c6bce39ad2d597,55.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-bovada,Ollie Gordon II (MIA),ollie gordon,receptions,1.5,-145.0,110.0,0.554140127388535,2026-10-11T17:00:00Z,f85173e306621e17,2889.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-bovada,Brevyn Spann-Ford (DAL),brevyn spannford,receptions,0.5,-145.0,110.0,0.554140127388535,2026-10-09T00:15:00Z,7d2983204fc25b29,2889.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-bovada,Wan'dale Robinson (TEN),wandale robinson,receptions,3.5,-145.0,110.0,0.554140127388535,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,55.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-bovada,KC Concepcion (CLE),kc concepcion,receptions,4.5,110.0,-145.0,0.4458598726114649,2026-10-11T17:00:00Z,e56d90f33604f4b2,55.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-bovada,Jake Ferguson (DAL),jake ferguson,receptions,3.5,110.0,-145.0,0.4458598726114649,2026-10-09T00:15:00Z,7d2983204fc25b29,55.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,David Montgomery,david montgomery,receptions,1.5,110.0,-146.0,0.4451682953311618,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Tre Tucker,tre tucker,receptions,3.5,110.0,-146.0,0.4451682953311618,2026-10-11T17:00:00Z,05835fd6db578ab9,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,David Montgomery,david montgomery,receptions,1.5,110.0,-146.0,0.4451682953311618,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Michael Wilson,michael wilson,receptions,5.5,-147.0,111.0,0.5566882639050919,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Josh Downs,josh downs,receptions,4.5,-148.0,112.0,0.5585303332383936,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Romeo Doubs,romeo doubs,receptions,3.5,-148.0,112.0,0.5585303332383936,2026-10-11T17:00:00Z,05835fd6db578ab9,1541.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Romeo Doubs,romeo doubs,receptions,3.5,-148.0,112.0,0.5585303332383936,2026-10-11T17:00:00Z,05835fd6db578ab9,1294.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Devaughn Vele,devaughn vele,receptions,3.5,-148.0,112.0,0.5585303332383936,2026-10-11T17:00:00Z,7d6fb6d33d0dcc1b,1295.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Josh Downs,josh downs,receptions,4.5,-148.0,112.0,0.5585303332383936,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,1293.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Michael Wilson,michael wilson,receptions,5.5,-148.0,112.0,0.5585303332383936,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Xavier Hutchinson,xavier hutchinson,receptions,1.5,112.0,-148.0,0.4414696667616063,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Kendrick Bourne,kendrick bourne,receptions,2.5,112.0,-148.0,0.4414696667616063,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Kendrick Bourne,kendrick bourne,receptions,2.5,112.0,-148.0,0.4414696667616063,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Ryan Flournoy,ryan flournoy,receptions,3.5,112.0,-148.0,0.4414696667616063,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Brenton Strange,brenton strange,receptions,3.5,112.0,-148.0,0.4414696667616063,2026-10-11T13:30:00Z,6275929b4056e14c,1298.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-draftkings,Ollie Gordon II,ollie gordon,receptions,1.5,-145.0,114.0,0.558797046641455,2026-10-11T17:00:00Z,f85173e306621e17,1567.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Tyler Warren,tyler warren,receptions,5.5,112.0,-149.0,0.4408015861775952,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Carnell Tate,carnell tate,rec_yds,50.5,113.0,-150.0,0.4389815627743634,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receiving_yards,2026-10-08T23:56:52.464749+00:00
-bovada,Harold Fannin Jr. (CLE),harold fannin,receptions,4.5,115.0,-150.0,0.43668122270742354,2026-10-11T17:00:00Z,e56d90f33604f4b2,55.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-bovada,Garrett Wilson (NYJ),garrett wilson,receptions,6.5,115.0,-150.0,0.43668122270742354,2026-10-11T17:00:00Z,e56d90f33604f4b2,55.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-bovada,Kyle Pitts (ATL),kyle pitts,receptions,2.5,115.0,-150.0,0.43668122270742354,2026-10-12T00:20:00Z,70c6bce39ad2d597,55.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-bovada,David Montgomery (HOU),david montgomery,receptions,1.5,115.0,-150.0,0.43668122270742354,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,3087.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,DK Metcalf,dk metcalf,receptions,4.5,114.0,-152.0,0.4365299334811531,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,1293.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Josh Cameron,josh cameron,receptions,1.5,114.0,-152.0,0.4365299334811531,2026-10-11T13:30:00Z,6275929b4056e14c,1298.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,KC Concepcion,kc concepcion,receptions,4.5,115.0,-153.0,0.4347452530286107,2026-10-11T17:00:00Z,e56d90f33604f4b2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Sam LaPorta,sam laporta,receptions,4.5,-154.0,116.0,0.5670257738988136,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Sam LaPorta,sam laporta,receptions,4.5,-154.0,116.0,0.5670257738988136,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Cooper Kupp,cooper kupp,receptions,2.5,116.0,-154.0,0.43297422610118635,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Pat Freiermuth,pat freiermuth,receptions,3.5,116.0,-154.0,0.43297422610118635,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Xavier Hutchinson,xavier hutchinson,receptions,1.5,116.0,-154.0,0.43297422610118635,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Khalil Shakir,khalil shakir,receptions,4.5,116.0,-154.0,0.43297422610118635,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Pat Freiermuth,pat freiermuth,receptions,3.5,116.0,-154.0,0.43297422610118635,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,1293.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,KC Concepcion,kc concepcion,receptions,4.5,116.0,-154.0,0.43297422610118635,2026-10-11T17:00:00Z,e56d90f33604f4b2,1294.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Greg Dulcich,greg dulcich,receptions,2.5,-155.0,117.0,0.5687832924663905,2026-10-11T17:00:00Z,f85173e306621e17,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Jahan Dotson,jahan dotson,receptions,1.5,-156.0,117.0,0.5694005247931104,2026-10-12T00:20:00Z,70c6bce39ad2d597,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Emeka Egbuka,emeka egbuka,receptions,3.5,122.0,-148.0,0.4301373664492854,2026-10-09T00:15:00Z,7d2983204fc25b29,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Rashod Bateman,rashod bateman,receptions,1.5,-158.0,118.0,0.571741584224155,2026-10-12T00:20:00Z,70c6bce39ad2d597,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Kyren Williams,kyren williams,receptions,2.5,-158.0,118.0,0.571741584224155,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Rashod Bateman,rashod bateman,receptions,1.5,-158.0,118.0,0.571741584224155,2026-10-12T00:20:00Z,70c6bce39ad2d597,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Dontayvion Wicks,dontayvion wicks,receptions,3.5,-158.0,118.0,0.571741584224155,2026-10-11T13:30:00Z,6275929b4056e14c,2124.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Kevin Coleman Jr.,kevin coleman,receptions,1.5,-158.0,118.0,0.571741584224155,2026-10-11T17:00:00Z,f85173e306621e17,1295.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Keenan Allen,keenan allen,receptions,3.5,118.0,-158.0,0.42825841577584495,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,1293.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Malachi Fields,malachi fields,receptions,2.5,118.0,-158.0,0.42825841577584495,2026-10-11T17:00:00Z,b5040b51712f37a8,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Harold Fannin Jr.,harold fannin,receptions,4.5,118.0,-158.0,0.42825841577584495,2026-10-11T17:00:00Z,e56d90f33604f4b2,1294.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Malachi Fields,malachi fields,receptions,2.5,118.0,-158.0,0.42825841577584495,2026-10-11T17:00:00Z,b5040b51712f37a8,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Dawson Knox,dawson knox,receptions,1.5,118.0,-158.0,0.42825841577584495,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Bucky Irving,bucky irving,receptions,2.5,118.0,-158.0,0.42825841577584495,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Harold Fannin Jr.,harold fannin,receptions,4.5,118.0,-158.0,0.42825841577584495,2026-10-11T17:00:00Z,e56d90f33604f4b2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Juwan Johnson,juwan johnson,receptions,4.5,119.0,-158.0,0.42713817423264133,2026-10-11T17:00:00Z,7d6fb6d33d0dcc1b,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Colston Loveland,colston loveland,receptions,3.5,-160.0,120.0,0.5751633986928104,2026-10-11T17:00:00Z,9d6a4b64c9a604f2,1536.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Puka Nacua,puka nacua,receptions,6.5,-160.0,120.0,0.5751633986928104,2026-10-13T00:15:00Z,783eae7108c7afe5,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-bovada,Mike Evans (SF),mike evans,receptions,3.5,-160.0,120.0,0.5751633986928104,2026-10-11T20:25:00Z,30e0c00db526b013,55.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Amon-Ra St. Brown,amonra st brown,receptions,6.5,-160.0,120.0,0.5751633986928104,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Amon-Ra St. Brown,amonra st brown,receptions,6.5,-160.0,120.0,0.5751633986928104,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Puka Nacua,puka nacua,receptions,6.5,-160.0,120.0,0.5751633986928104,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Courtland Sutton,courtland sutton,receptions,3.5,120.0,-160.0,0.4248366013071895,2026-10-11T20:05:00Z,c13ec8a30413ae34,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Tyler Warren,tyler warren,receptions,5.5,120.0,-160.0,0.4248366013071895,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,1293.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Malik Nabers,malik nabers,receptions,5.5,120.0,-160.0,0.4248366013071895,2026-10-11T17:00:00Z,b5040b51712f37a8,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-bovada,Dalton Kincaid (BUF),dalton kincaid,receptions,4.5,120.0,-160.0,0.4248366013071895,2026-10-13T00:15:00Z,783eae7108c7afe5,55.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Skyy Moore,skyy moore,receptions,1.5,120.0,-160.0,0.4248366013071895,2026-10-11T17:00:00Z,9d6a4b64c9a604f2,2680.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Dalton Schultz,dalton schultz,receptions,4.5,120.0,-160.0,0.4248366013071895,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Garrett Wilson,garrett wilson,receptions,6.5,120.0,-160.0,0.4248366013071895,2026-10-11T17:00:00Z,e56d90f33604f4b2,1294.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Darnell Washington,darnell washington,receptions,2.5,120.0,-160.0,0.4248366013071895,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,1293.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Dalton Schultz,dalton schultz,receptions,4.5,120.0,-160.0,0.4248366013071895,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Kenneth Gainwell,kenneth gainwell,receptions,1.5,-152.0,125.0,0.5757575757575758,2026-10-09T00:15:00Z,7d2983204fc25b29,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Jahan Dotson,jahan dotson,receptions,1.5,-162.0,122.0,0.578534199858439,2026-10-12T00:20:00Z,70c6bce39ad2d597,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,George Holani,george holani,receptions,1.5,-162.0,122.0,0.578534199858439,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,George Holani,george holani,receptions,1.5,-162.0,122.0,0.578534199858439,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Kyren Williams,kyren williams,receptions,2.5,-163.0,122.0,0.5791057196812085,2026-10-13T00:15:00Z,783eae7108c7afe5,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Darnell Washington,darnell washington,receptions,2.5,122.0,-163.0,0.4208942803187914,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Emanuel Wilson,emanuel wilson,receptions,1.5,-165.0,124.0,0.5824141191301608,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Ollie Gordon II,ollie gordon,receptions,1.5,-166.0,124.0,0.5829675153643546,2026-10-11T17:00:00Z,f85173e306621e17,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Evan Engram,evan engram,receptions,2.5,124.0,-166.0,0.41703248463564524,2026-10-11T20:05:00Z,c13ec8a30413ae34,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Dalton Kincaid,dalton kincaid,receptions,4.5,124.0,-166.0,0.41703248463564524,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Kayshon Boutte,kayshon boutte,receptions,2.5,124.0,-166.0,0.41703248463564524,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Kayshon Boutte,kayshon boutte,receptions,2.5,124.0,-166.0,0.41703248463564524,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Evan Engram,evan engram,receptions,2.5,124.0,-166.0,0.41703248463564524,2026-10-11T20:05:00Z,c13ec8a30413ae34,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-bovada,Kenneth Gainwell (TB),kenneth gainwell,receptions,1.5,-165.0,125.0,0.5834970530451867,2026-10-09T00:15:00Z,7d2983204fc25b29,2518.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Josh Cameron,josh cameron,receptions,1.5,125.0,-167.0,0.4154025670945157,2026-10-11T13:30:00Z,6275929b4056e14c,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Bucky Irving,bucky irving,receptions,2.5,130.0,-159.0,0.41459900752361134,2026-10-09T00:15:00Z,7d2983204fc25b29,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,RJ Harvey,rj harvey,receptions,3.5,-169.0,127.0,0.5878215834393148,2026-10-11T20:05:00Z,c13ec8a30413ae34,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Tez Johnson,tez johnson,receptions,1.5,133.0,-162.0,0.4097207018421794,2026-10-09T00:15:00Z,7d2983204fc25b29,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Kenneth Gainwell,kenneth gainwell,receptions,1.5,-172.0,128.0,0.5904601300891351,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Keon Coleman,keon coleman,receptions,2.5,-172.0,128.0,0.5904601300891351,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Konata Mumpfield,konata mumpfield,receptions,0.5,-172.0,128.0,0.5904601300891351,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,MarShawn Lloyd,marshawn lloyd,receptions,2.5,129.0,-172.0,0.408482008770349,2026-10-11T17:00:00Z,9d6a4b64c9a604f2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-bovada,Ryan Flournoy (DAL),ryan flournoy,receptions,3.5,130.0,-170.0,0.40847201210287454,2026-10-09T00:15:00Z,7d2983204fc25b29,55.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-bovada,RJ Harvey (DEN),rj harvey,receptions,3.5,-170.0,130.0,0.5915279878971256,2026-10-11T20:05:00Z,c13ec8a30413ae34,55.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Rashid Shaheed,rashid shaheed,receptions,1.5,-173.0,129.0,0.5920319201398748,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Drake London,drake london,receptions,6.5,130.0,-174.0,0.40640759418570166,2026-10-12T00:20:00Z,70c6bce39ad2d597,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,RJ Harvey,rj harvey,receptions,3.5,-174.0,130.0,0.5935924058142985,2026-10-11T20:05:00Z,c13ec8a30413ae34,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Aaron Jones,aaron jones,receptions,2.5,-174.0,130.0,0.5935924058142985,2026-10-11T17:00:00Z,7d6fb6d33d0dcc1b,1295.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Aaron Jones,aaron jones,receptions,2.5,-174.0,130.0,0.5935924058142985,2026-10-11T17:00:00Z,7d6fb6d33d0dcc1b,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,D'Andre Swift,dandre swift,receptions,2.5,132.0,-177.0,0.40282706067128143,2026-10-11T17:00:00Z,9d6a4b64c9a604f2,2124.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Isaac TeSlaa,isaac teslaa,receptions,2.5,132.0,-178.0,0.4023387750376288,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Isaac TeSlaa,isaac teslaa,receptions,2.5,132.0,-178.0,0.4023387750376288,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Mike Evans,mike evans,receptions,3.5,-179.0,133.0,0.5991782435674573,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Ollie Gordon II,ollie gordon,receptions,1.5,-180.0,134.0,0.6006845407872219,2026-10-11T17:00:00Z,f85173e306621e17,1295.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Brian Thomas Jr.,brian thomas,receptions,2.5,134.0,-180.0,0.3993154592127781,2026-10-11T13:30:00Z,6275929b4056e14c,1298.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,DK Metcalf,dk metcalf,receptions,3.5,-180.0,134.0,0.6006845407872219,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Mike Evans,mike evans,receptions,3.5,-180.0,134.0,0.6006845407872219,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Malik Nabers,malik nabers,receptions,5.5,134.0,-180.0,0.3993154592127781,2026-10-11T17:00:00Z,b5040b51712f37a8,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Jordan Whittington,jordan whittington,receptions,0.5,-180.0,134.0,0.6006845407872219,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Tez Johnson,tez johnson,receptions,1.5,134.0,-180.0,0.3993154592127781,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Colby Parkinson,colby parkinson,receptions,1.5,-180.0,134.0,0.6006845407872219,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Tyjae Spears,tyjae spears,receptions,1.5,-182.0,136.0,0.6036653923993703,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Tyjae Spears,tyjae spears,receptions,1.5,-182.0,136.0,0.6036653923993703,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Calvin Ridley,calvin ridley,receptions,0.5,-188.0,140.0,0.6103896103896104,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Emanuel Wilson,emanuel wilson,receptions,1.5,-188.0,140.0,0.6103896103896104,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Calvin Ridley,calvin ridley,receptions,0.5,-188.0,140.0,0.6103896103896104,2026-10-11T17:00:00Z,3bfb6dba15ae9bb2,1292.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Rashid Shaheed,rashid shaheed,receptions,1.5,-188.0,140.0,0.6103896103896104,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Tory Horton,tory horton,receptions,1.5,140.0,-188.0,0.38961038961038963,2026-10-11T20:25:00Z,30e0c00db526b013,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-bovada,Brian Thomas (JAX),brian thomas,receptions,2.5,145.0,-190.0,0.38385175380542685,2026-10-11T13:30:00Z,6275929b4056e14c,55.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Brian Thomas,brian thomas,receptions,2.5,144.0,-194.0,0.3831317764804003,2026-10-11T13:30:00Z,6275929b4056e14c,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Germie Bernard,germie bernard,receptions,2.5,144.0,-194.0,0.3831317764804003,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,1293.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Keenan Allen,keenan allen,receptions,2.5,-196.0,146.0,0.6196155032384086,2026-10-11T17:00:00Z,5d1ca30687b1ffd0,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Emeka Egbuka,emeka egbuka,receptions,2.5,-198.0,146.0,0.6204208488306924,2026-10-09T00:15:00Z,7d2983204fc25b29,2170.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Cam Skattebo,cam skattebo,receptions,1.5,-205.0,152.0,0.6287731256085686,2026-10-11T17:00:00Z,b5040b51712f37a8,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Cam Skattebo,cam skattebo,receptions,1.5,-205.0,152.0,0.6287731256085686,2026-10-11T17:00:00Z,b5040b51712f37a8,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Ty Johnson,ty johnson,receptions,2.5,152.0,-205.0,0.3712268743914313,2026-10-13T00:15:00Z,783eae7108c7afe5,3449.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Raheim Sanders,raheim sanders,receptions,1.5,-210.0,154.0,0.6324401233104102,2026-10-11T17:00:00Z,e56d90f33604f4b2,1294.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Tyler Allgeier,tyler allgeier,receptions,2.5,154.0,-210.0,0.3675598766895897,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-fanduel,Tyler Allgeier,tyler allgeier,receptions,2.5,162.0,-220.0,0.35698348951361,2026-10-11T20:25:00Z,001a6e9d0b8b72f2,3450.7,player_receptions,2026-10-08T23:56:52.464749+00:00
-pinnacle,Tory Horton,tory horton,receptions,1.5,168.0,-230.0,0.34868977176669486,2026-10-11T20:25:00Z,30e0c00db526b013,2123.7,player_receptions,2026-10-08T23:56:52.464749+00:00
+fanduel,Bhayshul Tuten,bhayshul tuten,rec_yds,9.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Bhayshul Tuten,bhayshul tuten,receptions,1.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Bhayshul Tuten,bhayshul tuten,rush_yds,65.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1499.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Brenton Strange,brenton strange,rec_yds,33.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Brian Thomas Jr.,brian thomas,rec_yds,24.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Chris Rodriguez Jr.,chris rodriguez,rush_yds,26.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1499.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Jakobi Meyers,jakobi meyers,rec_yds,41.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Dameon Pierce,dameon pierce,rush_yds,20.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1499.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Parker Washington,parker washington,rec_yds,60.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Josh Cameron,josh cameron,rec_yds,12.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Jalen Hurts,jalen hurts,rush_yds,27.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1499.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+pinnacle,Brian Thomas,brian thomas,rec_yds,24.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,3027.7,player_receiving_yards,2026-10-09T14:58:20.547766+00:00
+pinnacle,Brenton Strange,brenton strange,rec_yds,33.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,2803.7,player_receiving_yards,2026-10-09T14:58:20.547766+00:00
+fanduel,Will Shipley,will shipley,rush_yds,34.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1499.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Will Shipley,will shipley,rec_yds,13.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Trevor Lawrence,trevor lawrence,rush_yds,14.5,-114.0,-114.0,0.5,2026-10-11T13:30:00Z,6275929b4056e14c,1499.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+pinnacle,Cody White,cody white,rec_yds,16.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,05835fd6db578ab9,3026.7,player_receiving_yards,2026-10-09T14:58:20.547766+00:00
+pinnacle,D'Andre Swift,dandre swift,rec_yds,14.5,-114.0,-114.0,0.5,,9d6a4b64c9a604f2,3023.7,player_receiving_yards,2026-10-09T14:58:20.547766+00:00
+bovada,Brock Bowers (LV),brock bowers,rec_yds,69.5,-115.0,-115.0,0.5,2026-10-11T17:01:00Z,05835fd6db578ab9,168.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+pinnacle,Tyler Warren,tyler warren,rec_yds,48.5,-114.0,-114.0,0.5,,5d1ca30687b1ffd0,3246.7,player_receiving_yards,2026-10-09T14:58:20.547766+00:00
+pinnacle,Romeo Doubs,romeo doubs,rec_yds,51.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,05835fd6db578ab9,2802.7,player_receiving_yards,2026-10-09T14:58:20.547766+00:00
+fanduel,Ashton Jeanty,ashton jeanty,rec_yds,24.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,05835fd6db578ab9,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Alvin Kamara,alvin kamara,rec_yds,13.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,7d6fb6d33d0dcc1b,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Aaron Jones,aaron jones,rush_yds,72.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,7d6fb6d33d0dcc1b,1499.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Ashton Jeanty,ashton jeanty,rush_yds,59.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,05835fd6db578ab9,1499.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Alvin Kamara,alvin kamara,rush_yds,32.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,7d6fb6d33d0dcc1b,1499.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+bovada,Tucker Kraft (GB),tucker kraft,rec_yds,49.5,-115.0,-115.0,0.5,,9d6a4b64c9a604f2,168.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+pinnacle,Skyy Moore,skyy moore,rec_yds,11.5,-114.0,-114.0,0.5,,9d6a4b64c9a604f2,3024.7,player_receiving_yards,2026-10-09T14:58:20.547766+00:00
+fanduel,Aaron Jones,aaron jones,rec_yds,18.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,7d6fb6d33d0dcc1b,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+bovada,Matthew Golden (GB),matthew golden,receptions,4.5,-115.0,-115.0,0.5,,9d6a4b64c9a604f2,59.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+bovada,Michael Mayer (LV),michael mayer,rec_yds,29.5,-115.0,-115.0,0.5,2026-10-11T17:01:00Z,05835fd6db578ab9,168.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+pinnacle,Matthew Golden,matthew golden,receptions,4.5,-114.0,-114.0,0.5,,9d6a4b64c9a604f2,3032.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Isaiah Davis,isaiah davis,rush_yds,10.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,e56d90f33604f4b2,1499.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Isaiah Williams,isaiah williams,rec_yds,22.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,e56d90f33604f4b2,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Jerry Jeudy,jerry jeudy,rec_yds,14.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,e56d90f33604f4b2,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Jaylen Wright,jaylen wright,rush_yds,25.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,f85173e306621e17,1499.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Joe Burrow,joe burrow,rush_yds,8.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,f85173e306621e17,1499.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Kenyon Sadiq,kenyon sadiq,rec_yds,32.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,e56d90f33604f4b2,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,KC Concepcion,kc concepcion,rec_yds,38.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,e56d90f33604f4b2,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Juwan Johnson,juwan johnson,rec_yds,42.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,7d6fb6d33d0dcc1b,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Kevin Coleman Jr.,kevin coleman,rec_yds,18.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,f85173e306621e17,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Kendre Miller,kendre miller,rush_yds,21.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,7d6fb6d33d0dcc1b,1499.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Mike Washington Jr.,mike washington,rush_yds,23.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,05835fd6db578ab9,1499.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Ollie Gordon II,ollie gordon,rec_yds,10.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,f85173e306621e17,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Malik Willis,malik willis,rush_yds,32.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,f85173e306621e17,1499.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Garrett Wilson,garrett wilson,rec_yds,68.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,e56d90f33604f4b2,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Harold Fannin Jr.,harold fannin,rec_yds,35.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,e56d90f33604f4b2,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Hunter Henry,hunter henry,rec_yds,37.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,05835fd6db578ab9,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Deshaun Watson,deshaun watson,rush_yds,26.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,e56d90f33604f4b2,1499.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Devaughn Vele,devaughn vele,rec_yds,40.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,7d6fb6d33d0dcc1b,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Drake Maye,drake maye,rush_yds,31.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,05835fd6db578ab9,1499.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Efton Chism III,efton chism,rec_yds,18.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,05835fd6db578ab9,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Eli Raridon,eli raridon,rec_yds,9.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,05835fd6db578ab9,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Greg Dulcich,greg dulcich,rec_yds,25.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,f85173e306621e17,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Geno Smith,geno smith,rush_yds,10.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,e56d90f33604f4b2,1499.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Demario Douglas,demario douglas,rec_yds,25.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,05835fd6db578ab9,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Chris Olave,chris olave,rec_yds,81.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,7d6fb6d33d0dcc1b,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Cody White,cody white,rec_yds,16.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,05835fd6db578ab9,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Denzel Boston,denzel boston,rec_yds,47.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,e56d90f33604f4b2,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Chris Bell,chris bell,rec_yds,33.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,f85173e306621e17,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Chase Brown,chase brown,rush_yds,67.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,f85173e306621e17,1499.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Brock Bowers,brock bowers,rec_yds,70.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,05835fd6db578ab9,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Braelon Allen,braelon allen,rush_yds,71.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,e56d90f33604f4b2,1499.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Braelon Allen,braelon allen,rec_yds,12.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,e56d90f33604f4b2,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Ollie Gordon II,ollie gordon,rush_yds,43.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,f85173e306621e17,1499.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Quinshon Judkins,quinshon judkins,rec_yds,15.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,e56d90f33604f4b2,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Michael Mayer,michael mayer,receptions,3.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,05835fd6db578ab9,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Michael Mayer,michael mayer,rec_yds,28.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,05835fd6db578ab9,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Kyler Murray,kyler murray,rush_yds,17.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,7d6fb6d33d0dcc1b,1499.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Mason Taylor,mason taylor,rec_yds,13.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,e56d90f33604f4b2,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Malik Washington,malik washington,rec_yds,44.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,f85173e306621e17,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Justice Hill,justice hill,rush_yds,11.5,-114.0,-114.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,1439.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Blake Corum,blake corum,rush_yds,31.5,-114.0,-114.0,0.5,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Colby Parkinson,colby parkinson,rec_yds,16.5,-114.0,-114.0,0.5,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Davante Adams,davante adams,rec_yds,62.5,-114.0,-114.0,0.5,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Dalton Kincaid,dalton kincaid,rec_yds,50.5,-114.0,-114.0,0.5,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+pinnacle,Dalton Kincaid,dalton kincaid,rec_yds,50.5,-114.0,-114.0,0.5,2026-10-13T00:16:00Z,783eae7108c7afe5,3027.7,player_receiving_yards,2026-10-09T14:58:20.547766+00:00
+pinnacle,Kyren Williams,kyren williams,rush_yds,68.5,-114.0,-114.0,0.5,2026-10-13T00:16:00Z,783eae7108c7afe5,2802.7,player_rushing_yards,2026-10-09T14:58:20.547766+00:00
+pinnacle,Sam LaPorta,sam laporta,rec_yds,51.5,-114.0,-114.0,0.5,,001a6e9d0b8b72f2,3030.7,player_receiving_yards,2026-10-09T14:58:20.547766+00:00
+fanduel,Kyren Williams,kyren williams,rec_yds,19.5,-114.0,-114.0,0.5,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Dawson Knox,dawson knox,rec_yds,10.5,-114.0,-114.0,0.5,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,James Cook,james cook,rec_yds,9.5,-114.0,-114.0,0.5,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Jordan Whittington,jordan whittington,rec_yds,5.5,-114.0,-114.0,0.5,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,James Cook,james cook,rush_yds,75.5,-114.0,-114.0,0.5,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Josh Allen,josh allen,rush_yds,36.5,-114.0,-114.0,0.5,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Keon Coleman,keon coleman,rec_yds,37.5,-114.0,-114.0,0.5,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Josh Palmer,josh palmer,receptions,1.5,-114.0,-114.0,0.5,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Josh Palmer,josh palmer,rec_yds,19.5,-114.0,-114.0,0.5,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Konata Mumpfield,konata mumpfield,rec_yds,7.5,-114.0,-114.0,0.5,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Khalil Shakir,khalil shakir,rec_yds,43.5,-114.0,-114.0,0.5,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Kyren Williams,kyren williams,rush_yds,68.5,-114.0,-114.0,0.5,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Tyler Higbee,tyler higbee,rec_yds,25.5,-114.0,-114.0,0.5,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Puka Nacua,puka nacua,rec_yds,92.5,-114.0,-114.0,0.5,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Ty Johnson,ty johnson,rec_yds,11.5,-114.0,-114.0,0.5,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Rashod Bateman,rashod bateman,rec_yds,17.5,-114.0,-114.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,1439.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Zay Flowers,zay flowers,rec_yds,68.5,-114.0,-114.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,1439.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Derrick Henry,derrick henry,rush_yds,83.5,-114.0,-114.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,1439.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Drake London,drake london,rec_yds,80.5,-114.0,-114.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,1439.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Justice Hill,justice hill,rec_yds,8.5,-114.0,-114.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,1439.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Jahan Dotson,jahan dotson,rec_yds,19.5,-114.0,-114.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,1439.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Olamide Zaccheaus,olamide zaccheaus,rec_yds,7.5,-114.0,-114.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,1439.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Mark Andrews,mark andrews,rec_yds,29.5,-114.0,-114.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,1439.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Kyle Pitts,kyle pitts,rec_yds,24.5,-114.0,-114.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,1439.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+pinnacle,J.K. Dobbins,jk dobbins,rush_yds,50.5,-114.0,-114.0,0.5,,c13ec8a30413ae34,3244.7,player_rushing_yards,2026-10-09T14:58:20.547766+00:00
+fanduel,Tre Tucker,tre tucker,rec_yds,39.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,05835fd6db578ab9,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Tyler Shough,tyler shough,rush_yds,8.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,7d6fb6d33d0dcc1b,1499.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+pinnacle,RJ Harvey,rj harvey,rec_yds,27.5,-114.0,-114.0,0.5,,c13ec8a30413ae34,2806.7,player_receiving_yards,2026-10-09T14:58:20.547766+00:00
+fanduel,T.J. Hockenson,tj hockenson,rec_yds,38.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,7d6fb6d33d0dcc1b,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Samaje Perine,samaje perine,rush_yds,14.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,f85173e306621e17,1499.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Romeo Doubs,romeo doubs,rec_yds,51.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,05835fd6db578ab9,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Raheim Sanders,raheim sanders,rec_yds,12.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,e56d90f33604f4b2,1499.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Brian Robinson Jr.,brian robinson,rush_yds,35.5,-114.0,-114.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,1439.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+pinnacle,Emanuel Wilson,emanuel wilson,rush_yds,62.5,-114.0,-114.0,0.5,,30e0c00db526b013,3246.7,player_rushing_yards,2026-10-09T14:58:20.547766+00:00
+pinnacle,Rashid Shaheed,rashid shaheed,rec_yds,20.5,-114.0,-114.0,0.5,,30e0c00db526b013,3024.7,player_receiving_yards,2026-10-09T14:58:20.547766+00:00
+pinnacle,Jeremiah Love,jeremiah love,rush_yds,45.5,-114.0,-114.0,0.5,,001a6e9d0b8b72f2,3033.7,player_rushing_yards,2026-10-09T14:58:20.547766+00:00
+fanduel,Derrick Henry,derrick henry,rec_yds,4.5,-114.0,-114.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,1439.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Bijan Robinson,bijan robinson,rush_yds,88.5,-114.0,-114.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,1439.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Bijan Robinson,bijan robinson,rec_yds,26.5,-114.0,-114.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,1439.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+pinnacle,Zay Flowers,zay flowers,rec_yds,68.5,-114.0,-114.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,2804.7,player_receiving_yards,2026-10-09T14:58:20.547766+00:00
+fanduel,Quinshon Judkins,quinshon judkins,rush_yds,59.5,-114.0,-114.0,0.5,2026-10-11T17:01:00Z,e56d90f33604f4b2,1499.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+pinnacle,Matthew Golden,matthew golden,rec_yds,55.5,-116.0,-114.0,0.5020223264843877,,9d6a4b64c9a604f2,2800.7,player_receiving_yards,2026-10-09T14:58:20.547766+00:00
+fanduel,Chris Olave,chris olave,receptions,6.5,-112.0,-118.0,0.4939310568053083,2026-10-11T17:01:00Z,7d6fb6d33d0dcc1b,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+draftkings,Justin Herbert,justin herbert,rush_yds,26.5,-116.0,-109.0,0.5073240143969199,,c13ec8a30413ae34,1396.7,player_rushing_yards,2026-10-09T14:58:20.547766+00:00
+bovada,Jaylin Noel (HOU),jaylin noel,rec_yds,19.5,-110.0,-120.0,0.48987854251012153,,3bfb6dba15ae9bb2,168.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+bovada,Samaje Perine (CIN),samaje perine,rush_yds,14.5,-110.0,-120.0,0.48987854251012153,2026-10-11T17:01:00Z,f85173e306621e17,168.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+bovada,Jahan Dotson (ATL),jahan dotson,rec_yds,19.5,-110.0,-120.0,0.48987854251012153,2026-10-12T00:21:00Z,70c6bce39ad2d597,168.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+bovada,Kenyon Sadiq (NYJ),kenyon sadiq,receptions,3.5,-110.0,-120.0,0.48987854251012153,2026-10-11T17:01:00Z,e56d90f33604f4b2,59.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Efton Chism III,efton chism,receptions,1.5,-120.0,-110.0,0.5101214574898786,2026-10-11T17:01:00Z,05835fd6db578ab9,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+bovada,Demario Douglas (NE),demario douglas,receptions,2.5,-120.0,-110.0,0.5101214574898786,2026-10-11T17:01:00Z,05835fd6db578ab9,59.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+bovada,Germie Bernard (PIT),germie bernard,rec_yds,19.5,-120.0,-110.0,0.5101214574898786,,5d1ca30687b1ffd0,168.7,player_rec_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Brock Bowers,brock bowers,receptions,6.5,-108.0,-122.0,0.48581617766250607,2026-10-11T17:01:00Z,05835fd6db578ab9,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,James Cook,james cook,receptions,1.5,-122.0,-108.0,0.5141838223374939,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Justice Hill,justice hill,receptions,1.5,-108.0,-122.0,0.48581617766250607,2026-10-12T00:21:00Z,70c6bce39ad2d597,1439.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Chris Bell,chris bell,receptions,2.5,-108.0,-122.0,0.48581617766250607,2026-10-11T17:01:00Z,f85173e306621e17,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Alvin Kamara,alvin kamara,receptions,3.5,-108.0,-122.0,0.48581617766250607,2026-10-11T17:01:00Z,7d6fb6d33d0dcc1b,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Will Shipley,will shipley,receptions,2.5,-108.0,-122.0,0.48581617766250607,2026-10-11T13:30:00Z,6275929b4056e14c,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Demario Douglas,demario douglas,receptions,2.5,-122.0,-106.0,0.516439256945586,2026-10-11T17:01:00Z,05835fd6db578ab9,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Jakobi Meyers,jakobi meyers,receptions,3.5,-122.0,-106.0,0.516439256945586,2026-10-11T13:30:00Z,6275929b4056e14c,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Jerry Jeudy,jerry jeudy,receptions,1.5,-106.0,-125.0,0.4808467741935484,2026-10-11T17:01:00Z,e56d90f33604f4b2,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,T.J. Hockenson,tj hockenson,receptions,4.5,-106.0,-125.0,0.4808467741935484,2026-10-11T17:01:00Z,7d6fb6d33d0dcc1b,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+bovada,Chris Bell (MIA),chris bell,receptions,2.5,-105.0,-125.0,0.4796954314720812,2026-10-11T17:01:00Z,f85173e306621e17,59.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+bovada,Braelon Allen (NYJ),braelon allen,receptions,2.5,-105.0,-125.0,0.4796954314720812,2026-10-11T17:01:00Z,e56d90f33604f4b2,59.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+bovada,Luther Burden III (CHI),luther burden,receptions,4.5,-105.0,-125.0,0.4796954314720812,,9d6a4b64c9a604f2,59.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+bovada,Jakobi Meyers (JAX),jakobi meyers,receptions,3.5,-125.0,-105.0,0.5203045685279188,2026-10-11T13:30:00Z,6275929b4056e14c,59.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+bovada,Deebo Samuel Sr. (SF),deebo samuel,receptions,3.5,-125.0,-105.0,0.5203045685279188,,30e0c00db526b013,59.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Kirk Cousins,kirk cousins,rush_yds,0.5,-102.0,-128.0,0.4735298908617039,2026-10-11T17:01:00Z,05835fd6db578ab9,1499.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Michael Penix Jr.,michael penix,rush_yds,0.5,-102.0,-128.0,0.4735298908617039,2026-10-12T00:21:00Z,70c6bce39ad2d597,1439.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Zay Flowers,zay flowers,receptions,5.5,-102.0,-130.0,0.4718423169750603,2026-10-12T00:21:00Z,70c6bce39ad2d597,1439.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Parker Washington,parker washington,receptions,4.5,-130.0,-102.0,0.5281576830249397,2026-10-11T13:30:00Z,6275929b4056e14c,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+pinnacle,Jeremiah Love,jeremiah love,receptions,2.5,-102.0,-130.0,0.4718423169750603,,001a6e9d0b8b72f2,2805.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Cody White,cody white,receptions,1.5,-130.0,-102.0,0.5281576830249397,2026-10-11T17:01:00Z,05835fd6db578ab9,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Hunter Henry,hunter henry,receptions,3.5,-132.0,100.0,0.532258064516129,2026-10-11T17:01:00Z,05835fd6db578ab9,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Tre Tucker,tre tucker,receptions,3.5,100.0,-132.0,0.4677419354838709,2026-10-11T17:01:00Z,05835fd6db578ab9,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+pinnacle,DeMario Douglas,demario douglas,receptions,2.5,-133.0,101.0,0.5343073571442847,2026-10-11T17:01:00Z,05835fd6db578ab9,2800.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Matthew Stafford,matthew stafford,rush_yds,1.5,102.0,-132.0,0.46526552222043954,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_rush_yds,2026-10-09T14:58:20.547766+00:00
+fanduel,Kenyon Sadiq,kenyon sadiq,receptions,3.5,102.0,-136.0,0.46209273182957394,2026-10-11T17:01:00Z,e56d90f33604f4b2,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Kyle Pitts,kyle pitts,receptions,2.5,102.0,-136.0,0.46209273182957394,2026-10-12T00:21:00Z,70c6bce39ad2d597,1439.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Bijan Robinson,bijan robinson,receptions,3.5,-136.0,102.0,0.5379072681704261,2026-10-12T00:21:00Z,70c6bce39ad2d597,1439.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Greg Dulcich,greg dulcich,receptions,2.5,-136.0,102.0,0.5379072681704261,2026-10-11T17:01:00Z,f85173e306621e17,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Ashton Jeanty,ashton jeanty,receptions,3.5,-136.0,102.0,0.5379072681704261,2026-10-11T17:01:00Z,05835fd6db578ab9,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+bovada,Alvin Kamara (NOR),alvin kamara,receptions,3.5,105.0,-135.0,0.45920859794821695,2026-10-11T17:01:00Z,7d6fb6d33d0dcc1b,1394.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+bovada,Denzel Boston (CLE),denzel boston,receptions,3.5,105.0,-135.0,0.45920859794821695,2026-10-11T17:01:00Z,e56d90f33604f4b2,1394.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+bovada,Cooper Kupp (SEA),cooper kupp,receptions,2.5,105.0,-135.0,0.45920859794821695,,30e0c00db526b013,1394.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+bovada,Puka Nacua (LAR),puka nacua,receptions,7.5,105.0,-135.0,0.45920859794821695,2026-10-13T00:16:00Z,783eae7108c7afe5,1394.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Drake London,drake london,receptions,5.5,-138.0,104.0,0.5418848167539266,2026-10-12T00:21:00Z,70c6bce39ad2d597,1439.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Tyler Higbee,tyler higbee,receptions,2.5,-138.0,104.0,0.5418848167539266,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Mark Andrews,mark andrews,receptions,3.5,-138.0,104.0,0.5418848167539266,2026-10-12T00:21:00Z,70c6bce39ad2d597,1439.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Malik Washington,malik washington,receptions,4.5,-138.0,104.0,0.5418848167539266,2026-10-11T17:01:00Z,f85173e306621e17,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Juwan Johnson,juwan johnson,receptions,4.5,106.0,-140.0,0.45420136260408783,2026-10-11T17:01:00Z,7d6fb6d33d0dcc1b,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Braelon Allen,braelon allen,receptions,2.5,106.0,-140.0,0.45420136260408783,2026-10-11T17:01:00Z,e56d90f33604f4b2,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+pinnacle,Dalton Kincaid,dalton kincaid,receptions,4.5,108.0,-143.0,0.449633631855525,2026-10-13T00:16:00Z,783eae7108c7afe5,3244.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Denzel Boston,denzel boston,receptions,3.5,108.0,-144.0,0.4489255225198705,2026-10-11T17:01:00Z,e56d90f33604f4b2,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Davante Adams,davante adams,receptions,4.5,108.0,-144.0,0.4489255225198705,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Quinshon Judkins,quinshon judkins,receptions,2.5,-144.0,108.0,0.5510744774801296,2026-10-11T17:01:00Z,e56d90f33604f4b2,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+bovada,Garrett Wilson (NYJ),garrett wilson,receptions,5.5,-145.0,110.0,0.554140127388535,2026-10-11T17:01:00Z,e56d90f33604f4b2,59.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+bovada,Courtland Sutton (DEN),courtland sutton,receptions,3.5,110.0,-145.0,0.4458598726114649,,c13ec8a30413ae34,59.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+bovada,Harold Fannin Jr. (CLE),harold fannin,receptions,4.5,110.0,-145.0,0.4458598726114649,2026-10-11T17:01:00Z,e56d90f33604f4b2,59.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+pinnacle,Romeo Doubs,romeo doubs,receptions,3.5,-148.0,112.0,0.5585303332383936,2026-10-11T17:01:00Z,05835fd6db578ab9,3032.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Romeo Doubs,romeo doubs,receptions,3.5,-148.0,112.0,0.5585303332383936,2026-10-11T17:01:00Z,05835fd6db578ab9,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Brenton Strange,brenton strange,receptions,3.5,112.0,-148.0,0.4414696667616063,2026-10-11T13:30:00Z,6275929b4056e14c,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+pinnacle,Christian Watson,christian watson,receptions,4.5,112.0,-148.0,0.4414696667616063,,9d6a4b64c9a604f2,2801.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Isaiah Williams,isaiah williams,receptions,2.5,112.0,-148.0,0.4414696667616063,2026-10-11T17:01:00Z,e56d90f33604f4b2,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+bovada,Isaiah Williams (NYJ),isaiah williams,receptions,2.5,115.0,-150.0,0.43668122270742354,2026-10-11T17:01:00Z,e56d90f33604f4b2,59.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+bovada,Quinshon Judkins (CLE),quinshon judkins,receptions,2.5,-150.0,115.0,0.5633187772925765,2026-10-11T17:01:00Z,e56d90f33604f4b2,59.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Josh Cameron,josh cameron,receptions,1.5,114.0,-152.0,0.4365299334811531,2026-10-11T13:30:00Z,6275929b4056e14c,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Aaron Jones,aaron jones,receptions,2.5,-152.0,114.0,0.563470066518847,2026-10-11T17:01:00Z,7d6fb6d33d0dcc1b,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Mason Taylor,mason taylor,receptions,1.5,-154.0,116.0,0.5670257738988136,2026-10-11T17:01:00Z,e56d90f33604f4b2,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,KC Concepcion,kc concepcion,receptions,4.5,116.0,-154.0,0.43297422610118635,2026-10-11T17:01:00Z,e56d90f33604f4b2,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Khalil Shakir,khalil shakir,receptions,4.5,116.0,-154.0,0.43297422610118635,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Rashod Bateman,rashod bateman,receptions,1.5,-158.0,118.0,0.571741584224155,2026-10-12T00:21:00Z,70c6bce39ad2d597,1439.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Kevin Coleman Jr.,kevin coleman,receptions,1.5,-158.0,118.0,0.571741584224155,2026-10-11T17:01:00Z,f85173e306621e17,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Kyren Williams,kyren williams,receptions,2.5,-158.0,118.0,0.571741584224155,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Dawson Knox,dawson knox,receptions,1.5,118.0,-158.0,0.42825841577584495,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Harold Fannin Jr.,harold fannin,receptions,4.5,118.0,-158.0,0.42825841577584495,2026-10-11T17:01:00Z,e56d90f33604f4b2,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Puka Nacua,puka nacua,receptions,6.5,-160.0,120.0,0.5751633986928104,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+bovada,Emanuel Wilson (SEA),emanuel wilson,receptions,1.5,-160.0,120.0,0.5751633986928104,,30e0c00db526b013,1597.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+bovada,Rome Odunze (CHI),rome odunze,receptions,3.5,120.0,-160.0,0.4248366013071895,,9d6a4b64c9a604f2,59.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Garrett Wilson,garrett wilson,receptions,6.5,120.0,-160.0,0.4248366013071895,2026-10-11T17:01:00Z,e56d90f33604f4b2,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Devaughn Vele,devaughn vele,receptions,3.5,-162.0,122.0,0.578534199858439,2026-10-11T17:01:00Z,7d6fb6d33d0dcc1b,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Jahan Dotson,jahan dotson,receptions,1.5,-162.0,122.0,0.578534199858439,2026-10-12T00:21:00Z,70c6bce39ad2d597,1439.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Ollie Gordon II,ollie gordon,receptions,1.5,-166.0,124.0,0.5829675153643546,2026-10-11T17:01:00Z,f85173e306621e17,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Dalton Kincaid,dalton kincaid,receptions,4.5,124.0,-166.0,0.41703248463564524,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+bovada,Romeo Doubs (NE),romeo doubs,receptions,3.5,-165.0,125.0,0.5834970530451867,2026-10-11T17:01:00Z,05835fd6db578ab9,59.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Keon Coleman,keon coleman,receptions,2.5,-172.0,128.0,0.5904601300891351,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Konata Mumpfield,konata mumpfield,receptions,0.5,-172.0,128.0,0.5904601300891351,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+bovada,Dalton Kincaid (BUF),dalton kincaid,receptions,3.5,-170.0,130.0,0.5915279878971256,2026-10-13T00:16:00Z,783eae7108c7afe5,59.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+bovada,RJ Harvey (DEN),rj harvey,receptions,3.5,-170.0,130.0,0.5915279878971256,,c13ec8a30413ae34,59.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Brian Thomas Jr.,brian thomas,receptions,2.5,134.0,-180.0,0.3993154592127781,2026-10-11T13:30:00Z,6275929b4056e14c,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Colby Parkinson,colby parkinson,receptions,1.5,-180.0,134.0,0.6006845407872219,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Jordan Whittington,jordan whittington,receptions,0.5,-180.0,134.0,0.6006845407872219,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+bovada,Kalif Raymond (CHI),kalif raymond,receptions,2.5,-180.0,135.0,0.6017069701280228,,9d6a4b64c9a604f2,59.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+bovada,George Holani (SEA),george holani,receptions,1.5,-180.0,135.0,0.6017069701280228,,30e0c00db526b013,1597.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+pinnacle,Rome Odunze,rome odunze,receptions,2.5,-182.0,136.0,0.6036653923993703,,9d6a4b64c9a604f2,2807.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Eli Raridon,eli raridon,receptions,1.5,144.0,-194.0,0.3831317764804003,2026-10-11T17:01:00Z,05835fd6db578ab9,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Ty Johnson,ty johnson,receptions,2.5,152.0,-205.0,0.3712268743914313,2026-10-13T00:16:00Z,783eae7108c7afe5,1439.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Raheim Sanders,raheim sanders,receptions,1.5,-210.0,154.0,0.6324401233104102,2026-10-11T17:01:00Z,e56d90f33604f4b2,1499.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Derrick Henry,derrick henry,receptions,1.5,162.0,-220.0,0.35698348951361,2026-10-12T00:21:00Z,70c6bce39ad2d597,1439.7,player_receptions,2026-10-09T14:58:20.547766+00:00
+fanduel,Olamide Zaccheaus,olamide zaccheaus,receptions,0.5,-225.0,164.0,0.6463547334058759,2026-10-12T00:21:00Z,70c6bce39ad2d597,1439.7,player_receptions,2026-10-09T14:58:20.547766+00:00
