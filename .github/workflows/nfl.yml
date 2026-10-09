@@ -173,10 +173,10 @@ jobs:
           TASK="${{ steps.task.outputs.name }}"
           if [ "$TASK" = "project" ]; then
             if [ -f data/email_latest.html ]; then
-              # attach only the current week's files (older weeks' *_latest.csv files stay in the repo)
-              SW=$(grep -oE '[0-9]{4} Week [0-9]+' data/email_subject.txt | head -1 | sed -E 's/([0-9]{4}) Week ([0-9]+)/\1_wk\2/')
+              # clean, readable copies of the current week's files (raw files stay in the repo for scoring)
+              python readable_csvs.py || echo "readable files failed; attaching none"
               ATT=""
-              for f in data/projections_${SW}_latest.csv data/projections_${SW}_edges_latest.csv data/projections_${SW}_boom_latest.csv data/rushing_${SW}_latest.csv data/rushing_${SW}_edges_latest.csv data/receptions_${SW}_latest.csv data/receptions_${SW}_edges_latest.csv; do
+              for f in data/readable/*.csv; do
                 [ -f "$f" ] && ATT="$ATT $f"
               done
               python send_email.py --subject "$(cat data/email_subject.txt)" --html data/email_latest.html --attach $ATT
