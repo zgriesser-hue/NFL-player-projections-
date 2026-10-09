@@ -1282,7 +1282,9 @@ def main():
     edges.to_csv(f"{base}_edges_latest.csv", index=False)
 
     try:
-        ladder = boom.boom_ladder(out, sims, lines, boom.tail_map(backtest), name_key)
+        bb_path = os.path.join(out_dir, "receiving_backtest_boom.csv")      # larger multi-season sample, if available
+        bb = pd.read_csv(bb_path) if os.path.exists(bb_path) else backtest
+        ladder = boom.boom_ladder(out, sims, lines, boom.tail_map(bb), name_key)
         if len(ladder):
             ladder.round({"p_model": 4, "p_boom": 4, "p_over_book_line": 4, "fair_odds": 0, "bet_if_at_least": 0,
                           "model_mean": 1, "model_median": 1}).to_csv(f"{base}_boom_{stamp}.csv", index=False)

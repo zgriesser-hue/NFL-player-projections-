@@ -13,7 +13,7 @@ STEP = 10
 MAX_RUNGS = 12
 P_FLOOR = 1 / (1 + MAX_ODDS / 100)
 MIN_MEAN_FOR_CAL = 25      # backtest players used to learn the tail correction
-CAL_POINTS = np.array([0.30, 0.20, 0.10, 0.05, 0.03, 0.015, 0.0075])
+CAL_POINTS = np.array([0.30, 0.20, 0.10, 0.05, 0.03])
 
 
 def to_american(p) -> np.ndarray:
@@ -22,27 +22,42 @@ def to_american(p) -> np.ndarray:
 
 
 def tail_map(backtest: pd.DataFrame):
-    """Returns f(p_model) -> p_realized for upper-tail chances, learned from backtest PIT values.
-    PIT>1-p should happen with frequency p if the simulation is calibrated."""
+    """Returns f(p_model, ypr, proj_mean) -> p_realized for upper-tail chances.
+
+    Learned from backtest PIT values (PIT > 1-p should happen with frequency p if calibrated). The raw simulation
+    overstates booms most for high yards-per-catch and high-projection players (5-season check), so the
+    correction is estimated in four cells (yards/catch above/below median x projection above/below median),
+    each blended 50/50 with the overall ratio because tail counts are small."""
     try:
-        b = backtest[(backtest["sim_mean"] >= MIN_MEAN_FOR_CAL) & backtest["pit"].notna()]
+        b = backtest[(backtest["sim_mean"] >= MIN_MEAN_FOR_CAL) & backtest["pit"].notna()
+                     & backtest["ypr_pred"].notna()]
         if len(b) < 500:
             raise ValueError("too few backtest rows")
-        pit = b["pit"].to_numpy()
-        real = np.array([(pit > 1 - p).mean() for p in CAL_POINTS])
-        ratio = np.clip(real / CAL_POINTS, 0.4, 1.2)
-        lr = np.log(ratio)
+        y_med, m_med = float(b["ypr_pred"].median()), float(b["sim_mean"].median())
 
-        def f(p):
-            p = np.asarray(p, dtype=float)
-            r = np.exp(np.interp(np.log(np.clip(p, 1e-6, 1)), np.log(CAL_POINTS[::-1]), lr[::-1]))
+        def log_ratio(sub):
+            real = np.array([(sub["pit"].to_numpy() > 1 - p).mean() for p in CAL_POINTS])
+            return np.log(np.clip(real / CAL_POINTS, 0.4, 1.2))
+        overall = log_ratio(b)
+        cells = {}
+        for hy in (0, 1):
+            for hm in (0, 1):
+                sub = b[((b["ypr_pred"] >= y_med) == bool(hy)) & ((b["sim_mean"] >= m_med) == bool(hm))]
+                cells[(hy, hm)] = 0.5 * log_ratio(sub) + 0.5 * overall if len(sub) >= 300 else overall
+        xs = np.log(CAL_POINTS[::-1])
+
+        def f(p, ypr, mean):
+            p = np.atleast_1d(np.asarray(p, dtype=float))
+            hy, hm = int(ypr >= y_med), int(mean >= m_med)
+            r = np.exp(np.interp(np.log(np.clip(p, 1e-6, 1)), xs, cells[(hy, hm)][::-1]))
             return np.clip(p * r, 0, 1)
-        info = {float(p): round(float(x), 4) for p, x in zip(CAL_POINTS, real)}
-        print(f"Boom tail calibration (model chance -> realized, {len(b)} backtest games): {info}")
+        info = {k: [round(float(np.exp(v)), 2) for v in vals] for k, vals in cells.items()}
+        print(f"Boom tail correction from {len(b)} backtest games (realized/model at {list(CAL_POINTS)}); "
+              f"cells (high-ypr?, high-proj?): {info}")
         return f
     except Exception as e:
         print(f"Boom tail calibration skipped ({e}); using raw simulation chances")
-        return lambda p: np.asarray(p, dtype=float)
+        return lambda p, ypr=None, mean=None: np.asarray(p, dtype=float)
 
 
 def consensus_lines(lines: pd.DataFrame) -> pd.DataFrame:
@@ -68,7 +83,7 @@ def boom_ladder(out: pd.DataFrame, sims: np.ndarray, lines: pd.DataFrame, cal, n
         for k in range(1, MAX_RUNGS + 1):
             thr = r.book_line + STEP * k
             p_raw = float((y > thr).mean())
-            p = float(cal(p_raw))
+            p = float(np.ravel(cal(p_raw, out.at[i, "ypr"], out.at[i, "mean"]))[0])
             if p < P_FLOOR:
                 break
             rows.append({
