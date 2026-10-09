@@ -1,3 +1,4 @@
 ticket,placed_at,book,season,week,game,kickoff,player,team,stat,side,line,odds,stake,payout,model_mean,model_median,model_snap_line,model_p_side,model_ev,status,actual,profit,close_line,close_odds,close_p_side,clv_line,clv_prob,clv_source
 DK639270940253045494,2026-10-08T22:07:06Z,draftkings,2026,5,TB@DAL,2026-10-09T00:15:00Z,George Pickens,DAL,rec_yds,under,65.5,-113,25.0,47.12,60.33477433928584,52.511166429870585,64.5,0.6085,0.1616818181818182,pending,,,,,,,,
 DK639270940253311830,2026-10-08T22:07:06Z,draftkings,2026,5,TB@DAL,2026-10-09T00:15:00Z,Cade Otton,TB,rec_yds,over,29.5,-114,25.0,46.92,41.84254655628057,36.97560647078208,29.5,0.614,0.1721818181818182,pending,,,,,,,,
+DK639271567036081840,2026-10-09T15:31:43Z,draftkings,2026,5,,,Carnell Tate,TEN,rec_yds,over,44.5,-114,25.0,46.92,61.96463740343032,54.40482396270151,45.5,0.5912,0.1238126126126126,pending,,,,,,,,

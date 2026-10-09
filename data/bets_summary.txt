@@ -1,5 +1,5 @@
-BET TRACKER: 2 bets | 0 graded | 2 pending | 0 void
+BET TRACKER: 3 bets | 0 graded | 3 pending | 0 void
 
 BET CLV (closing-line value on bets you placed; not the projection scorecards' CLV on the model's picks)
   no closing lines recorded for your bets yet (they come from the closing snapshots shortly before kickoff)
-  pending: under 65.5 George Pickens rec_yds (-113); over 29.5 Cade Otton rec_yds (-114)
+  pending: under 65.5 George Pickens rec_yds (-113); over 29.5 Cade Otton rec_yds (-114); over 44.5 Carnell Tate rec_yds (-114)
