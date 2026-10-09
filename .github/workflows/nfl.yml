@@ -10,6 +10,9 @@ on:
     - cron: "23 20 * * 1"   # Mon ~4:25pm ET - before Monday night
     - cron: "37 15 * * 2"   # Tue ~11:40am ET - score the finished week
     - cron: "13 13 * * 3"   # Wed ~9:15am ET - score again (safe to repeat)
+    # Grade the bets you placed (data/bets.csv) the morning after the games
+    - cron: "11 16 * * 5"   # Fri ~12:10pm ET - Thursday night game
+    - cron: "7 14 * * 1"    # Mon ~10:05am ET - Sunday games
     # Closing-line snapshots (ParlayAPI, ~3 credits each), ~30-45 min before each kickoff window
     - cron: "27 23 * * 4"   # Thu ~7:30pm ET - before Thursday night kickoff
     - cron: "19 16 * * 0"   # Sun ~12:20pm ET - before the 1pm games
@@ -96,6 +99,8 @@ jobs:
             echo "name=score" >> "$GITHUB_OUTPUT"
           elif [ "${{ github.event.schedule }}" = "27 23 * * 4" ] || [ "${{ github.event.schedule }}" = "19 16 * * 0" ] || [ "${{ github.event.schedule }}" = "26 19 * * 0" ] || [ "${{ github.event.schedule }}" = "33 23 * * 0" ] || [ "${{ github.event.schedule }}" = "29 23 * * 1" ]; then
             echo "name=closing" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event.schedule }}" = "11 16 * * 5" ] || [ "${{ github.event.schedule }}" = "7 14 * * 1" ]; then
+            echo "name=bets" >> "$GITHUB_OUTPUT"
           elif [ "${{ github.event.schedule }}" = "52 12 * * 0" ]; then
             echo "name=closing_early" >> "$GITHUB_OUTPUT"
           else
