@@ -124,6 +124,8 @@ jobs:
             python -u score_extra.py 2>&1 | tee -a run.log || echo "score_extra failed; receiving-yards scoring above is unaffected."
             # grade the bets actually placed (data/bets.csv); a failure here must not fail the run
             python -u bets.py grade 2>&1 | tee -a run.log || echo "bet grading failed; scoring above is unaffected."
+            rm -f data/results_email.html data/results_subject.txt
+            python -u results_email.py 2>&1 | tee -a run.log || echo "results email build failed; the run log will be emailed instead."
           elif [ "${{ steps.task.outputs.name }}" = "add_bet" ]; then
             # the bet comes in through env vars (never pasted into the shell command)
             python -u bets.py add --book "$BET_BOOK" --player "$BET_PLAYER" --stat "$BET_STAT" --side "$BET_SIDE" \
@@ -165,14 +167,18 @@ jobs:
           TASK="${{ steps.task.outputs.name }}"
           if [ "$TASK" = "project" ]; then
             if [ -f data/email_latest.html ]; then
+              # attach only the current week's files (older weeks' *_latest.csv files stay in the repo)
+              SW=$(grep -oE '[0-9]{4} Week [0-9]+' data/email_subject.txt | head -1 | sed -E 's/([0-9]{4}) Week ([0-9]+)/\1_wk\2/')
               ATT=""
-              for f in data/projections_*_latest.csv data/projections_*_edges_latest.csv data/rushing_*_latest.csv data/receptions_*_latest.csv data/projections_*_boom_latest.csv; do
+              for f in data/projections_${SW}_latest.csv data/projections_${SW}_edges_latest.csv data/projections_${SW}_boom_latest.csv data/rushing_${SW}_latest.csv data/rushing_${SW}_edges_latest.csv data/receptions_${SW}_latest.csv data/receptions_${SW}_edges_latest.csv; do
                 [ -f "$f" ] && ATT="$ATT $f"
               done
               python send_email.py --subject "$(cat data/email_subject.txt)" --html data/email_latest.html --attach $ATT
             else
               echo "No email summary was produced (offseason or no games); nothing to send."
             fi
+          elif [ "$TASK" = "score" ] && [ -f data/results_email.html ]; then
+            python send_email.py --subject "$(cat data/results_subject.txt)" --html data/results_email.html
           else
             python send_email.py --subject "NFL props: $TASK results" --text run.log --tail 220
           fi
