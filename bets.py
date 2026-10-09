@@ -133,6 +133,23 @@ def model_at_bet(d: str, stat: str, season, week, player: str, book: str, side: 
             "model_snap_line": r["line"], "model_p_side": p_side, "model_ev": ev}
 
 
+def model_at_alt(d: str, season: int, week: int, player: str, line: float, odds: int) -> dict:
+    """Model numbers for an alternate-line bet, from the boom ladder (nearest rung to the bet's line)."""
+    p = os.path.join(d, f"projections_{season}_wk{week}_boom_latest.csv")
+    if not os.path.exists(p):
+        return {}
+    b = pd.read_csv(p)
+    b = b[b["player"].map(name_key) == name_key(player)]
+    if b.empty:
+        return {}
+    r = b.iloc[(b["over"] - line).abs().argsort().iloc[0]]
+    if abs(r["over"] - line) > 5:
+        return {}
+    pw = float(r["p_boom"])
+    return {"model_mean": r["model_mean"], "model_median": r["model_median"], "model_snap_line": float(r["over"]),
+            "model_p_side": round(pw, 4), "model_ev": pw * (decimal(odds) - 1) - (1 - pw)}
+
+
 def cmd_add(a) -> None:
     d = out_dir()
     led = load_ledger(d)
@@ -157,7 +174,10 @@ def cmd_add(a) -> None:
            "season": a.season, "week": a.week, "game": a.game, "kickoff": a.kickoff, "player": a.player,
            "stat": a.stat, "side": a.side.lower(), "line": a.line, "odds": a.odds, "stake": a.stake,
            "payout": payout, "status": "pending"}
-    if a.season and a.week:
+    if getattr(a, "alt", False):
+        row["clv_source"] = "alt line (no closing comparison)"
+        row.update(model_at_alt(d, a.season, a.week, a.player, a.line, a.odds) if a.season and a.week else {})
+    elif a.season and a.week:
         row.update(model_at_bet(d, a.stat, a.season, a.week, a.player, a.book.lower(), row["side"], a.line, placed))
     led = pd.concat([led, pd.DataFrame([row])], ignore_index=True)
     save_ledger(d, led)
@@ -198,6 +218,8 @@ def fill_clv(d: str, S, led: pd.DataFrame) -> pd.DataFrame:
               (+ = the market now rates our side as likelier than the price we paid implied)."""
     for i, bet in led.iterrows():
         if pd.notna(bet["clv_line"]) or pd.notna(bet["clv_prob"]):
+            continue
+        if str(bet["clv_source"]).startswith("alt"):      # alternate lines have no main-line closing comparison
             continue
         c = closing_for(d, S, bet)
         if c is None:
@@ -322,6 +344,7 @@ def main():
     a.add_argument("--kickoff", default="")
     a.add_argument("--placed")
     a.add_argument("--ticket")
+    a.add_argument("--alt", action="store_true", help="alternate line (e.g. 70+ yards): no CLV, model chance from the boom ladder")
     a.add_argument("--season", type=int)
     a.add_argument("--week", type=int)
     sub.add_parser("grade")

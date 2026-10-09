@@ -49,6 +49,10 @@ on:
       bet_stake:
         description: "add_bet only: stake in dollars, e.g. 25"
         type: string
+      bet_alt:
+        description: "add_bet only: tick for an alternate line / X+ yards bet (e.g. 70+ yards = over 69.5)"
+        type: boolean
+        default: false
       bet_book:
         description: "add_bet only: sportsbook"
         type: choice
@@ -77,6 +81,7 @@ jobs:
       BET_LINE: ${{ inputs.bet_line }}
       BET_ODDS: ${{ inputs.bet_odds }}
       BET_STAKE: ${{ inputs.bet_stake }}
+      BET_ALT: ${{ inputs.bet_alt }}
       BET_BOOK: ${{ inputs.bet_book }}
     steps:
       - uses: actions/checkout@v4
@@ -135,7 +140,7 @@ jobs:
           elif [ "${{ steps.task.outputs.name }}" = "add_bet" ]; then
             # the bet comes in through env vars (never pasted into the shell command)
             python -u bets.py add --book "$BET_BOOK" --player "$BET_PLAYER" --stat "$BET_STAT" --side "$BET_SIDE" \
-              --line "$BET_LINE" --odds "$BET_ODDS" --stake "$BET_STAKE" 2>&1 | tee run.log
+              --line "$BET_LINE" --odds "$BET_ODDS" --stake "$BET_STAKE" $([ "$BET_ALT" = "true" ] && echo --alt) 2>&1 | tee run.log
           elif [ "${{ steps.task.outputs.name }}" = "bets" ]; then
             python -u bets.py grade 2>&1 | tee run.log
           elif [ "${{ steps.task.outputs.name }}" = "project" ]; then
