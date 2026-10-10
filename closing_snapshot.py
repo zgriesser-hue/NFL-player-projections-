@@ -31,6 +31,16 @@ def out_dir() -> str:
     return "."
 
 
+def log_status(msg: str) -> None:
+    """Append one line per run to closing_status.txt so a missing snapshot can be diagnosed afterward."""
+    print(msg)
+    try:
+        with open(os.path.join(out_dir(), "closing_status.txt"), "a", encoding="utf-8") as f:
+            f.write(f"{pd.Timestamp.now(tz='UTC').strftime('%Y-%m-%dT%H:%MZ')} {msg}\n")
+    except Exception:
+        pass
+
+
 def early_game_today() -> bool:
     """True if an NFL game kicks off before noon ET today (London/Madrid/Munich-type games)."""
     try:
@@ -46,16 +56,15 @@ def early_game_today() -> bool:
 
 def main():
     if os.environ.get("EARLY_GATE") == "1" and not early_game_today():
-        print("No early-morning game today; skipping (no credits used).")
+        log_status("skipped: no early-morning game today (no credits used)")
         return
     key = L.get_key()
     if not key:
-        print("PARLAY_API_KEY is not set; skipping closing snapshot.")
+        log_status("FAILED: PARLAY_API_KEY is not set")
         return
     raw, resp = L.fetch_raw(key)
     if raw is None:
-        print("No closing snapshot this run. CLV falls back to our last Odds API snapshot "
-              "(receiving yards) for these games.")
+        log_status("FAILED: ParlayAPI returned no data (request error or empty response)")
         return
     print(f"HTTP {resp.status_code} | credits used {resp.headers.get('x-requests-last')} "
           f"| remaining {resp.headers.get('x-requests-remaining')}")
@@ -64,13 +73,16 @@ def main():
     t = pd.to_datetime(df["commence_time"], utc=True)
     df = df[(t >= now - pd.Timedelta(minutes=5)) & (t <= now + pd.Timedelta(minutes=CLOSE_WINDOW_MIN))]
     if df.empty:
-        print(f"No sportsbook lines for games starting in the next {CLOSE_WINDOW_MIN} minutes.")
+        n_games = t.nunique() if len(t) else 0
+        nxt = t[t > now].min() if (t > now).any() else None
+        log_status(f"NO SNAPSHOT: no sportsbook lines for games starting within {CLOSE_WINDOW_MIN} min "
+                   f"(API had {n_games} start times; next kickoff {nxt})")
         return
     df = df.assign(snap_time=now.strftime("%Y-%m-%dT%H:%M:%SZ"))
     path = os.path.join(out_dir(), f"closing_{now.strftime('%Y%m%d_%H%M')}.csv")
     df.sort_values(["stat", "name_key", "book"]).to_csv(path, index=False)
     per = df.groupby("stat")["name_key"].nunique().to_dict()
-    print(f"Saved {len(df)} lines (players per stat {per}; books {sorted(df['book'].unique())}) -> {path}")
+    log_status(f"saved {len(df)} lines, players per stat {per}, books {sorted(df['book'].unique())}")
     print(f"Median line age {df['age_seconds'].median():.0f}s")
 
 

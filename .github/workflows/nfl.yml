@@ -137,12 +137,14 @@ jobs:
             python -u bets.py grade 2>&1 | tee -a run.log || echo "bet grading failed; scoring above is unaffected."
             rm -f data/results_email.html data/results_subject.txt
             python -u results_email.py 2>&1 | tee -a run.log || echo "results email build failed; the run log will be emailed instead."
+            python -u bet_report.py 2>&1 | tee -a run.log || echo "bet report failed; scoring above is unaffected."
           elif [ "${{ steps.task.outputs.name }}" = "add_bet" ]; then
             # the bet comes in through env vars (never pasted into the shell command)
             python -u bets.py add --book "$BET_BOOK" --player "$BET_PLAYER" --stat "$BET_STAT" --side "$BET_SIDE" \
               --line "$BET_LINE" --odds "$BET_ODDS" --stake "$BET_STAKE" $([ "$BET_ALT" = "true" ] && echo --alt) 2>&1 | tee run.log
           elif [ "${{ steps.task.outputs.name }}" = "bets" ]; then
             python -u bets.py grade 2>&1 | tee run.log
+            python -u bet_report.py 2>&1 | tee -a run.log || echo "bet report failed; grading above is unaffected."
           elif [ "${{ steps.task.outputs.name }}" = "project" ]; then
             # rushing first (it writes an email section); a failure there must not block projections
             python -u rushing.py 2>&1 | tee run.log || echo "Rushing model failed; continuing with receiving projections."
@@ -189,7 +191,9 @@ jobs:
               echo "No email summary was produced (offseason or no games); nothing to send."
             fi
           elif [ "$TASK" = "score" ] && [ -f data/results_email.html ]; then
-            python send_email.py --subject "$(cat data/results_subject.txt)" --html data/results_email.html
+            python send_email.py --subject "$(cat data/results_subject.txt)" --html data/results_email.html --attach data/bet_reports/Bet_Results_Summary.csv data/bet_reports/Bet_Results_Detail.csv
+          elif [ "$TASK" = "bets" ]; then
+            python send_email.py --subject "NFL props: bet results" --text run.log --tail 40 --attach data/bet_reports/Bet_Results_Summary.csv data/bet_reports/Bet_Results_Detail.csv
           else
             python send_email.py --subject "NFL props: $TASK results" --text run.log --tail 220
           fi

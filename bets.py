@@ -146,7 +146,7 @@ def model_at_alt(d: str, season: int, week: int, player: str, line: float, odds:
     if abs(r["over"] - line) > 5:
         return {}
     pw = float(r["p_boom"])
-    return {"model_mean": r["model_mean"], "model_median": r["model_median"], "model_snap_line": float(r["over"]),
+    return {"team": r["team"], "model_mean": r["model_mean"], "model_median": r["model_median"], "model_snap_line": float(r["over"]),
             "model_p_side": round(pw, 4), "model_ev": pw * (decimal(odds) - 1) - (1 - pw)}
 
 
@@ -252,8 +252,8 @@ def grade(d: str) -> pd.DataFrame:
             team = bet["team"]
             if isinstance(team, str) and team not in done_teams:
                 continue                                   # game not finished yet
-            if not isinstance(team, str) and n_done == 0:
-                continue
+            if not isinstance(team, str) and n_done < n_games:
+                continue                                   # no team on the bet: wait until the whole week is final
             if act is None:
                 act = S.load_actuals(season, week)
             hit = act[act["name_key"] == name_key(bet["player"])]
