@@ -1,0 +1,232 @@
+book,player,name_key,stat,line,over_price,under_price,fair_p_over,commence_time,event_id,age_seconds,market_key,snap_time
+bet365,Austin Hooper,austin hooper,rec_yds,6.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+bovada,Austin Hooper (ATL),austin hooper,rec_yds,6.5,-110.0,-120.0,0.48987854251012153,2026-10-12T00:20:00Z,70c6bce39ad2d597,3142.3,player_rec_yds,2026-10-11T23:42:48Z
+caesars,Austin Hooper,austin hooper,rec_yds,6.5,-110.0,-118.0,0.49179655455291227,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+draftkings,Austin Hooper,austin hooper,rec_yds,6.5,-114.0,-110.0,0.5042122999157539,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+fanatics,Austin Hooper,austin hooper,rec_yds,10.5,135.0,-210.0,0.38581207218419417,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+fanduel,Austin Hooper,austin hooper,rec_yds,6.5,-113.0,-113.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_rec_yds,2026-10-11T23:42:48Z
+bet365,Bijan Robinson,bijan robinson,rec_yds,26.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+betmgm,Bijan Robinson,bijan robinson,rec_yds,27.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+betrivers,Bijan Robinson,bijan robinson,rec_yds,27.5,-113.0,-115.0,0.49795039967206395,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+bovada,Bijan Robinson (ATL),bijan robinson,rec_yds,27.5,-120.0,-110.0,0.5101214574898786,2026-10-12T00:20:00Z,70c6bce39ad2d597,1944.3,player_rec_yds,2026-10-11T23:42:48Z
+caesars,Bijan Robinson,bijan robinson,rec_yds,26.5,-120.0,-112.0,0.5079872204472844,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+draftkings,Bijan Robinson,bijan robinson,rec_yds,27.5,-108.0,-116.0,0.49157113958192844,2026-10-12T00:20:00Z,70c6bce39ad2d597,2261.3,player_receiving_yards,2026-10-11T23:42:48Z
+fanatics,Bijan Robinson,bijan robinson,rec_yds,25.5,-125.0,-115.0,0.509478672985782,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+fanduel,Bijan Robinson,bijan robinson,rec_yds,26.5,-113.0,-113.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_rec_yds,2026-10-11T23:42:48Z
+bet365,Brian Robinson,brian robinson,rec_yds,0.5,135.0,-170.0,0.40328603435399557,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+bet365,Derrick Henry,derrick henry,rec_yds,5.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+betmgm,Derrick Henry,derrick henry,rec_yds,5.5,-110.0,-120.0,0.48987854251012153,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+betrivers,Derrick Henry,derrick henry,rec_yds,4.5,-108.0,-124.0,0.4839948783610755,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+bovada,Derrick Henry (BAL),derrick henry,rec_yds,5.5,-120.0,-110.0,0.5101214574898786,2026-10-12T00:20:00Z,70c6bce39ad2d597,1234.3,player_rec_yds,2026-10-11T23:42:48Z
+caesars,Derrick Henry,derrick henry,rec_yds,5.5,-108.0,-122.0,0.48581617766250607,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+draftkings,Derrick Henry,derrick henry,rec_yds,5.5,-116.0,-108.0,0.5084288604180714,2026-10-12T00:20:00Z,70c6bce39ad2d597,434.3,player_receiving_yards,2026-10-11T23:42:48Z
+fanatics,Derrick Henry,derrick henry,rec_yds,10.5,160.0,-255.0,0.3487229862475442,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+fanduel,Derrick Henry,derrick henry,rec_yds,4.5,-113.0,-113.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_rec_yds,2026-10-11T23:42:48Z
+bet365,Devontez Walker,devontez walker,rec_yds,9.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+betmgm,Devontez Walker,devontez walker,rec_yds,8.5,-120.0,-111.0,0.5090470446320868,2026-10-12T00:20:00Z,70c6bce39ad2d597,63.3,player_rec_yds,2026-10-11T23:42:48Z
+betrivers,Devontez Walker,devontez walker,rec_yds,7.5,-114.0,-117.0,0.4969864995178399,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+bovada,Devontez Walker (BAL),devontez walker,rec_yds,8.5,-110.0,-120.0,0.48987854251012153,2026-10-12T00:20:00Z,70c6bce39ad2d597,2478.3,player_rec_yds,2026-10-11T23:42:48Z
+caesars,Devontez Walker,devontez walker,rec_yds,8.5,-122.0,-108.0,0.5141838223374939,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+draftkings,Devontez Walker,devontez walker,rec_yds,9.5,-108.0,-116.0,0.49157113958192844,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+fanatics,Devontez Walker,devontez walker,rec_yds,10.5,105.0,-155.0,0.4452204277608032,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+fanduel,Devontez Walker,devontez walker,rec_yds,8.5,-120.0,-106.0,0.5145711906744379,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_rec_yds,2026-10-11T23:42:48Z
+pinnacle,Devontez Walker,devontez walker,rec_yds,8.5,-116.0,-104.0,0.5130072840790842,2026-10-12T00:20:00Z,70c6bce39ad2d597,1774.3,player_receiving_yards,2026-10-11T23:42:48Z
+bet365,Drake London,drake london,rec_yds,81.5,-125.0,-105.0,0.5203045685279188,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+betmgm,Drake London,drake london,rec_yds,79.5,-120.0,-110.0,0.5101214574898786,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+betrivers,Drake London,drake london,rec_yds,80.5,-117.0,-114.0,0.5030135004821601,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+caesars,Drake London,drake london,rec_yds,79.5,-121.0,-111.0,0.5099876153569574,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+draftkings,Drake London,drake london,rec_yds,81.5,-113.0,-111.0,0.5021058838394474,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+fanatics,Drake London,drake london,rec_yds,80.5,-120.0,-120.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+fanduel,Drake London,drake london,rec_yds,80.5,-113.0,-113.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_rec_yds,2026-10-11T23:42:48Z
+bet365,Jahan Dotson,jahan dotson,rec_yds,21.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+betmgm,Jahan Dotson,jahan dotson,rec_yds,21.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+betrivers,Jahan Dotson,jahan dotson,rec_yds,20.5,-114.0,-115.0,0.4989820846905537,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+bovada,Jahan Dotson (ATL),jahan dotson,rec_yds,20.5,-110.0,-120.0,0.48987854251012153,2026-10-12T00:20:00Z,70c6bce39ad2d597,3142.3,player_rec_yds,2026-10-11T23:42:48Z
+caesars,Jahan Dotson,jahan dotson,rec_yds,19.5,-114.0,-115.0,0.4989820846905537,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+draftkings,Jahan Dotson,jahan dotson,rec_yds,20.5,-113.0,-111.0,0.5021058838394474,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+fanatics,Jahan Dotson,jahan dotson,rec_yds,20.5,-115.0,-135.0,0.48215878679750224,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+fanduel,Jahan Dotson,jahan dotson,rec_yds,19.5,-113.0,-113.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_rec_yds,2026-10-11T23:42:48Z
+bet365,Justice Hill,justice hill,rec_yds,7.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+betmgm,Justice Hill,justice hill,rec_yds,8.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+betrivers,Justice Hill,justice hill,rec_yds,7.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+bovada,Justice Hill (BAL),justice hill,rec_yds,8.5,-120.0,-110.0,0.5101214574898786,2026-10-12T00:20:00Z,70c6bce39ad2d597,1234.3,player_rec_yds,2026-10-11T23:42:48Z
+caesars,Justice Hill,justice hill,rec_yds,8.5,-114.0,-114.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+draftkings,Justice Hill,justice hill,rec_yds,8.5,-116.0,-108.0,0.5084288604180714,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+fanatics,Justice Hill,justice hill,rec_yds,10.5,115.0,-170.0,0.4248623131392605,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+fanduel,Justice Hill,justice hill,rec_yds,8.5,-113.0,-113.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_rec_yds,2026-10-11T23:42:48Z
+bet365,Kyle Pitts,kyle pitts,rec_yds,24.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+betmgm,Kyle Pitts,kyle pitts,rec_yds,24.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+betrivers,Kyle Pitts,kyle pitts,rec_yds,25.5,-114.0,-115.0,0.4989820846905537,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+caesars,Kyle Pitts,kyle pitts,rec_yds,24.5,-114.0,-114.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+draftkings,Kyle Pitts Sr.,kyle pitts,rec_yds,23.5,-115.0,-109.0,0.5063197809142617,2026-10-12T00:20:00Z,70c6bce39ad2d597,434.3,player_receiving_yards,2026-10-11T23:42:48Z
+fanatics,Kyle Pitts,kyle pitts,rec_yds,25.5,-120.0,-125.0,0.4954128440366972,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+fanduel,Kyle Pitts,kyle pitts,rec_yds,24.5,-113.0,-113.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_rec_yds,2026-10-11T23:42:48Z
+bet365,Mark Andrews,mark andrews,rec_yds,31.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+betmgm,Mark Andrews,mark andrews,rec_yds,32.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+betrivers,Mark Andrews,mark andrews,rec_yds,30.5,-112.0,-120.0,0.4920127795527157,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+caesars,Mark Andrews,mark andrews,rec_yds,31.5,-114.0,-114.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+draftkings,Mark Andrews,mark andrews,rec_yds,31.5,-114.0,-110.0,0.5042122999157539,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+fanatics,Mark Andrews,mark andrews,rec_yds,30.5,-115.0,-125.0,0.490521327014218,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+fanduel,Mark Andrews,mark andrews,rec_yds,30.5,-113.0,-113.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_rec_yds,2026-10-11T23:42:48Z
+bet365,Matthew Hibner,matthew hibner,rec_yds,6.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+betmgm,Matthew Hibner,matthew hibner,rec_yds,6.5,-120.0,-111.0,0.5090470446320868,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+caesars,Matthew Hibner,matthew hibner,rec_yds,6.5,-120.0,-110.0,0.5101214574898786,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+draftkings,Matthew Hibner,matthew hibner,rec_yds,7.5,-119.0,-106.0,0.5136188400938652,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+fanatics,Matthew Hibner,matthew hibner,rec_yds,10.5,135.0,-210.0,0.38581207218419417,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+fanduel,Matthew Hibner,matthew hibner,rec_yds,6.5,-113.0,-113.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_rec_yds,2026-10-11T23:42:48Z
+bet365,Olamide Zaccheaus,olamide zaccheaus,rec_yds,7.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+betmgm,Olamide Zaccheaus,olamide zaccheaus,rec_yds,7.5,-120.0,-111.0,0.5090470446320868,2026-10-12T00:20:00Z,70c6bce39ad2d597,63.3,player_rec_yds,2026-10-11T23:42:48Z
+bovada,Olamide Zaccheaus (ATL),olamide zaccheaus,rec_yds,8.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,3579.3,player_rec_yds,2026-10-11T23:42:48Z
+caesars,Olamide Zaccheaus,olamide zaccheaus,rec_yds,7.5,-117.0,-113.0,0.5040451438048622,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+draftkings,Olamide Zaccheaus,olamide zaccheaus,rec_yds,8.5,-110.0,-114.0,0.495787700084246,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+fanatics,Olamide Zaccheaus,olamide zaccheaus,rec_yds,10.5,120.0,-180.0,0.41420118343195267,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+fanduel,Olamide Zaccheaus,olamide zaccheaus,rec_yds,7.5,-113.0,-113.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_rec_yds,2026-10-11T23:42:48Z
+bet365,Rashod Bateman,rashod bateman,rec_yds,17.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+betmgm,Rashod Bateman,rashod bateman,rec_yds,17.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+betrivers,Rashod Bateman,rashod bateman,rec_yds,16.5,-110.0,-120.0,0.48987854251012153,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+bovada,Rashod Bateman (BAL),rashod bateman,rec_yds,17.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,1944.3,player_rec_yds,2026-10-11T23:42:48Z
+caesars,Rashod Bateman,rashod bateman,rec_yds,17.5,-112.0,-118.0,0.4939310568053083,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+draftkings,Rashod Bateman,rashod bateman,rec_yds,17.5,-108.0,-116.0,0.49157113958192844,2026-10-12T00:20:00Z,70c6bce39ad2d597,2261.3,player_receiving_yards,2026-10-11T23:42:48Z
+fanatics,Rashod Bateman,rashod bateman,rec_yds,15.5,-135.0,-115.0,0.5178412132024978,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+fanduel,Rashod Bateman,rashod bateman,rec_yds,17.5,-113.0,-113.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_rec_yds,2026-10-11T23:42:48Z
+bet365,Zay Flowers,zay flowers,rec_yds,67.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+betmgm,Zay Flowers,zay flowers,rec_yds,65.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+betrivers,Zay Flowers,zay flowers,rec_yds,66.5,-113.0,-118.0,0.4949766918501849,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+caesars,Zay Flowers,zay flowers,rec_yds,67.5,-125.0,-108.0,0.5168986083499006,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+draftkings,Zay Flowers,zay flowers,rec_yds,68.5,-112.0,-112.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,2261.3,player_receiving_yards,2026-10-11T23:42:48Z
+fanatics,Zay Flowers,zay flowers,rec_yds,65.5,-125.0,-115.0,0.509478672985782,2026-10-12T00:20:00Z,70c6bce39ad2d597,31.3,player_rec_yds,2026-10-11T23:42:48Z
+fanduel,Zay Flowers,zay flowers,rec_yds,68.5,-113.0,-113.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_rec_yds,2026-10-11T23:42:48Z
+bet365,Austin Hooper,austin hooper,receptions,0.5,-230.0,175.0,0.6571428571428573,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+bovada,Austin Hooper (ATL),austin hooper,receptions,0.5,-200.0,150.0,0.625,2026-10-12T00:20:00Z,70c6bce39ad2d597,1156.3,player_receptions,2026-10-11T23:42:48Z
+caesars,Austin Hooper,austin hooper,receptions,1.5,215.0,-310.0,0.29570861882437793,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+draftkings,Austin Hooper,austin hooper,receptions,0.5,-208.0,161.0,0.6380218127115458,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+fanatics,Austin Hooper,austin hooper,receptions,1.5,220.0,-375.0,0.2835820895522388,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+fanduel,Austin Hooper,austin hooper,receptions,0.5,-215.0,158.0,0.6378061400482925,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_receptions,2026-10-11T23:42:48Z
+pinnacle,Austin Hooper,austin hooper,receptions,0.5,-194.0,158.0,0.6299652620450084,2026-10-12T00:20:00Z,70c6bce39ad2d597,3398.3,player_receptions,2026-10-11T23:42:48Z
+bet365,Bijan Robinson,bijan robinson,receptions,3.5,-130.0,100.0,0.5306122448979592,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+betmgm,Bijan Robinson,bijan robinson,receptions,3.5,-120.0,-110.0,0.5101214574898786,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+caesars,Bijan Robinson,bijan robinson,receptions,3.5,-130.0,100.0,0.5306122448979592,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+draftkings,Bijan Robinson,bijan robinson,receptions,3.5,-127.0,100.0,0.528066528066528,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+fanatics,Bijan Robinson,bijan robinson,receptions,4.5,160.0,-255.0,0.3487229862475442,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+fanduel,Bijan Robinson,bijan robinson,receptions,3.5,-138.0,104.0,0.5418848167539266,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_receptions,2026-10-11T23:42:48Z
+bet365,Brian Robinson,brian robinson,receptions,0.5,105.0,-135.0,0.45920859794821695,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+bet365,Derrick Henry,derrick henry,receptions,1.5,155.0,-200.0,0.3703703703703704,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+betmgm,Derrick Henry,derrick henry,receptions,1.5,150.0,-200.0,0.375,2026-10-12T00:20:00Z,70c6bce39ad2d597,61.3,player_receptions,2026-10-11T23:42:48Z
+bovada,Derrick Henry (BAL),derrick henry,receptions,1.5,155.0,-210.0,0.36664695446481377,2026-10-12T00:20:00Z,70c6bce39ad2d597,1156.3,player_receptions,2026-10-11T23:42:48Z
+caesars,Derrick Henry,derrick henry,receptions,1.5,162.0,-218.0,0.3576409195195465,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+draftkings,Derrick Henry,derrick henry,receptions,1.5,152.0,-195.0,0.3751271617497457,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+fanatics,Derrick Henry,derrick henry,receptions,1.5,160.0,-255.0,0.3487229862475442,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+fanduel,Derrick Henry,derrick henry,receptions,1.5,168.0,-230.0,0.34868977176669486,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_receptions,2026-10-11T23:42:48Z
+bet365,Devontez Walker,devontez walker,receptions,0.5,-245.0,185.0,0.6693026599568656,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+betmgm,Devontez Walker,devontez walker,receptions,0.5,-235.0,175.0,0.6585987261146496,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+bovada,Devontez Walker (BAL),devontez walker,receptions,0.5,-200.0,150.0,0.625,2026-10-12T00:20:00Z,70c6bce39ad2d597,1156.3,player_receptions,2026-10-11T23:42:48Z
+caesars,Devontez Walker,devontez walker,receptions,1.5,205.0,-290.0,0.30600235386426056,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+draftkings,Devontez Walker,devontez walker,receptions,0.5,-206.0,160.0,0.6364068441064639,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+fanatics,Devontez Walker,devontez walker,receptions,1.5,215.0,-375.0,0.28679245283018867,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+fanduel,Devontez Walker,devontez walker,receptions,0.5,-230.0,168.0,0.6513102282333052,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_receptions,2026-10-11T23:42:48Z
+pinnacle,Devontez Walker,devontez walker,receptions,0.5,-215.0,174.0,0.6515872138037828,2026-10-12T00:20:00Z,70c6bce39ad2d597,1774.3,player_receptions,2026-10-11T23:42:48Z
+bet365,Drake London,drake london,receptions,5.5,-155.0,122.0,0.5743615423134701,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+betmgm,Drake London,drake london,receptions,5.5,-155.0,115.0,0.5665108372290694,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+caesars,Drake London,drake london,receptions,6.5,113.0,-145.0,0.44235803918028344,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+draftkings,Drake London,drake london,receptions,6.5,115.0,-147.0,0.4386821774265162,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+fanatics,Drake London,drake london,receptions,6.5,120.0,-180.0,0.41420118343195267,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+fanduel,Drake London,drake london,receptions,5.5,-154.0,116.0,0.5670257738988136,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_receptions,2026-10-11T23:42:48Z
+pinnacle,Drake London,drake london,receptions,6.5,123.0,-149.0,0.42837235708018645,2026-10-12T00:20:00Z,70c6bce39ad2d597,3398.3,player_receptions,2026-10-11T23:42:48Z
+bet365,Jahan Dotson,jahan dotson,receptions,1.5,-160.0,125.0,0.5806451612903226,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+betmgm,Jahan Dotson,jahan dotson,receptions,1.5,-160.0,120.0,0.5751633986928104,2026-10-12T00:20:00Z,70c6bce39ad2d597,61.3,player_receptions,2026-10-11T23:42:48Z
+bovada,Jahan Dotson (ATL),jahan dotson,receptions,1.5,-150.0,115.0,0.5633187772925765,2026-10-12T00:20:00Z,70c6bce39ad2d597,287.3,player_receptions,2026-10-11T23:42:48Z
+caesars,Jahan Dotson,jahan dotson,receptions,1.5,-157.0,119.0,0.57225837591332,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+draftkings,Jahan Dotson,jahan dotson,receptions,1.5,-150.0,117.0,0.5655951346655083,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+fanatics,Jahan Dotson,jahan dotson,receptions,1.5,-155.0,105.0,0.5547795722391969,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+fanduel,Jahan Dotson,jahan dotson,receptions,1.5,-162.0,122.0,0.578534199858439,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_receptions,2026-10-11T23:42:48Z
+pinnacle,Jahan Dotson,jahan dotson,receptions,1.5,-154.0,127.0,0.5791775738096027,2026-10-12T00:20:00Z,70c6bce39ad2d597,353.3,player_receptions,2026-10-11T23:42:48Z
+bet365,Justice Hill,justice hill,receptions,1.5,-110.0,-120.0,0.48987854251012153,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+betmgm,Justice Hill,justice hill,receptions,1.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+bovada,Justice Hill (BAL),justice hill,receptions,1.5,-110.0,-120.0,0.48987854251012153,2026-10-12T00:20:00Z,70c6bce39ad2d597,1156.3,player_receptions,2026-10-11T23:42:48Z
+caesars,Justice Hill,justice hill,receptions,1.5,-112.0,-117.0,0.494909179767044,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+draftkings,Justice Hill,justice hill,receptions,1.5,-115.0,-111.0,0.5041554124246832,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+fanatics,Justice Hill,justice hill,receptions,1.5,-105.0,-140.0,0.4675324675324676,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+fanduel,Justice Hill,justice hill,receptions,1.5,-108.0,-122.0,0.48581617766250607,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_receptions,2026-10-11T23:42:48Z
+bet365,Kyle Pitts,kyle pitts,receptions,2.5,105.0,-135.0,0.45920859794821695,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+betmgm,Kyle Pitts,kyle pitts,receptions,2.5,100.0,-135.0,0.4653465346534653,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+caesars,Kyle Pitts,kyle pitts,receptions,2.5,101.0,-132.0,0.46650044237110916,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+draftkings,Kyle Pitts,kyle pitts,receptions,2.5,101.0,-129.0,0.46898359581396304,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+fanatics,Kyle Pitts,kyle pitts,receptions,2.5,100.0,-150.0,0.45454545454545453,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+fanduel,Kyle Pitts,kyle pitts,receptions,2.5,102.0,-136.0,0.46209273182957394,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_receptions,2026-10-11T23:42:48Z
+bet365,Mark Andrews,mark andrews,receptions,3.5,-155.0,122.0,0.5743615423134701,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+betmgm,Mark Andrews,mark andrews,receptions,3.5,-155.0,115.0,0.5665108372290694,2026-10-12T00:20:00Z,70c6bce39ad2d597,61.3,player_receptions,2026-10-11T23:42:48Z
+bovada,Mark Andrews (BAL),mark andrews,receptions,3.5,-150.0,115.0,0.5633187772925765,2026-10-12T00:20:00Z,70c6bce39ad2d597,22.3,player_receptions,2026-10-11T23:42:48Z
+caesars,Mark Andrews,mark andrews,receptions,3.5,-160.0,112.0,0.5660881174899867,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+draftkings,Mark Andrews,mark andrews,receptions,3.5,-150.0,117.0,0.5655951346655083,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+fanatics,Mark Andrews,mark andrews,receptions,4.5,150.0,-235.0,0.3631436314363144,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+fanduel,Mark Andrews,mark andrews,receptions,3.5,-138.0,104.0,0.5418848167539266,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_receptions,2026-10-11T23:42:48Z
+bet365,Matthew Hibner,matthew hibner,receptions,0.5,-220.0,170.0,0.6498905908096281,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+betmgm,Matthew Hibner,matthew hibner,receptions,1.5,180.0,-250.0,0.33333333333333337,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+caesars,Matthew Hibner,matthew hibner,receptions,1.5,194.0,-265.0,0.31902805698802555,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+draftkings,Matthew Hibner,matthew hibner,receptions,1.5,184.0,-238.0,0.3333596338961654,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+fanatics,Matthew Hibner,matthew hibner,receptions,1.5,190.0,-320.0,0.31157270029673595,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+fanduel,Matthew Hibner,matthew hibner,receptions,0.5,-215.0,158.0,0.6378061400482925,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_receptions,2026-10-11T23:42:48Z
+bet365,Olamide Zaccheaus,olamide zaccheaus,receptions,0.5,-235.0,180.0,0.6626384692849949,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+betmgm,Olamide Zaccheaus,olamide zaccheaus,receptions,1.5,180.0,-250.0,0.33333333333333337,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+bovada,Olamide Zaccheaus (ATL),olamide zaccheaus,receptions,0.5,-230.0,170.0,0.6529968454258674,2026-10-12T00:20:00Z,70c6bce39ad2d597,287.3,player_receptions,2026-10-11T23:42:48Z
+caesars,Olamide Zaccheaus,olamide zaccheaus,receptions,1.5,200.0,-275.0,0.3125,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+draftkings,Olamide Zaccheaus,olamide zaccheaus,receptions,0.5,-226.0,175.0,0.6559366754617414,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+fanatics,Olamide Zaccheaus,olamide zaccheaus,receptions,1.5,190.0,-320.0,0.31157270029673595,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+fanduel,Olamide Zaccheaus,olamide zaccheaus,receptions,0.5,-225.0,164.0,0.6463547334058759,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_receptions,2026-10-11T23:42:48Z
+bet365,Rashod Bateman,rashod bateman,receptions,1.5,-150.0,120.0,0.5689655172413793,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+betmgm,Rashod Bateman,rashod bateman,receptions,1.5,-155.0,115.0,0.5665108372290694,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+bovada,Rashod Bateman (BAL),rashod bateman,receptions,1.5,-150.0,115.0,0.5633187772925765,2026-10-12T00:20:00Z,70c6bce39ad2d597,1927.3,player_receptions,2026-10-11T23:42:48Z
+caesars,Rashod Bateman,rashod bateman,receptions,1.5,-148.0,113.0,0.5596903629003622,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+draftkings,Rashod Bateman,rashod bateman,receptions,1.5,-148.0,116.0,0.5631341600901917,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+fanatics,Rashod Bateman,rashod bateman,receptions,1.5,-150.0,100.0,0.5454545454545455,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+fanduel,Rashod Bateman,rashod bateman,receptions,1.5,-148.0,112.0,0.5585303332383936,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_receptions,2026-10-11T23:42:48Z
+bet365,Zay Flowers,zay flowers,receptions,5.5,100.0,-130.0,0.4693877551020408,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+betmgm,Zay Flowers,zay flowers,receptions,5.5,-105.0,-125.0,0.4796954314720812,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+bovada,Zay Flowers (BAL),zay flowers,receptions,5.5,-105.0,-125.0,0.4796954314720812,2026-10-12T00:20:00Z,70c6bce39ad2d597,22.3,player_receptions,2026-10-11T23:42:48Z
+caesars,Zay Flowers,zay flowers,receptions,5.5,-103.0,-129.0,0.4738819463977177,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+draftkings,Zay Flowers,zay flowers,receptions,5.5,-106.0,-121.0,0.48448874917273327,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+fanatics,Zay Flowers,zay flowers,receptions,5.5,100.0,-150.0,0.45454545454545453,2026-10-12T00:20:00Z,70c6bce39ad2d597,28.3,player_receptions,2026-10-11T23:42:48Z
+fanduel,Zay Flowers,zay flowers,receptions,5.5,100.0,-132.0,0.4677419354838709,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_receptions,2026-10-11T23:42:48Z
+pinnacle,Zay Flowers,zay flowers,receptions,5.5,104.0,-126.0,0.46787015568068896,2026-10-12T00:20:00Z,70c6bce39ad2d597,1076.3,player_receptions,2026-10-11T23:42:48Z
+bet365,Bijan Robinson,bijan robinson,rush_yds,88.5,-125.0,-105.0,0.5203045685279188,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+betmgm,Bijan Robinson,bijan robinson,rush_yds,85.5,-135.0,100.0,0.5346534653465347,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+betrivers,Bijan Robinson,bijan robinson,rush_yds,87.5,-113.0,-118.0,0.4949766918501849,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+caesars,Bijan Robinson,bijan robinson,rush_yds,87.5,-121.0,-110.0,0.5110619469026548,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+draftkings,Bijan Robinson,bijan robinson,rush_yds,87.5,-111.0,-113.0,0.4978941161605526,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+fanatics,Bijan Robinson,bijan robinson,rush_yds,90.5,-110.0,-135.0,0.47693726937269365,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+fanduel,Bijan Robinson,bijan robinson,rush_yds,86.5,-113.0,-113.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_rush_yds,2026-10-11T23:42:48Z
+bet365,Brian Robinson,brian robinson,rush_yds,35.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+betrivers,Brian Robinson,brian robinson,rush_yds,36.5,-113.0,-117.0,0.4959548561951377,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+bovada,Brian Robinson (ATL),brian robinson,rush_yds,39.5,120.0,-160.0,0.4248366013071895,2026-10-12T00:20:00Z,70c6bce39ad2d597,209.3,player_rush_yds,2026-10-11T23:42:48Z
+caesars,Brian Robinson,brian robinson,rush_yds,35.5,-113.0,-115.0,0.49795039967206395,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+draftkings,Brian Robinson,brian robinson,rush_yds,34.5,-111.0,-113.0,0.4978941161605526,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+fanatics,Brian Robinson,brian robinson,rush_yds,35.5,-115.0,-135.0,0.48215878679750224,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+fanduel,Brian Robinson,brian robinson,rush_yds,35.5,-113.0,-113.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+bet365,Derrick Henry,derrick henry,rush_yds,80.5,-110.0,-120.0,0.48987854251012153,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+betmgm,Derrick Henry,derrick henry,rush_yds,81.5,100.0,-135.0,0.4653465346534653,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+betrivers,Derrick Henry,derrick henry,rush_yds,79.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+caesars,Derrick Henry,derrick henry,rush_yds,79.5,-118.0,-113.0,0.5050233081498151,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+draftkings,Derrick Henry,derrick henry,rush_yds,80.5,-114.0,-110.0,0.5042122999157539,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+fanatics,Derrick Henry,derrick henry,rush_yds,80.5,-110.0,-135.0,0.47693726937269365,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+fanduel,Derrick Henry,derrick henry,rush_yds,80.5,-113.0,-113.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_rush_yds,2026-10-11T23:42:48Z
+bet365,Justice Hill,justice hill,rush_yds,10.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+betmgm,Justice Hill,justice hill,rush_yds,11.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+betrivers,Justice Hill,justice hill,rush_yds,11.5,-108.0,-122.0,0.48581617766250607,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+bovada,Justice Hill (BAL),justice hill,rush_yds,11.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,1234.3,player_rush_yds,2026-10-11T23:42:48Z
+caesars,Justice Hill,justice hill,rush_yds,11.5,-109.0,-120.0,0.4887892376681614,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+draftkings,Justice Hill,justice hill,rush_yds,11.5,-112.0,-112.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,827.3,player_rushing_yards,2026-10-11T23:42:48Z
+fanatics,Justice Hill,justice hill,rush_yds,10.5,-140.0,-110.0,0.5268817204301074,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+fanduel,Justice Hill,justice hill,rush_yds,11.5,-113.0,-113.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_rush_yds,2026-10-11T23:42:48Z
+bet365,Michael Penix,michael penix,rush_yds,0.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+bovada,Michael Penix Jr. (ATL),michael penix,rush_yds,225.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,3579.3,player_rush_yds,2026-10-11T23:42:48Z
+caesars,Michael Penix,michael penix,rush_yds,0.5,-115.0,-114.0,0.5010179153094463,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+draftkings,Michael Penix,michael penix,rush_yds,1.5,-103.0,-122.0,0.48005542492442066,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+fanatics,Michael Penix,michael penix,rush_yds,5.5,240.0,-425.0,0.266497461928934,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+fanduel,Michael Penix Jr.,michael penix,rush_yds,0.5,-113.0,-113.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_rush_yds,2026-10-11T23:42:48Z
+pinnacle,Michael Penix,michael penix,rush_yds,0.5,-110.0,-110.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,1774.3,player_rushing_yards,2026-10-11T23:42:48Z
+bet365,Tyler Huntley,tyler huntley,rush_yds,28.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+betmgm,Tyler Huntley,tyler huntley,rush_yds,28.5,-115.0,-115.0,0.5,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+caesars,Tyler Huntley,tyler huntley,rush_yds,29.5,-113.0,-117.0,0.4959548561951377,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+draftkings,Tyler Huntley,tyler huntley,rush_yds,29.5,-111.0,-113.0,0.4978941161605526,2026-10-12T00:20:00Z,70c6bce39ad2d597,827.3,player_rushing_yards,2026-10-11T23:42:48Z
+fanatics,Tyler Huntley,tyler huntley,rush_yds,30.5,-115.0,-135.0,0.48215878679750224,2026-10-12T00:20:00Z,70c6bce39ad2d597,33.3,player_rush_yds,2026-10-11T23:42:48Z
+fanduel,Tyler Huntley,tyler huntley,rush_yds,30.5,-113.0,-113.0,0.5,2026-10-12T00:21:00Z,70c6bce39ad2d597,196.3,player_rush_yds,2026-10-11T23:42:48Z
