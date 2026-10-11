@@ -1,4 +1,4 @@
-BET TRACKER: 5 bets | 2 graded | 3 pending | 0 void
+BET TRACKER: 6 bets | 2 graded | 4 pending | 0 void
   record 0-2-0 | staked $50.00 | profit -50.00 | ROI -100.0%
   break-even win rate at these prices 53.2%; actual 0.0%
     stat rec_yds: 0-2 | profit -50.00 | ROI -100.0%
@@ -8,4 +8,4 @@ BET TRACKER: 5 bets | 2 graded | 3 pending | 0 void
 
 BET CLV (closing-line value on bets you placed; not the projection scorecards' CLV on the model's picks)
   no closing lines recorded for your bets yet (they come from the closing snapshots shortly before kickoff)
-  pending: over 44.5 Carnell Tate rec_yds (-114); over 38.5 Rome Odunze rec_yds (-114); over 69.5 Rome Odunze rec_yds (+350)
+  pending: over 44.5 Carnell Tate rec_yds (-114); over 38.5 Rome Odunze rec_yds (-114); over 69.5 Rome Odunze rec_yds (+350); under 63.5 Parker Washington rec_yds (-114)
