@@ -154,6 +154,9 @@ def load_closing(out_dir: str, stat: str = "rec_yds") -> pd.DataFrame:
     c = c[c["stat"].fillna("rec_yds") == stat]
     if c.empty:
         return c
+    cap = {"rush_yds": 150, "receptions": 20}.get(stat)
+    if cap and "line" in c.columns:                     # drop mislabeled passing-yard lines
+        c = c[c["line"] < cap]
     c["snap_time"] = pd.to_datetime(c["snap_time"], utc=True)
     c["commence"] = pd.to_datetime(c["commence_time"], utc=True)
     return c

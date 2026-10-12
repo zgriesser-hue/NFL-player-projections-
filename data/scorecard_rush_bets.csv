@@ -1,14 +1,4 @@
-season,week,player,player,team,opp,book,model_version,side,line,price,model_p,fair_p,ev,actual,result,profit,confirmed
-2026,5,Michael Penix Jr. (ATL),Michael Penix Jr.,ATL,BAL,bovada,rush-r1,under,222.5,-115.0,0.8,0.5,0.4956521739130434,8.0,win,0.8695652173913042,True
-2026,5,Jacoby Brissett (ARI),Jacoby Brissett,ARI,DET,bovada,rush-r1,under,283.5,-115.0,0.8,0.5,0.4956521739130434,19.0,win,0.8695652173913042,True
-2026,5,Cam Ward (TEN),Cam Ward,TEN,HOU,bovada,rush-r1,under,203.5,-115.0,0.8,0.5,0.4956521739130434,2.0,win,0.8695652173913042,True
-2026,5,Kirk Cousins (LV),Kirk Cousins,LV,NE,bovada,rush-r1,under,235.5,-115.0,0.8,0.5,0.4956521739130434,0.0,win,0.8695652173913042,True
-2026,5,Kyler Murray (MIN),Kyler Murray,MIN,NO,bovada,rush-r1,under,230.5,-115.0,0.8,0.5,0.4956521739130434,51.0,win,0.8695652173913042,True
-2026,5,Geno Smith (NYJ),Geno Smith,NYJ,CLE,bovada,rush-r1,under,207.5,-115.0,0.8,0.5,0.4956521739130434,7.0,win,0.8695652173913042,True
-2026,5,Jameis Winston (NYG),Jameis Winston,NYG,WAS,bovada,rush-r1,under,206.5,-115.0,0.8,0.5,0.4956521739130434,27.0,win,0.8695652173913042,True
-2026,5,Jared Goff (DET),Jared Goff,DET,ARI,bovada,rush-r1,under,289.5,-115.0,0.8,0.5,0.4956521739130434,1.0,win,0.8695652173913042,True
-2026,5,Malik Willis (MIA),Malik Willis,MIA,CIN,bovada,rush-r1,under,232.5,-115.0,0.7999700000000001,0.5,0.4955960869565217,74.0,win,0.8695652173913042,True
-2026,5,Jayden Daniels (WAS),Jayden Daniels,WAS,NYG,bovada,rush-r1,under,227.5,-115.0,0.79949,0.5,0.4946986956521738,103.0,win,0.8695652173913042,True
+season,week,player,player.1,team,opp,book,model_version,side,line,price,model_p,fair_p,ev,actual,result,profit,confirmed
 2026,5,Will Shipley,Will Shipley,PHI,JAX,fanduel,rush-r1,under,34.5,-114.0,0.75227,0.5,0.4121559649122808,6.0,win,0.8771929824561404,True
 2026,5,Samaje Perine,Samaje Perine,CIN,MIA,draftkings,rush-r1,under,14.5,-113.0,0.7145323535357789,0.5021058838394474,0.3468618699391231,68.0,loss,-1.0,True
 2026,5,Ollie Gordon,Ollie Gordon II,MIA,CIN,betmgm,rush-r1,under,41.5,-105.0,0.6452381725888324,0.4796954314720811,0.2597507179115299,88.0,loss,-1.0,True

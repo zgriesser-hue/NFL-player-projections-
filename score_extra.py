@@ -40,7 +40,12 @@ def load_edges(out_dir: str, prefix: str, season: int, week: int) -> pd.DataFram
             df = pd.read_csv(os.path.join(out_dir, f))
             df["snap_time"] = pd.to_datetime(m.group(1), format="%Y%m%d_%H%M", utc=True)
             frames.append(df)
-    return pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()
+    out = pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()
+    if len(out) and "line" in out.columns:           # old snapshots may hold passing-yard lines under rush
+        cap = {"rushing": 150, "receptions": 20}.get(prefix)
+        if cap:
+            out = out[out["line"] < cap]
+    return out
 
 
 def score_stat(stat: str, cfg: dict, out_dir: str) -> None:

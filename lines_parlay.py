@@ -107,6 +107,19 @@ def fetch_raw(key: str, markets: str = MARKETS_ASKED, tries: int = 4):
     return None, None
 
 
+MAX_LINE = {"rush_yds": 150, "receptions": 20, "rec_yds": 200}   # above this it is another market mislabeled
+
+
+def drop_mislabeled(d: pd.DataFrame, stat_col: str = "stat", line_col: str = "line") -> pd.DataFrame:
+    """Some books post QB PASSING-yard lines (200+) under the rush-yards market key. No rusher has a
+    line near that, so drop lines above a sane ceiling for each stat."""
+    cap = d[stat_col].map(MAX_LINE)
+    bad = cap.notna() & (d[line_col] >= cap)
+    if bad.any():
+        print(f"  dropped {int(bad.sum())} mislabeled lines (e.g. passing yards under a rushing market)")
+    return d[~bad]
+
+
 def tidy(raw: pd.DataFrame) -> pd.DataFrame:
     """Raw rows -> one main line per (book, stat, player, game), sportsbooks only."""
     cols = ["book", "player", "name_key", "stat", "line", "over_price", "under_price",
@@ -119,6 +132,7 @@ def tidy(raw: pd.DataFrame) -> pd.DataFrame:
     d = d[d["bookmaker"].isin(SPORTSBOOKS)]
     d["stat"] = d["market_key"].map(classify)
     d = d.dropna(subset=["stat", "line", "over_price", "under_price", "player"])
+    d = drop_mislabeled(d)
     if d.empty:
         return pd.DataFrame(columns=cols)
     d["name_key"] = d["player"].map(name_key)
