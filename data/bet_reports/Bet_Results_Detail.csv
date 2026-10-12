@@ -1,0 +1,7 @@
+Season,Week,Game,Player,Team,Book,Market,Bet,Odds,Stake $,To Win $,Result,Actual Result,Profit $,Our Chance at Bet Time (%),Our EV at Bet Time (%),"CLV: Line Move vs Close (pts, + is good)",Closing Line,Closing Odds,"CLV: Price vs Close (% pts, + is good)",CLV Source,Placed (UTC),Ticket
+2026,5,TB@DAL,George Pickens,DAL,draftkings,Receiving Yards,UNDER 65.5,-113,25.0,22.12,LOSS,130.0,-25.0,61.0,16.0,,,,,,2026-10-08T22:07:06Z,DK639270940253045494
+2026,5,TB@DAL,Cade Otton,TB,draftkings,Receiving Yards,OVER 29.5,-114,25.0,21.92,LOSS,25.0,-25.0,61.0,17.0,,,,,,2026-10-08T22:07:06Z,DK639270940253311830
+2026,5,HOU@TEN,Carnell Tate,TEN,draftkings,Receiving Yards,OVER 44.5,-114,25.0,21.92,LOSS,6.0,-25.0,59.0,12.0,2.0,46.5,-114.0,,own book,2026-10-09T15:31:43Z,DK639271567036081840
+2026,5,CHI@GB,Rome Odunze,CHI,betrivers,Receiving Yards,OVER 38.5,-114,35.0,30.8,WIN,40.0,30.8,58.0,10.0,3.0,41.5,-113.0,,consensus of 3 books,2026-10-09T16:10:27Z,BR13203558861
+2026,5,CHI@GB,Rome Odunze,CHI,betrivers,Receiving Yards (Alt Line),OVER 69.5,+350,20.0,70.0,LOSS,40.0,-20.0,30.0,36.0,,,,,n/a (alt line),2026-10-09T16:18:33Z,BR13203584937
+2026,5,PHI@JAX,Parker Washington,JAX,draftkings,Receiving Yards,UNDER 63.5,-114,25.0,21.92,LOSS,124.0,-25.0,57.0,8.0,0.0,63.5,-114.0,0.0,own book,2026-10-11T12:37:58Z,DK639273190783065459

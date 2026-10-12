@@ -1,0 +1,133 @@
+season,week,player,player,team,model_version,model_median,model_mean,consensus_line,actual
+2026,5,Jake Ferguson,Jake Ferguson,DAL,v6,2.0,2.638,3.5,3.0
+2026,5,Ted Hurst III,Ted Hurst III,TB,v6,2.0,2.1005,1.5,0.0
+2026,5,Cade Otton,Cade Otton,TB,v6,4.0,4.216,3.5,3.0
+2026,5,George Pickens (DAL),George Pickens,DAL,v6,4.0,4.4995,4.5,9.0
+2026,5,Brevyn Spann-Ford (DAL),Brevyn Spann-Ford,DAL,v6,0.0,0.7855,0.5,0.0
+2026,5,CeeDee Lamb (DAL),CeeDee Lamb,DAL,v6,6.0,6.2655,6.5,2.0
+2026,5,Tez Johnson,Tez Johnson,TB,v6,1.0,1.1795,1.5,1.0
+2026,5,Chris Godwin Jr.,Chris Godwin Jr.,TB,v6,4.0,3.8615,3.5,3.0
+2026,5,Ryan Flournoy,Ryan Flournoy,DAL,v6,3.0,3.324,3.5,3.0
+2026,5,Emeka Egbuka,Emeka Egbuka,TB,v6,3.0,3.3635,3.0,6.0
+2026,5,Makai Lemon,Makai Lemon,PHI,v6,2.0,2.70635,3.5,5.0
+2026,5,Brian Thomas Jr.,Brian Thomas Jr.,JAX,v6,2.0,2.6733,2.5,0.0
+2026,5,Brenton Strange,Brenton Strange,JAX,v6,4.0,4.04845,3.5,7.0
+2026,5,Parker Washington,Parker Washington,JAX,v6,4.0,4.3441,4.5,6.0
+2026,5,Josh Cameron,Josh Cameron,JAX,v6,1.0,1.3161,1.5,3.0
+2026,5,Jakobi Meyers,Jakobi Meyers,JAX,v6,4.0,4.00425,3.5,2.0
+2026,5,Dontayvion Wicks (PHI),Dontayvion Wicks,PHI,v6,2.0,2.444,3.5,5.0
+2026,5,Darius Cooper (PHI),Darius Cooper,PHI,v6,1.0,1.38265,2.5,2.0
+2026,5,Dallas Goedert (PHI),Dallas Goedert,PHI,v6,3.0,3.5214,4.5,6.0
+2026,5,Xavier Hutchinson,Xavier Hutchinson,HOU,v6,3.0,2.7659,1.5,4.0
+2026,5,Justin Jefferson,Justin Jefferson,MIN,v6,4.0,4.12905,6.5,6.0
+2026,5,Roman Wilson,Roman Wilson,PIT,v6,2.0,2.15715,3.5,0.0
+2026,5,Efton Chism,Efton Chism III,NE,v6,1.0,1.30065,1.5,5.0
+2026,5,Matthew Golden,Matthew Golden,GB,v6,3.0,3.4436,4.5,6.0
+2026,5,Chris Bell,Chris Bell,MIA,v6,2.0,1.73315,2.5,0.0
+2026,5,Ja'Marr Chase,Ja'Marr Chase,CIN,v6,5.0,5.39735,6.5,6.0
+2026,5,Kevin Coleman,Kevin Coleman Jr.,MIA,v6,1.0,1.3453,1.5,3.0
+2026,5,Josh Downs,Josh Downs,IND,v6,4.0,3.896,4.5,3.0
+2026,5,Malik Washington,Malik Washington,MIA,v6,3.0,3.71875,4.5,6.0
+2026,5,Tai Felton,Tai Felton,MIN,v6,0.0,0.70395,1.5,2.0
+2026,5,Theo Johnson,Theo Johnson,NYG,v6,2.0,1.72305,0.5,2.0
+2026,5,DeMario Douglas,DeMario Douglas,NE,v6,2.0,1.8874,2.5,4.0
+2026,5,Isaiah Williams,Isaiah Williams,NYJ,v6,3.0,3.207,2.5,1.0
+2026,5,Calvin Ridley,Calvin Ridley,TEN,v6,1.0,1.33105,0.5,2.0
+2026,5,Tee Higgins,Tee Higgins,CIN,v6,5.0,5.2295,4.5,2.0
+2026,5,Antonio Williams,Antonio Williams,WAS,v6,3.0,2.73105,3.5,3.0
+2026,5,Cole Kmet,Cole Kmet,CHI,v6,2.0,1.871,1.5,1.0
+2026,5,Nico Collins,Nico Collins,HOU,v6,4.0,4.8059,5.5,5.0
+2026,5,Mike Gesicki,Mike Gesicki,CIN,v6,2.0,2.12445,2.5,1.0
+2026,5,Brock Bowers,Brock Bowers,LV,v6,5.0,5.81115,6.5,8.0
+2026,5,Treylon Burks,Treylon Burks,WAS,v6,2.0,1.68285,1.5,2.0
+2026,5,Chig Okonkwo,Chig Okonkwo,WAS,v6,2.0,2.6791,3.5,4.0
+2026,5,Mason Taylor,Mason Taylor,NYJ,v6,2.0,2.6837,1.5,3.0
+2026,5,Skyy Moore,Skyy Moore,GB,v6,1.0,1.0252,1.5,1.0
+2026,5,Isaiah Likely (NYG),Isaiah Likely,NYG,v6,4.0,3.95315,4.5,11.0
+2026,5,Jauan Jennings,Jauan Jennings,MIN,v6,2.0,2.5433,1.5,0.0
+2026,5,Jerry Jeudy,Jerry Jeudy,CLE,v6,2.0,1.9473,1.5,3.0
+2026,5,Terry McLaurin,Terry McLaurin,WAS,v6,4.0,4.08645,3.5,4.0
+2026,5,Garrett Wilson,Garrett Wilson,NYJ,v6,5.0,5.31015,6.5,7.0
+2026,5,Malik Nabers,Malik Nabers,NYG,v6,4.0,4.4754,4.5,11.0
+2026,5,Rome Odunze,Rome Odunze,CHI,v6,3.0,3.7371,3.5,3.0
+2026,5,Chris Olave,Chris Olave,NO,v6,6.0,5.9562,6.5,4.0
+2026,5,T.J. Hockenson,T.J. Hockenson,MIN,v6,4.0,4.13435,4.5,1.0
+2026,5,Dohnte Meyers,Dohnte Meyers,CIN,v6,3.0,3.14995,2.5,2.0
+2026,5,Romeo Doubs,Romeo Doubs,NE,v6,3.0,3.509,3.5,1.0
+2026,5,Tucker Kraft,Tucker Kraft,GB,v6,4.0,4.07225,4.5,5.0
+2026,5,Elic Ayomanor,Elic Ayomanor,TEN,v6,2.0,2.0849,1.5,1.0
+2026,5,Germie Bernard,Germie Bernard,PIT,v6,2.0,1.7903,2.5,6.0
+2026,5,Tyler Warren,Tyler Warren,IND,v6,4.0,4.66185,5.0,7.0
+2026,5,Pat Freiermuth,Pat Freiermuth,PIT,v6,3.0,2.96885,3.5,5.0
+2026,5,Bo Melton,Bo Melton,GB,v6,0.0,0.6211,0.5,3.0
+2026,5,KC Concepcion,KC Concepcion,CLE,v6,4.0,3.9297,4.5,1.0
+2026,5,Greg Dulcich,Greg Dulcich,MIA,v6,2.0,2.5492,2.5,4.0
+2026,5,Gunnar Helm,Gunnar Helm,TEN,v6,2.0,2.12405,2.5,0.0
+2026,5,Kalif Raymond,Kalif Raymond,CHI,v6,3.0,2.8578,3.5,3.0
+2026,5,Jonnu Smith,Jonnu Smith,GB,v6,1.0,1.2901,1.5,0.0
+2026,5,Devaughn Vele,Devaughn Vele,NO,v6,4.0,3.94105,3.5,4.0
+2026,5,Eli Raridon,Eli Raridon,NE,v6,1.0,1.48,1.5,5.0
+2026,5,Drew Sample,Drew Sample,CIN,v6,1.0,0.92675,0.5,1.0
+2026,5,Wan'Dale Robinson,Wan'Dale Robinson,TEN,v6,4.0,4.49285,3.5,6.0
+2026,5,Darnell Mooney,Darnell Mooney,NYG,v6,2.0,1.74805,1.5,2.0
+2026,5,Mo Alie-Cox,Mo Alie-Cox,IND,v6,1.0,0.80115,0.5,2.0
+2026,5,DK Metcalf,DK Metcalf,PIT,v6,4.0,4.0759,4.5,3.0
+2026,5,Dalton Schultz,Dalton Schultz,HOU,v6,4.0,3.92435,4.5,3.0
+2026,5,Christian Watson,Christian Watson,GB,v6,4.0,4.3128,4.5,6.0
+2026,5,Laquon Treadwell,Laquon Treadwell,IND,v6,1.0,1.4764,1.5,2.0
+2026,5,Denzel Boston,Denzel Boston,CLE,v6,3.0,3.26885,3.5,3.0
+2026,5,Michael Mayer,Michael Mayer,LV,v6,4.0,4.02845,3.5,1.0
+2026,5,Hunter Henry,Hunter Henry,NE,v6,3.0,3.57635,3.5,3.0
+2026,5,Luther Burden,Luther Burden III,CHI,v6,4.0,4.37855,4.5,4.0
+2026,5,Darnell Washington,Darnell Washington,PIT,v6,2.0,2.45,2.5,2.0
+2026,5,Harold Fannin,Harold Fannin Jr.,CLE,v6,4.0,4.0323,4.5,1.0
+2026,5,Will Kacmarek,Will Kacmarek,MIA,v6,1.0,1.10205,1.5,1.0
+2026,5,Juwan Johnson,Juwan Johnson,NO,v6,4.0,4.3281,4.5,4.0
+2026,5,Daniel Bellinger,Daniel Bellinger,TEN,v6,1.0,1.01675,1.5,1.0
+2026,5,Kyle Williams,Kyle Williams,NE,v6,1.0,1.24305,1.5,3.0
+2026,5,Tre Tucker,Tre Tucker,LV,v6,3.0,3.48825,3.5,4.0
+2026,5,Noah Fant,Noah Fant,NO,v6,2.0,1.7561,1.5,1.0
+2026,5,Colston Loveland,Colston Loveland,CHI,v6,4.0,3.99,3.5,2.0
+2026,5,Kenyon Sadiq,Kenyon Sadiq,NYJ,v6,3.0,3.35005,3.5,2.0
+2026,5,Keenan Allen (IND),Keenan Allen,IND,v6,3.0,3.62365,3.5,5.0
+2026,5,Malachi Fields (NYG),Malachi Fields,NYG,v6,2.0,2.3325,2.5,2.0
+2026,5,Carnell Tate,Carnell Tate,TEN,v6,4.0,4.53065,4.5,1.0
+2026,5,Jaylin Noel,Jaylin Noel,HOU,v6,2.0,1.86265,1.5,5.0
+2026,5,Tim Patrick,Tim Patrick,NYJ,v6,1.0,1.205,0.5,2.0
+2026,5,Kayshon Boutte,Kayshon Boutte,HOU,v6,2.0,2.36045,2.5,3.0
+2026,5,Tanner Hudson,Tanner Hudson,CIN,v6,1.0,0.88395,0.5,3.0
+2026,5,Mark Redman,Mark Redman,GB,v6,0.0,0.77515,0.5,0.0
+2026,5,Kendrick Bourne,Kendrick Bourne,ARI,v6,2.0,1.98405,3.5,5.0
+2026,5,Trey McBride,Trey McBride,ARI,v6,6.0,6.19045,8.5,9.0
+2026,5,Jaylen Waddle,Jaylen Waddle,DEN,v6,4.0,3.80635,4.5,2.0
+2026,5,Drake London,Drake London,ATL,v6,5.0,4.9494,6.5,7.0
+2026,5,Tre' Harris,Tre Harris,LAC,v6,3.0,3.03835,4.5,2.0
+2026,5,Oronde Gadsden,Oronde Gadsden II,LAC,v6,3.0,2.77015,3.5,0.0
+2026,5,Mark Andrews,Mark Andrews,BAL,v6,3.0,3.53875,3.5,4.0
+2026,5,Michael Wilson,Michael Wilson,ARI,v6,5.0,5.8475,6.5,4.0
+2026,5,AJ Barner,AJ Barner,SEA,v6,3.0,3.26325,2.5,3.0
+2026,5,Deebo Samuel,Deebo Samuel Sr.,SF,v6,3.0,3.4764,3.5,2.0
+2026,5,Jahan Dotson,Jahan Dotson,ATL,v6,1.0,1.5915,1.5,2.0
+2026,5,Kyle Pitts,Kyle Pitts,ATL,v6,3.0,3.11525,2.5,5.0
+2026,5,Devontez Walker,Devontez Walker,BAL,v6,1.0,0.9444,0.5,2.0
+2026,5,Amon-Ra St. Brown,Amon-Ra St. Brown,DET,v6,6.0,6.6146,7.5,6.0
+2026,5,Rashid Shaheed,Rashid Shaheed,SEA,v6,2.0,1.7897,2.5,2.0
+2026,5,Zay Flowers,Zay Flowers,BAL,v6,5.0,4.8889,5.5,8.0
+2026,5,Tory Horton,Tory Horton,SEA,v6,1.0,1.4803,1.5,0.0
+2026,5,George Kittle,George Kittle,SF,v6,4.0,4.33855,4.5,5.0
+2026,5,Troy Franklin,Troy Franklin,DEN,v6,1.0,1.4356,1.5,2.0
+2026,5,Mike Evans,Mike Evans,SF,v6,4.0,3.83555,4.5,7.0
+2026,5,Austin Hooper,Austin Hooper,ATL,v6,1.0,1.07285,0.5,0.0
+2026,5,Courtland Sutton,Courtland Sutton,DEN,v6,3.0,3.0144,3.5,2.0
+2026,5,Matthew Hibner,Matthew Hibner,BAL,v6,1.0,1.3647,1.5,0.0
+2026,5,Jaxon Smith-Njigba,Jaxon Smith-Njigba,SEA,v6,6.0,6.5096,7.0,5.0
+2026,5,Rashod Bateman,Rashod Bateman,BAL,v6,2.0,2.25535,1.5,5.0
+2026,5,Evan Engram,Evan Engram,DEN,v6,2.0,2.1952,2.5,4.0
+2026,5,Sam LaPorta,Sam LaPorta,DET,v6,5.0,5.06755,4.5,5.0
+2026,5,Marvin Mims,Marvin Mims Jr.,DEN,v6,1.0,1.4133,1.5,2.0
+2026,5,Marquez Valdes-Scantling,Marquez Valdes-Scantling,LAC,v6,1.0,1.5925,1.5,2.0
+2026,5,Olamide Zaccheaus,Olamide Zaccheaus,ATL,v6,1.0,1.162,0.5,0.0
+2026,5,Jameson Williams,Jameson Williams,DET,v6,4.0,4.29835,3.5,2.0
+2026,5,Cooper Kupp,Cooper Kupp,SEA,v6,2.0,2.50735,2.5,2.0
+2026,5,Isaac TeSlaa,Isaac TeSlaa,DET,v6,2.0,2.27475,2.5,0.0
+2026,5,Elijah Higgins,Elijah Higgins,ARI,v6,1.0,1.37115,1.5,3.0
