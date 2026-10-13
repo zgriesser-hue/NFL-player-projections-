@@ -101,6 +101,44 @@ def placed(season, week):
             + table(["Player", "Bet", "Stake", "Actual", "Result", "Profit $", "CLV"], rows))
 
 
+CLV_FILES = [("scorecard_clv.csv", "Receiving yards"), ("scorecard_clv_receptions.csv", "Receptions"),
+             ("scorecard_clv_rush_yds.csv", "Rushing yards")]
+
+
+def clv_block(season, week):
+    """Did the lines move toward our picks? Pick line (when first flagged) vs closing line."""
+    rows, movers = [], []
+    for fn, label in CLV_FILES:
+        d = read(os.path.join(OUT, fn))
+        if d.empty or "clv_line" not in d.columns:
+            continue
+        d = d[(d["season"] == season) & (d["week"] == week)]
+        if d.empty:
+            continue
+        m = d.dropna(subset=["clv_line"])
+        c = d.dropna(subset=["clv_line_consensus"])
+        r2 = lambda x: round(float(x), 2)
+        rows.append([label, len(d), f"{int((m.clv_line.round(2) > 0).sum())} / {int((m.clv_line.round(2) == 0).sum())} / "
+                     f"{int((m.clv_line.round(2) < 0).sum())}", f"{r2(m.clv_line.mean()):+.2f}" if len(m) else "&ndash;",
+                     f"{int((c.clv_line_consensus.round(2) > 0).sum())} / {int((c.clv_line_consensus.round(2) < 0).sum())}",
+                     f"{r2(c.clv_line_consensus.mean()):+.2f}" if len(c) else "&ndash;"])
+        movers.append(d.assign(_stat=label))
+    if not rows:
+        return ""
+    allm = pd.concat(movers).dropna(subset=["clv_line_consensus"]).sort_values("clv_line_consensus", ascending=False)
+    top = [[esc(str(r.player)), r._stat, f"{r.side.title()} {r.pick_line:g}",
+            f"{r.close_consensus:g}", f"{r.clv_line_consensus:+.1f}"] for r in allm.head(6).itertuples()]
+    return ("<h3 style='margin:18px 0 4px'>Did lines move toward our picks?</h3>"
+            "<p style='margin:0 0 6px;color:#555;font-size:12px'>Our pick's line when first flagged vs the closing line "
+            "(points; + means the line moved our way). <b>Same book</b> is the book we flagged; <b>consensus</b> is the median "
+            "close across books, which also reflects that book being slow. One week is a small sample: look for the "
+            "average staying positive over several weeks.</p>"
+            + table(["Market", "Picks", "Same book: toward / same / against", "Same book avg",
+                     "Consensus: toward / against", "Consensus avg"], rows)
+            + "<p style='margin:8px 0 4px'><b>Biggest moves our way</b></p>"
+            + table(["Player", "Market", "Our pick", "Closing consensus line", "Move (pts)"], top))
+
+
 def main():
     k = latest_week()
     if not k:
@@ -108,7 +146,7 @@ def main():
         return 0
     season, week = k
     parts = [section(p, season, week) for p in sorted(glob.glob(os.path.join(OUT, "scorecard*bets.csv")))]
-    body = (f"<h2 style='margin:0 0 8px'>{season} Week {week} results</h2>" + placed(season, week) + "".join(parts))
+    body = (f"<h2 style='margin:0 0 8px'>{season} Week {week} results</h2>" + placed(season, week) + clv_block(season, week) + "".join(parts))
     with open(os.path.join(OUT, "results_email.html"), "w", encoding="utf-8") as f:
         f.write(f'<div style="font-family:-apple-system,Segoe UI,Arial,sans-serif;font-size:14px">{body}</div>')
     with open(os.path.join(OUT, "results_subject.txt"), "w", encoding="utf-8") as f:
