@@ -122,11 +122,11 @@ def clv_block(season, week):
                      f"{int((m.clv_line.round(2) < 0).sum())}", f"{r2(m.clv_line.mean()):+.2f}" if len(m) else "&ndash;",
                      f"{int((c.clv_line_consensus.round(2) > 0).sum())} / {int((c.clv_line_consensus.round(2) < 0).sum())}",
                      f"{r2(c.clv_line_consensus.mean()):+.2f}" if len(c) else "&ndash;"])
-        movers.append(d.assign(_stat=label))
+        movers.append(d.assign(mkt=label))
     if not rows:
         return ""
     allm = pd.concat(movers).dropna(subset=["clv_line_consensus"]).sort_values("clv_line_consensus", ascending=False)
-    top = [[esc(str(r.player)), r._stat, f"{r.side.title()} {r.pick_line:g}",
+    top = [[esc(str(r.player)), r.mkt, f"{r.side.title()} {r.pick_line:g}",
             f"{r.close_consensus:g}", f"{r.clv_line_consensus:+.1f}"] for r in allm.head(6).itertuples()]
     return ("<h3 style='margin:18px 0 4px'>Did lines move toward our picks?</h3>"
             "<p style='margin:0 0 6px;color:#555;font-size:12px'>Our pick's line when first flagged vs the closing line "
