@@ -138,6 +138,38 @@ def clv_block(season, week):
             + table(["Player", "Market", "Our pick", "Closing consensus line", "Move (pts)"], top))
 
 
+def side_block(season, week):
+    """Overs vs unders: this week and all weeks, across receiving and rushing leans (receptions are switched off)."""
+    frames = []
+    for p in sorted(glob.glob(os.path.join(OUT, "scorecard*bets.csv"))):
+        if "receptions" in p:
+            continue
+        d = read(p)
+        if len(d) and {"side", "result", "profit", "model_p", "season", "week"} <= set(d.columns):
+            frames.append(d)
+    if not frames:
+        return ""
+    a = pd.concat(frames)
+    a = a[a["result"].isin(["win", "loss", "push"])]
+    rows = []
+    for lab, sub in (("This week", a[(a["season"] == season) & (a["week"] == week)]), ("All weeks", a)):
+        for side in ("over", "under"):
+            g = sub[sub["side"] == side]
+            if g.empty:
+                continue
+            w, l, p_ = [int((g["result"] == r).sum()) for r in ("win", "loss", "push")]
+            n = len(g)
+            rows.append([lab, side.title() + "s", n, f"{w}-{l}" + (f"-{p_}" if p_ else ""),
+                         f"{100 * w / max(w + l, 1):.1f}%", f"{100 * g['model_p'].mean():.1f}%",
+                         f"{g['profit'].sum():+.1f}", f"{100 * g['profit'].sum() / n:+.1f}%"])
+    if not rows:
+        return ""
+    return ("<h3 style='margin:18px 0 4px'>Overs vs unders</h3>"
+            "<p style='margin:0 0 6px;color:#555;font-size:12px'>Receiving and rushing leans. If \"Our chance\" runs "
+            "well above the hit rate, the model is overconfident on that side.</p>"
+            + table(["", "Side", "Bets", "Record", "Hit rate", "Our chance (avg)", "Units", "ROI per bet"], rows))
+
+
 def main():
     k = latest_week()
     if not k:
@@ -146,7 +178,7 @@ def main():
     season, week = k
     parts = [section(p, season, week) for p in sorted(glob.glob(os.path.join(OUT, "scorecard*bets.csv")))
              if "receptions" not in p]      # receptions betting edges are switched off
-    body = (f"<h2 style='margin:0 0 8px'>{season} Week {week} results</h2>" + placed(season, week) + clv_block(season, week) + "".join(parts))
+    body = (f"<h2 style='margin:0 0 8px'>{season} Week {week} results</h2>" + placed(season, week) + clv_block(season, week) + side_block(season, week) + "".join(parts))
     with open(os.path.join(OUT, "results_email.html"), "w", encoding="utf-8") as f:
         f.write(f'<div style="font-family:-apple-system,Segoe UI,Arial,sans-serif;font-size:14px">{body}</div>')
     with open(os.path.join(OUT, "results_subject.txt"), "w", encoding="utf-8") as f:

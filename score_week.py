@@ -378,6 +378,8 @@ def score_week(season=None, week=None):
         one = played_lines.assign(_dev=dev).sort_values(["name_key", "_dev"]).drop_duplicates("name_key")
         one = one[one["receiving_yards"] != one["line"]]
         over = (one["receiving_yards"] > one["line"]).astype(float)
+        if "raw_p_over" in one.columns:       # judge the model itself, not the book-blended probability
+            one = one.assign(model_p_over=one["raw_p_over"].fillna(one["model_p_over"]))
         if len(one):
             print(f"\nProbability accuracy on {len(one)} player lines (Brier score, lower is better):")
             print(f"  model {((one['model_p_over'] - over) ** 2).mean():.4f} "

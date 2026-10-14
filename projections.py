@@ -900,6 +900,7 @@ def american_to_decimal(a) -> np.ndarray:
 
 
 RECEPTIONS_EDGES = False    # receptions lines are too coarse to vet (half-catch steps): no edges/email/scoring when False
+SHRINK_YARDS = 0.5          # weight on OUR probability for receiving-yards edges (rest = book no-vig); fitted to Wk 4-5 results
 SHRINK_EXTRA = 0.6          # weight on OUR probability for rushing/receptions edges (rest = book's no-vig)
 CHECK_EV, CHECK_GAP = 0.30, 0.35
 
@@ -1101,7 +1102,7 @@ def build_email(out: pd.DataFrame, edges, season: int, week: int, extra_html: st
             "<p style='margin:0 0 6px;color:#555;font-size:12px'>Only leans where our median AND "
             f"average are on the same side of the line ({conf['model_player'].nunique()} of "
             f"{edges['model_player'].nunique()} players). Largest gaps first, best book per player. "
-            "Chances assume the player plays.</p>"
+            f"Our chance is blended {SHRINK_YARDS:.0%} model / rest book price. Chances assume the player plays.</p>"
             '<table style="border-collapse:collapse;font-size:13px">'
             + _head(["Player", "Game", "Book", "Book line", "OUR PROJECTION (yds)",
                      "Our lean (price)", "Our chance it hits", "Book's implied chance", "Edge (EV per $1)"])
@@ -1271,7 +1272,7 @@ def main():
         print("\nNo lines returned yet (props usually post a day or two before kickoff).")
         write_email(out, None, season, week, out_dir)
         return
-    edges, unmatched = evaluate_lines(out, sims, lines)
+    edges, unmatched = evaluate_lines(out, sims, lines, shrink=SHRINK_YARDS)
     if unmatched:
         print(f"\nBook names not matched to a projected player ({len(unmatched)}): "
               f"{unmatched[:15]}{' ...' if len(unmatched) > 15 else ''}")
