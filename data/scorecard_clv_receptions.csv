@@ -1,77 +1,77 @@
-season,week,player,player,team,book,side,pick_line,pick_price,pick_time,close_line,close_consensus,close_source,clv_line,clv_line_consensus,clv_prob,hours_early
-2026,5,AJ Barner,AJ Barner,SEA,fanduel,over,2.5,-108.0,2026-10-09 00:17:00+00:00,2.5,2.5,parlay close,0.0,0.0,0.0,68.13333333333334
-2026,5,Amon-Ra St. Brown (DET),Amon-Ra St. Brown,DET,bovada,under,7.5,-135.0,2026-10-09 20:57:00+00:00,,7.5,parlay close,,-0.0,,47.46666666666667
-2026,5,Antonio Williams,Antonio Williams,WAS,draftkings,under,3.5,-113.0,2026-10-11 15:30:00+00:00,3.5,3.5,parlay close,-0.0,-0.0,0.014571190674438017,1.5
-2026,5,Brenton Strange,Brenton Strange,JAX,fanduel,over,3.5,112.0,2026-10-08 03:26:00+00:00,3.5,3.5,parlay close,0.0,0.0,-0.01663306545441684,82.06666666666666
-2026,5,Brock Bowers,Brock Bowers,LV,fanduel,under,6.5,-102.0,2026-10-08 03:26:00+00:00,6.5,6.5,parlay close,-0.0,-0.0,0.0,85.56666666666666
-2026,5,Cade Otton,Cade Otton,TB,fanduel,over,3.5,102.0,2026-10-08 03:26:00+00:00,3.5,3.5,odds-api last snapshot,0.0,0.0,0.0,20.816666666666666
-2026,5,Chig Okonkwo,Chig Okonkwo,WAS,draftkings,under,3.5,-155.0,2026-10-11 15:30:00+00:00,3.5,3.0,parlay close,-0.0,0.5,0.023902014452036435,1.5
-2026,5,Chris Bell,Chris Bell,MIA,fanduel,under,2.5,-122.0,2026-10-08 23:55:00+00:00,2.5,2.5,parlay close,-0.0,-0.0,0.0,65.08333333333333
-2026,5,Chris Olave,Chris Olave,NO,fanduel,under,6.5,-106.0,2026-10-08 03:26:00+00:00,6.5,6.5,parlay close,-0.0,-0.0,0.022508200140277657,85.56666666666666
-2026,5,Cole Kmet,Cole Kmet,CHI,caesars,over,1.5,135.0,2026-10-11 15:30:00+00:00,1.5,1.5,parlay close,0.0,0.0,0.0,1.5
-2026,5,Courtland Sutton,Courtland Sutton,DEN,draftkings,under,3.5,-126.0,2026-10-08 03:26:00+00:00,3.5,3.5,parlay close,-0.0,-0.0,0.018019514953304894,88.65
-2026,5,Dallas Goedert (PHI),Dallas Goedert,PHI,bovada,under,4.5,-125.0,2026-10-09 20:57:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,-0.010183111038040371,40.55
-2026,5,Dalton Schultz,Dalton Schultz,HOU,fanduel,under,4.5,-160.0,2026-10-08 03:26:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,0.007804116671544237,85.56666666666666
-2026,5,Darius Cooper (PHI),Darius Cooper,PHI,bovada,under,2.5,-120.0,2026-10-09 20:57:00+00:00,2.5,2.5,parlay close,-0.0,-0.0,0.03066994456190464,40.55
-2026,5,Deebo Samuel,Deebo Samuel Sr.,SF,bet365,under,3.5,115.0,2026-10-11 15:30:00+00:00,3.5,3.5,parlay close,-0.0,-0.0,-0.009019401390458759,4.916666666666667
-2026,5,Demario Douglas,DeMario Douglas,NE,fanduel,under,2.5,-106.0,2026-10-08 23:55:00+00:00,2.5,2.5,parlay close,-0.0,-0.0,0.0,65.08333333333333
-2026,5,Dohnte Meyers,Dohnte Meyers,CIN,draftkings,over,2.5,100.0,2026-10-11 15:30:00+00:00,2.5,2.5,parlay close,0.0,0.0,-0.018634675651283794,1.5
-2026,5,Dontayvion Wicks,Dontayvion Wicks,PHI,pinnacle,under,3.5,118.0,2026-10-08 23:55:00+00:00,3.5,3.5,parlay close,-0.0,-0.0,0.0695769883542039,61.583333333333336
-2026,5,Drake London,Drake London,ATL,fanduel,under,6.5,-174.0,2026-10-08 03:26:00+00:00,5.5,6.5,parlay close,1.0,-0.0,,92.9
-2026,5,Efton Chism III,Efton Chism III,NE,fanduel,under,1.5,-110.0,2026-10-09 14:58:00+00:00,1.5,1.5,parlay close,-0.0,-0.0,-0.08033867259925653,50.03333333333333
-2026,5,Elic Ayomanor,Elic Ayomanor,TEN,fanduel,over,1.5,-114.0,2026-10-08 03:26:00+00:00,1.5,1.5,parlay close,0.0,0.0,-0.028157683024939706,85.56666666666666
-2026,5,Garrett Wilson,Garrett Wilson,NYJ,fanduel,under,6.5,-160.0,2026-10-08 03:26:00+00:00,6.5,6.5,parlay close,-0.0,-0.0,0.0,85.56666666666666
-2026,5,George Kittle,George Kittle,SF,fanduel,under,4.5,-112.0,2026-10-08 03:26:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,0.025222169001143324,88.98333333333333
-2026,5,Germie Bernard,Germie Bernard,PIT,fanduel,under,2.5,-194.0,2026-10-08 23:55:00+00:00,2.5,2.5,parlay close,-0.0,-0.0,-0.016183682732377802,65.08333333333333
-2026,5,Greg Dulcich,Greg Dulcich,MIA,pinnacle,under,2.5,117.0,2026-10-08 23:55:00+00:00,,2.5,parlay close,,-0.0,,65.08333333333333
-2026,5,Gunnar Helm,Gunnar Helm,TEN,fanduel,under,2.5,-120.0,2026-10-08 03:26:00+00:00,2.5,2.5,parlay close,-0.0,-0.0,0.04840887574851527,85.56666666666666
-2026,5,Hunter Henry,Hunter Henry,NE,fanduel,under,3.5,106.0,2026-10-08 03:26:00+00:00,3.5,3.5,parlay close,-0.0,-0.0,0.07395632042085193,85.56666666666666
-2026,5,Isaiah Likely,Isaiah Likely,NYG,fanduel,under,4.5,-140.0,2026-10-08 03:26:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,-0.03161481505841823,85.56666666666666
-2026,5,Isaiah Williams (NYJ),Isaiah Williams,NYJ,bovada,over,2.5,115.0,2026-10-09 14:58:00+00:00,,2.5,parlay close,,0.0,,50.03333333333333
-2026,5,Jake Ferguson,Jake Ferguson,DAL,fanduel,under,3.5,-114.0,2026-10-08 03:26:00+00:00,3.5,3.5,odds-api last snapshot,-0.0,-0.0,0.03790726817042611,20.816666666666666
-2026,5,Ja'Marr Chase,Ja'Marr Chase,CIN,draftkings,under,6.5,105.0,2026-10-11 15:30:00+00:00,6.5,6.5,parlay close,-0.0,-0.0,0.023340736422654773,1.5
-2026,5,Jauan Jennings,Jauan Jennings,MIN,draftkings,over,1.5,-133.0,2026-10-11 15:30:00+00:00,1.5,1.5,parlay close,0.0,0.0,0.07825385154516329,1.5
-2026,5,Jaxon Smith-Njigba,Jaxon Smith-Njigba,SEA,fanduel,under,6.5,-102.0,2026-10-08 03:26:00+00:00,6.5,7.0,parlay close,-0.0,-0.5,0.0,88.98333333333333
-2026,5,Jaylen Waddle,Jaylen Waddle,DEN,fanduel,under,4.5,-114.0,2026-10-08 03:26:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,-0.041884816753926635,88.65
-2026,5,Jerry Jeudy,Jerry Jeudy,CLE,fanduel,over,1.5,114.0,2026-10-11 15:30:00+00:00,1.5,1.5,parlay close,0.0,0.0,-0.022123203138827097,1.5
-2026,5,Josh Downs,Josh Downs,IND,fanduel,under,4.5,112.0,2026-10-08 03:26:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,0.02627226872226468,85.56666666666666
-2026,5,Justin Jefferson,Justin Jefferson,MIN,bet365,under,6.5,-115.0,2026-10-11 15:30:00+00:00,6.5,6.5,parlay close,-0.0,-0.0,0.04079140205178311,1.5
-2026,5,Kalif Raymond,Kalif Raymond,CHI,fanduel,under,3.5,-154.0,2026-10-08 03:26:00+00:00,3.5,3.5,parlay close,-0.0,-0.0,0.047057541812753234,85.56666666666666
-2026,5,KC Concepcion,KC Concepcion,CLE,betmgm,under,4.5,-130.0,2026-10-11 15:30:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,0.03291582468120702,1.5
-2026,5,Keenan Allen,Keenan Allen,IND,fanduel,over,2.5,-192.0,2026-10-08 03:26:00+00:00,3.5,3.5,parlay close,1.0,1.0,,85.56666666666666
-2026,5,Kendrick Bourne,Kendrick Bourne,ARI,fanduel,under,2.5,-148.0,2026-10-08 03:26:00+00:00,3.5,3.5,parlay close,-1.0,-1.0,,88.98333333333333
-2026,5,Kenyon Sadiq (NYJ),Kenyon Sadiq,NYJ,bovada,under,3.5,-120.0,2026-10-09 14:58:00+00:00,,3.5,parlay close,,-0.0,,50.03333333333333
-2026,5,Kevin Coleman Jr.,Kevin Coleman Jr.,MIA,fanduel,under,1.5,118.0,2026-10-08 23:55:00+00:00,1.5,1.5,parlay close,-0.0,-0.0,0.0,65.08333333333333
-2026,5,Kyle Pitts,Kyle Pitts,ATL,fanduel,over,2.5,102.0,2026-10-08 03:26:00+00:00,2.5,2.5,parlay close,0.0,0.0,0.0,92.9
-2026,5,Ladd McConkey,Ladd McConkey,LAC,draftkings,under,3.5,106.0,2026-10-11 15:30:00+00:00,3.5,3.5,parlay close,-0.0,-0.0,5.551115123125783e-17,4.583333333333333
-2026,5,Luther Burden III,Luther Burden III,CHI,fanduel,under,4.5,-104.0,2026-10-08 03:26:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,0.06988341581595087,85.56666666666666
-2026,5,Makai Lemon,Makai Lemon,PHI,pinnacle,under,3.5,100.0,2026-10-08 23:55:00+00:00,3.5,3.5,parlay close,-0.0,-0.0,0.035230728134480194,61.583333333333336
-2026,5,Malik Nabers,Malik Nabers,NYG,fanduel,under,5.5,-160.0,2026-10-08 03:26:00+00:00,4.5,4.5,parlay close,1.0,1.0,,85.56666666666666
-2026,5,Malik Washington,Malik Washington,MIA,fanduel,under,4.5,104.0,2026-10-08 23:55:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,0.04188481675392669,65.08333333333333
-2026,5,Marvin Harrison Jr.,Marvin Harrison Jr.,ARI,fanduel,under,2.5,108.0,2026-10-08 03:26:00+00:00,,3.0,parlay close,,-0.5,,88.98333333333333
-2026,5,Mason Taylor,Mason Taylor,NYJ,fanduel,over,1.5,-154.0,2026-10-09 14:58:00+00:00,1.5,1.5,parlay close,0.0,0.0,0.0,50.03333333333333
-2026,5,Matthew Golden,Matthew Golden,GB,fanduel,under,4.5,-114.0,2026-10-08 03:26:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,-0.014183822337493934,85.56666666666666
-2026,5,Michael Wilson,Michael Wilson,ARI,caesars,under,6.5,-108.0,2026-10-11 15:30:00+00:00,6.5,6.5,parlay close,-0.0,-0.0,0.006910992992943343,4.916666666666667
-2026,5,Mike Gesicki,Mike Gesicki,CIN,bet365,under,2.5,100.0,2026-10-11 15:30:00+00:00,2.5,2.5,parlay close,-0.0,-0.0,0.0,1.5
-2026,5,Nico Collins,Nico Collins,HOU,fanduel,under,5.5,-108.0,2026-10-08 03:26:00+00:00,5.5,5.5,parlay close,-0.0,-0.0,0.01418382233749399,85.56666666666666
-2026,5,Oronde Gadsden,Oronde Gadsden II,LAC,draftkings,under,3.5,-106.0,2026-10-11 15:30:00+00:00,3.5,3.5,parlay close,-0.0,-0.0,0.04766091864845334,4.583333333333333
-2026,5,Parker Washington,Parker Washington,JAX,fanduel,under,4.5,-102.0,2026-10-08 03:26:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,0.013973860687445772,82.06666666666666
-2026,5,Pat Freiermuth,Pat Freiermuth,PIT,fanduel,under,3.5,-154.0,2026-10-08 03:26:00+00:00,3.5,3.5,parlay close,-0.0,-0.0,1.1102230246251565e-16,85.56666666666666
-2026,5,Rashid Shaheed,Rashid Shaheed,SEA,bet365,under,2.5,-170.0,2026-10-11 18:55:00+00:00,2.5,2.5,parlay close,-0.0,-0.0,0.017237947662495423,1.5
-2026,5,Rashod Bateman,Rashod Bateman,BAL,fanduel,over,1.5,-158.0,2026-10-08 03:26:00+00:00,1.5,1.5,parlay close,0.0,0.0,-0.01321125098576137,92.9
-2026,5,Roman Wilson,Roman Wilson,PIT,fanduel,under,3.5,-140.0,2026-10-08 23:55:00+00:00,3.5,3.5,parlay close,-0.0,-0.0,0.029364761296898356,65.08333333333333
-2026,5,Romeo Doubs,Romeo Doubs,NE,fanduel,under,3.5,112.0,2026-10-08 03:26:00+00:00,3.5,3.5,parlay close,-0.0,-0.0,0.020623065067967572,85.56666666666666
-2026,5,Skyy Moore,Skyy Moore,GB,fanduel,under,1.5,-154.0,2026-10-08 03:26:00+00:00,1.5,1.5,parlay close,-0.0,-0.0,-0.029118505728387478,85.56666666666666
-2026,5,Tai Felton,Tai Felton,MIN,bet365,under,1.5,-145.0,2026-10-11 15:30:00+00:00,1.5,1.5,parlay close,-0.0,-0.0,0.009019401390458981,1.5
-2026,5,Tee Higgins,Tee Higgins,CIN,fanatics,over,4.5,140.0,2026-10-11 15:30:00+00:00,4.5,3.5,parlay close,0.0,-1.0,0.0,1.5
-2026,5,Terry McLaurin,Terry McLaurin,WAS,caesars,over,3.5,120.0,2026-10-11 15:30:00+00:00,3.5,3.5,parlay close,0.0,0.0,0.0,1.5
-2026,5,Theo Johnson,Theo Johnson,NYG,bet365,over,0.5,-130.0,2026-10-11 15:30:00+00:00,0.5,0.5,parlay close,0.0,0.0,-0.010307676370040375,1.5
-2026,5,T.J. Hockenson,T.J. Hockenson,MIN,fanduel,under,4.5,-108.0,2026-10-11 15:30:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,5.551115123125783e-17,1.5
-2026,5,Tre Harris,Tre Harris,LAC,draftkings,under,4.5,-136.0,2026-10-11 15:30:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,-0.04069998612115844,4.583333333333333
-2026,5,Tre Tucker,Tre Tucker,LV,draftkings,under,3.5,-116.0,2026-10-08 03:26:00+00:00,3.5,3.5,parlay close,-0.0,-0.0,0.006248422135274656,85.56666666666666
-2026,5,Trey McBride,Trey McBride,ARI,fanduel,under,7.5,108.0,2026-10-08 03:26:00+00:00,7.5,8.5,parlay close,-0.0,-1.0,0.0052758400842174424,88.98333333333333
-2026,5,Troy Franklin,Troy Franklin,DEN,fanduel,under,1.5,-114.0,2026-10-08 03:26:00+00:00,1.5,1.5,parlay close,-0.0,-0.0,0.0,88.65
-2026,5,Tucker Kraft,Tucker Kraft,GB,fanduel,under,4.5,-122.0,2026-10-08 03:26:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,0.0,85.56666666666666
-2026,5,Tyler Warren,Tyler Warren,IND,fanduel,under,5.5,-144.0,2026-10-08 03:26:00+00:00,4.5,4.5,parlay close,1.0,1.0,,85.56666666666666
-2026,5,Xavier Hutchinson,Xavier Hutchinson,HOU,fanduel,over,1.5,-158.0,2026-10-08 03:26:00+00:00,1.5,1.5,parlay close,0.0,0.0,-0.17242612501137689,85.56666666666666
-2026,5,Zay Flowers,Zay Flowers,BAL,fanduel,under,5.5,-130.0,2026-10-08 03:26:00+00:00,5.5,5.5,parlay close,-0.0,-0.0,0.004100381491189409,92.9
+season,week,player,team,book,side,pick_line,pick_price,pick_time,close_line,close_consensus,close_source,clv_line,clv_line_consensus,clv_prob,hours_early
+2026,5,AJ Barner,SEA,fanduel,over,2.5,-108.0,2026-10-09 00:17:00+00:00,2.5,2.5,parlay close,0.0,0.0,0.0,68.13333333333334
+2026,5,Amon-Ra St. Brown,DET,bovada,under,7.5,-135.0,2026-10-09 20:57:00+00:00,,7.5,parlay close,,-0.0,,47.46666666666667
+2026,5,Antonio Williams,WAS,draftkings,under,3.5,-113.0,2026-10-11 15:30:00+00:00,3.5,3.5,parlay close,-0.0,-0.0,0.014571190674438,1.5
+2026,5,Brenton Strange,JAX,fanduel,over,3.5,112.0,2026-10-08 03:26:00+00:00,3.5,3.5,parlay close,0.0,0.0,-0.0166330654544168,82.06666666666666
+2026,5,Brock Bowers,LV,fanduel,under,6.5,-102.0,2026-10-08 03:26:00+00:00,6.5,6.5,parlay close,-0.0,-0.0,0.0,85.56666666666666
+2026,5,Cade Otton,TB,fanduel,over,3.5,102.0,2026-10-08 03:26:00+00:00,3.5,3.5,odds-api last snapshot,0.0,0.0,0.0,20.816666666666663
+2026,5,Chig Okonkwo,WAS,draftkings,under,3.5,-155.0,2026-10-11 15:30:00+00:00,3.5,3.0,parlay close,-0.0,0.5,0.0239020144520364,1.5
+2026,5,Chris Bell,MIA,fanduel,under,2.5,-122.0,2026-10-08 23:55:00+00:00,2.5,2.5,parlay close,-0.0,-0.0,0.0,65.08333333333333
+2026,5,Chris Olave,NO,fanduel,under,6.5,-106.0,2026-10-08 03:26:00+00:00,6.5,6.5,parlay close,-0.0,-0.0,0.0225082001402776,85.56666666666666
+2026,5,Cole Kmet,CHI,caesars,over,1.5,135.0,2026-10-11 15:30:00+00:00,1.5,1.5,parlay close,0.0,0.0,0.0,1.5
+2026,5,Courtland Sutton,DEN,draftkings,under,3.5,-126.0,2026-10-08 03:26:00+00:00,3.5,3.5,parlay close,-0.0,-0.0,0.0180195149533048,88.65
+2026,5,Dallas Goedert,PHI,bovada,under,4.5,-125.0,2026-10-09 20:57:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,-0.0101831110380403,40.55
+2026,5,Dalton Schultz,HOU,fanduel,under,4.5,-160.0,2026-10-08 03:26:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,0.0078041166715442,85.56666666666666
+2026,5,Darius Cooper,PHI,bovada,under,2.5,-120.0,2026-10-09 20:57:00+00:00,2.5,2.5,parlay close,-0.0,-0.0,0.0306699445619046,40.55
+2026,5,Deebo Samuel Sr.,SF,bet365,under,3.5,115.0,2026-10-11 15:30:00+00:00,3.5,3.5,parlay close,-0.0,-0.0,-0.0090194013904587,4.916666666666667
+2026,5,DeMario Douglas,NE,fanduel,under,2.5,-106.0,2026-10-08 23:55:00+00:00,2.5,2.5,parlay close,-0.0,-0.0,0.0,65.08333333333333
+2026,5,Dohnte Meyers,CIN,draftkings,over,2.5,100.0,2026-10-11 15:30:00+00:00,2.5,2.5,parlay close,0.0,0.0,-0.0186346756512837,1.5
+2026,5,Dontayvion Wicks,PHI,pinnacle,under,3.5,118.0,2026-10-08 23:55:00+00:00,3.5,3.5,parlay close,-0.0,-0.0,0.0695769883542039,61.583333333333336
+2026,5,Drake London,ATL,fanduel,under,6.5,-174.0,2026-10-08 03:26:00+00:00,5.5,6.5,parlay close,1.0,-0.0,,92.9
+2026,5,Efton Chism III,NE,fanduel,under,1.5,-110.0,2026-10-09 14:58:00+00:00,1.5,1.5,parlay close,-0.0,-0.0,-0.0803386725992565,50.03333333333333
+2026,5,Elic Ayomanor,TEN,fanduel,over,1.5,-114.0,2026-10-08 03:26:00+00:00,1.5,1.5,parlay close,0.0,0.0,-0.0281576830249397,85.56666666666666
+2026,5,Garrett Wilson,NYJ,fanduel,under,6.5,-160.0,2026-10-08 03:26:00+00:00,6.5,6.5,parlay close,-0.0,-0.0,0.0,85.56666666666666
+2026,5,George Kittle,SF,fanduel,under,4.5,-112.0,2026-10-08 03:26:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,0.0252221690011433,88.98333333333333
+2026,5,Germie Bernard,PIT,fanduel,under,2.5,-194.0,2026-10-08 23:55:00+00:00,2.5,2.5,parlay close,-0.0,-0.0,-0.0161836827323778,65.08333333333333
+2026,5,Greg Dulcich,MIA,pinnacle,under,2.5,117.0,2026-10-08 23:55:00+00:00,,2.5,parlay close,,-0.0,,65.08333333333333
+2026,5,Gunnar Helm,TEN,fanduel,under,2.5,-120.0,2026-10-08 03:26:00+00:00,2.5,2.5,parlay close,-0.0,-0.0,0.0484088757485152,85.56666666666666
+2026,5,Hunter Henry,NE,fanduel,under,3.5,106.0,2026-10-08 03:26:00+00:00,3.5,3.5,parlay close,-0.0,-0.0,0.0739563204208519,85.56666666666666
+2026,5,Isaiah Likely,NYG,fanduel,under,4.5,-140.0,2026-10-08 03:26:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,-0.0316148150584182,85.56666666666666
+2026,5,Isaiah Williams,NYJ,bovada,over,2.5,115.0,2026-10-09 14:58:00+00:00,,2.5,parlay close,,0.0,,50.03333333333333
+2026,5,Jake Ferguson,DAL,fanduel,under,3.5,-114.0,2026-10-08 03:26:00+00:00,3.5,3.5,odds-api last snapshot,-0.0,-0.0,0.0379072681704261,20.816666666666663
+2026,5,Ja'Marr Chase,CIN,draftkings,under,6.5,105.0,2026-10-11 15:30:00+00:00,6.5,6.5,parlay close,-0.0,-0.0,0.0233407364226547,1.5
+2026,5,Jauan Jennings,MIN,draftkings,over,1.5,-133.0,2026-10-11 15:30:00+00:00,1.5,1.5,parlay close,0.0,0.0,0.0782538515451632,1.5
+2026,5,Jaxon Smith-Njigba,SEA,fanduel,under,6.5,-102.0,2026-10-08 03:26:00+00:00,6.5,7.0,parlay close,-0.0,-0.5,0.0,88.98333333333333
+2026,5,Jaylen Waddle,DEN,fanduel,under,4.5,-114.0,2026-10-08 03:26:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,-0.0418848167539266,88.65
+2026,5,Jerry Jeudy,CLE,fanduel,over,1.5,114.0,2026-10-11 15:30:00+00:00,1.5,1.5,parlay close,0.0,0.0,-0.022123203138827,1.5
+2026,5,Josh Downs,IND,fanduel,under,4.5,112.0,2026-10-08 03:26:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,0.0262722687222646,85.56666666666666
+2026,5,Justin Jefferson,MIN,bet365,under,6.5,-115.0,2026-10-11 15:30:00+00:00,6.5,6.5,parlay close,-0.0,-0.0,0.0407914020517831,1.5
+2026,5,Kalif Raymond,CHI,fanduel,under,3.5,-154.0,2026-10-08 03:26:00+00:00,3.5,3.5,parlay close,-0.0,-0.0,0.0470575418127532,85.56666666666666
+2026,5,KC Concepcion,CLE,betmgm,under,4.5,-130.0,2026-10-11 15:30:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,0.032915824681207,1.5
+2026,5,Keenan Allen,IND,fanduel,over,2.5,-192.0,2026-10-08 03:26:00+00:00,3.5,3.5,parlay close,1.0,1.0,,85.56666666666666
+2026,5,Kendrick Bourne,ARI,fanduel,under,2.5,-148.0,2026-10-08 03:26:00+00:00,3.5,3.5,parlay close,-1.0,-1.0,,88.98333333333333
+2026,5,Kenyon Sadiq,NYJ,bovada,under,3.5,-120.0,2026-10-09 14:58:00+00:00,,3.5,parlay close,,-0.0,,50.03333333333333
+2026,5,Kevin Coleman Jr.,MIA,fanduel,under,1.5,118.0,2026-10-08 23:55:00+00:00,1.5,1.5,parlay close,-0.0,-0.0,0.0,65.08333333333333
+2026,5,Kyle Pitts,ATL,fanduel,over,2.5,102.0,2026-10-08 03:26:00+00:00,2.5,2.5,parlay close,0.0,0.0,0.0,92.9
+2026,5,Ladd McConkey,LAC,draftkings,under,3.5,106.0,2026-10-11 15:30:00+00:00,3.5,3.5,parlay close,-0.0,-0.0,5.551115123125783e-17,4.583333333333333
+2026,5,Luther Burden III,CHI,fanduel,under,4.5,-104.0,2026-10-08 03:26:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,0.0698834158159508,85.56666666666666
+2026,5,Makai Lemon,PHI,pinnacle,under,3.5,100.0,2026-10-08 23:55:00+00:00,3.5,3.5,parlay close,-0.0,-0.0,0.0352307281344801,61.583333333333336
+2026,5,Malik Nabers,NYG,fanduel,under,5.5,-160.0,2026-10-08 03:26:00+00:00,4.5,4.5,parlay close,1.0,1.0,,85.56666666666666
+2026,5,Malik Washington,MIA,fanduel,under,4.5,104.0,2026-10-08 23:55:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,0.0418848167539266,65.08333333333333
+2026,5,Marvin Harrison Jr.,ARI,fanduel,under,2.5,108.0,2026-10-08 03:26:00+00:00,,3.0,parlay close,,-0.5,,88.98333333333333
+2026,5,Mason Taylor,NYJ,fanduel,over,1.5,-154.0,2026-10-09 14:58:00+00:00,1.5,1.5,parlay close,0.0,0.0,0.0,50.03333333333333
+2026,5,Matthew Golden,GB,fanduel,under,4.5,-114.0,2026-10-08 03:26:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,-0.0141838223374939,85.56666666666666
+2026,5,Michael Wilson,ARI,caesars,under,6.5,-108.0,2026-10-11 15:30:00+00:00,6.5,6.5,parlay close,-0.0,-0.0,0.0069109929929433,4.916666666666667
+2026,5,Mike Gesicki,CIN,bet365,under,2.5,100.0,2026-10-11 15:30:00+00:00,2.5,2.5,parlay close,-0.0,-0.0,0.0,1.5
+2026,5,Nico Collins,HOU,fanduel,under,5.5,-108.0,2026-10-08 03:26:00+00:00,5.5,5.5,parlay close,-0.0,-0.0,0.0141838223374939,85.56666666666666
+2026,5,Oronde Gadsden II,LAC,draftkings,under,3.5,-106.0,2026-10-11 15:30:00+00:00,3.5,3.5,parlay close,-0.0,-0.0,0.0476609186484533,4.583333333333333
+2026,5,Parker Washington,JAX,fanduel,under,4.5,-102.0,2026-10-08 03:26:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,0.0139738606874457,82.06666666666666
+2026,5,Pat Freiermuth,PIT,fanduel,under,3.5,-154.0,2026-10-08 03:26:00+00:00,3.5,3.5,parlay close,-0.0,-0.0,1.1102230246251563e-16,85.56666666666666
+2026,5,Rashid Shaheed,SEA,bet365,under,2.5,-170.0,2026-10-11 18:55:00+00:00,2.5,2.5,parlay close,-0.0,-0.0,0.0172379476624954,1.5
+2026,5,Rashod Bateman,BAL,fanduel,over,1.5,-158.0,2026-10-08 03:26:00+00:00,1.5,1.5,parlay close,0.0,0.0,-0.0132112509857613,92.9
+2026,5,Roman Wilson,PIT,fanduel,under,3.5,-140.0,2026-10-08 23:55:00+00:00,3.5,3.5,parlay close,-0.0,-0.0,0.0293647612968983,65.08333333333333
+2026,5,Romeo Doubs,NE,fanduel,under,3.5,112.0,2026-10-08 03:26:00+00:00,3.5,3.5,parlay close,-0.0,-0.0,0.0206230650679675,85.56666666666666
+2026,5,Skyy Moore,GB,fanduel,under,1.5,-154.0,2026-10-08 03:26:00+00:00,1.5,1.5,parlay close,-0.0,-0.0,-0.0291185057283874,85.56666666666666
+2026,5,Tai Felton,MIN,bet365,under,1.5,-145.0,2026-10-11 15:30:00+00:00,1.5,1.5,parlay close,-0.0,-0.0,0.0090194013904589,1.5
+2026,5,Tee Higgins,CIN,fanatics,over,4.5,140.0,2026-10-11 15:30:00+00:00,4.5,3.5,parlay close,0.0,-1.0,0.0,1.5
+2026,5,Terry McLaurin,WAS,caesars,over,3.5,120.0,2026-10-11 15:30:00+00:00,3.5,3.5,parlay close,0.0,0.0,0.0,1.5
+2026,5,Theo Johnson,NYG,bet365,over,0.5,-130.0,2026-10-11 15:30:00+00:00,0.5,0.5,parlay close,0.0,0.0,-0.0103076763700403,1.5
+2026,5,T.J. Hockenson,MIN,fanduel,under,4.5,-108.0,2026-10-11 15:30:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,5.551115123125783e-17,1.5
+2026,5,Tre Harris,LAC,draftkings,under,4.5,-136.0,2026-10-11 15:30:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,-0.0406999861211584,4.583333333333333
+2026,5,Tre Tucker,LV,draftkings,under,3.5,-116.0,2026-10-08 03:26:00+00:00,3.5,3.5,parlay close,-0.0,-0.0,0.0062484221352746,85.56666666666666
+2026,5,Trey McBride,ARI,fanduel,under,7.5,108.0,2026-10-08 03:26:00+00:00,7.5,8.5,parlay close,-0.0,-1.0,0.0052758400842174,88.98333333333333
+2026,5,Troy Franklin,DEN,fanduel,under,1.5,-114.0,2026-10-08 03:26:00+00:00,1.5,1.5,parlay close,-0.0,-0.0,0.0,88.65
+2026,5,Tucker Kraft,GB,fanduel,under,4.5,-122.0,2026-10-08 03:26:00+00:00,4.5,4.5,parlay close,-0.0,-0.0,0.0,85.56666666666666
+2026,5,Tyler Warren,IND,fanduel,under,5.5,-144.0,2026-10-08 03:26:00+00:00,4.5,4.5,parlay close,1.0,1.0,,85.56666666666666
+2026,5,Xavier Hutchinson,HOU,fanduel,over,1.5,-158.0,2026-10-08 03:26:00+00:00,1.5,1.5,parlay close,0.0,0.0,-0.1724261250113768,85.56666666666666
+2026,5,Zay Flowers,BAL,fanduel,under,5.5,-130.0,2026-10-08 03:26:00+00:00,5.5,5.5,parlay close,-0.0,-0.0,0.0041003814911894,92.9

@@ -257,7 +257,7 @@ def clv_report(edges_all: pd.DataFrame, kick: dict, season: int, week: int, out_
     print("  Positive means the market moved toward our side after we picked. It needs far fewer "
           "bets to read than win rate.")
 
-    log = m.assign(season=season, week=week).rename(columns={
+    log = m.drop(columns=["player"], errors="ignore").assign(season=season, week=week).rename(columns={
         "model_player": "player", "best_side": "side", "line": "pick_line",
         "best_price": "pick_price", "snap_time": "pick_time"})[
         ["season", "week", "player", "team", "book", "side", "pick_line", "pick_price", "pick_time",
@@ -266,6 +266,7 @@ def clv_report(edges_all: pd.DataFrame, kick: dict, season: int, week: int, out_
     path = os.path.join(out_dir, "scorecard_clv.csv" if stat == "rec_yds" else f"scorecard_clv_{stat}.csv")
     if os.path.exists(path):
         old = pd.read_csv(path)
+        old = old.loc[:, ~old.columns.str.endswith(".1")]          # drop duplicate-name leftovers
         old = old[~((old["season"] == season) & (old["week"] == week))]
         log = pd.concat([old, log], ignore_index=True)
     log.to_csv(path, index=False)
@@ -401,7 +402,7 @@ def score_week(season=None, week=None):
             dec = american_to_decimal(picks["best_price"])
             picks["result"] = np.where(push, "push", np.where(win, "win", "loss"))
             picks["profit"] = np.where(push, 0.0, np.where(win, dec - 1, -1.0))
-            bets_log = picks.assign(season=season, week=week).rename(columns={
+            bets_log = picks.drop(columns=["player"], errors="ignore").assign(season=season, week=week).rename(columns={
                 "model_player": "player", "best_side": "side", "best_price": "price",
                 "best_ev": "ev", "receiving_yards": "actual"})[
                 ["season", "week", "player", "team", "opp", "book", "model_version", "side",
@@ -424,6 +425,7 @@ def score_week(season=None, week=None):
         path = os.path.join(out_dir, name)
         if os.path.exists(path):
             old = pd.read_csv(path)
+            old = old.loc[:, ~old.columns.str.endswith(".1")]
             old = old[~((old["season"] == season) & (old["week"] == week))]
             new = pd.concat([old, new], ignore_index=True)
         new.to_csv(path, index=False)

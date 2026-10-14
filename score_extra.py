@@ -114,7 +114,7 @@ def score_stat(stat: str, cfg: dict, out_dir: str) -> None:
         dec = S.american_to_decimal(picks["best_price"])
         picks["result"] = np.where(push, "push", np.where(win, "win", "loss"))
         picks["profit"] = np.where(push, 0.0, np.where(win, dec - 1, -1.0))
-        b = picks.assign(season=season, week=week, confirmed=kind.startswith("confirmed")).rename(
+        b = picks.drop(columns=["player"], errors="ignore").assign(season=season, week=week, confirmed=kind.startswith("confirmed")).rename(
             columns={"model_player": "player", "best_side": "side", "best_price": "price", "best_ev": "ev"})[
             ["season", "week", "player", "team", "opp", "book", "model_version", "side", "line", "price",
              "model_p", "fair_p", "ev", "actual", "result", "profit", "confirmed"]]
@@ -131,12 +131,13 @@ def score_stat(stat: str, cfg: dict, out_dir: str) -> None:
         path = os.path.join(out_dir, name)
         if os.path.exists(path):
             old = pd.read_csv(path)
+            old = old.loc[:, ~old.columns.str.endswith(".1")]
             old = old[~((old["season"] == season) & (old["week"] == week))]
             new = pd.concat([old, new], ignore_index=True)
         new.to_csv(path, index=False)
 
     append(f"scorecard_{cfg['log']}_bets.csv", bets_all)
-    append(f"scorecard_{cfg['log']}_players.csv", pl.assign(season=season, week=week).rename(
+    append(f"scorecard_{cfg['log']}_players.csv", pl.drop(columns=["player"], errors="ignore").assign(season=season, week=week).rename(
         columns={"model_player": "player"})[
         ["season", "week", "player", "team", "model_version", "model_median", "model_mean",
          "consensus_line", "actual"]])
