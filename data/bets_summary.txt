@@ -1,4 +1,4 @@
-BET TRACKER: 7 bets | 6 graded | 1 pending | 0 void
+BET TRACKER: 8 bets | 6 graded | 2 pending | 0 void
   record 1-5-0 | staked $155.00 | profit -89.20 | ROI -57.5%
   break-even win rate at these prices 48.1%; actual 16.7%
     stat rec_yds: 1-5 | profit -89.20 | ROI -57.5%
@@ -7,10 +7,10 @@ BET TRACKER: 7 bets | 6 graded | 1 pending | 0 void
   (with this few bets, results are mostly luck: a +/-20% ROI swing is normal over 50 bets)
 
 BET CLV (closing-line value on bets you placed; not the projection scorecards' CLV on the model's picks)
-  3 of 7 bets have a closing line | average line move in your favour +1.67 pts | beat the close on 2, matched 1, lost to it 0
+  3 of 8 bets have a closing line | average line move in your favour +1.67 pts | beat the close on 2, matched 1, lost to it 0
   price edge where the line was unchanged (1 bets): +0.0% implied probability
     overs: 2 bets, line move +2.50 pts
     unders: 1 bets, line move +0.00 pts
   Carnell Tate over 44.5 -> closed 46.5 (+2.0); Rome Odunze over 38.5 -> closed 41.5 (+3.0) [consensus of 3 books]; Parker Washington under 63.5 -> closed 63.5 (+0.0)
   (CLV is far less noisy than win/loss, but still wants about 50+ bets before it means much)
-  pending: over 40.5 Rome Odunze rec_yds (-115)
+  pending: over 40.5 Rome Odunze rec_yds (-115); over 89.5 Rome Odunze rec_yds (+640)
