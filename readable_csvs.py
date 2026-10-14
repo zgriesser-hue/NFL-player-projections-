@@ -80,6 +80,15 @@ def pct(x, d=0):
     return (pd.to_numeric(x, errors="coerce") * 100).round(d)
 
 
+def _imp(o):
+    o = pd.to_numeric(o, errors="coerce")
+    return np.where(o < 0, -o / (-o + 100), 100 / (o + 100))
+
+
+def _hold(d):
+    return _imp(d["over_price"]) + _imp(d["under_price"]) - 1
+
+
 def edges(raw: pd.DataFrame, games: dict, unit: str) -> pd.DataFrame:
     d = raw.copy()
     d["_n_books"] = d.groupby("model_player")["book"].transform("nunique")
@@ -94,12 +103,13 @@ def edges(raw: pd.DataFrame, games: dict, unit: str) -> pd.DataFrame:
         "Pos": d["position"], "Injury Status": d["status"].fillna(""), "Book": d["book"],
         "BET (Side, Line, Odds)": d["Bet"], "Book Line": d["line"],
         "Our Projection (Median)": d["model_median"].round(p), "Our Average": d["model_mean"].round(1),
-        "Chance Bet Wins - Ours, Blended (%)": pct(d["model_p"]),
-        "Chance Bet Wins - Book No-Vig (%)": pct(d["fair_p"]),
+        "Chance Bet Wins - Ours, Blended (%)": pct(d["model_p"], 1),
+        "Chance Bet Wins - Book No-Vig (%)": pct(d["fair_p"], 1),
+        "Book Hold (Vig %)": pct(_hold(d), 1),
         "Edge: EV per $1 (%)": pct(d["best_ev"]),
         "Median & Average Agree": np.where(d["agree"], "Yes", "No"),
         "CHECK NEWS": np.where(d["check_news"], "CHECK NEWS", ""),
-        "Chance Bet Wins - Raw Model (%)": pct(np.where(d["best_side"] == "over", d["raw_p_over"], d["raw_p_under"])),
+        "Chance Bet Wins - Raw Model (%)": pct(np.where(d["best_side"] == "over", d["raw_p_over"], d["raw_p_under"]), 1),
         "Books Compared": d["_n_books"],
         "Notes": d["role_note"].fillna("") if "role_note" in d else "",
         "_ko": d["_ko"],
