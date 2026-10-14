@@ -96,6 +96,7 @@ season,week,player,team,opp,book,model_version,side,line,price,model_p,fair_p,ev
 2026,4,Drew Sample,CIN,JAX,fanduel,v6,under,7.5,-114.0,0.56,0.5,0.0512280701754386,0.0,win,0.8771929824561404
 2026,5,Justin Jefferson,MIN,NO,betonlineag,v6,under,80.5,-110.0,0.82685,0.4917965545529122,0.5785318181818182,79.0,win,0.9090909090909092
 2026,5,Trey McBride,ARI,DET,draftkings,v6,under,85.5,-111.0,0.75825,0.4978941161605525,0.4413581081081081,66.0,win,0.900900900900901
+2026,5,Dalton Kincaid,BUF,LA,betmgm,v6,under,56.5,-111.0,0.75315,0.4909529553679131,0.4316635135135136,7.0,win,0.900900900900901
 2026,5,Efton Chism III,NE,LV,draftkings,v6,under,25.5,-110.0,0.74595,0.4957877000842461,0.4240863636363636,57.0,loss,-1.0
 2026,5,Kendrick Bourne,ARI,DET,betonlineag,v6,under,33.5,-114.0,0.75305,0.5,0.4136201754385965,70.0,loss,-1.0
 2026,5,Tai Felton,MIN,NO,draftkings,v6,under,10.5,-107.0,0.72655,0.4894599266410894,0.4055686915887851,27.0,loss,-1.0
@@ -117,6 +118,7 @@ season,week,player,team,opp,book,model_version,side,line,price,model_p,fair_p,ev
 2026,5,Matthew Golden,GB,CHI,betonlineag,v6,under,58.5,-114.0,0.66955,0.5,0.2568745614035087,123.0,loss,-1.0
 2026,5,Makai Lemon,PHI,JAX,betonlineag,v6,under,35.5,-114.0,0.6658,0.5,0.2498350877192982,43.0,loss,-1.0
 2026,5,DeMario Douglas,NE,LV,betmgm,v6,under,28.5,-115.0,0.6659,0.5,0.2449434782608695,65.0,loss,-1.0
+2026,5,Puka Nacua,LA,BUF,draftkings,v6,under,96.5,-112.0,0.65715,0.5,0.2438910714285713,138.0,loss,-1.0
 2026,5,Nico Collins,HOU,TEN,betrivers,v6,under,77.5,-109.0,0.64575,0.4878488395641783,0.2381811926605505,56.0,win,0.9174311926605505
 2026,5,Oronde Gadsden II,LAC,DEN,betonlineag,v6,under,33.5,-111.0,0.65135,0.4948402542722695,0.2381518018018018,0.0,win,0.900900900900901
 2026,5,Greg Dulcich,MIA,CIN,betonlineag,v6,under,28.5,-109.0,0.64205,0.4897419063641214,0.2310866972477064,37.0,loss,-1.0
@@ -132,6 +134,7 @@ season,week,player,team,opp,book,model_version,side,line,price,model_p,fair_p,ev
 2026,5,Jauan Jennings,MIN,NO,betrivers,v6,over,16.5,-117.0,0.64195,0.5030135004821601,0.1906252136752138,0.0,loss,-1.0
 2026,5,Christian Watson,GB,CHI,betmgm,v6,under,61.5,-105.0,0.60875,0.4796954314720811,0.1885119047619047,143.0,loss,-1.0
 2026,5,Chris Olave,NO,MIN,draftkings,v6,under,81.5,-110.0,0.6222,0.4957877000842461,0.1878363636363637,46.0,win,0.9090909090909092
+2026,5,Konata Mumpfield,LA,BUF,betrivers,v6,over,5.5,-117.0,0.63995,0.5030135004821601,0.186915811965812,0.0,loss,-1.0
 2026,5,Troy Franklin,DEN,LAC,betonlineag,v6,under,20.5,-114.0,0.6317,0.5,0.1858228070175439,16.0,win,0.8771929824561404
 2026,5,Malik Washington,MIA,CIN,betmgm,v6,under,47.5,-115.0,0.63265,0.5,0.1827804347826087,43.0,win,0.8695652173913042
 2026,5,Kevin Coleman Jr.,MIA,CIN,betmgm,v6,under,19.5,-115.0,0.63175,0.5,0.1810978260869564,30.0,loss,-1.0
@@ -148,8 +151,10 @@ season,week,player,team,opp,book,model_version,side,line,price,model_p,fair_p,ev
 2026,5,Brevyn Spann-Ford,DAL,TB,draftkings,v6,under,5.5,-112.0,0.607,0.5,0.1489642857142856,0.0,win,0.8928571428571428
 2026,5,Romeo Doubs,NE,LV,betmgm,v6,under,50.5,-115.0,0.6134,0.5,0.146791304347826,16.0,win,0.8695652173913042
 2026,5,Tez Johnson,TB,DAL,betmgm,v6,under,13.5,-105.0,0.585,0.4796954314720811,0.142142857142857,64.0,loss,-1.0
+2026,5,Khalil Shakir,BUF,LA,draftkings,v6,under,46.5,-112.0,0.60315,0.5,0.1416767857142857,80.0,loss,-1.0
 2026,5,Marvin Mims Jr.,DEN,LAC,fanduel,v6,under,13.5,-113.0,0.6037,0.5,0.1379477876106195,6.0,win,0.8849557522123894
 2026,5,Jerry Jeudy,CLE,NYJ,draftkings,v6,over,13.5,-109.0,0.59345,0.4936802190857383,0.1378995412844036,19.0,win,0.9174311926605505
+2026,5,Jordan Whittington,LA,BUF,betmgm,v6,under,5.5,-110.0,0.59545,0.4898785425101214,0.1367681818181819,0.0,win,0.9090909090909092
 2026,5,Juwan Johnson,NO,MIN,draftkings,v6,under,43.5,-114.0,0.6026,0.504212299915754,0.1311964912280703,16.0,win,0.8771929824561404
 2026,5,Kyle Pitts,ATL,BAL,draftkings,v6,over,23.5,-112.0,0.597,0.5,0.1300357142857142,42.0,win,0.8928571428571428
 2026,5,Rome Odunze,CHI,GB,bovada,v6,over,51.5,145.0,0.46075,0.3838517538054268,0.1288375,40.0,loss,-1.0
@@ -168,6 +173,7 @@ season,week,player,team,opp,book,model_version,side,line,price,model_p,fair_p,ev
 2026,5,Mike Evans,SF,SEA,betmgm,v6,under,51.5,-115.0,0.5816,0.5,0.0873391304347825,113.0,loss,-1.0
 2026,5,Brian Thomas Jr.,JAX,PHI,betmgm,v6,over,24.5,-111.0,0.57195,0.4928711096627016,0.0872202702702703,0.0,loss,-1.0
 2026,5,Michael Mayer,LV,NE,fanduel,v6,over,28.5,-113.0,0.5755,0.5,0.0847920353982301,2.0,loss,-1.0
+2026,5,Dawson Knox,BUF,LA,betmgm,v6,over,11.5,-111.0,0.56845,0.4928711096627016,0.0805671171171171,6.0,loss,-1.0
 2026,5,Parker Washington,JAX,PHI,draftkings,v6,under,63.5,-114.0,0.57275,0.504212299915754,0.0751622807017543,124.0,loss,-1.0
 2026,5,Amon-Ra St. Brown,DET,ARI,betonlineag,v6,under,82.5,-114.0,0.5705,0.5,0.0709385964912281,69.0,win,0.8771929824561404
 2026,5,Rashid Shaheed,SEA,SF,betrivers,v6,under,21.5,-113.0,0.5651,0.4949766918501849,0.0651884955752212,23.0,loss,-1.0
