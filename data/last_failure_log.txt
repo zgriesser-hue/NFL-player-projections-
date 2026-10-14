@@ -1,0 +1,63 @@
+Run failed 2026-10-14T15:28Z task=score
+Scoring 2026 week 5
+
+15/15 games finished (only finished games are scored)
+Projected players in finished games: 221 | played: 202 | did not play (props void): 19
+  Sample of non-players (check for name mismatches): ['Adonai Mitchell', 'Ashton Dulin', 'DJ Moore', 'Darius Slayton', 'DeVonta Smith', 'Durham Smythe', 'Jalen Nailor', 'Jordan Addison', 'Josh Palmer', 'Kevin Austin Jr.', 'Ladd McConkey', 'Mack Hollins']
+
+Projection accuracy (yards) on 132 players with a book line:
+                    MAE    RMSE    bias   (bias = actual - prediction)
+  model median    24.87   32.54    8.60
+  model mean      25.35   31.38    2.31
+  book line       23.58   30.48    4.18
+
+Model ranges on all 202 players who played (expected: ≥50% and ≥80%, zeros count as inside):
+  inside q25-q75: 55.0% | inside q10-q90: 84.7%
+  zero-yard games: actual 26.2% | predicted 25.3%
+
+Probability accuracy on 132 player lines (Brier score, lower is better):
+  model 0.2613 | book no-vig 0.2492
+  Model P(over) vs how often overs actually hit:
+             n  pred  actual
+b                           
+(0.0, 0.3]  10  0.26    0.50
+(0.3, 0.4]  35  0.36    0.46
+(0.4, 0.5]  45  0.45    0.51
+(0.5, 0.6]  31  0.54    0.39
+(0.6, 0.7]  10  0.62    0.30
+(0.7, 1.0]   1  0.72    1.00
+
+Picks (best book per player, model EV ≥ 0.05): 87 | voided (did not play): 1 | graded: 86
+Results this week:
+  all picks: 86 bets | hit 47.7% vs break-even 52.0% | ROI -8.2% (95% CI ±20.5%)
+  overs: 23 bets | hit 43.5% vs break-even 50.2% | ROI -12.1% (95% CI ±42.3%)
+  unders: 63 bets | hit 49.2% vs break-even 52.7% | ROI -6.7% (95% CI ±23.6%)
+  EV 0.05-0.10: 12 bets | hit 16.7% vs break-even 52.8% | ROI -68.5% (95% CI ±41.6%)
+  EV 0.10-0.20: 39 bets | hit 51.3% vs break-even 52.0% | ROI -1.5% (95% CI ±30.6%)
+  EV 0.20+: 35 bets | hit 54.3% vs break-even 51.9% | ROI +5.1% (95% CI ±32.6%)
+
+Closing line value (rec_yds) on 95 confirmed picks (picked a median 91h before kickoff). Close source: 79 ParlayAPI pre-kickoff snapshot, 16 our last Odds API snapshot:
+  Same-book line moved in our favor 37% | unchanged 31% | against 32%
+  Avg line CLV, same book (yards): -0.18 ±0.56 (n=93)
+  Avg line CLV vs closing consensus (yards): +0.38 ±0.58 (n=95)
+  Avg no-vig probability CLV where the line did not move (pct pts): +0.1 (n=29)
+  overs: line CLV +0.18 ±0.88 (n=33)
+  unders: line CLV -0.38 ±0.72 (n=60)
+  Positive means the market moved toward our side after we picked. It needs far fewer bets to read than win rate.
+Traceback (most recent call last):
+  File "/home/runner/work/NFL-player-projections-/NFL-player-projections-/score_week.py", line 453, in <module>
+    score_week(SCORE_SEASON, SCORE_WEEK)
+  File "/home/runner/work/NFL-player-projections-/NFL-player-projections-/score_week.py", line 418, in score_week
+    clv_report(edges_all, kick, season, week, out_dir)
+  File "/home/runner/work/NFL-player-projections-/NFL-player-projections-/score_week.py", line 270, in clv_report
+    log = pd.concat([old, log], ignore_index=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/reshape/concat.py", line 466, in concat
+    result = _get_result(
+             ^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/reshape/concat.py", line 653, in _get_result
+    indexers[ax] = obj_labels.get_indexer(new_labels)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3728, in get_indexer
+    raise InvalidIndexError(self._requires_unique_msg)
+pandas.errors.InvalidIndexError: Reindexing only valid with uniquely valued Index objects
