@@ -20,6 +20,9 @@ STATS = {
     "rush_yds": dict(label="Rushing yards", prefix="rushing", actual="rushing_yards", log="rush"),
     "receptions": dict(label="Receptions", prefix="receptions", actual="receptions", log="receptions"),
 }
+RECEPTIONS_EDGES = False      # receptions betting edges are switched off (see projections.RECEPTIONS_EDGES)
+if not RECEPTIONS_EDGES:
+    STATS.pop("receptions")
 
 
 def latest_week(out_dir: str, prefix: str):

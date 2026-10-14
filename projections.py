@@ -899,6 +899,7 @@ def american_to_decimal(a) -> np.ndarray:
     return np.where(a > 0, 1 + a / 100, 1 + 100 / -a)
 
 
+RECEPTIONS_EDGES = False    # receptions lines are too coarse to vet (half-catch steps): no edges/email/scoring when False
 SHRINK_EXTRA = 0.6          # weight on OUR probability for rushing/receptions edges (rest = book's no-vig)
 CHECK_EV, CHECK_GAP = 0.30, 0.35
 
@@ -1249,7 +1250,7 @@ def main():
         except Exception as e:
             print(f"ParlayAPI lines skipped ({e})")
             plines = pd.DataFrame()
-        if len(plines):
+        if len(plines) and RECEPTIONS_EDGES:
             rec_out = out.assign(median=out["rec_projection"], mean=out["rec_mean"])
             html_rec, _ = stat_edges(rec_out, rec_sims, plines[plines["stat"] == "receptions"],
                                      "Receptions", "receptions", "rec", season, week, out_dir, stamp)

@@ -101,8 +101,7 @@ def placed(season, week):
             + table(["Player", "Bet", "Stake", "Actual", "Result", "Profit $", "CLV"], rows))
 
 
-CLV_FILES = [("scorecard_clv.csv", "Receiving yards"), ("scorecard_clv_receptions.csv", "Receptions"),
-             ("scorecard_clv_rush_yds.csv", "Rushing yards")]
+CLV_FILES = [("scorecard_clv.csv", "Receiving yards"), ("scorecard_clv_rush_yds.csv", "Rushing yards")]
 
 
 def clv_block(season, week):
@@ -145,7 +144,8 @@ def main():
         print("No graded week found; no results email.")
         return 0
     season, week = k
-    parts = [section(p, season, week) for p in sorted(glob.glob(os.path.join(OUT, "scorecard*bets.csv")))]
+    parts = [section(p, season, week) for p in sorted(glob.glob(os.path.join(OUT, "scorecard*bets.csv")))
+             if "receptions" not in p]      # receptions betting edges are switched off
     body = (f"<h2 style='margin:0 0 8px'>{season} Week {week} results</h2>" + placed(season, week) + clv_block(season, week) + "".join(parts))
     with open(os.path.join(OUT, "results_email.html"), "w", encoding="utf-8") as f:
         f.write(f'<div style="font-family:-apple-system,Segoe UI,Arial,sans-serif;font-size:14px">{body}</div>')
