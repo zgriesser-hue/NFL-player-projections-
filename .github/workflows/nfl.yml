@@ -198,6 +198,20 @@ jobs:
             python send_email.py --subject "NFL props: $TASK results" --text run.log --tail 220
           fi
 
+      - name: Save failure log to the repo
+        if: failure()
+        continue-on-error: true
+        shell: bash
+        run: |
+          mkdir -p data
+          { echo "Run failed $(date -u +%Y-%m-%dT%H:%MZ) task=${{ steps.task.outputs.name }}"; tail -n 150 run.log 2>/dev/null; } > data/last_failure_log.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/last_failure_log.txt
+          git commit -m "data: failure log ${{ steps.task.outputs.name }}" || true
+          git pull --rebase origin "${GITHUB_REF_NAME}" || true
+          git push || true
+
       - name: Save results to the repo
         shell: bash
         run: |
