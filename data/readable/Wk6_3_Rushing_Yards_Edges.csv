@@ -1,59 +1,74 @@
 Game,Kickoff (ET),Player,Team,Pos,Injury Status,Book,"BET (Side, Line, Odds)",Book Line,Our Projection (Median),Our Average,"Chance Bet Wins - Ours, Blended (%)",Chance Bet Wins - Book No-Vig (%),Book Hold (Vig %),Edge: EV per $1 (%),Median & Average Agree,CHECK NEWS,Chance Bet Wins - Raw Model (%),Books Compared,Notes
-DEN vs SEA,Thu 8:15 PM,Emanuel Wilson,SEA,RB,,bet365,UNDER 65.5 (+105),65.5,46.0,51.0,61.6,45.9,6.2,26.0,Yes,CHECK NEWS,72.1,8,"RB1 on team by recent carries; depth chart RB1; teammate Jadarian Price (9 car/g, not on roster); Sleeper depth #1"
-DEN vs SEA,Thu 8:15 PM,Sam Darnold,SEA,QB,,bet365,UNDER 6.5 (-115),6.5,2.0,6.0,61.5,50.0,7.0,15.0,Yes,CHECK NEWS,69.1,8,
-DEN vs SEA,Thu 8:15 PM,Bo Nix,DEN,QB,,fanatics,UNDER 15.5 (-105),15.5,9.0,15.0,57.9,48.0,6.8,13.0,Yes,CHECK NEWS,64.6,8,
-DEN vs SEA,Thu 8:15 PM,RJ Harvey,DEN,RB,,betmgm,OVER 13.5 (-115),13.5,21.0,25.2,60.1,50.0,7.0,12.0,Yes,CHECK NEWS,66.8,7,"RB2 on team by recent carries; depth chart RB2; teammate Jonah Coleman (10 car/g, not on roster); Sleeper depth #2"
-DEN vs SEA,Thu 8:15 PM,J.K. Dobbins,DEN,RB,,pinnacle,OVER 47.5 (-107),47.5,50.0,56.0,51.7,48.9,5.6,-0.0,Yes,,53.5,9,"RB1 on team by recent carries; depth chart RB1; teammate Jonah Coleman (10 car/g, not on roster); Sleeper depth #1"
-DEN vs SEA,Thu 8:15 PM,George Holani,SEA,RB,,draftkings,UNDER 13.5 (-111),13.5,12.0,16.1,52.3,49.8,5.7,-1.0,No,,54.0,8,"RB2 on team by recent carries; depth chart RB2; teammate Jadarian Price (9 car/g, not on roster); Sleeper depth #2"
-HOU vs JAX,Sun 9:30 AM,Woody Marks,HOU,RB,,draftkings,UNDER 48.5 (-112),48.5,37.0,41.7,59.8,50.1,5.4,13.0,Yes,,66.3,8,RB1 on team by recent carries; depth chart RB2; Sleeper depth #1
-HOU vs JAX,Sun 9:30 AM,Chris Rodriguez Jr.,JAX,RB,,draftkings,OVER 16.5 (-116),16.5,25.0,29.9,59.9,50.8,5.6,12.0,Yes,CHECK NEWS,66.0,6,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
-HOU vs JAX,Sun 9:30 AM,Bhayshul Tuten,JAX,RB,,draftkings,UNDER 63.5 (-110),63.5,51.0,56.3,58.3,49.6,5.7,11.0,Yes,,64.2,7,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
-HOU vs JAX,Sun 9:30 AM,Trevor Lawrence,JAX,QB,,draftkings,UNDER 13.5 (-114),13.5,9.0,14.5,57.1,50.4,5.7,7.0,No,,61.6,7,
-HOU vs JAX,Sun 9:30 AM,C.J. Stroud,HOU,QB,,draftkings,UNDER 9.5 (-111),9.5,8.0,14.1,51.8,49.8,5.7,-1.0,No,,53.2,7,
-ATL vs CHI,Sun 1:00 PM,Bijan Robinson,ATL,RB,,betrivers,UNDER 94.5 (-118),94.5,80.0,87.2,57.1,50.5,7.2,5.0,Yes,,61.5,6,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
-ATL vs CHI,Sun 1:00 PM,Caleb Williams,CHI,QB,,bet365,OVER 17.5 (-115),17.5,19.0,26.8,52.0,50.0,7.0,-3.0,Yes,,53.4,1,Sleeper injury: Questionable
-ATL vs CHI,Sun 1:00 PM,Brian Robinson,ATL,RB,,bet365,UNDER 24.5 (-115),24.5,24.0,28.8,50.4,50.0,7.0,-6.0,No,,50.6,1,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
-BAL vs CLE,Sun 1:00 PM,Justice Hill,BAL,RB,,bet365,UNDER 19.5 (-115),19.5,10.0,14.4,63.3,50.0,7.0,18.0,Yes,CHECK NEWS,72.2,1,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
-BAL vs CLE,Sun 1:00 PM,Deshaun Watson,CLE,QB,,bet365,UNDER 30.5 (-115),30.5,22.0,29.4,57.2,50.0,7.0,7.0,Yes,,62.0,4,
-BAL vs CLE,Sun 1:00 PM,Derrick Henry,BAL,RB,,draftkings,UNDER 89.5 (-111),89.5,83.0,90.7,52.8,49.8,5.7,0.0,No,,54.9,4,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
-CAR vs PHI,Sun 1:00 PM,Bryce Young,CAR,QB,,draftkings,UNDER 10.5 (-106),10.5,6.0,10.0,59.2,48.7,5.6,15.0,Yes,CHECK NEWS,66.1,5,
-CAR vs PHI,Sun 1:00 PM,Chuba Hubbard,CAR,RB,,fanduel,UNDER 69.5 (-114),69.5,54.0,60.7,59.2,50.0,6.5,11.0,Yes,,65.3,5,"RB1 on team by recent carries; depth chart RB1; teammate AJ Dillon (5 car/g, not on roster); teammate Jonathon Brooks (5 car/g, not on roster); Sleeper depth #1"
-CAR vs PHI,Sun 1:00 PM,Jalen Hurts,PHI,QB,,bet365,UNDER 22.5 (-115),22.5,15.0,21.0,58.9,50.0,7.0,10.0,Yes,CHECK NEWS,64.8,1,
-IND vs TEN,Sun 1:00 PM,Cam Ward,TEN,QB,,draftkings,UNDER 12.5 (-113),12.5,6.0,10.9,61.3,50.2,5.7,16.0,Yes,CHECK NEWS,68.7,7,
-IND vs TEN,Sun 1:00 PM,Jonathan Taylor,IND,RB,,bet365,UNDER 93.5 (-115),93.5,73.0,79.6,60.3,50.0,7.0,13.0,Yes,,67.2,7,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
-IND vs TEN,Sun 1:00 PM,Daniel Jones,IND,QB,,draftkings,UNDER 6.5 (-110),6.5,4.0,8.5,55.0,49.6,5.7,5.0,No,,58.6,7,
-IND vs TEN,Sun 1:00 PM,Tony Pollard,TEN,RB,,pinnacle,OVER 49.5 (-114),49.5,56.0,61.3,54.2,50.0,6.5,2.0,Yes,,57.0,7,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
-IND vs TEN,Sun 1:00 PM,Tyjae Spears,TEN,RB,,bet365,UNDER 13.5 (-115),13.5,11.0,15.5,53.6,50.0,7.0,0.0,No,,56.0,7,RB3 on team by recent carries; depth chart RB2; Sleeper depth #2
-IND vs TEN,Sun 1:00 PM,Seth McGowan,IND,RB,,draftkings,UNDER 12.5 (-106),12.5,12.0,17.2,49.8,48.6,5.8,-3.0,No,,50.6,6,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
-NE vs NYJ,Sun 1:00 PM,Rhamondre Stevenson,NE,RB,,draftkings,UNDER 69.5 (-109),69.5,47.0,52.8,63.7,49.4,5.6,22.0,Yes,CHECK NEWS,73.3,5,"RB2 on team by recent carries; depth chart RB1; teammate Corey Kiner (6 car/g, not on roster); Sleeper depth #1"
-NE vs NYJ,Sun 1:00 PM,Drake Maye,NE,QB,,draftkings,UNDER 27.5 (-111),27.5,23.0,30.1,54.1,49.8,5.7,3.0,No,,57.0,6,
-NO vs NYG,Sun 1:00 PM,Cam Skattebo,NYG,RB,,draftkings,UNDER 57.5 (-114),57.5,53.0,58.5,53.4,50.4,5.7,0.0,No,,55.4,5,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
-NO vs NYG,Sun 1:00 PM,Najee Harris,NYG,RB,,bet365,OVER 19.5 (-115),19.5,22.0,25.8,52.7,50.0,7.0,-2.0,Yes,,54.5,1,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
-NO vs NYG,Sun 1:00 PM,Tyler Shough,NO,QB,,bet365,UNDER 9.5 (-115),9.5,9.0,14.8,51.1,50.0,7.0,-5.0,No,,51.8,1,
-NO vs NYG,Sun 1:00 PM,Jameis Winston,NYG,QB,,bet365,UNDER 4.5 (-120),4.5,4.0,9.3,51.1,51.0,6.9,-6.0,No,,51.2,1,
-PIT vs TB,Sun 1:00 PM,Rico Dowdle,PIT,RB,,bet365,OVER 28.5 (-115),28.5,38.0,42.6,58.3,50.0,7.0,9.0,Yes,,63.8,1,RB2 on team by recent carries; depth chart RB2; Sleeper injury: Questionable; Sleeper depth #2
-PIT vs TB,Sun 1:00 PM,Jaylen Warren,PIT,RB,,bet365,OVER 61.5 (-115),61.5,70.0,76.7,54.7,50.0,7.0,2.0,Yes,,57.9,1,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
-PIT vs TB,Sun 1:00 PM,Bucky Irving,TB,RB,,bet365,OVER 59.5 (-115),59.5,63.0,69.0,52.2,50.0,7.0,-2.0,Yes,,53.6,1,"RB1 on team by recent carries; depth chart RB1; teammate Sean Tucker (5 car/g, not on roster); Sleeper depth #1"
-ARI vs LAR,Sun 4:05 PM,Blake Corum,LA,RB,,fanduel,UNDER 43.5 (-114),43.5,27.0,31.3,64.7,50.0,6.5,21.0,Yes,CHECK NEWS,74.5,6,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
-ARI vs LAR,Sun 4:05 PM,Matthew Stafford,LA,QB,,bet365,OVER 0.5 (+140),0.5,1.0,3.4,48.2,39.3,6.0,16.0,Yes,,54.1,1,
-ARI vs LAR,Sun 4:05 PM,Jeremiyah Love,ARI,RB,,draftkings,OVER 43.5 (-109),43.5,53.0,59.2,56.7,49.4,5.6,9.0,Yes,,61.6,5,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
-ARI vs LAR,Sun 4:05 PM,Tyler Allgeier,ARI,RB,,draftkings,OVER 20.5 (-111),20.5,23.0,27.5,52.6,49.8,5.7,0.0,Yes,,54.5,5,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
-ARI vs LAR,Sun 4:05 PM,Jacoby Brissett,ARI,QB,,bet365,OVER 5.5 (-115),5.5,7.0,13.0,53.3,50.0,7.0,-0.0,Yes,,55.5,1,
-ARI vs LAR,Sun 4:05 PM,Kyren Williams,LA,RB,,bet365,UNDER 74.5 (-115),74.5,69.0,76.1,53.1,50.0,7.0,-1.0,No,,55.1,8,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
-BUF vs LV,Sun 4:25 PM,Kirk Cousins,LV,QB,,draftkings,UNDER 1.5 (-112),1.5,0.0,2.6,58.5,50.0,5.7,11.0,No,,64.1,4,
-BUF vs LV,Sun 4:25 PM,James Cook,BUF,RB,,bet365,UNDER 97.5 (-115),97.5,85.0,92.1,55.9,50.0,7.0,5.0,Yes,,59.8,8,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
-BUF vs LV,Sun 4:25 PM,Josh Allen,BUF,QB,,draftkings,OVER 33.5 (-110),33.5,38.0,46.8,52.9,49.6,5.7,1.0,Yes,,55.1,7,
-BUF vs LV,Sun 4:25 PM,Ashton Jeanty,LV,RB,,bet365,UNDER 56.5 (-115),56.5,53.0,58.0,52.7,50.0,7.0,-2.0,No,,54.5,6,"RB1 on team by recent carries; depth chart RB1; teammate Mike Washington Jr. (7 car/g, not on roster); Sleeper depth #1"
-KC vs LAC,Sun 4:25 PM,Emmett Johnson,KC,RB,,bet365,UNDER 14.5 (-115),14.5,10.0,14.7,56.6,50.0,7.0,6.0,No,,61.0,1,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
-KC vs LAC,Sun 4:25 PM,Patrick Mahomes,KC,QB,,bet365,UNDER 11.5 (-115),11.5,7.0,13.9,56.4,50.0,7.0,6.0,No,CHECK NEWS,60.7,1,
-KC vs LAC,Sun 4:25 PM,Kenneth Walker III,KC,RB,,draftkings,UNDER 86.5 (-113),86.5,82.0,89.5,52.3,50.2,5.7,-1.0,No,,53.6,7,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
-DAL vs GB,Sun 8:20 PM,Jordan Love,GB,QB,,draftkings,UNDER 6.5 (-110),6.5,2.0,4.5,65.2,49.6,5.7,25.0,Yes,CHECK NEWS,75.7,5,
-DAL vs GB,Sun 8:20 PM,MarShawn Lloyd,GB,RB,,bet365,UNDER 42.5 (-115),42.5,28.0,32.6,62.6,50.0,7.0,17.0,Yes,CHECK NEWS,71.0,5,"RB1 on team by recent carries; depth chart RB1; teammate Kaleb Johnson (8 car/g, not on roster); Sleeper depth #1"
-DAL vs GB,Sun 8:20 PM,Dak Prescott,DAL,QB,,bet365,UNDER 10.5 (-110),10.5,4.0,9.9,60.4,49.0,6.9,15.0,Yes,CHECK NEWS,67.9,5,
-DAL vs GB,Sun 8:20 PM,Javonte Williams,DAL,RB,,draftkings,UNDER 70.5 (-113),70.5,58.0,63.8,57.9,50.2,5.7,9.0,Yes,,63.1,6,"RB1 on team by recent carries; depth chart RB1; teammate Tyler Goodson (6 car/g, not on roster); Sleeper depth #1"
-SF vs WAS,Mon 8:15 PM,Jacory Croskey-Merritt,WAS,RB,,draftkings,OVER 39.5 (-110),39.5,45.0,50.3,54.1,49.6,5.7,3.0,Yes,,57.0,6,"RB1 on team by recent carries; depth chart RB1; teammate Kaytron Allen (5 car/g, not on roster); Sleeper depth #1"
-SF vs WAS,Mon 8:15 PM,Rachaad White,WAS,RB,,betrivers,OVER 20.5 (-112),20.5,23.0,27.9,53.3,49.2,7.4,1.0,Yes,,56.0,6,"RB2 on team by recent carries; depth chart RB2; teammate Kaytron Allen (5 car/g, not on roster); Sleeper depth #2"
-SF vs WAS,Mon 8:15 PM,Jayden Daniels,WAS,QB,,betrivers,OVER 34.5 (-115),34.5,39.0,48.5,53.2,50.0,7.0,-0.0,Yes,,55.4,6,
-SF vs WAS,Mon 8:15 PM,Brock Purdy,SF,QB,,draftkings,UNDER 17.5 (-108),17.5,16.0,23.0,51.5,49.2,5.6,-1.0,No,,53.0,6,
-SF vs WAS,Mon 8:15 PM,Christian McCaffrey,SF,RB,,draftkings,UNDER 60.5 (-112),60.5,59.0,65.3,51.0,50.0,5.7,-4.0,No,,51.6,6,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
-SF vs WAS,Mon 8:15 PM,Kaelon Black,SF,RB,,draftkings,OVER 23.5 (-108),23.5,24.0,28.4,49.8,49.2,5.6,-4.0,Yes,,50.3,6,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
+SEA @ DEN,Thu 8:15 PM,Sam Darnold,SEA,QB,,pinnacle,UNDER 5.5 (-109),5.5,2.0,5.7,59.8,49.8,4.8,15.0,No,,66.6,9,
+SEA @ DEN,Thu 8:15 PM,RJ Harvey,DEN,RB,,bet365,OVER 15.5 (+105),15.5,21.0,25.1,55.6,45.9,6.2,14.0,Yes,CHECK NEWS,62.1,7,"RB2 on team by recent carries; depth chart RB2; teammate Jonah Coleman (10 car/g, not on roster); Sleeper depth #2"
+SEA @ DEN,Thu 8:15 PM,Emanuel Wilson,SEA,RB,,bet365,UNDER 65.5 (+105),65.5,55.0,60.6,55.0,45.9,6.2,13.0,Yes,,61.1,9,"RB1 on team by recent carries; depth chart RB1; teammate Jadarian Price (9 car/g, not on roster); Sleeper depth #1"
+SEA @ DEN,Thu 8:15 PM,Bo Nix,DEN,QB,,pinnacle,UNDER 12.5 (-104),12.5,9.0,15.0,54.4,48.7,4.7,7.0,No,,58.3,8,
+SEA @ DEN,Thu 8:15 PM,George Holani,SEA,RB,,bovada,OVER 13.5 (-110),13.5,19.0,22.6,55.9,49.0,6.9,7.0,Yes,CHECK NEWS,60.5,9,"RB2 on team by recent carries; depth chart RB2; teammate Jadarian Price (9 car/g, not on roster); Sleeper depth #2"
+SEA @ DEN,Thu 8:15 PM,J.K. Dobbins,DEN,RB,,betmgm,OVER 47.5 (-111),47.5,51.0,56.2,52.1,49.3,6.7,-1.0,Yes,,53.9,8,"RB1 on team by recent carries; depth chart RB1; teammate Jonah Coleman (10 car/g, not on roster); Sleeper depth #1"
+HOU @ JAX,Sun 9:30 AM,Chris Rodriguez Jr.,JAX,RB,,pinnacle,OVER 16.5 (-112),16.5,25.0,29.9,59.6,49.4,7.0,13.0,Yes,CHECK NEWS,66.3,7,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
+HOU @ JAX,Sun 9:30 AM,Bhayshul Tuten,JAX,RB,,draftkings,UNDER 63.5 (-109),63.5,51.0,56.4,58.3,49.4,5.6,12.0,Yes,,64.2,8,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
+HOU @ JAX,Sun 9:30 AM,Woody Marks,HOU,RB,,betrivers,UNDER 47.5 (-113),47.5,37.0,41.7,58.9,49.5,7.2,11.0,Yes,,65.1,7,RB1 on team by recent carries; depth chart RB2; Sleeper depth #1
+HOU @ JAX,Sun 9:30 AM,Trevor Lawrence,JAX,QB,,draftkings,UNDER 13.5 (-114),13.5,9.0,14.4,57.2,50.4,5.7,7.0,No,,61.8,8,
+HOU @ JAX,Sun 9:30 AM,C.J. Stroud,HOU,QB,,draftkings,UNDER 9.5 (-111),9.5,8.0,14.0,51.9,49.8,5.7,-1.0,No,,53.2,7,
+BAL @ CLE,Sun 1:00 PM,Justice Hill,BAL,RB,,bet365,UNDER 14.5 (-120),14.5,10.0,14.6,56.9,51.0,6.9,4.0,No,,60.8,1,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
+BAL @ CLE,Sun 1:00 PM,Deshaun Watson,CLE,QB,,draftkings,UNDER 29.5 (-115),29.5,24.0,30.9,55.2,50.6,5.6,3.0,No,,58.3,7,
+BAL @ CLE,Sun 1:00 PM,Derrick Henry,BAL,RB,,draftkings,UNDER 88.5 (-110),88.5,89.0,96.2,49.8,49.6,5.7,-5.0,No,,49.9,7,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
+CAR @ PHI,Sun 1:00 PM,Chuba Hubbard,CAR,RB,,draftkings,UNDER 71.5 (-110),71.5,55.0,61.2,59.7,49.6,5.7,14.0,Yes,,66.5,8,"RB1 on team by recent carries; depth chart RB1; teammate AJ Dillon (5 car/g, not on roster); teammate Jonathon Brooks (5 car/g, not on roster); Sleeper depth #1"
+CAR @ PHI,Sun 1:00 PM,Bryce Young,CAR,QB,,draftkings,UNDER 9.5 (-105),9.5,5.0,9.8,57.6,48.5,5.6,12.0,No,CHECK NEWS,63.6,7,
+CHI @ ATL,Sun 1:00 PM,D'Andre Swift,CHI,RB,,bet365,UNDER 76.5 (-115),76.5,53.0,58.7,63.9,50.0,7.0,19.0,Yes,CHECK NEWS,73.1,7,"RB2 on team by recent carries; depth chart RB1; teammate Roschon Johnson (5 car/g, not on roster); Sleeper depth #1"
+CHI @ ATL,Sun 1:00 PM,Brian Robinson,ATL,RB,,draftkings,UNDER 34.5 (-113),34.5,24.0,28.7,60.3,50.2,5.7,14.0,Yes,,67.0,6,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
+CHI @ ATL,Sun 1:00 PM,Bijan Robinson,ATL,RB,,draftkings,UNDER 92.5 (-114),92.5,77.0,85.0,57.3,50.4,5.7,8.0,Yes,,62.0,8,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
+CHI @ ATL,Sun 1:00 PM,Caleb Williams,CHI,QB,,bet365,UNDER 24.5 (-115),24.5,19.0,26.6,55.1,50.0,7.0,3.0,No,,58.5,7,Sleeper injury: Questionable
+CHI @ ATL,Sun 1:00 PM,Michael Penix Jr.,ATL,QB,,bet365,UNDER 3.5 (-115),3.5,3.0,6.6,52.6,50.0,7.0,-2.0,No,,54.4,5,
+NO @ NYG,Sun 1:00 PM,Kendre Miller,NO,RB,,draftkings,UNDER 34.5 (-111),34.5,23.0,26.7,61.9,49.8,5.7,18.0,Yes,CHECK NEWS,70.0,5,"RB2 on team by recent carries; depth chart RB2; teammate Travis Etienne (10 car/g, not on roster); Sleeper depth #2"
+NO @ NYG,Sun 1:00 PM,J.J. McCarthy,NYG,QB,,fanduel,OVER 0.5 (-120),0.5,6.0,12.1,63.3,51.2,6.5,16.0,Yes,CHECK NEWS,71.4,1,
+NO @ NYG,Sun 1:00 PM,CJ Donaldson,NO,RB,,draftkings,UNDER 13.5 (-109),13.5,8.0,12.7,58.2,49.3,5.9,12.0,Yes,CHECK NEWS,64.2,5,"RB3 on team by recent carries; depth chart RB3; teammate Travis Etienne (10 car/g, not on roster); Sleeper depth #3"
+NO @ NYG,Sun 1:00 PM,Tyler Shough,NO,QB,,betrivers,UNDER 11.5 (-112),11.5,9.0,14.8,53.8,49.2,7.4,2.0,No,,56.9,6,
+NO @ NYG,Sun 1:00 PM,Cam Skattebo,NYG,RB,,betrivers,UNDER 59.5 (-117),59.5,53.0,58.4,54.9,50.4,7.0,2.0,Yes,,57.9,6,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
+NO @ NYG,Sun 1:00 PM,Alvin Kamara,NO,RB,,draftkings,OVER 23.5 (-111),23.5,26.0,30.9,53.2,49.8,5.7,1.0,Yes,,55.4,5,"RB1 on team by recent carries; depth chart RB1; teammate Travis Etienne (10 car/g, not on roster); Sleeper injury: Questionable; Sleeper depth #1"
+NO @ NYG,Sun 1:00 PM,Jameis Winston,NYG,QB,,draftkings,UNDER 5.5 (-114),5.5,4.0,9.4,53.3,50.4,5.7,0.0,No,,55.2,7,
+NO @ NYG,Sun 1:00 PM,Najee Harris,NYG,RB,,bet365,OVER 19.5 (-115),19.5,21.0,25.6,52.4,50.0,7.0,-2.0,Yes,,54.0,6,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
+NYJ @ NE,Sun 1:00 PM,Braelon Allen,NYJ,RB,,draftkings,UNDER 67.5 (-110),67.5,43.0,47.8,66.2,49.6,5.7,26.0,Yes,CHECK NEWS,77.3,8,RB2 on team by recent carries; depth chart RB2; Sleeper depth #1; LIKELY PROMOTED to starter: our projection may be too low
+NYJ @ NE,Sun 1:00 PM,Rhamondre Stevenson,NE,RB,,draftkings,UNDER 71.5 (-113),71.5,47.0,52.8,64.9,50.2,5.7,22.0,Yes,CHECK NEWS,74.8,8,"RB2 on team by recent carries; depth chart RB1; teammate Corey Kiner (6 car/g, not on roster); Sleeper depth #1"
+NYJ @ NE,Sun 1:00 PM,Geno Smith,NYJ,QB,,betmgm,UNDER 10.5 (-125),10.5,4.0,8.5,63.4,52.0,6.8,14.0,Yes,CHECK NEWS,71.0,7,
+NYJ @ NE,Sun 1:00 PM,Drake Maye,NE,QB,,fanduel,UNDER 27.5 (-114),27.5,23.0,29.9,54.5,50.0,6.5,2.0,No,,57.4,8,
+PIT @ TB,Sun 1:00 PM,Jalon Daniels,TB,QB,,draftkings,UNDER 37.5 (-110),37.5,21.0,28.9,62.2,49.6,5.7,19.0,Yes,CHECK NEWS,70.6,7,
+PIT @ TB,Sun 1:00 PM,Aaron Rodgers,PIT,QB,,bet365,OVER 0.5 (+110),0.5,2.0,6.5,54.5,44.9,6.0,14.0,Yes,,60.9,5,
+PIT @ TB,Sun 1:00 PM,Rico Dowdle,PIT,RB,,bet365,OVER 28.5 (-115),28.5,37.0,42.6,58.3,50.0,7.0,9.0,Yes,,63.8,1,RB2 on team by recent carries; depth chart RB2; Sleeper injury: Questionable; Sleeper depth #2
+PIT @ TB,Sun 1:00 PM,Jaylen Warren,PIT,RB,,bet365,OVER 61.5 (-115),61.5,69.0,76.2,54.4,50.0,7.0,2.0,Yes,,57.4,4,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
+PIT @ TB,Sun 1:00 PM,Bucky Irving,TB,RB,,draftkings,UNDER 63.5 (-109),63.5,64.0,69.7,49.7,49.4,5.6,-5.0,No,,49.9,8,"RB1 on team by recent carries; depth chart RB1; teammate Sean Tucker (5 car/g, not on roster); Sleeper depth #1"
+TEN @ IND,Sun 1:00 PM,Cam Ward,TEN,QB,,draftkings,UNDER 12.5 (-113),12.5,6.0,11.1,61.0,50.2,5.7,15.0,Yes,CHECK NEWS,68.2,7,
+TEN @ IND,Sun 1:00 PM,Jonathan Taylor,IND,RB,,bet365,UNDER 93.5 (-115),93.5,73.0,79.8,60.4,50.0,7.0,13.0,Yes,,67.3,9,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
+TEN @ IND,Sun 1:00 PM,Daniel Jones,IND,QB,,draftkings,UNDER 7.5 (-115),7.5,4.0,8.5,57.8,50.6,5.6,8.0,No,,62.5,9,
+TEN @ IND,Sun 1:00 PM,Seth McGowan,IND,RB,,draftkings,UNDER 15.5 (-115),15.5,12.0,17.1,54.7,50.6,5.6,2.0,No,,57.3,8,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
+TEN @ IND,Sun 1:00 PM,Tony Pollard,TEN,RB,,draftkings,OVER 51.5 (-111),51.5,55.0,61.1,52.7,49.8,5.7,0.0,Yes,,54.6,8,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
+TEN @ IND,Sun 1:00 PM,Tyjae Spears,TEN,RB,,draftkings,UNDER 12.5 (-109),12.5,11.0,15.6,51.7,49.4,5.6,-1.0,No,,53.2,9,RB3 on team by recent carries; depth chart RB2; Sleeper injury: Questionable; Sleeper depth #2
+ARI @ LAR,Sun 4:05 PM,Blake Corum,LA,RB,,fanduel,UNDER 43.5 (-114),43.5,27.0,31.3,64.6,50.0,6.5,21.0,Yes,CHECK NEWS,74.4,8,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
+ARI @ LAR,Sun 4:05 PM,Matthew Stafford,LA,QB,,bet365,OVER 0.5 (+130),0.5,1.0,3.4,49.1,41.1,5.7,13.0,Yes,,54.5,1,
+ARI @ LAR,Sun 4:05 PM,Jeremiyah Love,ARI,RB,,draftkings,OVER 44.5 (-110),44.5,53.0,58.8,55.6,49.5,5.9,6.0,Yes,,59.7,2,RB1 on team by recent carries; depth chart RB1; Sleeper injury: Questionable; Sleeper depth #1
+ARI @ LAR,Sun 4:05 PM,Jacoby Brissett,ARI,QB,,bet365,OVER 4.5 (-120),4.5,7.0,13.0,56.0,51.0,6.9,3.0,Yes,,59.3,1,
+ARI @ LAR,Sun 4:05 PM,Bam Knight,ARI,RB,,pinnacle,UNDER 20.5 (-114),20.5,17.0,21.9,54.2,50.0,6.5,2.0,No,,57.0,1,RB3 on team by recent carries; depth chart RB3
+ARI @ LAR,Sun 4:05 PM,Tyler Allgeier,ARI,RB,,bet365,UNDER 26.5 (-115),26.5,23.0,27.6,54.0,50.0,7.0,1.0,No,,56.6,3,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
+ARI @ LAR,Sun 4:05 PM,Kyren Williams,LA,RB,,bet365,UNDER 74.5 (-115),74.5,69.0,76.0,52.9,50.0,7.0,-1.0,No,,54.8,8,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
+BUF @ LV,Sun 4:25 PM,Kirk Cousins,LV,QB,,draftkings,UNDER 1.5 (-117),1.5,0.0,2.6,58.6,50.9,5.8,9.0,No,,63.7,6,
+BUF @ LV,Sun 4:25 PM,James Cook,BUF,RB,,bet365,UNDER 94.5 (-115),94.5,84.0,92.4,54.5,50.0,7.0,2.0,Yes,,57.5,9,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
+BUF @ LV,Sun 4:25 PM,Ashton Jeanty,LV,RB,,bet365,UNDER 57.5 (-115),57.5,52.0,58.2,53.6,50.0,7.0,0.0,No,,56.0,7,"RB1 on team by recent carries; depth chart RB1; teammate Mike Washington Jr. (7 car/g, not on roster); Sleeper depth #1"
+BUF @ LV,Sun 4:25 PM,Josh Allen,BUF,QB,,draftkings,OVER 34.5 (-109),34.5,37.0,46.1,51.8,49.4,5.6,-1.0,Yes,,53.4,8,
+LAC @ KC,Sun 4:25 PM,Patrick Mahomes,KC,QB,,draftkings,UNDER 15.5 (-111),15.5,7.0,13.8,60.8,49.8,5.7,16.0,Yes,CHECK NEWS,68.2,7,
+LAC @ KC,Sun 4:25 PM,Omarion Hampton,LAC,RB,,draftkings,OVER 31.5 (-110),31.5,43.0,47.7,59.7,49.6,5.7,14.0,Yes,CHECK NEWS,66.4,6,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
+LAC @ KC,Sun 4:25 PM,Justin Herbert,LAC,QB,,draftkings,UNDER 24.5 (-114),24.5,15.0,21.3,60.3,50.4,5.7,13.0,Yes,CHECK NEWS,66.9,6,
+LAC @ KC,Sun 4:25 PM,Emmett Johnson,KC,RB,,draftkings,UNDER 14.5 (-111),14.5,10.0,14.7,56.6,49.8,5.7,8.0,No,,61.2,6,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
+LAC @ KC,Sun 4:25 PM,Kenneth Walker III,KC,RB,,betmgm,UNDER 88.5 (+105),88.5,82.0,89.7,51.4,45.5,7.1,5.0,No,,55.4,7,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
+LAC @ KC,Sun 4:25 PM,Kimani Vidal,LAC,RB,,draftkings,OVER 16.5 (-109),16.5,19.0,22.9,52.7,49.4,5.6,1.0,Yes,,54.9,5,RB3 on team by recent carries; depth chart RB3; Sleeper depth #3
+LAC @ KC,Sun 4:25 PM,Keaton Mitchell,LAC,RB,,draftkings,OVER 18.5 (-111),18.5,20.0,24.3,52.3,49.8,5.7,-1.0,Yes,,54.0,5,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
+DAL @ GB,Sun 8:20 PM,Jordan Love,GB,QB,,draftkings,UNDER 6.5 (-110),6.5,2.0,4.5,65.2,49.6,5.7,24.0,Yes,CHECK NEWS,75.6,8,
+DAL @ GB,Sun 8:20 PM,Pierre Strong,GB,RB,,draftkings,UNDER 18.5 (-109),18.5,7.0,13.6,62.5,49.4,5.6,20.0,Yes,CHECK NEWS,71.2,8,"RB2 on team by recent carries; depth chart RB2; teammate Kaleb Johnson (8 car/g, not on roster); Sleeper depth #2"
+DAL @ GB,Sun 8:20 PM,MarShawn Lloyd,GB,RB,,draftkings,UNDER 42.5 (-108),42.5,28.0,32.8,62.2,49.2,5.6,20.0,Yes,CHECK NEWS,70.9,9,"RB1 on team by recent carries; depth chart RB1; teammate Kaleb Johnson (8 car/g, not on roster); Sleeper depth #1"
+DAL @ GB,Sun 8:20 PM,Dak Prescott,DAL,QB,,betmgm,UNDER 10.5 (-110),10.5,4.0,10.0,60.3,49.0,6.9,15.0,Yes,CHECK NEWS,67.8,8,
+DAL @ GB,Sun 8:20 PM,Javonte Williams,DAL,RB,,draftkings,UNDER 71.5 (-114),71.5,58.0,63.8,58.7,50.4,5.7,10.0,Yes,,64.1,8,"RB1 on team by recent carries; depth chart RB1; teammate Tyler Goodson (6 car/g, not on roster); Sleeper depth #1"
+WAS @ SF,Mon 8:15 PM,Jacory Croskey-Merritt,WAS,RB,,draftkings,OVER 39.5 (-110),39.5,45.0,50.4,54.0,49.6,5.7,3.0,Yes,,57.0,7,"RB1 on team by recent carries; depth chart RB1; teammate Kaytron Allen (5 car/g, not on roster); Sleeper depth #1"
+WAS @ SF,Mon 8:15 PM,Rachaad White,WAS,RB,,fanduel,OVER 20.5 (-114),20.5,24.0,28.2,54.0,50.0,6.5,1.0,Yes,,56.7,6,"RB2 on team by recent carries; depth chart RB2; teammate Kaytron Allen (5 car/g, not on roster); Sleeper depth #2"
+WAS @ SF,Mon 8:15 PM,Kaelon Black,SF,RB,,bet365,UNDER 27.5 (-115),27.5,24.0,28.4,54.0,50.0,7.0,1.0,No,,56.7,8,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
+WAS @ SF,Mon 8:15 PM,Jayden Daniels,WAS,QB,,fanduel,OVER 35.5 (-114),35.5,40.0,49.1,52.9,50.0,6.5,-1.0,Yes,,54.8,8,
+WAS @ SF,Mon 8:15 PM,Christian McCaffrey,SF,RB,,bet365,UNDER 63.5 (-115),63.5,59.0,65.3,52.9,50.0,7.0,-1.0,No,,54.8,8,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
+WAS @ SF,Mon 8:15 PM,Brock Purdy,SF,QB,,pinnacle,UNDER 16.5 (+102),16.5,16.0,23.3,48.8,46.3,7.0,-1.0,No,,50.5,8,
