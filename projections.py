@@ -67,6 +67,7 @@ OPP_HALFLIFE = 6            # games; decay for a defense's recent form
 # ---- Practice participation + weather (off until ab_features.py shows a real gain) ----
 USE_PRACTICE_FEATURES = False
 USE_WEATHER_FEATURES = False
+USE_RECENT_FEATURES = False     # last-game / last-3-game targets (how sharply the role just moved); flip only if ab_features says it helps
 USE_NGS_FEATURES = False        # NFL Next Gen Stats (separation etc.); flip only if ab_features says it helps
 
 # ---- Saving + sportsbook lines ----
@@ -437,22 +438,25 @@ RATIO_FEATURES = ["ewm_catch_rate", "ewm_ypr", "ewm_ypt"]
 OPP_FEATURES = ["opp_tgt_oe", "opp_yds_oe"]
 PRAC_FEATURES = ["prac_dnp", "prac_limited"]
 WX_FEATURES = ["wx_wind_mph", "wx_temp_f", "wx_is_dome"]
+RECENT_FEATURES = ["last_targets", "last3_targets", "last_receiving_yards"]
 NGS_COLS = ["avg_separation", "avg_cushion", "avg_intended_air_yards",
             "percent_share_of_intended_air_yards", "avg_yac_above_expectation"]
 NGS_FEATURES = [f"ngs_{c}" for c in NGS_COLS]
 NGS_URL = "https://github.com/nflverse/nflverse-data/releases/download/nextgen_stats/ngs_receiving.csv.gz"
 
 
-def build_model_features(opp: bool = False, prac: bool = False, wx: bool = False, ngs: bool = False) -> list:
+def build_model_features(opp: bool = False, prac: bool = False, wx: bool = False, ngs: bool = False,
+                         recent: bool = False) -> list:
     return (FEATURES + RATIO_FEATURES + (OPP_FEATURES if opp else [])
             + (PRAC_FEATURES if prac else []) + (WX_FEATURES if wx else [])
-            + (NGS_FEATURES if ngs else []))
+            + (NGS_FEATURES if ngs else []) + (RECENT_FEATURES if recent else []))
 
 
 MODEL_FEATURES = build_model_features(USE_OPP_FEATURES, USE_PRACTICE_FEATURES, USE_WEATHER_FEATURES,
-                                      USE_NGS_FEATURES)
+                                      USE_NGS_FEATURES, USE_RECENT_FEATURES)
 _tags = [n for n, on in (("opp", USE_OPP_FEATURES), ("prac", USE_PRACTICE_FEATURES),
-                         ("wx", USE_WEATHER_FEATURES), ("ngs", USE_NGS_FEATURES)) if on]
+                         ("wx", USE_WEATHER_FEATURES), ("ngs", USE_NGS_FEATURES),
+                         ("recent", USE_RECENT_FEATURES)) if on]
 MODEL_VERSION = "v7-" + "-".join(_tags) if _tags else "v6"
 
 
@@ -491,6 +495,9 @@ def add_features(df: pd.DataFrame) -> pd.DataFrame:
         df[f"ewm_{col}"] = g[col].apply(
             lambda s: s.shift(1).ewm(halflife=HALFLIFE, min_periods=1).mean())
     df["games_prior"] = g.cumcount()
+    df["last_targets"] = g["targets"].shift(1)                                   # most recent game only
+    df["last3_targets"] = g["targets"].apply(lambda s: s.shift(1).rolling(3, min_periods=1).mean())
+    df["last_receiving_yards"] = g[TARGET].shift(1)
     df[MEDIAN_COL] = g[TARGET].apply(
         lambda s: s.shift(1).rolling(MEDIAN_WINDOW, min_periods=1).median())
     df["is_te"] = (df["position"] == "TE").astype(int)

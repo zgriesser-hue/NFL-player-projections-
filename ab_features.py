@@ -55,6 +55,12 @@ def ngs_subsets(f: pd.DataFrame) -> dict:
             "below-median separation": has & ~hi}
 
 
+def recent_subsets(f: pd.DataFrame) -> dict:
+    jump = f["last_targets"] - f["ewm_targets"]
+    return {"last game targets up 1.2+": jump >= 1.2, "last game targets down 1.3+": jump <= -1.3,
+            "3 or fewer prior games": f["games_prior"] <= 2, "everyone else": ~((jump >= 1.2) | (jump <= -1.3))}
+
+
 def subset_line(name: str, la: pd.Series, lb: pd.Series, mask) -> None:
     mask = np.asarray(mask, dtype=bool)
     n = int(mask.sum())
@@ -102,15 +108,17 @@ def main() -> None:
     out_dir = P.resolve_out_dir()
     AB.say("Building data...")
     full = prepare()
-    feat = full.set_index(KEY)[P.PRAC_FEATURES + P.WX_FEATURES + P.NGS_FEATURES]
+    feat = full.set_index(KEY)[P.PRAC_FEATURES + P.WX_FEATURES + P.NGS_FEATURES + P.RECENT_FEATURES]
 
     AB.say("\nBacktest A: baseline features")
     res_a = backtest(full)
     variants = [("practice participation", dict(prac=True), prac_subsets),
                 ("game-day weather", dict(wx=True), wx_subsets),
-                ("Next Gen Stats tracking", dict(ngs=True), ngs_subsets)]
-    if os.environ.get("AB_ONLY") == "ngs":
-        variants = variants[-1:]
+                ("Next Gen Stats tracking", dict(ngs=True), ngs_subsets),
+                ("recent form (last game / last 3)", dict(recent=True), recent_subsets)]
+    only = os.environ.get("AB_ONLY")
+    if only:
+        variants = [v for v in variants if v[0].lower().startswith({"ngs": "next", "recent": "recent"}.get(only, only))]
     for title, sets, subsets in variants:
         AB.say(f"Backtest: baseline + {title}")
         compare_variant(title, res_a, backtest(full, **sets), feat, subsets)
