@@ -67,7 +67,7 @@ OPP_HALFLIFE = 6            # games; decay for a defense's recent form
 # ---- Practice participation + weather (off until ab_features.py shows a real gain) ----
 USE_PRACTICE_FEATURES = False
 USE_WEATHER_FEATURES = False
-USE_RECENT_FEATURES = False     # last-game / last-3-game targets (how sharply the role just moved); flip only if ab_features says it helps
+USE_RECENT_FEATURES = True      # last-game / last-3-game targets (how sharply the role just moved); flip only if ab_features says it helps
 USE_NGS_FEATURES = False        # NFL Next Gen Stats (separation etc.); flip only if ab_features says it helps
 
 # ---- Saving + sportsbook lines ----
