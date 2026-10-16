@@ -108,7 +108,7 @@ def main() -> None:
     out_dir = P.resolve_out_dir()
     AB.say("Building data...")
     full = prepare()
-    feat = full.set_index(KEY)[P.PRAC_FEATURES + P.WX_FEATURES + P.NGS_FEATURES + P.RECENT_FEATURES]
+    feat = full.set_index(KEY)[P.PRAC_FEATURES + P.WX_FEATURES + P.NGS_FEATURES + P.RECENT_FEATURES + ["ewm_targets", "games_prior"]]
 
     AB.say("\nBacktest A: baseline features")
     res_a = backtest(full)
