@@ -26,7 +26,7 @@ def prepare() -> pd.DataFrame:
     played, _, _ = P.build_table(project=None)
     played["is_future"] = False
     full = P.add_features(played)
-    return P.add_weather_features(full)
+    return P.add_ngs_features(P.add_weather_features(full))
 
 
 def backtest(full: pd.DataFrame, **sets) -> pd.DataFrame:
@@ -46,6 +46,13 @@ def wx_subsets(f: pd.DataFrame) -> dict:
 def prac_subsets(f: pd.DataFrame) -> dict:
     lim, dnp = f["prac_limited"] == 1, f["prac_dnp"] == 1
     return {"limited in practice": lim, "DNP in practice, played": dnp, "either": lim | dnp}
+
+
+def ngs_subsets(f: pd.DataFrame) -> dict:
+    has = f["ngs_avg_separation"].notna()
+    hi = f["ngs_avg_separation"] >= f["ngs_avg_separation"].median()
+    return {"has NGS history": has, "no NGS history": ~has, "above-median separation": has & hi,
+            "below-median separation": has & ~hi}
 
 
 def subset_line(name: str, la: pd.Series, lb: pd.Series, mask) -> None:
@@ -95,12 +102,15 @@ def main() -> None:
     out_dir = P.resolve_out_dir()
     AB.say("Building data...")
     full = prepare()
-    feat = full.set_index(KEY)[P.PRAC_FEATURES + P.WX_FEATURES]
+    feat = full.set_index(KEY)[P.PRAC_FEATURES + P.WX_FEATURES + P.NGS_FEATURES]
 
     AB.say("\nBacktest A: baseline features")
     res_a = backtest(full)
     variants = [("practice participation", dict(prac=True), prac_subsets),
-                ("game-day weather", dict(wx=True), wx_subsets)]
+                ("game-day weather", dict(wx=True), wx_subsets),
+                ("Next Gen Stats tracking", dict(ngs=True), ngs_subsets)]
+    if os.environ.get("AB_ONLY") == "ngs":
+        variants = variants[-1:]
     for title, sets, subsets in variants:
         AB.say(f"Backtest: baseline + {title}")
         compare_variant(title, res_a, backtest(full, **sets), feat, subsets)

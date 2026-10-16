@@ -67,6 +67,7 @@ OPP_HALFLIFE = 6            # games; decay for a defense's recent form
 # ---- Practice participation + weather (off until ab_features.py shows a real gain) ----
 USE_PRACTICE_FEATURES = False
 USE_WEATHER_FEATURES = False
+USE_NGS_FEATURES = False        # NFL Next Gen Stats (separation etc.); flip only if ab_features says it helps
 
 # ---- Saving + sportsbook lines ----
 DRIVE_ROOT = "/content/drive/MyDrive"                 # where Colab mounts Drive
@@ -436,17 +437,51 @@ RATIO_FEATURES = ["ewm_catch_rate", "ewm_ypr", "ewm_ypt"]
 OPP_FEATURES = ["opp_tgt_oe", "opp_yds_oe"]
 PRAC_FEATURES = ["prac_dnp", "prac_limited"]
 WX_FEATURES = ["wx_wind_mph", "wx_temp_f", "wx_is_dome"]
+NGS_COLS = ["avg_separation", "avg_cushion", "avg_intended_air_yards",
+            "percent_share_of_intended_air_yards", "avg_yac_above_expectation"]
+NGS_FEATURES = [f"ngs_{c}" for c in NGS_COLS]
+NGS_URL = "https://github.com/nflverse/nflverse-data/releases/download/nextgen_stats/ngs_receiving.csv.gz"
 
 
-def build_model_features(opp: bool = False, prac: bool = False, wx: bool = False) -> list:
+def build_model_features(opp: bool = False, prac: bool = False, wx: bool = False, ngs: bool = False) -> list:
     return (FEATURES + RATIO_FEATURES + (OPP_FEATURES if opp else [])
-            + (PRAC_FEATURES if prac else []) + (WX_FEATURES if wx else []))
+            + (PRAC_FEATURES if prac else []) + (WX_FEATURES if wx else [])
+            + (NGS_FEATURES if ngs else []))
 
 
-MODEL_FEATURES = build_model_features(USE_OPP_FEATURES, USE_PRACTICE_FEATURES, USE_WEATHER_FEATURES)
+MODEL_FEATURES = build_model_features(USE_OPP_FEATURES, USE_PRACTICE_FEATURES, USE_WEATHER_FEATURES,
+                                      USE_NGS_FEATURES)
 _tags = [n for n, on in (("opp", USE_OPP_FEATURES), ("prac", USE_PRACTICE_FEATURES),
-                         ("wx", USE_WEATHER_FEATURES)) if on]
+                         ("wx", USE_WEATHER_FEATURES), ("ngs", USE_NGS_FEATURES)) if on]
 MODEL_VERSION = "v7-" + "-".join(_tags) if _tags else "v6"
+
+
+def add_ngs_features(df: pd.DataFrame) -> pd.DataFrame:
+    """Next Gen Stats receiving tracking (separation, cushion, air yards, share of air yards, YAC over expected).
+    Each is a recency-weighted average over the player's PRIOR games that have NGS rows. NGS only lists a player
+    in a week with at least 5 targets, so the average skips thin weeks; players with no history get NaN."""
+    try:
+        ngs = pd.read_csv(NGS_URL)
+    except Exception as exc:                                 # network hiccup: features stay NaN, model still runs
+        print(f"WARNING: could not load Next Gen Stats ({exc}); NGS features left empty.")
+        for c in NGS_FEATURES:
+            df[c] = np.nan
+        return df
+    ngs = ngs[(ngs["season_type"] == "REG") & (ngs["week"] > 0)].rename(columns={"player_gsis_id": "player_id"})
+    ngs = ngs.sort_values(["player_id", "season", "week"]).copy()
+    ngs["t"] = ngs["season"].astype(int) * 100 + ngs["week"].astype(int)
+    g = ngs.groupby("player_id")
+    for c in NGS_COLS:
+        ngs[f"ngs_{c}"] = g[c].transform(lambda s: s.ewm(halflife=HALFLIFE, min_periods=1).mean())
+    key = ngs[["player_id", "t"] + NGS_FEATURES].dropna(subset=["player_id"])
+    base = df.drop(columns=[c for c in NGS_FEATURES if c in df.columns]).copy()
+    base["_t"] = base["season"].astype(int) * 100 + base["week"].astype(int)
+    base["_i"] = np.arange(len(base))
+    m = pd.merge_asof(base.sort_values("_t"), key.sort_values("t"), left_on="_t", right_on="t",
+                      by="player_id", allow_exact_matches=False, tolerance=300)     # strictly earlier games only
+    m = m.sort_values("_i").drop(columns=["_t", "_i", "t"])
+    m.index = df.index
+    return m
 
 
 def add_features(df: pd.DataFrame) -> pd.DataFrame:
@@ -1169,6 +1204,8 @@ def main():
     full = add_features(full)
     full = add_opponent_features(full, parts["ctx"])
     full = add_weather_features(full)
+    if USE_NGS_FEATURES:
+        full = add_ngs_features(full)
     hist = full[~full["is_future"]].copy()
     fut = full[full["is_future"]].copy()
 
