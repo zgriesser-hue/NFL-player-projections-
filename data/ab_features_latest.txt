@@ -1,41 +1,22 @@
 Building data...
 
 Backtest A: baseline features
-Backtest: baseline + practice participation
+Backtest: baseline + Next Gen Stats tracking
 
-=== Baseline vs + practice participation ===
+=== Baseline vs + Next Gen Stats tracking ===
 8,154 player-weeks, 36 weeks
                               base   + feat     gain  95% CI  weeks better
-  MAE (median)              16.174   16.163   +0.06%  ±0.17%     58%
-  RMSE (mean)               24.662   24.650   +0.05%  ±0.14%     69%
-  Pinball (5 quantiles)      5.699    5.698   +0.03%  ±0.15%     58%
-  Targets MAE                1.671    1.672   -0.01%  ±0.08%     53%
+  MAE (median)              16.164   16.186   -0.14%  ±0.21%     42%
+  RMSE (mean)               24.654   24.651   +0.01%  ±0.22%     50%
+  Pinball (5 quantiles)      5.696    5.694   +0.04%  ±0.24%     47%
+  Targets MAE                1.671    1.670   +0.10%  ±0.12%     64%
 
 Where this feature should matter (MAE; the ± is rough, row-level):
                                    n     base   + feat     gain
-  limited in practice            340   22.950   22.895   +0.24%  ±0.77%
-  DNP in practice, played        103   18.834   18.834   -0.00%  ±1.75%
-  either                         443   21.993   21.951   +0.19%  ±0.71%
-
-Verdict:
-  No clear overall difference. Leave it off unless the subset rows above are
-  convincingly better (they're small samples; treat them as a hint, not proof).
-Backtest: baseline + game-day weather
-
-=== Baseline vs + game-day weather ===
-8,154 player-weeks, 36 weeks
-                              base   + feat     gain  95% CI  weeks better
-  MAE (median)              16.174   16.156   +0.11%  ±0.24%     58%
-  RMSE (mean)               24.662   24.602   +0.24%  ±0.20%     75%
-  Pinball (5 quantiles)      5.699    5.686   +0.23%  ±0.20%     75%
-  Targets MAE                1.671    1.671   +0.05%  ±0.13%     56%
-
-Where this feature should matter (MAE; the ± is rough, row-level):
-                                   n     base   + feat     gain
-  windy (>= 15 mph)              510   14.407   14.300   +0.74%  ±1.52%
-  cold (<= 32F)                  424   15.129   15.040   +0.59%  ±1.38%
-  windy or cold                  876   14.818   14.718   +0.67%  ±1.05%
-  dome / closed roof            2795   16.670   16.613   +0.34%  ±0.40%
+  has NGS history               6313   18.940   18.968   -0.15%  ±0.22%
+  no NGS history                1841    6.647    6.646   +0.02%  ±0.44%
+  above-median separation       3157   17.629   17.651   -0.13%  ±0.30%
+  below-median separation       3156   20.251   20.286   -0.17%  ±0.32%
 
 Verdict:
   No clear overall difference. Leave it off unless the subset rows above are
