@@ -106,6 +106,9 @@ def compare_variant(title: str, res_a: pd.DataFrame, res_b: pd.DataFrame,
 
 def main() -> None:
     out_dir = P.resolve_out_dir()
+    if os.environ.get("AB_SEASONS"):                       # e.g. 2021,2022,2023,2024,2025 for a longer test
+        P.TEST_SEASONS = [int(s) for s in os.environ["AB_SEASONS"].split(",")]
+        AB.say(f"Test seasons: {P.TEST_SEASONS}")
     AB.say("Building data...")
     full = prepare()
     feat = full.set_index(KEY)[P.PRAC_FEATURES + P.WX_FEATURES + P.NGS_FEATURES + P.RECENT_FEATURES + ["ewm_targets", "games_prior"]]

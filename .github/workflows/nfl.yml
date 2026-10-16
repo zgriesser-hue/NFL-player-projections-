@@ -25,7 +25,7 @@ on:
       task:
         description: "What to run"
         type: choice
-        options: [project, rushing, score, bets, add_bet, closing, closing_early, ab, ab_features, ab_ngs, ab_recent, ab_rushing, boom_backtest, parlay_test]
+        options: [project, rushing, score, bets, add_bet, closing, closing_early, ab, ab_features, ab_ngs, ab_recent, ab_recent_long, ab_rushing, boom_backtest, parlay_test]
         default: project
       bet_player:
         description: "add_bet only: player name, e.g. George Pickens"
@@ -123,6 +123,7 @@ jobs:
             ab_features) SCRIPT=ab_features.py ;;
             ab_ngs) export AB_ONLY=ngs; SCRIPT=ab_features.py ;;
             ab_recent) export AB_ONLY=recent; SCRIPT=ab_features.py ;;
+            ab_recent_long) export AB_ONLY=recent AB_SEASONS=2021,2022,2023,2024,2025; SCRIPT=ab_features.py ;;
             ab_rushing) SCRIPT=ab_rushing.py ;;
             boom_backtest) SCRIPT=boom_backtest.py ;;
             parlay_test) SCRIPT=parlay_test.py ;;
