@@ -1,3 +1,4 @@
 Week,Bets Placed,Graded,Pending,Void,Record (W-L-P),Win %,Staked $,Profit $,ROI %,Model-Expected Profit $,CUMULATIVE Record,CUMULATIVE Staked $,CUMULATIVE Profit $,CUMULATIVE ROI %,CLV Bets Measured,CLV Avg Line Move (pts),Beat / Matched / Lost vs Close
 2026 Wk 5,6,6,0,0,1-5,16.7,155.0,-89.2,-57.5,23.88,1-5,155.0,-89.2,-57.5,3,1.67,2 / 1 / 0
-ALL WEEKS,6,6,0,0,1-5,16.7,155.0,-89.2,-57.5,23.88,1-5,155.0,-89.2,-57.5,3,1.67,2 / 1 / 0
+2026 Wk 6,3,1,2,0,1-0,100.0,25.0,22.12,88.5,1.51,2-5,180.0,-67.08,-37.3,1,0.0,0 / 1 / 0
+ALL WEEKS,9,7,2,0,2-5,28.6,180.0,-67.08,-37.3,25.39,2-5,180.0,-67.08,-37.3,4,1.25,2 / 2 / 0

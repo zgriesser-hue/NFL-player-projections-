@@ -5,3 +5,6 @@ Season,Week,Game,Player,Team,Book,Market,Bet,Odds,Stake $,To Win $,Result,Actual
 2026,5,CHI@GB,Rome Odunze,CHI,betrivers,Receiving Yards,OVER 38.5,-114,35.0,30.8,WIN,40.0,30.8,58.0,10.0,3.0,41.5,-113.0,,consensus of 3 books,2026-10-09T16:10:27Z,BR13203558861
 2026,5,CHI@GB,Rome Odunze,CHI,betrivers,Receiving Yards (Alt Line),OVER 69.5,+350,20.0,70.0,LOSS,40.0,-20.0,30.0,36.0,,,,,n/a (alt line),2026-10-09T16:18:33Z,BR13203584937
 2026,5,PHI@JAX,Parker Washington,JAX,draftkings,Receiving Yards,UNDER 63.5,-114,25.0,21.92,LOSS,124.0,-25.0,57.0,8.0,0.0,63.5,-114.0,0.0,own book,2026-10-11T12:37:58Z,DK639273190783065459
+2026,6,CHI@ATL,Rome Odunze,CHI,betrivers,Receiving Yards,OVER 40.5,-115,30.0,26.1,Pending,,,56.0,3.0,,,,,,2026-10-14T16:30:55Z,BR13224661834
+2026,6,CHI@ATL,Rome Odunze,CHI,draftkings,Receiving Yards (Alt Line),OVER 89.5,+640,14.36,91.9,Pending,,,20.0,44.0,,,,,n/a (alt line),2026-10-14T16:33:33Z,DK639275924126542322
+2026,6,SEA@DEN,Jaylen Waddle,DEN,fanduel,Receiving Yards,UNDER 46.5,-113,25.0,22.12,WIN,24.0,22.12,56.0,6.0,0.0,46.5,-113.0,0.0,own book,2026-10-15T19:54:00Z,manual-9
