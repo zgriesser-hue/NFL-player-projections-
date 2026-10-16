@@ -1,115 +1,108 @@
 Game,Kickoff (ET),Player,Team,Pos,Injury Status,Practice,Projected Rush Yards (Median),Low End (25th pct),High End (75th pct),Boom (90th pct),Average,Chance of 0 Yards (%),Projected Carries,Yards per Carry,Team Implied Points,Chance Plays (%),Role Notes
-SEA @ DEN,Thu 8:15 PM,Emanuel Wilson,SEA,RB,,,55.0,34.0,81.0,109.0,60.6,1.0,14.0,4.08,21.5,100.0,"RB1 on team by recent carries; depth chart RB1; teammate Jadarian Price (9 car/g, not on roster); Sleeper depth #1"
-SEA @ DEN,Thu 8:15 PM,J.K. Dobbins,DEN,RB,,,51.0,31.0,75.0,102.0,56.2,1.0,13.0,4.06,19.0,100.0,"RB1 on team by recent carries; depth chart RB1; teammate Jonah Coleman (10 car/g, not on roster); Sleeper depth #1"
-SEA @ DEN,Thu 8:15 PM,RJ Harvey,DEN,RB,,,21.0,10.0,36.0,52.0,25.1,5.0,6.0,4.0,19.0,100.0,"RB2 on team by recent carries; depth chart RB2; teammate Jonah Coleman (10 car/g, not on roster); Sleeper depth #2"
-SEA @ DEN,Thu 8:15 PM,George Holani,SEA,RB,,,19.0,7.0,34.0,50.0,22.6,13.0,6.0,3.81,21.5,100.0,"RB2 on team by recent carries; depth chart RB2; teammate Jadarian Price (9 car/g, not on roster); Sleeper depth #2"
-SEA @ DEN,Thu 8:15 PM,Bo Nix,DEN,QB,,,9.0,2.0,22.0,38.0,15.0,6.0,3.0,4.32,19.0,100.0,
-SEA @ DEN,Thu 8:15 PM,Sam Ehlinger,DEN,QB,,,5.0,0.0,17.0,33.0,11.8,21.0,2.0,4.65,19.0,100.0,
-SEA @ DEN,Thu 8:15 PM,Sam Darnold,SEA,QB,,,2.0,0.0,8.0,16.0,5.7,19.0,2.0,2.64,21.5,100.0,
-SEA @ DEN,Thu 8:15 PM,Drew Lock,SEA,QB,,Limited,1.0,0.0,8.0,17.0,5.6,30.0,2.0,3.03,21.5,62.0,
-HOU @ JAX,Sun 9:30 AM,Bhayshul Tuten,JAX,RB,,,51.0,31.0,76.0,102.0,56.4,1.0,12.0,4.22,22.5,100.0,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
-HOU @ JAX,Sun 9:30 AM,Woody Marks,HOU,RB,,,37.0,21.0,57.0,79.0,41.7,1.0,9.0,4.11,20.0,100.0,RB1 on team by recent carries; depth chart RB2; Sleeper depth #1
-HOU @ JAX,Sun 9:30 AM,David Montgomery,HOU,RB,,DNP,26.0,14.0,43.0,61.0,30.7,3.0,7.0,3.76,20.0,10.0,RB2 on team by recent carries; depth chart RB1; Sleeper injury: Doubtful; Sleeper depth #3
-HOU @ JAX,Sun 9:30 AM,Chris Rodriguez Jr.,JAX,RB,,,25.0,12.0,43.0,63.0,29.9,9.0,6.0,4.27,22.5,100.0,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
-HOU @ JAX,Sun 9:30 AM,Trevor Lawrence,JAX,QB,,,9.0,2.0,21.0,36.0,14.4,5.0,3.0,4.34,22.5,100.0,
-HOU @ JAX,Sun 9:30 AM,C.J. Stroud,HOU,QB,,,8.0,2.0,20.0,36.0,14.0,6.0,3.0,4.26,20.0,100.0,
-HOU @ JAX,Sun 9:30 AM,Davis Mills,HOU,QB,,,2.0,0.0,11.0,23.0,7.7,26.0,2.0,3.68,20.0,100.0,
-HOU @ JAX,Sun 9:30 AM,Quinn Ewers,JAX,QB,,,1.0,0.0,8.0,18.0,5.9,34.0,2.0,3.34,22.5,100.0,
-BAL @ CLE,Sun 1:00 PM,Derrick Henry,BAL,RB,,,89.0,57.0,127.0,168.0,96.2,1.0,19.0,4.77,22.5,100.0,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
-BAL @ CLE,Sun 1:00 PM,Quinshon Judkins,CLE,RB,,DNP,46.0,28.0,69.0,95.0,51.7,1.0,12.0,3.83,18.0,10.0,RB1 on team by recent carries; depth chart RB1; Sleeper injury: Questionable; Sleeper depth #1
-BAL @ CLE,Sun 1:00 PM,Audric Estimé,CLE,RB,,,33.0,19.0,52.0,74.0,38.2,2.0,8.0,4.11,18.0,100.0,RB2 on team by recent carries; depth chart RB3; Sleeper depth #3
-BAL @ CLE,Sun 1:00 PM,Deshaun Watson,CLE,QB,,,24.0,10.0,44.0,68.0,30.9,2.0,6.0,5.02,18.0,100.0,
-BAL @ CLE,Sun 1:00 PM,Lamar Jackson,BAL,QB,,DNP,19.0,6.0,38.0,62.0,26.3,6.0,4.0,5.52,22.5,10.0,Sleeper injury: Questionable
-BAL @ CLE,Sun 1:00 PM,Tyler Huntley,BAL,QB,,,15.0,4.0,32.0,53.0,21.6,10.0,4.0,4.93,22.5,100.0,
-BAL @ CLE,Sun 1:00 PM,Justice Hill,BAL,RB,,,10.0,3.0,22.0,34.0,14.6,10.0,3.0,4.16,22.5,100.0,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
-BAL @ CLE,Sun 1:00 PM,Shedeur Sanders,CLE,QB,,,6.0,0.0,21.0,41.0,14.1,25.0,3.0,5.33,18.0,100.0,
-BAL @ CLE,Sun 1:00 PM,Rasheen Ali,BAL,RB,,,0.0,0.0,3.0,12.0,3.2,61.0,0.0,3.63,22.5,100.0,RB3 on team by recent carries; depth chart RB3; Sleeper depth #3
-CAR @ PHI,Sun 1:00 PM,Chuba Hubbard,CAR,RB,,,55.0,34.0,82.0,111.0,61.2,1.0,13.0,4.39,21.0,100.0,"RB1 on team by recent carries; depth chart RB1; teammate AJ Dillon (5 car/g, not on roster); teammate Jonathon Brooks (5 car/g, not on roster); Sleeper depth #1"
-CAR @ PHI,Sun 1:00 PM,Saquon Barkley,PHI,RB,,DNP,45.0,27.0,67.0,91.0,49.7,1.0,12.0,3.84,17.5,10.0,"RB1 on team by recent carries; depth chart RB1; teammate Tank Bigsby (14 car/g, not on roster); Sleeper injury: Questionable; Sleeper depth #1"
-CAR @ PHI,Sun 1:00 PM,Dameon Pierce,PHI,RB,,,19.0,8.0,33.0,49.0,22.8,8.0,6.0,3.67,17.5,100.0,"RB2 on team by recent carries; depth chart RB3; teammate Tank Bigsby (14 car/g, not on roster); Sleeper depth #2"
-CAR @ PHI,Sun 1:00 PM,Jalen Hurts,PHI,QB,,,14.0,5.0,30.0,49.0,20.6,4.0,4.0,4.82,17.5,100.0,Sleeper injury: Out
-CAR @ PHI,Sun 1:00 PM,Will Shipley,PHI,RB,,DNP,9.0,1.0,20.0,33.0,13.0,20.0,3.0,3.76,17.5,10.0,"RB3 on team by recent carries; depth chart RB2; teammate Tank Bigsby (14 car/g, not on roster); Sleeper injury: Doubtful; Sleeper depth #5"
-CAR @ PHI,Sun 1:00 PM,Carson Steele,PHI,RB,,,8.0,1.0,19.0,31.0,12.5,20.0,3.0,3.72,17.5,100.0,"RB4 on team by recent carries; depth chart RB4; teammate Tank Bigsby (14 car/g, not on roster); Sleeper depth #3"
-CAR @ PHI,Sun 1:00 PM,Bryce Young,CAR,QB,,,5.0,1.0,14.0,26.0,9.8,11.0,3.0,3.29,21.0,100.0,
-CHI @ ATL,Sun 1:00 PM,Bijan Robinson,ATL,RB,,,77.0,50.0,113.0,149.0,85.0,1.0,17.0,4.45,25.0,100.0,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
-CHI @ ATL,Sun 1:00 PM,D'Andre Swift,CHI,RB,,,53.0,32.0,79.0,107.0,58.7,1.0,12.0,4.41,26.5,100.0,"RB2 on team by recent carries; depth chart RB1; teammate Roschon Johnson (5 car/g, not on roster); Sleeper depth #1"
-CHI @ ATL,Sun 1:00 PM,Kyle Monangai,CHI,RB,,DNP,50.0,30.0,75.0,103.0,55.9,1.0,12.0,4.38,26.5,10.0,"RB1 on team by recent carries; depth chart RB2; teammate Roschon Johnson (5 car/g, not on roster); Sleeper injury: Questionable; Sleeper depth #2; possible DEMOTION: Sleeper has him behind another back"
-CHI @ ATL,Sun 1:00 PM,Brian Robinson,ATL,RB,,,24.0,12.0,40.0,58.0,28.7,4.0,7.0,4.01,25.0,100.0,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
-CHI @ ATL,Sun 1:00 PM,Caleb Williams,CHI,QB,,,19.0,7.0,38.0,61.0,26.6,3.0,5.0,5.15,26.5,100.0,Sleeper injury: Questionable
-CHI @ ATL,Sun 1:00 PM,Michael Penix Jr.,ATL,QB,,,3.0,0.0,9.0,19.0,6.6,18.0,2.0,2.97,25.0,100.0,
-CHI @ ATL,Sun 1:00 PM,Cooper Rush,ATL,QB,,,1.0,0.0,7.0,15.0,5.0,29.0,2.0,2.82,25.0,100.0,
-CHI @ ATL,Sun 1:00 PM,Tua Tagovailoa,ATL,QB,,,0.0,0.0,3.0,9.0,2.7,34.0,1.0,1.84,25.0,100.0,
-NO @ NYG,Sun 1:00 PM,Cam Skattebo,NYG,RB,,,53.0,32.0,78.0,106.0,58.4,1.0,13.0,4.22,22.0,100.0,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
-NO @ NYG,Sun 1:00 PM,Alvin Kamara,NO,RB,,Limited,26.0,14.0,43.0,62.0,30.9,3.0,7.0,4.04,23.5,62.0,"RB1 on team by recent carries; depth chart RB1; teammate Travis Etienne (10 car/g, not on roster); Sleeper injury: Questionable; Sleeper depth #1"
-NO @ NYG,Sun 1:00 PM,Devin Singletary,NYG,RB,,,23.0,10.0,40.0,58.0,27.4,9.0,6.0,4.18,22.0,100.0,RB3 on team by recent carries; depth chart RB4; Sleeper depth #4
-NO @ NYG,Sun 1:00 PM,Kendre Miller,NO,RB,,,23.0,10.0,38.0,55.0,26.7,8.0,6.0,3.93,23.5,100.0,"RB2 on team by recent carries; depth chart RB2; teammate Travis Etienne (10 car/g, not on roster); Sleeper depth #2"
-NO @ NYG,Sun 1:00 PM,Najee Harris,NYG,RB,,,21.0,10.0,37.0,54.0,25.6,6.0,6.0,3.91,22.0,100.0,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
-NO @ NYG,Sun 1:00 PM,Tyrone Tracy Jr.,NYG,RB,,,18.0,6.0,32.0,49.0,22.0,12.0,5.0,4.19,22.0,100.0,RB4 on team by recent carries; depth chart RB3; Sleeper depth #3
-NO @ NYG,Sun 1:00 PM,Tyler Shough,NO,QB,,,9.0,2.0,21.0,38.0,14.8,8.0,3.0,4.61,23.5,100.0,
-NO @ NYG,Sun 1:00 PM,CJ Donaldson,NO,RB,,,8.0,0.0,19.0,33.0,12.7,26.0,3.0,4.32,23.5,100.0,"RB3 on team by recent carries; depth chart RB3; teammate Travis Etienne (10 car/g, not on roster); Sleeper depth #3"
-NO @ NYG,Sun 1:00 PM,Spencer Rattler,NO,QB,,,7.0,1.0,18.0,33.0,12.5,15.0,3.0,4.05,23.5,100.0,
-NO @ NYG,Sun 1:00 PM,J.J. McCarthy,NYG,QB,,,6.0,0.0,18.0,34.0,12.1,20.0,2.0,4.59,22.0,100.0,
-NO @ NYG,Sun 1:00 PM,Jameis Winston,NYG,QB,,,4.0,0.0,13.0,26.0,9.4,18.0,2.0,3.86,22.0,100.0,
-NO @ NYG,Sun 1:00 PM,Patrick Ricard,NYG,RB,,,0.0,0.0,0.0,0.0,0.3,94.0,0.0,2.86,22.0,100.0,RB5 on team by recent carries; Sleeper depth #5
-NYJ @ NE,Sun 1:00 PM,Breece Hall,NYJ,RB,,DNP,52.0,32.0,77.0,104.0,57.4,1.0,13.0,4.05,18.0,10.0,RB1 on team by recent carries; depth chart RB1; Sleeper injury: Doubtful; Sleeper depth #2; possible DEMOTION: Sleeper has him behind another back
-NYJ @ NE,Sun 1:00 PM,Rhamondre Stevenson,NE,RB,,,47.0,28.0,72.0,98.0,52.8,1.0,10.0,4.7,25.5,100.0,"RB2 on team by recent carries; depth chart RB1; teammate Corey Kiner (6 car/g, not on roster); Sleeper depth #1"
-NYJ @ NE,Sun 1:00 PM,TreVeyon Henderson,NE,RB,,Limited,45.0,27.0,68.0,94.0,50.3,2.0,11.0,4.36,25.5,62.0,"RB1 on team by recent carries; depth chart RB2; teammate Corey Kiner (6 car/g, not on roster); Sleeper injury: Questionable; Sleeper depth #3; possible DEMOTION: Sleeper has him behind another back"
-NYJ @ NE,Sun 1:00 PM,Braelon Allen,NYJ,RB,,,43.0,25.0,65.0,90.0,47.8,1.0,10.0,4.22,18.0,100.0,RB2 on team by recent carries; depth chart RB2; Sleeper depth #1; LIKELY PROMOTED to starter: our projection may be too low
-NYJ @ NE,Sun 1:00 PM,Drake Maye,NE,QB,,,23.0,9.0,43.0,68.0,29.9,2.0,5.0,5.17,25.5,100.0,
-NYJ @ NE,Sun 1:00 PM,Isaiah Davis,NYJ,RB,,,7.0,0.0,21.0,37.0,13.6,31.0,3.0,4.74,18.0,100.0,RB3 on team by recent carries; depth chart RB3; Sleeper depth #3
-NYJ @ NE,Sun 1:00 PM,Geno Smith,NYJ,QB,,,4.0,0.0,12.0,23.0,8.5,17.0,2.0,3.28,18.0,100.0,
-PIT @ TB,Sun 1:00 PM,Jaylen Warren,PIT,RB,,,69.0,43.0,102.0,137.0,76.2,1.0,15.0,4.68,21.0,100.0,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
-PIT @ TB,Sun 1:00 PM,Bucky Irving,TB,RB,,,64.0,40.0,93.0,124.0,69.7,1.0,15.0,4.24,18.5,100.0,"RB1 on team by recent carries; depth chart RB1; teammate Sean Tucker (5 car/g, not on roster); Sleeper depth #1"
-PIT @ TB,Sun 1:00 PM,Rico Dowdle,PIT,RB,,Limited,37.0,21.0,58.0,81.0,42.6,1.0,9.0,4.21,21.0,62.0,RB2 on team by recent carries; depth chart RB2; Sleeper injury: Questionable; Sleeper depth #2
-PIT @ TB,Sun 1:00 PM,Jalon Daniels,TB,QB,,,21.0,7.0,42.0,67.0,28.9,6.0,5.0,5.54,18.5,100.0,
-PIT @ TB,Sun 1:00 PM,Baker Mayfield,TB,QB,,DNP,14.0,4.0,31.0,53.0,21.5,6.0,4.0,5.75,18.5,10.0,Sleeper injury: Doubtful
-PIT @ TB,Sun 1:00 PM,Kenny Gainwell,TB,RB,,,13.0,4.0,26.0,40.0,17.5,11.0,4.0,4.02,18.5,100.0,"RB2 on team by recent carries; depth chart RB2; teammate Sean Tucker (5 car/g, not on roster); Sleeper depth #2"
-PIT @ TB,Sun 1:00 PM,Aaron Rodgers,PIT,QB,,,2.0,0.0,9.0,20.0,6.5,26.0,2.0,3.48,21.0,100.0,
-TEN @ IND,Sun 1:00 PM,Jonathan Taylor,IND,RB,,Limited,73.0,47.0,106.0,141.0,79.8,1.0,17.0,4.36,25.75,62.0,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
-TEN @ IND,Sun 1:00 PM,Tony Pollard,TEN,RB,,DNP,55.0,34.0,81.0,110.0,61.1,1.0,14.0,4.07,18.75,10.0,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
-TEN @ IND,Sun 1:00 PM,Michael Carter,TEN,RB,,,31.0,17.0,50.0,70.0,35.9,2.0,8.0,4.06,18.75,100.0,RB2 on team by recent carries; depth chart RB5; Sleeper depth #5
-TEN @ IND,Sun 1:00 PM,Anthony Richardson,IND,QB,,,21.0,8.0,40.0,63.0,27.5,5.0,5.0,4.83,25.75,100.0,
-TEN @ IND,Sun 1:00 PM,Seth McGowan,IND,RB,,,12.0,1.0,26.0,42.0,17.1,21.0,4.0,4.41,25.75,100.0,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
-TEN @ IND,Sun 1:00 PM,Tyjae Spears,TEN,RB,,Limited,11.0,3.0,23.0,37.0,15.6,14.0,4.0,4.09,18.75,62.0,RB3 on team by recent carries; depth chart RB2; Sleeper injury: Questionable; Sleeper depth #2
-TEN @ IND,Sun 1:00 PM,Cam Ward,TEN,QB,,,6.0,1.0,16.0,29.0,11.1,11.0,3.0,3.95,18.75,100.0,
-TEN @ IND,Sun 1:00 PM,Daniel Jones,IND,QB,,,4.0,1.0,12.0,23.0,8.5,12.0,3.0,3.08,25.75,100.0,
-ARI @ LAR,Sun 4:05 PM,Kyren Williams,LA,RB,,,69.0,43.0,101.0,136.0,76.0,1.0,14.0,5.09,32.0,100.0,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
-ARI @ LAR,Sun 4:05 PM,Jeremiyah Love,ARI,RB,,DNP,53.0,32.0,79.0,108.0,58.8,1.0,12.0,4.49,19.5,10.0,RB1 on team by recent carries; depth chart RB1; Sleeper injury: Questionable; Sleeper depth #1
-ARI @ LAR,Sun 4:05 PM,Blake Corum,LA,RB,,,27.0,13.0,44.0,64.0,31.3,5.0,6.0,4.41,32.0,100.0,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
-ARI @ LAR,Sun 4:05 PM,Tyler Allgeier,ARI,RB,,,23.0,10.0,39.0,58.0,27.6,5.0,6.0,4.49,19.5,100.0,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
-ARI @ LAR,Sun 4:05 PM,Bam Knight,ARI,RB,,,17.0,6.0,32.0,50.0,21.9,12.0,4.0,4.75,19.5,100.0,RB3 on team by recent carries; depth chart RB3
-ARI @ LAR,Sun 4:05 PM,Jacoby Brissett,ARI,QB,,,7.0,1.0,19.0,34.0,13.0,11.0,3.0,4.36,19.5,100.0,
-ARI @ LAR,Sun 4:05 PM,Matthew Stafford,LA,QB,,,1.0,0.0,5.0,11.0,3.4,29.0,2.0,1.9,32.0,100.0,
-BUF @ LV,Sun 4:25 PM,James Cook,BUF,RB,,,84.0,54.0,123.0,162.0,92.4,1.0,16.0,5.24,29.5,100.0,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
-BUF @ LV,Sun 4:25 PM,Ashton Jeanty,LV,RB,,,52.0,33.0,78.0,105.0,58.2,1.0,14.0,3.89,24.0,100.0,"RB1 on team by recent carries; depth chart RB1; teammate Mike Washington Jr. (7 car/g, not on roster); Sleeper depth #1"
-BUF @ LV,Sun 4:25 PM,Josh Allen,BUF,QB,,,37.0,18.0,65.0,96.0,46.1,2.0,8.0,5.81,29.5,100.0,
-BUF @ LV,Sun 4:25 PM,Ty Johnson,BUF,RB,,,5.0,0.0,15.0,28.0,9.9,28.0,2.0,4.06,29.5,100.0,RB2 on team by recent carries; depth chart RB2; Sleeper injury: Questionable; Sleeper depth #2
-BUF @ LV,Sun 4:25 PM,Aidan O'Connell,LV,QB,,,5.0,0.0,14.0,26.0,9.6,15.0,3.0,3.53,24.0,100.0,
-BUF @ LV,Sun 4:25 PM,Kirk Cousins,LV,QB,,,0.0,0.0,3.0,8.0,2.6,34.0,1.0,1.8,24.0,100.0,
-BUF @ LV,Sun 4:25 PM,Connor Heyward,LV,RB,,,0.0,0.0,1.0,7.0,1.9,66.0,0.0,2.62,24.0,100.0,"RB2 on team by recent carries; teammate Mike Washington Jr. (7 car/g, not on roster); Sleeper depth #4"
-LAC @ KC,Sun 4:25 PM,Kenneth Walker III,KC,RB,,,82.0,53.0,118.0,159.0,89.7,1.0,17.0,4.79,25.5,100.0,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
-LAC @ KC,Sun 4:25 PM,Omarion Hampton,LAC,RB,,,43.0,26.0,64.0,88.0,47.7,1.0,12.0,3.67,17.0,100.0,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
-LAC @ KC,Sun 4:25 PM,Justin Fields,KC,QB,,,22.0,9.0,42.0,65.0,29.2,4.0,6.0,4.84,25.5,100.0,
-LAC @ KC,Sun 4:25 PM,Keaton Mitchell,LAC,RB,,,20.0,9.0,35.0,51.0,24.3,8.0,6.0,3.9,17.0,100.0,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
-LAC @ KC,Sun 4:25 PM,Kimani Vidal,LAC,RB,,,19.0,8.0,33.0,50.0,22.9,9.0,5.0,4.0,17.0,100.0,RB3 on team by recent carries; depth chart RB3; Sleeper depth #3
-LAC @ KC,Sun 4:25 PM,Justin Herbert,LAC,QB,,,15.0,5.0,30.0,50.0,21.3,3.0,4.0,4.49,17.0,100.0,
-LAC @ KC,Sun 4:25 PM,Emmett Johnson,KC,RB,,,10.0,0.0,22.0,37.0,14.7,23.0,3.0,4.38,25.5,100.0,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
-LAC @ KC,Sun 4:25 PM,Patrick Mahomes,KC,QB,,,7.0,1.0,20.0,38.0,13.8,18.0,3.0,4.99,25.5,100.0,
-LAC @ KC,Sun 4:25 PM,Alec Ingold,LAC,RB,,,0.0,0.0,0.0,0.0,0.5,91.0,0.0,3.61,17.0,100.0,RB4 on team by recent carries; Sleeper depth #4
-LAC @ KC,Sun 4:25 PM,Scott Matlock,LAC,RB,,,0.0,0.0,0.0,0.0,0.2,96.0,0.0,2.94,17.0,100.0,RB5 on team by recent carries
-DAL @ GB,Sun 8:20 PM,Javonte Williams,DAL,RB,,,58.0,36.0,85.0,115.0,63.8,1.0,14.0,4.23,26.0,100.0,"RB1 on team by recent carries; depth chart RB1; teammate Tyler Goodson (6 car/g, not on roster); Sleeper depth #1"
-DAL @ GB,Sun 8:20 PM,MarShawn Lloyd,GB,RB,,,28.0,14.0,46.0,66.0,32.8,5.0,7.0,4.35,27.5,100.0,"RB1 on team by recent carries; depth chart RB1; teammate Kaleb Johnson (8 car/g, not on roster); Sleeper depth #1"
-DAL @ GB,Sun 8:20 PM,Emari Demercado,DAL,RB,,,16.0,5.0,31.0,49.0,21.0,14.0,4.0,4.82,26.0,100.0,"RB2 on team by recent carries; depth chart RB3; teammate Tyler Goodson (6 car/g, not on roster); Sleeper depth #3"
-DAL @ GB,Sun 8:20 PM,Pierre Strong,GB,RB,,,7.0,0.0,21.0,38.0,13.6,32.0,3.0,4.88,27.5,100.0,"RB2 on team by recent carries; depth chart RB2; teammate Kaleb Johnson (8 car/g, not on roster); Sleeper depth #2"
-DAL @ GB,Sun 8:20 PM,Dak Prescott,DAL,QB,,,4.0,0.0,15.0,28.0,10.0,21.0,2.0,4.24,26.0,100.0,
-DAL @ GB,Sun 8:20 PM,Sam Howell,DAL,QB,,,2.0,0.0,10.0,21.0,7.0,26.0,2.0,3.26,26.0,100.0,
-DAL @ GB,Sun 8:20 PM,Jordan Love,GB,QB,,,2.0,0.0,6.0,13.0,4.5,19.0,2.0,2.07,27.5,100.0,
-WAS @ SF,Mon 8:15 PM,Christian McCaffrey,SF,RB,,,59.0,37.0,87.0,118.0,65.3,1.0,13.0,4.6,29.5,100.0,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
-WAS @ SF,Mon 8:15 PM,Jacory Croskey-Merritt,WAS,RB,,,45.0,26.0,68.0,95.0,50.4,2.0,11.0,4.32,22.0,100.0,"RB1 on team by recent carries; depth chart RB1; teammate Kaytron Allen (5 car/g, not on roster); Sleeper depth #1"
-WAS @ SF,Mon 8:15 PM,Jayden Daniels,WAS,QB,,,40.0,19.0,69.0,104.0,49.1,2.0,8.0,6.0,22.0,100.0,
-WAS @ SF,Mon 8:15 PM,Kaelon Black,SF,RB,,,24.0,11.0,41.0,60.0,28.4,6.0,6.0,4.44,29.5,100.0,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
-WAS @ SF,Mon 8:15 PM,Rachaad White,WAS,RB,,,24.0,12.0,40.0,58.0,28.2,4.0,6.0,4.15,22.0,100.0,"RB2 on team by recent carries; depth chart RB2; teammate Kaytron Allen (5 car/g, not on roster); Sleeper depth #2"
-WAS @ SF,Mon 8:15 PM,Austin Ekeler,WAS,RB,,,17.0,7.0,31.0,47.0,21.6,6.0,5.0,4.19,22.0,100.0,"RB3 on team by recent carries; depth chart RB3; teammate Kaytron Allen (5 car/g, not on roster); Sleeper depth #3"
-WAS @ SF,Mon 8:15 PM,Brock Purdy,SF,QB,,,16.0,5.0,34.0,56.0,23.3,3.0,4.0,5.27,29.5,100.0,
-WAS @ SF,Mon 8:15 PM,Marcus Mariota,WAS,QB,,,11.0,2.0,26.0,47.0,18.2,11.0,3.0,5.14,22.0,100.0,Sleeper injury: Doubtful
-WAS @ SF,Mon 8:15 PM,Kyle Juszczyk,SF,RB,,,0.0,0.0,0.0,0.0,0.2,93.0,0.0,1.82,29.5,100.0,RB3 on team by recent carries; Sleeper injury: Questionable; Sleeper depth #4
+SEA @ DEN,Thu 8:15 PM,Sam Ehlinger,DEN,QB,,,5.0,0.0,17.0,34.0,11.7,22.0,2.0,4.63,19.0,100.0,Sleeper injury: Out
+SEA @ DEN,Thu 8:15 PM,Drew Lock,SEA,QB,,Limited,2.0,0.0,8.0,17.0,5.5,27.0,2.0,2.95,21.5,62.0,
+HOU @ JAX,Sun 9:30 AM,Bhayshul Tuten,JAX,RB,,,50.0,30.0,74.0,102.0,55.4,1.0,12.0,4.27,22.5,100.0,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
+HOU @ JAX,Sun 9:30 AM,Woody Marks,HOU,RB,,,37.0,21.0,57.0,80.0,41.9,1.0,9.0,4.13,20.0,100.0,RB1 on team by recent carries; depth chart RB2; Sleeper depth #1
+HOU @ JAX,Sun 9:30 AM,Chris Rodriguez Jr.,JAX,RB,,,26.0,12.0,44.0,64.0,30.8,7.0,7.0,4.33,22.5,100.0,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
+HOU @ JAX,Sun 9:30 AM,David Montgomery,HOU,RB,,DNP,26.0,14.0,42.0,59.0,29.9,3.0,7.0,3.65,20.0,10.0,RB2 on team by recent carries; depth chart RB1; Sleeper injury: Out; Sleeper depth #3
+HOU @ JAX,Sun 9:30 AM,Trevor Lawrence,JAX,QB,,,9.0,2.0,21.0,37.0,14.8,5.0,3.0,4.38,22.5,100.0,
+HOU @ JAX,Sun 9:30 AM,C.J. Stroud,HOU,QB,,,8.0,2.0,20.0,35.0,13.5,8.0,3.0,4.18,20.0,100.0,
+HOU @ JAX,Sun 9:30 AM,Davis Mills,HOU,QB,,,3.0,0.0,12.0,24.0,8.3,21.0,2.0,3.77,20.0,100.0,
+HOU @ JAX,Sun 9:30 AM,Quinn Ewers,JAX,QB,,,1.0,0.0,7.0,16.0,5.3,34.0,2.0,3.05,22.5,100.0,
+BAL @ CLE,Sun 1:00 PM,Derrick Henry,BAL,RB,,,82.0,53.0,118.0,156.0,89.2,1.0,18.0,4.46,21.25,100.0,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
+BAL @ CLE,Sun 1:00 PM,Quinshon Judkins,CLE,RB,,DNP,47.0,29.0,70.0,95.0,52.3,1.0,13.0,3.79,18.25,10.0,RB1 on team by recent carries; depth chart RB1; Sleeper injury: Questionable; Sleeper depth #1
+BAL @ CLE,Sun 1:00 PM,Audric Estimé,CLE,RB,,,33.0,18.0,52.0,73.0,37.9,2.0,9.0,4.07,18.25,100.0,RB2 on team by recent carries; depth chart RB3; Sleeper depth #3
+BAL @ CLE,Sun 1:00 PM,Deshaun Watson,CLE,QB,,,22.0,9.0,41.0,63.0,28.7,2.0,6.0,4.7,18.25,100.0,
+BAL @ CLE,Sun 1:00 PM,Lamar Jackson,BAL,QB,,DNP,18.0,6.0,36.0,60.0,25.3,5.0,4.0,5.34,21.25,10.0,Sleeper status: Inactive; Sleeper injury: Out
+BAL @ CLE,Sun 1:00 PM,Tyler Huntley,BAL,QB,,,14.0,4.0,32.0,52.0,21.3,10.0,4.0,4.88,21.25,100.0,
+BAL @ CLE,Sun 1:00 PM,Justice Hill,BAL,RB,,,11.0,3.0,23.0,37.0,15.6,9.0,3.0,4.28,21.25,100.0,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
+BAL @ CLE,Sun 1:00 PM,Shedeur Sanders,CLE,QB,,,6.0,0.0,20.0,39.0,13.9,23.0,3.0,5.15,18.25,100.0,
+BAL @ CLE,Sun 1:00 PM,Rasheen Ali,BAL,RB,,,0.0,0.0,3.0,12.0,3.3,59.0,0.0,3.51,21.25,100.0,RB3 on team by recent carries; depth chart RB3; Sleeper depth #3
+CAR @ PHI,Sun 1:00 PM,Chuba Hubbard,CAR,RB,,,54.0,33.0,81.0,110.0,60.1,1.0,13.0,4.25,21.5,100.0,"RB1 on team by recent carries; depth chart RB1; teammate AJ Dillon (5 car/g, not on roster); Sleeper depth #1"
+CAR @ PHI,Sun 1:00 PM,Saquon Barkley,PHI,RB,,DNP,47.0,29.0,71.0,96.0,52.6,1.0,12.0,4.0,18.0,10.0,"RB1 on team by recent carries; depth chart RB1; teammate Tank Bigsby (14 car/g, not on roster); Sleeper injury: Out; Sleeper depth #2; possible DEMOTION: Sleeper has him behind another back"
+CAR @ PHI,Sun 1:00 PM,Dameon Pierce,PHI,RB,,,20.0,9.0,34.0,50.0,23.9,7.0,6.0,3.78,18.0,100.0,"RB2 on team by recent carries; depth chart RB3; teammate Tank Bigsby (14 car/g, not on roster); Sleeper depth #1; LIKELY PROMOTED to starter: our projection may be too low"
+CAR @ PHI,Sun 1:00 PM,Jalen Hurts,PHI,QB,,DNP,14.0,5.0,30.0,50.0,20.8,4.0,4.0,4.69,18.0,10.0,Sleeper injury: Out
+CAR @ PHI,Sun 1:00 PM,Carson Steele,PHI,RB,,,10.0,1.0,21.0,34.0,13.6,19.0,3.0,3.8,18.0,100.0,"RB4 on team by recent carries; depth chart RB4; teammate Tank Bigsby (14 car/g, not on roster); Sleeper depth #3"
+CAR @ PHI,Sun 1:00 PM,Will Shipley,PHI,RB,,DNP,8.0,0.0,18.0,31.0,12.0,22.0,3.0,3.75,18.0,10.0,"RB3 on team by recent carries; depth chart RB2; teammate Tank Bigsby (14 car/g, not on roster); Sleeper injury: IR; Sleeper depth #5"
+CAR @ PHI,Sun 1:00 PM,Bryce Young,CAR,QB,,,5.0,1.0,14.0,27.0,10.1,12.0,3.0,3.42,21.5,100.0,
+CHI @ ATL,Sun 1:00 PM,Bijan Robinson,ATL,RB,,,75.0,49.0,107.0,143.0,81.4,1.0,17.0,4.32,25.0,100.0,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
+CHI @ ATL,Sun 1:00 PM,D'Andre Swift,CHI,RB,,,52.0,32.0,79.0,107.0,58.3,1.0,12.0,4.41,26.5,100.0,"RB2 on team by recent carries; depth chart RB1; teammate Roschon Johnson (5 car/g, not on roster); Sleeper depth #1"
+CHI @ ATL,Sun 1:00 PM,Kyle Monangai,CHI,RB,,DNP,51.0,31.0,77.0,105.0,57.2,1.0,12.0,4.48,26.5,10.0,"RB1 on team by recent carries; depth chart RB2; teammate Roschon Johnson (5 car/g, not on roster); Sleeper injury: Out; Sleeper depth #2; possible DEMOTION: Sleeper has him behind another back"
+CHI @ ATL,Sun 1:00 PM,Brian Robinson,ATL,RB,,,24.0,12.0,40.0,58.0,28.4,5.0,6.0,4.06,25.0,100.0,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
+CHI @ ATL,Sun 1:00 PM,Caleb Williams,CHI,QB,,,18.0,7.0,37.0,60.0,25.5,3.0,5.0,5.2,26.5,100.0,Sleeper injury: Questionable
+CHI @ ATL,Sun 1:00 PM,Michael Penix Jr.,ATL,QB,,,3.0,0.0,9.0,19.0,6.5,18.0,2.0,2.94,25.0,100.0,
+CHI @ ATL,Sun 1:00 PM,Cooper Rush,ATL,QB,,,1.0,0.0,6.0,15.0,4.8,30.0,2.0,2.73,25.0,100.0,
+CHI @ ATL,Sun 1:00 PM,Tua Tagovailoa,ATL,QB,,,0.0,0.0,3.0,8.0,2.7,37.0,1.0,1.91,25.0,100.0,
+NO @ NYG,Sun 1:00 PM,Cam Skattebo,NYG,RB,,,53.0,33.0,80.0,107.0,59.3,1.0,13.0,4.27,22.5,100.0,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
+NO @ NYG,Sun 1:00 PM,Alvin Kamara,NO,RB,,Limited,25.0,13.0,41.0,59.0,29.3,4.0,7.0,3.92,24.0,62.0,"RB1 on team by recent carries; depth chart RB1; teammate Travis Etienne (13 car/g, not on roster); Sleeper injury: Questionable; Sleeper depth #1"
+NO @ NYG,Sun 1:00 PM,Kendre Miller,NO,RB,,,22.0,10.0,37.0,55.0,25.9,8.0,6.0,3.87,24.0,100.0,"RB2 on team by recent carries; depth chart RB2; teammate Travis Etienne (13 car/g, not on roster); Sleeper depth #2"
+NO @ NYG,Sun 1:00 PM,Devin Singletary,NYG,RB,,,21.0,9.0,37.0,55.0,25.6,9.0,6.0,3.97,22.5,100.0,RB3 on team by recent carries; depth chart RB4; Sleeper depth #4
+NO @ NYG,Sun 1:00 PM,Najee Harris,NYG,RB,,,20.0,8.0,35.0,52.0,24.2,10.0,6.0,3.92,22.5,100.0,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
+NO @ NYG,Sun 1:00 PM,Tyrone Tracy Jr.,NYG,RB,,,17.0,6.0,33.0,49.0,21.9,13.0,5.0,4.23,22.5,100.0,RB4 on team by recent carries; depth chart RB3; Sleeper depth #3
+NO @ NYG,Sun 1:00 PM,Tyler Shough,NO,QB,,,9.0,2.0,20.0,37.0,14.3,7.0,3.0,4.52,24.0,100.0,
+NO @ NYG,Sun 1:00 PM,CJ Donaldson,NO,RB,,,8.0,0.0,20.0,35.0,13.2,27.0,3.0,4.49,24.0,100.0,"RB3 on team by recent carries; depth chart RB3; teammate Travis Etienne (13 car/g, not on roster); Sleeper depth #3"
+NO @ NYG,Sun 1:00 PM,Spencer Rattler,NO,QB,,,7.0,1.0,20.0,36.0,13.4,16.0,3.0,4.42,24.0,100.0,
+NO @ NYG,Sun 1:00 PM,J.J. McCarthy,NYG,QB,,,6.0,0.0,17.0,33.0,11.9,20.0,3.0,4.49,22.5,100.0,
+NO @ NYG,Sun 1:00 PM,Jameis Winston,NYG,QB,,,4.0,0.0,13.0,26.0,9.4,17.0,2.0,3.86,22.5,100.0,
+NO @ NYG,Sun 1:00 PM,Patrick Ricard,NYG,RB,,,0.0,0.0,0.0,0.0,0.3,94.0,0.0,2.78,22.5,100.0,RB5 on team by recent carries; Sleeper depth #5
+NYJ @ NE,Sun 1:00 PM,Breece Hall,NYJ,RB,,DNP,51.0,32.0,77.0,104.0,57.2,1.0,13.0,3.99,18.0,10.0,RB1 on team by recent carries; depth chart RB1; Sleeper injury: Out; Sleeper depth #5; possible DEMOTION: Sleeper has him behind another back
+NYJ @ NE,Sun 1:00 PM,Rhamondre Stevenson,NE,RB,,,46.0,27.0,71.0,97.0,51.8,1.0,10.0,4.53,25.5,100.0,"RB2 on team by recent carries; depth chart RB1; teammate Corey Kiner (6 car/g, not on roster); Sleeper depth #1"
+NYJ @ NE,Sun 1:00 PM,TreVeyon Henderson,NE,RB,,Limited,45.0,26.0,68.0,93.0,49.8,1.0,10.0,4.35,25.5,62.0,"RB1 on team by recent carries; depth chart RB2; teammate Corey Kiner (6 car/g, not on roster); Sleeper injury: Questionable; Sleeper depth #2; possible DEMOTION: Sleeper has him behind another back"
+NYJ @ NE,Sun 1:00 PM,Braelon Allen,NYJ,RB,,,42.0,25.0,64.0,89.0,47.5,1.0,10.0,4.17,18.0,100.0,RB2 on team by recent carries; depth chart RB2; Sleeper depth #1; LIKELY PROMOTED to starter: our projection may be too low
+NYJ @ NE,Sun 1:00 PM,Drake Maye,NE,QB,,,22.0,9.0,42.0,67.0,29.8,2.0,5.0,5.21,25.5,100.0,
+NYJ @ NE,Sun 1:00 PM,Isaiah Davis,NYJ,RB,,,8.0,0.0,21.0,37.0,13.8,29.0,3.0,4.7,18.0,100.0,RB3 on team by recent carries; depth chart RB3; Sleeper depth #2
+NYJ @ NE,Sun 1:00 PM,Geno Smith,NYJ,QB,,,4.0,0.0,13.0,24.0,8.9,16.0,2.0,3.35,18.0,100.0,
+PIT @ TB,Sun 1:00 PM,Jaylen Warren,PIT,RB,,,69.0,44.0,101.0,136.0,76.3,1.0,15.0,4.58,21.0,100.0,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
+PIT @ TB,Sun 1:00 PM,Bucky Irving,TB,RB,,,64.0,41.0,94.0,125.0,70.7,1.0,15.0,4.24,18.5,100.0,"RB1 on team by recent carries; depth chart RB1; teammate Sean Tucker (5 car/g, not on roster); Sleeper depth #1"
+PIT @ TB,Sun 1:00 PM,Rico Dowdle,PIT,RB,,,36.0,21.0,56.0,78.0,40.9,1.0,9.0,4.12,21.0,100.0,RB2 on team by recent carries; depth chart RB2; Sleeper injury: Questionable; Sleeper depth #2
+PIT @ TB,Sun 1:00 PM,Jalon Daniels,TB,QB,,,21.0,7.0,42.0,68.0,29.0,7.0,5.0,5.63,18.5,100.0,
+PIT @ TB,Sun 1:00 PM,Kenny Gainwell,TB,RB,,,14.0,5.0,27.0,42.0,18.2,9.0,4.0,4.18,18.5,100.0,"RB2 on team by recent carries; depth chart RB2; teammate Sean Tucker (5 car/g, not on roster); Sleeper depth #2"
+PIT @ TB,Sun 1:00 PM,Baker Mayfield,TB,QB,,DNP,12.0,3.0,29.0,51.0,20.0,10.0,3.0,5.62,18.5,10.0,Sleeper injury: Out
+PIT @ TB,Sun 1:00 PM,Aaron Rodgers,PIT,QB,,,2.0,0.0,10.0,22.0,7.4,25.0,2.0,3.91,21.0,100.0,
+TEN @ IND,Sun 1:00 PM,Jonathan Taylor,IND,RB,,,73.0,47.0,105.0,139.0,79.6,1.0,17.0,4.41,25.75,100.0,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
+TEN @ IND,Sun 1:00 PM,Tony Pollard,TEN,RB,,,58.0,36.0,85.0,115.0,63.8,1.0,14.0,4.13,18.75,100.0,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
+TEN @ IND,Sun 1:00 PM,Michael Carter,TEN,RB,,,30.0,16.0,48.0,69.0,34.8,3.0,8.0,4.08,18.75,100.0,RB2 on team by recent carries; depth chart RB5; Sleeper depth #5
+TEN @ IND,Sun 1:00 PM,Anthony Richardson,IND,QB,,,20.0,8.0,39.0,62.0,27.2,5.0,5.0,4.78,25.75,100.0,
+TEN @ IND,Sun 1:00 PM,Seth McGowan,IND,RB,,,11.0,1.0,25.0,40.0,16.2,22.0,4.0,4.27,25.75,100.0,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
+TEN @ IND,Sun 1:00 PM,Tyjae Spears,TEN,RB,,DNP,11.0,3.0,23.0,37.0,15.4,16.0,4.0,4.03,18.75,10.0,RB3 on team by recent carries; depth chart RB2; Sleeper injury: Questionable; Sleeper depth #2
+TEN @ IND,Sun 1:00 PM,Cam Ward,TEN,QB,,,6.0,1.0,17.0,31.0,11.7,11.0,3.0,4.13,18.75,100.0,
+TEN @ IND,Sun 1:00 PM,Daniel Jones,IND,QB,,,4.0,1.0,12.0,23.0,8.5,11.0,3.0,3.08,25.75,100.0,
+ARI @ LAR,Sun 4:05 PM,Kyren Williams,LA,RB,,,67.0,42.0,99.0,133.0,73.9,1.0,14.0,4.93,32.0,100.0,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
+ARI @ LAR,Sun 4:05 PM,Jeremiyah Love,ARI,RB,,DNP,55.0,34.0,83.0,113.0,61.4,1.0,12.0,4.64,19.5,10.0,RB1 on team by recent carries; depth chart RB1; Sleeper injury: Out; Sleeper depth #7; possible DEMOTION: Sleeper has him behind another back
+ARI @ LAR,Sun 4:05 PM,Blake Corum,LA,RB,,,26.0,12.0,43.0,62.0,30.3,7.0,6.0,4.39,32.0,100.0,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
+ARI @ LAR,Sun 4:05 PM,Tyler Allgeier,ARI,RB,,,24.0,11.0,41.0,61.0,28.9,5.0,6.0,4.65,19.5,100.0,RB2 on team by recent carries; depth chart RB2; Sleeper depth #1; LIKELY PROMOTED to starter: our projection may be too low
+ARI @ LAR,Sun 4:05 PM,Bam Knight,ARI,RB,,,18.0,6.0,33.0,51.0,22.4,10.0,4.0,4.67,19.5,100.0,RB3 on team by recent carries; depth chart RB3
+ARI @ LAR,Sun 4:05 PM,Jacoby Brissett,ARI,QB,,,7.0,1.0,20.0,36.0,13.4,11.0,3.0,4.48,19.5,100.0,
+ARI @ LAR,Sun 4:05 PM,Matthew Stafford,LA,QB,,,1.0,0.0,5.0,11.0,3.5,30.0,2.0,1.96,32.0,100.0,
+BUF @ LV,Sun 4:25 PM,James Cook,BUF,RB,,,85.0,54.0,123.0,164.0,92.6,1.0,16.0,5.32,29.0,100.0,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
+BUF @ LV,Sun 4:25 PM,Ashton Jeanty,LV,RB,,,52.0,32.0,77.0,103.0,57.5,1.0,14.0,3.84,24.5,100.0,"RB1 on team by recent carries; depth chart RB1; teammate Mike Washington Jr. (7 car/g, not on roster); Sleeper depth #1"
+BUF @ LV,Sun 4:25 PM,Josh Allen,BUF,QB,,,38.0,18.0,65.0,97.0,46.2,2.0,8.0,5.69,29.0,100.0,
+BUF @ LV,Sun 4:25 PM,Aidan O'Connell,LV,QB,,,5.0,0.0,14.0,26.0,9.7,16.0,3.0,3.69,24.5,100.0,
+BUF @ LV,Sun 4:25 PM,Ty Johnson,BUF,RB,,Limited,4.0,0.0,14.0,26.0,9.2,34.0,2.0,4.01,29.0,62.0,RB2 on team by recent carries; depth chart RB2; Sleeper injury: Questionable; Sleeper depth #2
+BUF @ LV,Sun 4:25 PM,Kirk Cousins,LV,QB,,,1.0,0.0,3.0,8.0,2.6,30.0,1.0,1.69,24.5,100.0,
+BUF @ LV,Sun 4:25 PM,Connor Heyward,LV,RB,,,0.0,0.0,1.0,5.0,1.4,68.0,0.0,2.17,24.5,100.0,"RB2 on team by recent carries; teammate Mike Washington Jr. (7 car/g, not on roster); Sleeper depth #4"
+LAC @ KC,Sun 4:25 PM,Kenneth Walker III,KC,RB,,,81.0,52.0,116.0,154.0,87.8,1.0,17.0,4.64,24.5,100.0,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
+LAC @ KC,Sun 4:25 PM,Omarion Hampton,LAC,RB,,,43.0,26.0,64.0,88.0,47.8,1.0,12.0,3.72,17.0,100.0,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
+LAC @ KC,Sun 4:25 PM,Justin Fields,KC,QB,,,23.0,9.0,42.0,65.0,29.3,4.0,6.0,4.73,24.5,100.0,
+LAC @ KC,Sun 4:25 PM,Keaton Mitchell,LAC,RB,,,20.0,9.0,35.0,51.0,23.9,8.0,6.0,3.84,17.0,100.0,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
+LAC @ KC,Sun 4:25 PM,Kimani Vidal,LAC,RB,,,19.0,8.0,34.0,50.0,23.3,8.0,5.0,4.01,17.0,100.0,RB3 on team by recent carries; depth chart RB3; Sleeper depth #3
+LAC @ KC,Sun 4:25 PM,Justin Herbert,LAC,QB,,,15.0,5.0,30.0,48.0,20.5,3.0,4.0,4.31,17.0,100.0,
+LAC @ KC,Sun 4:25 PM,Emmett Johnson,KC,RB,,,10.0,1.0,24.0,39.0,15.4,22.0,3.0,4.47,24.5,100.0,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
+LAC @ KC,Sun 4:25 PM,Patrick Mahomes,KC,QB,,,8.0,1.0,22.0,40.0,15.1,14.0,3.0,5.22,24.5,100.0,
+LAC @ KC,Sun 4:25 PM,Scott Matlock,LAC,RB,,,0.0,0.0,0.0,0.0,0.2,96.0,0.0,2.75,17.0,100.0,RB4 on team by recent carries
+DAL @ GB,Sun 8:20 PM,Javonte Williams,DAL,RB,,,57.0,35.0,83.0,114.0,62.8,1.0,14.0,4.19,26.0,100.0,"RB1 on team by recent carries; depth chart RB1; teammate Tyler Goodson (6 car/g, not on roster); Sleeper depth #1"
+DAL @ GB,Sun 8:20 PM,MarShawn Lloyd,GB,RB,,,27.0,14.0,44.0,64.0,31.5,5.0,7.0,4.23,27.5,100.0,"RB1 on team by recent carries; depth chart RB1; teammate Kaleb Johnson (8 car/g, not on roster); Sleeper depth #1"
+DAL @ GB,Sun 8:20 PM,Emari Demercado,DAL,RB,,,16.0,5.0,31.0,48.0,20.9,12.0,4.0,4.67,26.0,100.0,"RB2 on team by recent carries; depth chart RB3; teammate Tyler Goodson (6 car/g, not on roster); Sleeper depth #3"
+DAL @ GB,Sun 8:20 PM,Pierre Strong,GB,RB,,,6.0,0.0,20.0,35.0,12.6,34.0,2.0,4.67,27.5,100.0,"RB2 on team by recent carries; depth chart RB2; teammate Kaleb Johnson (8 car/g, not on roster); Sleeper depth #2"
+DAL @ GB,Sun 8:20 PM,Dak Prescott,DAL,QB,,,4.0,0.0,15.0,31.0,10.7,21.0,2.0,4.5,26.0,100.0,
+DAL @ GB,Sun 8:20 PM,Sam Howell,DAL,QB,,,3.0,0.0,11.0,23.0,7.9,26.0,2.0,3.63,26.0,100.0,
+DAL @ GB,Sun 8:20 PM,Jordan Love,GB,QB,,,2.0,0.0,7.0,14.0,4.8,20.0,2.0,2.22,27.5,100.0,
+WAS @ SF,Mon 8:15 PM,Christian McCaffrey,SF,RB,,DNP,60.0,37.0,90.0,121.0,67.0,1.0,13.0,4.62,29.5,10.0,RB1 on team by recent carries; depth chart RB1; Sleeper depth #1
+WAS @ SF,Mon 8:15 PM,Jacory Croskey-Merritt,WAS,RB,,DNP,46.0,27.0,70.0,97.0,51.7,2.0,10.0,4.51,22.0,10.0,RB1 on team by recent carries; depth chart RB1; Sleeper injury: Questionable; Sleeper depth #1
+WAS @ SF,Mon 8:15 PM,Jayden Daniels,WAS,QB,,,42.0,20.0,72.0,106.0,51.1,1.0,8.0,6.31,22.0,100.0,
+WAS @ SF,Mon 8:15 PM,Kaelon Black,SF,RB,,,24.0,11.0,41.0,61.0,28.9,7.0,6.0,4.37,29.5,100.0,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
+WAS @ SF,Mon 8:15 PM,Rachaad White,WAS,RB,,,23.0,12.0,40.0,58.0,28.2,4.0,6.0,4.24,22.0,100.0,RB2 on team by recent carries; depth chart RB2; Sleeper depth #2
+WAS @ SF,Mon 8:15 PM,Austin Ekeler,WAS,RB,,Limited,17.0,7.0,31.0,47.0,21.4,6.0,5.0,4.31,22.0,62.0,RB3 on team by recent carries; depth chart RB3; Sleeper injury: Questionable; Sleeper depth #3
+WAS @ SF,Mon 8:15 PM,Brock Purdy,SF,QB,,,16.0,5.0,34.0,56.0,23.4,4.0,4.0,5.34,29.5,100.0,
+WAS @ SF,Mon 8:15 PM,Marcus Mariota,WAS,QB,,DNP,11.0,2.0,27.0,47.0,18.6,10.0,3.0,5.13,22.0,10.0,Sleeper injury: Doubtful
+WAS @ SF,Mon 8:15 PM,Kyle Juszczyk,SF,RB,,Limited,0.0,0.0,0.0,0.0,0.2,92.0,0.0,1.76,29.5,62.0,RB3 on team by recent carries; Sleeper injury: Questionable; Sleeper depth #3
